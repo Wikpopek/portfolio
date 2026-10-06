@@ -1,0 +1,5252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WIKI VISUAL — Portfolio</title>
+
+<style>
+
+:root{
+  --pink:#f8ddeb;
+  --duration:5.2s;
+  --window-bg:#ded7cc;
+  --ink:#302b28;
+
+  --tiktok-pink:#dca4bc;
+  --instagram-pink:#f2c9dc;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html,
+body{
+  margin:0;
+  width:100%;
+  height:100%;
+}
+
+body{
+  font-family:Tahoma,Verdana,Arial,sans-serif;
+  background:var(--pink);
+  color:#fff;
+  overflow:hidden;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{
+  font:inherit;
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.intro{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+
+  display:grid;
+  place-items:center;
+
+  overflow:hidden;
+  isolation:isolate;
+
+  animation:introExit var(--duration) both;
+}
+
+.intro::before{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  background:var(--pink);
+
+  z-index:-1;
+
+  animation:introBackground var(--duration) both;
+}
+
+.intro-device{
+  position:relative;
+
+  flex:none;
+
+  transform-origin:50% 153px;
+
+  animation:
+    computerZoom
+    var(--duration)
+    cubic-bezier(.35,.05,.22,1)
+    both;
+}
+
+.computer{
+  position:relative;
+
+  width:660px;
+  height:552px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.monitor{
+  position:relative;
+
+  width:450px;
+  height:335px;
+
+  border:4px solid #a7a093;
+
+  border-radius:
+    20px 20px 14px 14px;
+
+  background:
+    linear-gradient(
+      125deg,
+      #f7f4eb,
+      #ded8cb 47%,
+      #bcb4a6
+    );
+
+  box-shadow:
+    inset 10px 10px #fffaf0,
+    inset -10px -9px #b5ac9e,
+    12px 18px 26px #4d41502b;
+}
+
+.monitor::before{
+  content:"";
+
+  position:absolute;
+
+  inset:
+    15px 16px 59px;
+
+  background:#c9c1b4;
+
+  border-radius:11px;
+
+  box-shadow:
+    inset 7px 7px #efeae0,
+    inset -7px -6px #aaa294;
+}
+
+.monitor-bezel{
+  position:absolute;
+
+  top:40px;
+  left:41px;
+
+  width:360px;
+  height:226px;
+
+  padding:9px;
+
+  background:#a8a398;
+
+  border:3px solid #8d887e;
+
+  border-radius:12px;
+
+  box-shadow:
+    inset 4px 4px #e2dbce,
+    inset -4px -4px #79756c;
+}
+
+.monitor-screen{
+  position:relative;
+
+  width:100%;
+  height:100%;
+
+  overflow:hidden;
+
+  border:4px solid #30333a;
+
+  border-radius:9px;
+
+  background:#bba7d0;
+
+  box-shadow:
+    inset 0 0 18px #0006;
+}
+
+.monitor-screen::after,
+.phone-screen::after{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  z-index:10;
+
+  pointer-events:none;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      #fff1 0 1px,
+      transparent 1px 4px
+    ),
+    radial-gradient(
+      ellipse at center,
+      transparent 54%,
+      #0003
+    );
+
+  animation:
+    screenEffectFade
+    var(--duration)
+    both;
+}
+
+.monitor-brand{
+  position:absolute;
+
+  left:34px;
+  bottom:21px;
+
+  color:#888176;
+
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:2px;
+}
+
+.monitor-controls{
+  position:absolute;
+
+  right:32px;
+  bottom:18px;
+
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.monitor-controls i{
+  display:block;
+
+  width:12px;
+  height:12px;
+
+  border-radius:50%;
+
+  background:#c3bcaf;
+
+  box-shadow:
+    inset 2px 2px #f8f4e9,
+    inset -2px -2px #888173;
+}
+
+.monitor-controls i:last-child{
+  background:#92c87b;
+
+  box-shadow:
+    0 0 7px #92c87b;
+}
+
+.neck{
+  width:105px;
+  height:28px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #b8b0a4,
+      #eee8dc 50%,
+      #aaa295
+    );
+}
+
+.base{
+  width:235px;
+  height:25px;
+
+  border:3px solid #aaa295;
+
+  border-radius:
+    7px 7px 18px 18px;
+
+  background:#d8d1c5;
+
+  box-shadow:
+    inset 4px 4px #f9f3e8,
+    0 8px 12px #0002;
+}
+
+.pc{
+  position:relative;
+
+  margin-top:6px;
+
+  width:485px;
+  height:90px;
+
+  border:3px solid #aaa295;
+
+  border-radius:9px;
+
+  background:
+    linear-gradient(
+      #e8e2d7,
+      #c7bfb2
+    );
+
+  box-shadow:
+    inset 8px 8px #fff9ed,
+    inset -8px -8px #aca497,
+    0 12px 15px #0002;
+}
+
+.pc::before{
+  content:"";
+
+  position:absolute;
+
+  top:23px;
+  left:18px;
+  right:18px;
+
+  height:3px;
+
+  background:#b6aea1;
+}
+
+.drive{
+  position:absolute;
+
+  right:35px;
+  top:39px;
+
+  width:135px;
+  height:22px;
+
+  border:3px solid #928b80;
+
+  background:#bdb6aa;
+}
+
+.drive::after{
+  content:"";
+
+  position:absolute;
+
+  top:7px;
+  left:10px;
+  right:10px;
+
+  height:3px;
+
+  background:#625f5a;
+}
+
+.pc-light{
+  position:absolute;
+
+  left:30px;
+  bottom:19px;
+
+  width:11px;
+  height:11px;
+
+  border-radius:50%;
+
+  background:#98c77b;
+
+  box-shadow:
+    0 0 5px #98c77b;
+}
+
+.keyboard{
+  position:absolute;
+
+  bottom:2px;
+  left:43px;
+
+  width:520px;
+  height:70px;
+
+  padding:10px;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(18,1fr);
+
+  grid-template-rows:
+    repeat(4,1fr);
+
+  gap:3px;
+
+  border:4px solid #aaa295;
+  border-radius:10px;
+
+  background:#d9d2c6;
+
+  transform:
+    perspective(600px)
+    rotateX(18deg);
+
+  box-shadow:
+    inset 6px 6px #fff8ed,
+    0 13px 17px #0003;
+}
+
+.key{
+  background:#f4f0e6;
+
+  border:
+    1px solid #b9b1a5;
+
+  box-shadow:
+    inset 1px 1px #fff;
+}
+
+.mouse{
+  position:absolute;
+
+  right:24px;
+  bottom:15px;
+
+  width:59px;
+  height:45px;
+
+  transform:
+    rotate(-14deg);
+
+  border:3px solid #aaa295;
+
+  border-radius:
+    46% 46% 40% 40%;
+
+  background:
+    linear-gradient(
+      #f8f4ea,
+      #c1b8aa
+    );
+
+  box-shadow:
+    inset 3px 3px #fff9ef,
+    4px 7px 10px #0003;
+}
+
+
+/* =========================================================
+   STARTUP SCREEN
+   ========================================================= */
+
+.startup-screen{
+  position:absolute;
+  inset:0;
+
+  z-index:5;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      #ffeef8,
+      #eabbd8 65%,
+      #bb91bf
+    );
+
+  animation:
+    logoDisappear
+    var(--duration)
+    both;
+}
+
+.startup-star{
+  width:37px;
+  height:37px;
+
+  margin-bottom:13px;
+
+  background:#e88ab9;
+
+  clip-path:
+    polygon(
+      50% 0%,
+      61% 35%,
+      98% 35%,
+      68% 57%,
+      79% 93%,
+      50% 71%,
+      21% 93%,
+      32% 57%,
+      2% 35%,
+      39% 35%
+    );
+}
+
+.startup-logo{
+  color:#5b4564;
+
+  font-size:26px;
+  font-weight:bold;
+
+  letter-spacing:4px;
+
+  text-align:center;
+}
+
+.startup-subtitle{
+  margin-top:8px;
+
+  color:#8a698e;
+
+  font-size:9px;
+  letter-spacing:4px;
+}
+
+.startup-loading{
+  position:absolute;
+
+  bottom:16px;
+
+  display:flex;
+
+  gap:5px;
+}
+
+.startup-loading span{
+  width:7px;
+  height:7px;
+
+  background:#a46a9b;
+
+  animation:
+    loadingDots
+    .65s
+    infinite
+    alternate;
+}
+
+.startup-loading span:nth-child(2){
+  animation-delay:.15s;
+}
+
+.startup-loading span:nth-child(3){
+  animation-delay:.3s;
+}
+
+.preview{
+  position:absolute;
+  inset:0;
+
+  overflow:hidden;
+
+  pointer-events:none;
+
+  opacity:0;
+
+  animation:
+    previewAppear
+    var(--duration)
+    both;
+}
+
+.preview .desktop{
+  position:absolute;
+
+  top:0;
+  left:0;
+
+  transform-origin:
+    top left;
+}
+
+
+/* =========================================================
+   PHONE INTRO
+   ========================================================= */
+
+.phone{
+  display:none;
+
+  width:260px;
+  height:495px;
+
+  flex-direction:column;
+  align-items:center;
+
+  position:relative;
+}
+
+.phone-top{
+  width:248px;
+  height:274px;
+
+  padding:
+    37px 23px 22px;
+
+  position:relative;
+
+  background:
+    linear-gradient(
+      115deg,
+      #696b72,
+      #c4c4c9 42%,
+      #54565d
+    );
+
+  border:5px solid #474950;
+
+  border-radius:
+    26px 26px 13px 13px;
+
+  box-shadow:
+    inset 5px 5px #d4d5d9,
+    inset -5px -5px #393b41,
+    8px 12px 20px #0003;
+}
+
+.speaker{
+  position:absolute;
+
+  top:14px;
+  left:99px;
+
+  width:49px;
+  height:6px;
+
+  border-radius:9px;
+
+  background:#33353b;
+}
+
+.phone-bezel{
+  height:100%;
+
+  padding:9px;
+
+  border:3px solid #85858b;
+
+  border-radius:9px;
+
+  background:#33363c;
+}
+
+.phone-screen{
+  position:relative;
+
+  width:100%;
+  height:100%;
+
+  border:2px solid #17191d;
+
+  overflow:hidden;
+
+  background:#bba7d0;
+}
+
+.hinge{
+  width:226px;
+  height:21px;
+
+  background:
+    linear-gradient(
+      #484a50,
+      #acadb2,
+      #46484f
+    );
+
+  border:3px solid #45474d;
+
+  border-radius:5px;
+}
+
+.phone-bottom{
+  width:260px;
+  height:201px;
+
+  padding:16px 18px;
+
+  background:
+    linear-gradient(
+      115deg,
+      #74767d,
+      #c5c6ca 40%,
+      #55575f
+    );
+
+  border:5px solid #45474b;
+
+  border-radius:
+    9px 9px 35px 35px;
+
+  box-shadow:
+    inset 5px 5px #dedee1,
+    inset -5px -5px #3d3f45,
+    8px 14px 19px #0003;
+}
+
+.navigation{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  gap:14px;
+
+  margin-bottom:11px;
+}
+
+.navigation span{
+  width:40px;
+  height:22px;
+
+  border:2px solid #45474d;
+
+  border-radius:9px;
+
+  background:#9d9fa5;
+}
+
+.navigation span:nth-child(2){
+  width:37px;
+  height:37px;
+
+  border:6px solid #afb0b5;
+
+  border-radius:50%;
+
+  background:#52545b;
+}
+
+.phone-keys{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:6px 13px;
+}
+
+.phone-keys span{
+  height:22px;
+
+  display:grid;
+  place-items:center;
+
+  background:
+    linear-gradient(
+      #c7c8cb,
+      #75777d
+    );
+
+  border:
+    2px solid #505259;
+
+  border-radius:8px;
+
+  color:#303237;
+
+  font-size:10px;
+  font-weight:bold;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes loadingDots{
+
+  from{
+    opacity:.25;
+  }
+
+  to{
+    opacity:1;
+  }
+
+}
+
+@keyframes logoDisappear{
+
+  0%,36%{
+    opacity:1;
+    visibility:visible;
+  }
+
+  48%,100%{
+    opacity:0;
+    visibility:hidden;
+  }
+
+}
+
+@keyframes previewAppear{
+
+  0%,35%{
+    opacity:0;
+  }
+
+  48%,62%{
+    opacity:1;
+  }
+
+  76%,100%{
+    opacity:0;
+  }
+
+}
+
+@keyframes screenEffectFade{
+
+  0%,48%{
+    opacity:1;
+  }
+
+  63%,100%{
+    opacity:0;
+  }
+
+}
+
+@keyframes computerZoom{
+
+  0%{
+    opacity:0;
+    transform:scale(.65);
+  }
+
+  12%,35%{
+    opacity:1;
+    transform:scale(1);
+  }
+
+  62%{
+    opacity:1;
+
+    transform:
+      translateY(75px)
+      scale(3);
+  }
+
+  76%{
+    opacity:1;
+
+    transform:
+      translateY(119px)
+      scale(6);
+  }
+
+  100%{
+    opacity:1;
+
+    transform:
+      translateY(119px)
+      scale(9);
+  }
+
+}
+
+@keyframes phoneZoom{
+
+  0%{
+    opacity:0;
+    transform:scale(.65);
+  }
+
+  12%,35%{
+    opacity:1;
+    transform:scale(1);
+  }
+
+  62%{
+    opacity:1;
+
+    transform:
+      translateY(70px)
+      scale(3);
+  }
+
+  76%{
+    opacity:1;
+
+    transform:
+      translateY(110px)
+      scale(6);
+  }
+
+  100%{
+    opacity:1;
+
+    transform:
+      translateY(110px)
+      scale(9);
+  }
+
+}
+
+@keyframes introBackground{
+
+  0%,60%{
+    opacity:1;
+  }
+
+  76%,100%{
+    opacity:0;
+  }
+
+}
+
+@keyframes introExit{
+
+  0%,62%{
+    opacity:1;
+    visibility:visible;
+  }
+
+  78%,100%{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+  }
+
+}
+
+@keyframes desktopAppear{
+
+  0%,62%{
+    opacity:0;
+  }
+
+  78%,100%{
+    opacity:1;
+  }
+
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+.desktop-frame{
+  width:
+    calc(100% - 36px);
+
+  height:
+    calc(100dvh - 36px);
+
+  margin:
+    18px auto;
+
+  border:
+    1px solid #d4d4d4;
+
+  border-radius:5px;
+
+  overflow:hidden;
+
+  box-shadow:
+    0 2px 6px #0002;
+
+  animation:
+    desktopAppear
+    var(--duration)
+    both;
+}
+
+.desktop{
+  position:relative;
+
+  width:100%;
+  height:100%;
+
+  overflow:hidden;
+
+  background:
+    radial-gradient(
+      circle at 22% 14%,
+      #ffe8f6bf,
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 72% 24%,
+      #b6a9e852,
+      transparent 36%
+    ),
+    linear-gradient(
+      135deg,
+      #ecd7e9,
+      #c8b0dc 42%,
+      #9184bc 72%,
+      #6d6f9b
+    );
+}
+
+.wallpaper-shape{
+  position:absolute;
+
+  pointer-events:none;
+
+  opacity:.95;
+}
+
+.shape-sheet{
+  left:70px;
+  bottom:110px;
+
+  width:470px;
+  height:220px;
+
+  background:
+    linear-gradient(
+      #f6e6ef,
+      #f2d6e1
+    );
+
+  border-radius:
+    10px 10px 24px 24px;
+
+  transform:
+    rotate(-14deg);
+
+  box-shadow:
+    0 10px 16px #0001;
+}
+
+.shape-sheet::before{
+  content:"こころ";
+
+  position:absolute;
+
+  top:42px;
+  left:206px;
+
+  color:#8b7990;
+
+  font-size:24px;
+
+  letter-spacing:3px;
+}
+
+.shape-book{
+  right:158px;
+  bottom:110px;
+
+  width:172px;
+  height:258px;
+
+  background:
+    linear-gradient(
+      #a2202a,
+      #81141e
+    );
+
+  border-radius:10px;
+
+  transform:
+    rotate(22deg);
+
+  box-shadow:
+    0 14px 24px #0003;
+}
+
+.shape-book::before{
+  content:"";
+
+  position:absolute;
+
+  left:0;
+  right:0;
+  top:116px;
+
+  height:24px;
+
+  background:#111;
+}
+
+.shape-pillow{
+  right:68px;
+  top:36px;
+
+  width:440px;
+  height:260px;
+
+  background:
+    linear-gradient(
+      #8890c5,
+      #7077af
+    );
+
+  border-radius:36px;
+
+  opacity:.58;
+}
+
+
+/* =========================================================
+   DESKTOP ICONS
+   ========================================================= */
+
+.desktop-icons{
+  position:absolute;
+  inset:0;
+
+  z-index:5;
+}
+
+.desktop-icon{
+  position:absolute;
+
+  width:145px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+
+  gap:8px;
+
+  transition:
+    transform .18s ease;
+
+  border:0;
+
+  padding:0;
+
+  background:transparent;
+
+  color:#fff;
+
+  cursor:pointer;
+}
+
+.desktop-icon:hover{
+  transform:
+    translateY(-4px);
+}
+
+.desktop-icon:hover .icon-label,
+.desktop-icon:focus-visible .icon-label{
+  background:#1b4fce;
+}
+
+.desktop-icon svg{
+  width:60px;
+  height:60px;
+
+  filter:
+    drop-shadow(
+      2px 2px #0004
+    );
+}
+
+.icon-label{
+  min-height:35px;
+  max-width:140px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:
+    5px 7px;
+
+  background:#000;
+
+  color:#fff;
+
+  font-size:14px;
+
+  line-height:1.15;
+
+  text-align:center;
+}
+
+.icon-portfolio{
+  top:24px;
+  left:18px;
+}
+
+.icon-photography{
+  top:32px;
+  left:190px;
+}
+
+.icon-about{
+  top:170px;
+  left:45px;
+}
+
+.icon-contact{
+  top:205px;
+  left:245px;
+}
+
+.icon-socials{
+  top:340px;
+  left:80px;
+}
+
+.icon-visuals{
+  top:390px;
+  left:280px;
+}
+
+
+/* =========================================================
+   RETRO WINDOWS
+   ========================================================= */
+
+.retro-window{
+  position:absolute;
+
+  top:50%;
+  left:50%;
+
+  transform:
+    translate(-50%,-50%);
+
+  z-index:30;
+
+  width:650px;
+
+  max-width:
+    calc(100% - 32px);
+
+  max-height:
+    calc(100% - 64px);
+
+  overflow:auto;
+
+  color:var(--ink);
+
+  background:
+    var(--window-bg);
+
+  border:
+    2px solid #302b28;
+
+  box-shadow:
+    5px 5px 0 #0005,
+    inset 2px 2px #f5f0e8,
+    inset -2px -2px #9d9489;
+}
+
+.retro-window.hidden{
+  display:none;
+}
+
+.retro-titlebar{
+  position:sticky;
+
+  top:0;
+
+  z-index:20;
+
+  height:36px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:
+    0 7px 0 10px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #b67f95,
+      #c592a8 48%,
+      #d8b0c0
+    );
+
+  border-bottom:
+    2px solid #302b28;
+}
+
+.retro-title-left{
+  display:flex;
+  align-items:center;
+
+  gap:9px;
+}
+
+.retro-app-icon{
+  width:15px;
+  height:15px;
+
+  border:
+    1px solid #302b28;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e4dbce 50%,
+      #a77e8c 50%
+    );
+}
+
+.retro-title-text{
+  color:#211b1b;
+
+  font-size:14px;
+  font-weight:bold;
+}
+
+.retro-close{
+  width:26px;
+  height:24px;
+
+  display:grid;
+  place-items:center;
+
+  padding:0;
+
+  background:#ded7cc;
+
+  border:
+    1px solid #302b28;
+
+  box-shadow:
+    inset 2px 2px #fff,
+    inset -2px -2px #9d958b;
+
+  color:#111;
+
+  font-size:20px;
+  font-weight:bold;
+
+  cursor:pointer;
+}
+
+.retro-menubar{
+  display:flex;
+
+  gap:22px;
+
+  padding:
+    8px 12px;
+
+  background:#e8e1d7;
+
+  border-bottom:
+    1px solid #81776d;
+
+  font-size:13px;
+}
+
+.retro-actions{
+  display:flex;
+  justify-content:center;
+
+  gap:14px;
+
+  padding:
+    3px 14px 15px;
+}
+
+.retro-action{
+  min-width:150px;
+  min-height:36px;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:
+    7px 12px;
+
+  color:#171414;
+
+  background:#ddd6cc;
+
+  border:
+    1px solid #302b28;
+
+  box-shadow:
+    inset 2px 2px #fff,
+    inset -2px -2px #9d958b;
+
+  font-size:13px;
+
+  cursor:pointer;
+}
+
+.retro-status{
+  display:flex;
+  justify-content:space-between;
+
+  gap:10px;
+
+  padding:
+    6px 10px;
+
+  background:#d6cdc1;
+
+  border-top:
+    1px solid #a69d92;
+
+  color:#514943;
+
+  font-size:11px;
+}
+
+.fieldset{
+  position:relative;
+
+  min-width:0;
+
+  background:#e5ddd2;
+
+  border:
+    2px solid #3a3733;
+
+  box-shadow:
+    inset 2px 2px #f7f1e8,
+    inset -2px -2px #a69d92;
+}
+
+.fieldset-label{
+  position:absolute;
+
+  top:-10px;
+  left:9px;
+
+  padding:
+    0 6px;
+
+  background:
+    var(--window-bg);
+
+  color:#1d1a18;
+
+  font-size:12px;
+
+  line-height:16px;
+}
+
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
+.about-window{
+  width:790px;
+}
+
+.about-body{
+  display:grid;
+
+  grid-template-columns:
+    minmax(190px,245px)
+    minmax(0,1fr);
+
+  gap:15px;
+
+  padding:
+    20px 15px 16px;
+}
+
+.about-photo-panel,
+.about-text-panel{
+  padding:
+    17px 11px 11px;
+}
+
+.about-photo-mat{
+  padding:8px;
+
+  background:#f1ece4;
+
+  border:
+    1px solid #3b3834;
+}
+
+.about-photo{
+  display:block;
+
+  width:100%;
+  height:auto;
+
+  object-fit:contain;
+
+  border:
+    1px solid #4d4640;
+}
+
+.about-photo-caption{
+  padding:
+    8px 2px 1px;
+
+  color:#3a332e;
+
+  font-family:
+    "Courier New",monospace;
+
+  font-size:11px;
+}
+
+.about-paper{
+  min-height:100%;
+
+  padding:
+    15px 16px;
+
+  background:#f1ece4;
+
+  border:
+    1px solid #3b3834;
+
+  color:#292421;
+}
+
+.about-file-heading{
+  margin:
+    0 0 8px;
+
+  font-family:
+    "Courier New",monospace;
+
+  font-size:25px;
+}
+
+.about-meta{
+  margin:0;
+
+  font-family:
+    "Courier New",monospace;
+
+  font-size:10px;
+
+  color:#685e55;
+}
+
+.about-rule{
+  height:1px;
+
+  margin:
+    13px 0;
+
+  background:#8e8479;
+}
+
+.about-copy{
+  margin:0;
+
+  font-size:14px;
+
+  line-height:1.7;
+}
+
+.about-bottom{
+  margin-top:13px;
+
+  font-family:
+    "Courier New",monospace;
+
+  font-size:11px;
+
+  color:#685e55;
+}
+
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.contact-body{
+  display:grid;
+
+  grid-template-columns:
+    183px minmax(0,1fr);
+
+  gap:14px;
+
+  padding:
+    18px 14px 14px;
+}
+
+.contact-sidebar{
+  padding:
+    22px 10px 12px;
+}
+
+.contact-side-item{
+  width:100%;
+
+  margin:
+    0 0 8px;
+
+  padding:
+    8px 9px;
+
+  text-align:left;
+
+  color:#201b19;
+
+  background:#ddd4c7;
+
+  border:
+    1px solid #302b28;
+
+  cursor:pointer;
+}
+
+.contact-side-item.active{
+  background:#302928;
+
+  color:#fff;
+}
+
+.contact-preview{
+  padding:
+    22px 12px 12px;
+}
+
+.contact-card{
+  padding:13px;
+
+  background:#f1ece4;
+
+  border:
+    1px solid #3b3834;
+}
+
+.contact-logo{
+  width:
+    min(100%,280px);
+
+  margin:
+    0 auto 15px;
+
+  padding:
+    28px 15px;
+
+  text-align:center;
+
+  color:#241f1c;
+
+  font-size:19px;
+  font-weight:bold;
+
+  letter-spacing:2px;
+
+  border:
+    2px solid #292622;
+
+  background:
+    linear-gradient(
+      #d8c0cb,
+      #c696a9 60%,
+      #a77e8c
+    );
+}
+
+.contact-info-grid{
+  display:grid;
+
+  gap:9px;
+}
+
+.contact-row{
+  background:#e8e1d7;
+
+  border:
+    1px solid #35312e;
+}
+
+.contact-row.selected{
+  outline:
+    2px solid #a66d84;
+}
+
+.contact-row-label{
+  padding:
+    5px 8px;
+
+  background:#d6cdc1;
+
+  border-bottom:
+    1px solid #35312e;
+
+  font-size:11px;
+  font-weight:bold;
+}
+
+.contact-row-value{
+  padding:8px;
+
+  font-size:13px;
+}
+
+.contact-row-value a{
+  text-decoration:underline;
+}
+
+
+/* =========================================================
+   PHOTOGRAPHY
+   ========================================================= */
+
+.photography-window{
+  width:
+    min(
+      1360px,
+      calc(100% - 26px)
+    );
+
+  max-width:none;
+
+  max-height:
+    calc(100% - 22px);
+}
+
+.photography-body{
+  padding:
+    26px 24px 30px;
+
+  background:#d8d0c6;
+}
+
+.photography-heading{
+  margin:
+    10px 0 34px;
+
+  color:#292421;
+
+  font-family:
+    "Courier New",monospace;
+
+  font-size:38px;
+
+  text-align:center;
+}
+
+.photography-panel{
+  padding:20px;
+}
+
+.photo-grid{
+  display:flex;
+  flex-direction:column;
+
+  gap:8px;
+
+  padding:8px;
+
+  background:#f1ece4;
+}
+
+.photo-row{
+  width:100%;
+
+  display:flex;
+
+  gap:8px;
+}
+
+.photo-card{
+  flex-shrink:0;
+
+  overflow:hidden;
+}
+
+.photo-card img{
+  display:block;
+
+  width:100%;
+  height:100%;
+
+  object-fit:contain;
+
+  cursor:pointer;
+}
+
+
+/* =========================================================
+   SOCIAL MEDIA
+   ========================================================= */
+
+.social-window{
+  width:
+    min(
+      1240px,
+      calc(100% - 26px)
+    );
+
+  max-width:none;
+
+  max-height:
+    calc(100% - 22px);
+}
+
+.social-body{
+  padding:
+    25px 22px 28px;
+
+  background:#d8d0c6;
+}
+
+.social-heading{
+  margin:
+    5px 0 6px;
+
+  color:#292421;
+
+  font-family:
+    "Courier New",monospace;
+
+  font-size:34px;
+
+  text-align:center;
+}
+
+.social-subtitle{
+  margin:
+    0 0 28px;
+
+  color:#685e55;
+
+  font-family:
+    "Courier New",monospace;
+
+  font-size:11px;
+
+  letter-spacing:1.5px;
+
+  text-align:center;
+}
+
+
+/* =========================================================
+   THREE PHONES
+   ========================================================= */
+
+.social-stage{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+
+  gap:34px;
+
+  align-items:start;
+
+  padding:
+    4px 8px 8px;
+}
+
+.social-card{
+  position:relative;
+
+  padding:
+    8px 0 2px;
+
+  background:transparent;
+
+  border:0;
+
+  box-shadow:none;
+}
+
+
+/* =========================================================
+   PHONE
+   ========================================================= */
+
+.social-phone{
+  position:relative;
+
+  width:
+    min(
+      100%,
+      285px
+    );
+
+  aspect-ratio:
+    9 / 19.5;
+
+  margin:
+    0 auto;
+
+  padding:10px;
+
+  border:
+    3px solid #80586b;
+
+  border-radius:46px;
+
+  overflow:visible;
+
+  box-shadow:
+    inset 2px 2px #ffffff70,
+    inset -3px -3px #00000024,
+    0 12px 22px #00000022;
+}
+
+.tiktok-card .social-phone{
+  background:
+    var(--tiktok-pink);
+
+  border-color:#875e70;
+}
+
+.instagram-card .social-phone{
+  background:
+    var(--instagram-pink);
+
+  border-color:#a4778b;
+}
+
+
+/* =========================================================
+   SCREEN
+   ========================================================= */
+
+.social-screen{
+  position:relative;
+
+  width:100%;
+  height:100%;
+
+  overflow:hidden;
+
+  background:#000;
+
+  border-radius:35px;
+
+  box-shadow:
+    inset 0 0 0 1px #000;
+}
+
+
+/* Dynamic island */
+
+.social-phone::before{
+  content:"";
+
+  position:absolute;
+
+  z-index:20;
+
+  top:17px;
+  left:50%;
+
+  width:74px;
+  height:22px;
+
+  transform:
+    translateX(-50%);
+
+  border-radius:18px;
+
+  background:#050505;
+
+  box-shadow:
+    inset 0 1px #292929;
+}
+
+
+/* Camera */
+
+.social-phone::after{
+  content:"";
+
+  position:absolute;
+
+  z-index:21;
+
+  top:23px;
+
+  left:
+    calc(50% + 22px);
+
+  width:8px;
+  height:8px;
+
+  border-radius:50%;
+
+  background:#131821;
+
+  box-shadow:
+    inset 0 0 3px #435e7a;
+}
+
+
+/* =========================================================
+   PHONE BUTTONS
+   ========================================================= */
+
+.phone-side-button{
+  position:absolute;
+
+  width:5px;
+
+  border-radius:4px;
+
+  box-shadow:
+    inset 1px 0 #ffffff55;
+}
+
+.tiktok-card .phone-side-button{
+  background:#aa7b90;
+}
+
+.instagram-card .phone-side-button{
+  background:#c79caf;
+}
+
+.side-one{
+  left:-7px;
+  top:92px;
+
+  height:35px;
+}
+
+.side-two{
+  left:-7px;
+  top:140px;
+
+  height:66px;
+}
+
+.side-three{
+  right:-7px;
+  top:125px;
+
+  height:78px;
+}
+
+
+/* =========================================================
+   TIKTOK VIDEOS
+   NOTHING IS CROPPED
+   ========================================================= */
+
+.social-video{
+  display:block;
+
+  width:100%;
+  height:100%;
+
+  object-fit:contain;
+
+  object-position:center center;
+
+  background:#000;
+}
+
+
+/* =========================================================
+   INSTAGRAM
+   ========================================================= */
+
+.instagram-window{
+  position:relative;
+
+  width:100%;
+  height:100%;
+
+  overflow:hidden;
+
+  background:#111;
+}
+
+.instagram-track{
+  display:flex;
+
+  flex-direction:column;
+
+  width:100%;
+
+  transform:
+    translateY(-50%);
+
+  animation:
+    instagramScrollDown
+    36s
+    linear
+    infinite;
+
+  will-change:transform;
+}
+
+.instagram-track img{
+  display:block;
+
+  width:100%;
+  height:auto;
+
+  flex:none;
+
+  margin:0;
+
+  padding:0;
+
+  background:#111;
+}
+
+@keyframes instagramScrollDown{
+
+  from{
+    transform:
+      translateY(-50%);
+  }
+
+  to{
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+/* =========================================================
+   PLATFORM LABELS
+   ========================================================= */
+
+.social-platform-labels{
+  display:grid;
+
+  grid-template-columns:
+    2fr 1fr;
+
+  gap:34px;
+
+  align-items:start;
+
+  margin-top:15px;
+
+  padding:
+    0 8px;
+
+  text-align:center;
+}
+
+.social-platform-tiktok,
+.social-platform-instagram{
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+}
+
+.social-type{
+  margin:0;
+
+  color:#292421;
+
+  font-family:
+    "Courier New",monospace;
+
+  font-size:16px;
+
+  font-weight:bold;
+
+  letter-spacing:1px;
+
+  text-align:center;
+}
+
+.social-handle{
+  margin-top:5px;
+
+  color:#5e4d55;
+
+  font-family:
+    "Courier New",monospace;
+
+  font-size:12px;
+
+  text-align:center;
+}
+
+
+/* =========================================================
+   SOCIAL BUTTONS
+   ========================================================= */
+
+.social-buttons{
+  display:flex;
+
+  justify-content:center;
+
+  flex-wrap:wrap;
+
+  gap:14px;
+
+  margin-top:28px;
+}
+
+.social-buttons .retro-action{
+  min-width:205px;
+
+  font-weight:bold;
+
+  transition:
+    transform .15s ease;
+}
+
+.social-buttons .retro-action:hover{
+  transform:
+    translateY(-2px);
+}
+
+.social-tiktok-button{
+  background:
+    var(--tiktok-pink);
+
+  border-color:#875e70;
+
+  box-shadow:
+    inset 2px 2px #f7dce7,
+    inset -2px -2px #a9788e;
+}
+
+.social-instagram-button{
+  background:
+    var(--instagram-pink);
+
+  border-color:#a4778b;
+
+  box-shadow:
+    inset 2px 2px #fff5f9,
+    inset -2px -2px #c89caf;
+}
+
+
+/* =========================================================
+   PHOTO LIGHTBOX
+   ========================================================= */
+
+.photo-lightbox{
+  position:fixed;
+  inset:0;
+
+  z-index:99999;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:30px;
+
+  background:#000d;
+}
+
+.photo-lightbox.hidden{
+  display:none;
+}
+
+.photo-lightbox img{
+  width:auto;
+  height:auto;
+
+  max-width:94vw;
+  max-height:90vh;
+
+  object-fit:contain;
+
+  border:
+    4px solid #ded7cc;
+}
+
+.photo-lightbox-close{
+  position:absolute;
+
+  top:24px;
+  right:28px;
+
+  width:46px;
+  height:46px;
+
+  display:grid;
+  place-items:center;
+
+  background:#ded7cc;
+
+  border:
+    2px solid #302b28;
+
+  color:#111;
+
+  font-size:30px;
+
+  cursor:pointer;
+}
+
+
+/* =========================================================
+   TASKBAR
+   ========================================================= */
+
+.taskbar{
+  position:absolute;
+
+  left:0;
+  right:0;
+  bottom:0;
+
+  height:46px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:
+    5px 9px;
+
+  z-index:8;
+
+  background:#c9c9c9;
+
+  border-top:
+    3px solid #f4f4f4;
+}
+
+.task-window,
+.clock{
+  height:34px;
+
+  display:flex;
+  align-items:center;
+
+  padding:
+    0 13px;
+
+  background:#d7d7d7;
+
+  color:#111;
+
+  border:
+    2px solid;
+
+  border-color:
+    #fff #888 #888 #fff;
+
+  font-size:14px;
+}
+
+.task-window{
+  min-width:170px;
+}
+
+.clock{
+  border-color:
+    #888 #fff #fff #888;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media(max-width:767px){
+
+  .intro-device{
+    transform-origin:
+      50% 110px;
+
+    animation:
+      phoneZoom
+      var(--duration)
+      cubic-bezier(.35,.05,.22,1)
+      both;
+  }
+
+  .computer{
+    display:none;
+  }
+
+  .phone{
+    display:flex;
+  }
+
+  .desktop-frame{
+    width:
+      calc(100% - 16px);
+
+    height:
+      calc(100dvh - 16px);
+
+    margin:
+      8px auto;
+  }
+
+  .desktop-icon{
+    width:100px;
+  }
+
+  .desktop-icon svg{
+    width:48px;
+    height:48px;
+  }
+
+  .icon-label{
+    max-width:100px;
+
+    min-height:30px;
+
+    padding:
+      4px 5px;
+
+    font-size:11px;
+  }
+
+  .icon-portfolio{
+    top:18px;
+    left:8px;
+  }
+
+  .icon-photography{
+    top:30px;
+    left:118px;
+  }
+
+  .icon-about{
+    top:145px;
+    left:18px;
+  }
+
+  .icon-contact{
+    top:174px;
+    left:145px;
+  }
+
+  .icon-socials{
+    top:285px;
+    left:28px;
+  }
+
+  .icon-visuals{
+    top:325px;
+    left:160px;
+  }
+
+  .shape-sheet{
+    width:300px;
+    height:160px;
+
+    left:-55px;
+    bottom:105px;
+  }
+
+  .shape-book{
+    width:115px;
+    height:175px;
+
+    right:15px;
+    bottom:100px;
+  }
+
+  .shape-pillow{
+    width:240px;
+    height:190px;
+
+    right:-40px;
+    top:40px;
+  }
+
+  .retro-window{
+    width:
+      calc(100% - 12px);
+
+    max-width:none;
+
+    max-height:
+      calc(100% - 56px);
+  }
+
+  .about-body{
+    grid-template-columns:
+      1fr;
+  }
+
+  .about-photo-mat{
+    max-width:245px;
+
+    margin:auto;
+  }
+
+  .contact-body{
+    display:block;
+
+    padding:
+      16px 9px 10px;
+  }
+
+  .contact-sidebar{
+    display:grid;
+
+    grid-template-columns:
+      repeat(2,1fr);
+
+    gap:7px;
+
+    margin-bottom:15px;
+  }
+
+  .photography-window{
+    width:
+      calc(100% - 8px);
+
+    max-height:
+      calc(100% - 16px);
+  }
+
+  .photography-body{
+    padding:
+      16px 7px 12px;
+  }
+
+  .photography-heading{
+    font-size:24px;
+  }
+
+  .photo-grid,
+  .photo-row{
+    gap:6px;
+  }
+
+
+  /* SOCIAL */
+
+  .social-window{
+    width:
+      calc(100% - 8px);
+
+    max-height:
+      calc(100% - 16px);
+  }
+
+  .social-body{
+    padding:
+      18px 7px 20px;
+  }
+
+  .social-heading{
+    font-size:25px;
+  }
+
+  .social-subtitle{
+    margin-bottom:20px;
+
+    font-size:9px;
+  }
+
+  .social-stage{
+    display:flex;
+
+    gap:20px;
+
+    padding:
+      5px 17px 20px;
+
+    overflow-x:auto;
+    overflow-y:hidden;
+
+    scroll-snap-type:
+      x mandatory;
+
+    -webkit-overflow-scrolling:
+      touch;
+  }
+
+  .social-stage::-webkit-scrollbar{
+    height:6px;
+  }
+
+  .social-stage::-webkit-scrollbar-thumb{
+    background:#9c8991;
+  }
+
+  .social-card{
+    flex:
+      0 0 86%;
+
+    min-width:86%;
+
+    padding:
+      5px 0 15px;
+
+    scroll-snap-align:center;
+  }
+
+  .social-phone{
+    width:
+      min(
+        100%,
+        280px
+      );
+  }
+
+  .social-platform-labels{
+    grid-template-columns:
+      1fr 1fr;
+
+    gap:12px;
+
+    margin-top:12px;
+
+    padding:
+      0 12px;
+  }
+
+  .social-type{
+    font-size:14px;
+  }
+
+  .social-handle{
+    font-size:10px;
+  }
+
+  .social-buttons{
+    flex-direction:column;
+
+    align-items:stretch;
+
+    padding:
+      0 10px;
+  }
+
+  .social-buttons .retro-action{
+    width:100%;
+
+    min-width:0;
+  }
+
+  .taskbar{
+    height:43px;
+
+    padding:4px;
+  }
+
+  .task-window,
+  .clock{
+    height:31px;
+
+    padding:
+      0 7px;
+
+    font-size:11px;
+  }
+
+  .task-window{
+    min-width:90px;
+  }
+
+  .photo-lightbox{
+    padding:12px;
+  }
+
+  .photo-lightbox img{
+    max-width:96vw;
+    max-height:86vh;
+  }
+
+  .photo-lightbox-close{
+    top:12px;
+    right:12px;
+
+    width:40px;
+    height:40px;
+
+    font-size:27px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  .intro{
+    display:none;
+  }
+
+  .desktop-frame{
+    animation:none;
+  }
+
+  .instagram-track{
+    animation:none;
+
+    transform:none;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     INTRO
+     ========================================================= -->
+
+<div
+  class="intro"
+  aria-hidden="true"
+>
+
+  <div class="intro-device">
+
+
+    <div class="computer">
+
+      <div class="monitor">
+
+        <div class="monitor-bezel">
+
+          <div class="monitor-screen">
+
+            <div
+              class="preview"
+              id="computer-preview"
+            ></div>
+
+
+            <div class="startup-screen">
+
+              <div class="startup-star"></div>
+
+
+              <div class="startup-logo">
+                WIKI VISUAL
+              </div>
+
+
+              <div class="startup-subtitle">
+                CREATIVE PORTFOLIO
+              </div>
+
+
+              <div class="startup-loading">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <span class="monitor-brand">
+          WIKI VISUAL
+        </span>
+
+
+        <div class="monitor-controls">
+
+          <i></i>
+          <i></i>
+          <i></i>
+
+        </div>
+
+      </div>
+
+
+      <div class="neck"></div>
+
+      <div class="base"></div>
+
+
+      <div class="pc">
+
+        <div class="drive"></div>
+
+        <div class="pc-light"></div>
+
+      </div>
+
+
+      <div
+        class="keyboard"
+        id="keyboard"
+      ></div>
+
+
+      <div class="mouse"></div>
+
+    </div>
+
+
+    <div class="phone">
+
+      <div class="phone-top">
+
+        <div class="speaker"></div>
+
+
+        <div class="phone-bezel">
+
+          <div class="phone-screen">
+
+            <div
+              class="preview"
+              id="phone-preview"
+            ></div>
+
+
+            <div class="startup-screen">
+
+              <div class="startup-star"></div>
+
+
+              <div class="startup-logo">
+                WIKI VISUAL
+              </div>
+
+
+              <div class="startup-subtitle">
+                CREATIVE PORTFOLIO
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="hinge"></div>
+
+
+      <div class="phone-bottom">
+
+        <div class="navigation">
+
+          <span></span>
+          <span></span>
+          <span></span>
+
+        </div>
+
+
+        <div class="phone-keys">
+
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+
+          <span>4</span>
+          <span>5</span>
+          <span>6</span>
+
+          <span>7</span>
+          <span>8</span>
+          <span>9</span>
+
+          <span>*</span>
+          <span>0</span>
+          <span>#</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     DESKTOP
+     ========================================================= -->
+
+<main
+  class="desktop-frame"
+  id="portfolio"
+>
+
+<div
+  class="desktop"
+  id="real-desktop"
+>
+
+
+  <div class="wallpaper-shape shape-pillow"></div>
+  <div class="wallpaper-shape shape-sheet"></div>
+  <div class="wallpaper-shape shape-book"></div>
+
+
+  <!-- =======================================================
+       ICONS
+       ======================================================= -->
+
+  <nav
+    class="desktop-icons"
+    aria-label="Portfolio sections"
+  >
+
+
+    <a
+      href="portfolio.html"
+      class="desktop-icon icon-portfolio"
+    >
+
+      <svg viewBox="0 0 64 64">
+
+        <path
+          fill="#eec75d"
+          d="M8 20H24V26H56V48H8Z"
+        />
+
+        <path
+          fill="#ffe699"
+          d="M12 24H24V30H52V44H12Z"
+        />
+
+      </svg>
+
+      <span class="icon-label">
+        Portfolio
+      </span>
+
+    </a>
+
+
+    <button
+      type="button"
+      class="desktop-icon icon-photography"
+      id="open-photography"
+    >
+
+      <svg viewBox="0 0 64 64">
+
+        <path
+          fill="#f2a2c7"
+          d="M10 22H22V18H34V22H54V46H10Z"
+        />
+
+        <path
+          fill="#ffd8ea"
+          d="M14 26H50V42H14Z"
+        />
+
+        <circle
+          cx="32"
+          cy="34"
+          r="7"
+          fill="#6f7fe0"
+        />
+
+      </svg>
+
+      <span class="icon-label">
+        Photography
+      </span>
+
+    </button>
+
+
+    <button
+      type="button"
+      class="desktop-icon icon-about"
+      id="open-about"
+    >
+
+      <svg viewBox="0 0 64 64">
+
+        <path
+          fill="#89c9ff"
+          d="M14 12H46V52H14Z"
+        />
+
+        <path
+          fill="#d7efff"
+          d="M18 16H42V48H18Z"
+        />
+
+      </svg>
+
+      <span class="icon-label">
+        About Me
+      </span>
+
+    </button>
+
+
+    <button
+      type="button"
+      class="desktop-icon icon-contact"
+      id="open-contact"
+    >
+
+      <svg viewBox="0 0 64 64">
+
+        <path
+          fill="#f2a2c7"
+          d="M8 18H56V46H8Z"
+        />
+
+        <path
+          fill="#ffe1ee"
+          d="M12 22H52V42H12Z"
+        />
+
+        <path
+          fill="#7ebd8f"
+          d="M12 23L32 36L52 23V28L32 41L12 28Z"
+        />
+
+      </svg>
+
+      <span class="icon-label">
+        Contact Information
+      </span>
+
+    </button>
+
+
+    <button
+      type="button"
+      class="desktop-icon icon-socials"
+      id="open-social"
+    >
+
+      <svg viewBox="0 0 64 64">
+
+        <path
+          fill="#8ed296"
+          d="M12 14H52V50H12Z"
+        />
+
+        <path
+          fill="#d9f5dc"
+          d="M16 18H48V46H16Z"
+        />
+
+        <circle
+          cx="25"
+          cy="29"
+          r="6"
+          fill="#e695c9"
+        />
+
+        <path
+          fill="#8a78d1"
+          d="M35 22H43V42H35Z"
+        />
+
+      </svg>
+
+      <span class="icon-label">
+        Social Media
+      </span>
+
+    </button>
+
+
+    <a
+      href="visuals.html"
+      class="desktop-icon icon-visuals"
+    >
+
+      <svg viewBox="0 0 64 64">
+
+        <path
+          fill="#ffcf7e"
+          d="M12 14H52V50H12Z"
+        />
+
+        <path
+          fill="#fff0be"
+          d="M16 18H48V46H16Z"
+        />
+
+        <path
+          fill="#f49abc"
+          d="M20 40L28 31L35 38L43 27L48 34V42H20Z"
+        />
+
+      </svg>
+
+      <span class="icon-label">
+        Visuals
+      </span>
+
+    </a>
+
+
+  </nav>
+
+
+  <!-- =======================================================
+       PHOTOGRAPHY
+       ======================================================= -->
+
+  <section
+    class="retro-window photography-window hidden"
+    id="photography-window"
+    aria-hidden="true"
+  >
+
+    <div class="retro-titlebar">
+
+      <div class="retro-title-left">
+
+        <span class="retro-app-icon"></span>
+
+        <span class="retro-title-text">
+          PHOTOGRAPHY.EXE
+        </span>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="retro-close"
+        data-close-window="photography-window"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="retro-menubar">
+
+      <span><u>F</u>ile</span>
+      <span><u>E</u>dit</span>
+      <span><u>V</u>iew</span>
+      <span><u>H</u>elp</span>
+
+    </div>
+
+
+    <div class="photography-body">
+
+      <h1 class="photography-heading">
+        My Photography Album
+      </h1>
+
+
+      <div class="fieldset photography-panel">
+
+        <span class="fieldset-label">
+          photography
+        </span>
+
+
+        <div
+          class="photo-grid"
+          id="photo-grid"
+        ></div>
+
+      </div>
+
+    </div>
+
+
+    <div class="retro-actions">
+
+      <button
+        type="button"
+        class="retro-action"
+        data-close-window="photography-window"
+      >
+        CLOSE
+      </button>
+
+    </div>
+
+
+    <div class="retro-status">
+
+      <span>
+        PHOTO ARCHIVE
+      </span>
+
+      <span>
+        WIKI VISUAL © 2026
+      </span>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       SOCIAL MEDIA
+       ======================================================= -->
+
+  <section
+    class="retro-window social-window hidden"
+    id="social-window"
+    aria-hidden="true"
+  >
+
+    <div class="retro-titlebar">
+
+      <div class="retro-title-left">
+
+        <span class="retro-app-icon"></span>
+
+        <span class="retro-title-text">
+          SOCIAL_MEDIA.EXE
+        </span>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="retro-close"
+        data-close-window="social-window"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="retro-menubar">
+
+      <span><u>F</u>ile</span>
+      <span><u>E</u>dit</span>
+      <span><u>V</u>iew</span>
+      <span><u>H</u>elp</span>
+
+    </div>
+
+
+    <div class="social-body">
+
+
+      <h1 class="social-heading">
+        Find Me Online
+      </h1>
+
+
+      <p class="social-subtitle">
+        WIKI VISUAL / SOCIAL MEDIA
+      </p>
+
+
+      <div class="social-stage">
+
+
+        <!-- =================================================
+             NEW LEFT TIKTOK
+             ================================================= -->
+
+        <div class="social-card tiktok-card">
+
+          <div class="social-phone">
+
+            <span class="phone-side-button side-one"></span>
+            <span class="phone-side-button side-two"></span>
+            <span class="phone-side-button side-three"></span>
+
+
+            <div class="social-screen">
+
+
+              <video
+                class="social-video"
+                muted
+                loop
+                autoplay
+                playsinline
+                preload="auto"
+              >
+
+                <source
+                  src="photos/7bdacc99122b49d5806600b87800d527.MOV"
+                >
+
+              </video>
+
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             MIDDLE TIKTOK
+             ================================================= -->
+
+        <div class="social-card tiktok-card">
+
+          <div class="social-phone">
+
+            <span class="phone-side-button side-one"></span>
+            <span class="phone-side-button side-two"></span>
+            <span class="phone-side-button side-three"></span>
+
+
+            <div class="social-screen">
+
+
+              <video
+                class="social-video"
+                muted
+                loop
+                autoplay
+                playsinline
+                preload="auto"
+              >
+
+                <source
+                  src="photos/8c36d112a9364170864bb685a03dd149.MOV"
+                >
+
+              </video>
+
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             INSTAGRAM
+             ================================================= -->
+
+        <div class="social-card instagram-card">
+
+          <div class="social-phone">
+
+            <span class="phone-side-button side-one"></span>
+            <span class="phone-side-button side-two"></span>
+            <span class="phone-side-button side-three"></span>
+
+
+            <div class="social-screen">
+
+              <div class="instagram-window">
+
+
+                <div class="instagram-track">
+
+
+                  <img
+                    data-instagram-base="photos/IMG_3114"
+                    alt="Instagram post by wikivisual.co"
+                  >
+
+                  <img
+                    data-instagram-base="photos/IMG_3115"
+                    alt="Instagram post by wikivisual.co"
+                  >
+
+                  <img
+                    data-instagram-base="photos/IMG_3116"
+                    alt="Instagram post by wikivisual.co"
+                  >
+
+                  <img
+                    data-instagram-base="photos/IMG_3117"
+                    alt="Instagram post by wikivisual.co"
+                  >
+
+                  <img
+                    data-instagram-base="photos/IMG_3118"
+                    alt="Instagram post by wikivisual.co"
+                  >
+
+                  <img
+                    data-instagram-base="photos/IMG_3119"
+                    alt="Instagram post by wikivisual.co"
+                  >
+
+
+                  <img
+                    data-instagram-base="photos/IMG_3114"
+                    alt=""
+                    aria-hidden="true"
+                  >
+
+                  <img
+                    data-instagram-base="photos/IMG_3115"
+                    alt=""
+                    aria-hidden="true"
+                  >
+
+                  <img
+                    data-instagram-base="photos/IMG_3116"
+                    alt=""
+                    aria-hidden="true"
+                  >
+
+                  <img
+                    data-instagram-base="photos/IMG_3117"
+                    alt=""
+                    aria-hidden="true"
+                  >
+
+                  <img
+                    data-instagram-base="photos/IMG_3118"
+                    alt=""
+                    aria-hidden="true"
+                  >
+
+                  <img
+                    data-instagram-base="photos/IMG_3119"
+                    alt=""
+                    aria-hidden="true"
+                  >
+
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      <!-- ONE TIKTOK / ONE INSTAGRAM -->
+
+      <div class="social-platform-labels">
+
+
+        <div class="social-platform-tiktok">
+
+          <div class="social-type">
+            TIKTOK
+          </div>
+
+          <div class="social-handle">
+            @wikivisual_co
+          </div>
+
+        </div>
+
+
+        <div class="social-platform-instagram">
+
+          <div class="social-type">
+            INSTAGRAM
+          </div>
+
+          <div class="social-handle">
+            @wikivisual.co
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="social-buttons">
+
+
+        <a
+          class="retro-action social-tiktok-button"
+          href="https://www.tiktok.com/@wikivisual_co"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          VIEW TIKTOK
+        </a>
+
+
+        <a
+          class="retro-action social-instagram-button"
+          href="https://www.instagram.com/wikivisual.co/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          VIEW INSTAGRAM
+        </a>
+
+
+      </div>
+
+
+    </div>
+
+
+    <div class="retro-actions">
+
+      <button
+        type="button"
+        class="retro-action"
+        data-close-window="social-window"
+      >
+        CLOSE
+      </button>
+
+    </div>
+
+
+    <div class="retro-status">
+
+      <span>
+        SOCIAL MEDIA
+      </span>
+
+      <span>
+        WIKI VISUAL © 2026
+      </span>
+
+    </div>
+
+
+  </section>
+
+
+  <!-- =======================================================
+       ABOUT
+       ======================================================= -->
+
+  <section
+    class="retro-window about-window hidden"
+    id="about-window"
+    aria-hidden="true"
+  >
+
+    <div class="retro-titlebar">
+
+      <div class="retro-title-left">
+
+        <span class="retro-app-icon"></span>
+
+        <span class="retro-title-text">
+          ABOUT_ME.EXE
+        </span>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="retro-close"
+        data-close-window="about-window"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="retro-menubar">
+
+      <span><u>F</u>ile</span>
+      <span><u>E</u>dit</span>
+      <span><u>V</u>iew</span>
+      <span><u>H</u>elp</span>
+
+    </div>
+
+
+    <div class="about-body">
+
+
+      <div class="fieldset about-photo-panel">
+
+        <span class="fieldset-label">
+          portrait.jpg
+        </span>
+
+
+        <div class="about-photo-mat">
+
+          <img
+            class="about-photo"
+            src="photos/IMG_2990.JPG"
+            alt="Wiktoria"
+          >
+
+
+          <div class="about-photo-caption">
+            WIKTORIA / NYC / 2026
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="fieldset about-text-panel">
+
+        <span class="fieldset-label">
+          profile.txt
+        </span>
+
+
+        <div class="about-paper">
+
+          <h2 class="about-file-heading">
+            ABOUT ME
+          </h2>
+
+
+          <p class="about-meta">
+            WIKI VISUAL / PERSONAL FILE / 001
+          </p>
+
+
+          <div class="about-rule"></div>
+
+
+          <p class="about-copy">
+            I’m Wiktoria, a New York-based designer with a background in UX/UI, graphic design, and photography. I enjoy exploring different areas of design and finding ways to combine creativity with thoughtful problem-solving. My work focuses on creating visual experiences that feel clear, engaging, and intentional, whether I’m designing a digital product, developing a visual identity, or creating content through photography. I’m always looking to learn, experiment, and grow through new creative challenges.
+          </p>
+
+
+          <div class="about-rule"></div>
+
+
+          <div class="about-bottom">
+            END OF FILE_
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="retro-actions">
+
+      <button
+        type="button"
+        class="retro-action"
+        data-close-window="about-window"
+      >
+        CLOSE
+      </button>
+
+    </div>
+
+
+  </section>
+
+
+  <!-- =======================================================
+       CONTACT
+       ======================================================= -->
+
+  <section
+    class="retro-window hidden"
+    id="contact-window"
+    aria-hidden="true"
+  >
+
+    <div class="retro-titlebar">
+
+      <div class="retro-title-left">
+
+        <span class="retro-app-icon"></span>
+
+        <span class="retro-title-text">
+          CONTACT_INFO.EXE
+        </span>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="retro-close"
+        data-close-window="contact-window"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="retro-menubar">
+
+      <span><u>F</u>ile</span>
+      <span><u>E</u>dit</span>
+      <span><u>V</u>iew</span>
+      <span><u>H</u>elp</span>
+
+    </div>
+
+
+    <div class="contact-body">
+
+
+      <div class="fieldset contact-sidebar">
+
+        <span class="fieldset-label">
+          directory
+        </span>
+
+
+        <button
+          type="button"
+          class="contact-side-item active"
+          data-contact="email"
+        >
+          email
+        </button>
+
+
+        <button
+          type="button"
+          class="contact-side-item"
+          data-contact="instagram"
+        >
+          instagram
+        </button>
+
+
+        <button
+          type="button"
+          class="contact-side-item"
+          data-contact="location"
+        >
+          location
+        </button>
+
+
+        <button
+          type="button"
+          class="contact-side-item"
+          data-contact="availability"
+        >
+          availability
+        </button>
+
+      </div>
+
+
+      <div class="fieldset contact-preview">
+
+        <span class="fieldset-label">
+          preview
+        </span>
+
+
+        <div class="contact-card">
+
+          <div class="contact-logo">
+            WIKI VISUAL
+          </div>
+
+
+          <div class="contact-info-grid">
+
+
+            <div
+              class="contact-row selected"
+              data-info="email"
+            >
+
+              <div class="contact-row-label">
+                01 / EMAIL
+              </div>
+
+
+              <div class="contact-row-value">
+
+                <a
+                  href="mailto:wbabula78@gmail.com"
+                >
+                  wbabula78@gmail.com
+                </a>
+
+              </div>
+
+            </div>
+
+
+            <div
+              class="contact-row"
+              data-info="instagram"
+            >
+
+              <div class="contact-row-label">
+                02 / INSTAGRAM
+              </div>
+
+
+              <div class="contact-row-value">
+
+                <a
+                  href="https://www.instagram.com/wikivisual.co/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  @wikivisual.co
+                </a>
+
+              </div>
+
+            </div>
+
+
+            <div
+              class="contact-row"
+              data-info="location"
+            >
+
+              <div class="contact-row-label">
+                03 / LOCATION
+              </div>
+
+
+              <div class="contact-row-value">
+                NEW YORK CITY, USA
+              </div>
+
+            </div>
+
+
+            <div
+              class="contact-row"
+              data-info="availability"
+            >
+
+              <div class="contact-row-label">
+                04 / STATUS
+              </div>
+
+
+              <div class="contact-row-value">
+                AVAILABLE FOR CREATIVE PROJECTS
+              </div>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="retro-actions">
+
+      <a
+        class="retro-action"
+        href="mailto:wbabula78@gmail.com"
+      >
+        E-MAIL
+      </a>
+
+
+      <button
+        type="button"
+        class="retro-action"
+        data-close-window="contact-window"
+      >
+        CLOSE
+      </button>
+
+    </div>
+
+
+  </section>
+
+
+  <!-- =======================================================
+       TASKBAR
+       ======================================================= -->
+
+  <footer class="taskbar">
+
+    <div class="task-window">
+      WIKI VISUAL
+    </div>
+
+
+    <div
+      class="clock"
+      id="clock"
+    >
+      12:00 PM
+    </div>
+
+  </footer>
+
+
+</div>
+
+</main>
+
+
+<!-- =========================================================
+     LIGHTBOX
+     ========================================================= -->
+
+<div
+  class="photo-lightbox hidden"
+  id="photo-lightbox"
+>
+
+  <button
+    type="button"
+    class="photo-lightbox-close"
+    id="photo-lightbox-close"
+  >
+    ×
+  </button>
+
+
+  <img
+    id="photo-lightbox-image"
+    src=""
+    alt=""
+  >
+
+</div>
+
+
+<script>
+
+
+/* =========================================================
+   KEYBOARD
+   ========================================================= */
+
+const keyboard =
+  document.getElementById(
+    "keyboard"
+  );
+
+
+for(
+  let i = 0;
+  i < 72;
+  i++
+){
+
+  const key =
+    document.createElement(
+      "span"
+    );
+
+
+  key.className =
+    "key";
+
+
+  keyboard.appendChild(
+    key
+  );
+
+}
+
+
+/* =========================================================
+   INSTAGRAM IMAGE LOADER
+   ========================================================= */
+
+function loadInstagramImage(img){
+
+  const base =
+    img.dataset.instagramBase;
+
+
+  if(!base){
+    return;
+  }
+
+
+  const extensions = [
+
+    ".png",
+    ".PNG",
+
+    ".jpg",
+    ".JPG",
+
+    ".jpeg",
+    ".JPEG",
+
+    ".webp",
+    ".WEBP"
+
+  ];
+
+
+  let current =
+    0;
+
+
+  function tryNext(){
+
+    if(
+      current >=
+      extensions.length
+    ){
+
+      img.style.display =
+        "none";
+
+      return;
+    }
+
+
+    img.src =
+      base +
+      extensions[current];
+
+
+    current++;
+
+  }
+
+
+  img.addEventListener(
+    "error",
+    tryNext
+  );
+
+
+  tryNext();
+
+}
+
+
+document
+  .querySelectorAll(
+    "[data-instagram-base]"
+  )
+  .forEach(
+    loadInstagramImage
+  );
+
+
+/* =========================================================
+   INTRO PREVIEW
+   ========================================================= */
+
+const desktopSource =
+  document.getElementById(
+    "real-desktop"
+  );
+
+
+function refreshPreview(){
+
+  const frame =
+    document.getElementById(
+      "portfolio"
+    );
+
+
+  if(
+    !frame ||
+    !desktopSource
+  ){
+    return;
+  }
+
+
+  const frameWidth =
+    frame.clientWidth;
+
+
+  const frameHeight =
+    frame.clientHeight;
+
+
+  if(
+    !frameWidth ||
+    !frameHeight
+  ){
+    return;
+  }
+
+
+  [
+    "computer-preview",
+    "phone-preview"
+  ].forEach(
+    id => {
+
+
+      const host =
+        document.getElementById(
+          id
+        );
+
+
+      if(!host){
+        return;
+      }
+
+
+      host.replaceChildren();
+
+
+      if(
+        !host.clientWidth ||
+        !host.clientHeight
+      ){
+        return;
+      }
+
+
+      const clone =
+        desktopSource.cloneNode(
+          true
+        );
+
+
+      clone.removeAttribute(
+        "id"
+      );
+
+
+      clone
+        .querySelectorAll(
+          ".retro-window"
+        )
+        .forEach(
+          element => {
+
+            element.remove();
+
+          }
+        );
+
+
+      clone
+        .querySelectorAll(
+          "[id]"
+        )
+        .forEach(
+          element => {
+
+            element.removeAttribute(
+              "id"
+            );
+
+          }
+        );
+
+
+      const scale =
+        Math.max(
+
+          host.clientWidth /
+          frameWidth,
+
+          host.clientHeight /
+          frameHeight
+
+        );
+
+
+      clone.style.width =
+        frameWidth + "px";
+
+
+      clone.style.height =
+        frameHeight + "px";
+
+
+      clone.style.left =
+        (
+          (
+            host.clientWidth -
+            frameWidth * scale
+          ) / 2
+        ) + "px";
+
+
+      clone.style.top =
+        (
+          (
+            host.clientHeight -
+            frameHeight * scale
+          ) / 2
+        ) + "px";
+
+
+      clone.style.transform =
+        "scale(" + scale + ")";
+
+
+      clone.style.transformOrigin =
+        "top left";
+
+
+      host.appendChild(
+        clone
+      );
+
+
+    }
+  );
+
+}
+
+
+refreshPreview();
+
+
+/* =========================================================
+   CLOCK
+   ========================================================= */
+
+const clock =
+  document.getElementById(
+    "clock"
+  );
+
+
+function updateClock(){
+
+  if(!clock){
+    return;
+  }
+
+
+  clock.textContent =
+    new Date()
+      .toLocaleTimeString(
+        "en-US",
+        {
+          hour:"numeric",
+          minute:"2-digit"
+        }
+      );
+
+}
+
+
+updateClock();
+
+
+setInterval(
+  updateClock,
+  30000
+);
+
+
+/* =========================================================
+   WINDOWS
+   ========================================================= */
+
+const windows = {
+
+  "photography-window":
+    document.getElementById(
+      "photography-window"
+    ),
+
+  "social-window":
+    document.getElementById(
+      "social-window"
+    ),
+
+  "about-window":
+    document.getElementById(
+      "about-window"
+    ),
+
+  "contact-window":
+    document.getElementById(
+      "contact-window"
+    )
+
+};
+
+
+const openers = {
+
+  "photography-window":
+    document.getElementById(
+      "open-photography"
+    ),
+
+  "social-window":
+    document.getElementById(
+      "open-social"
+    ),
+
+  "about-window":
+    document.getElementById(
+      "open-about"
+    ),
+
+  "contact-window":
+    document.getElementById(
+      "open-contact"
+    )
+
+};
+
+
+let activeWindow =
+  null;
+
+
+/* =========================================================
+   SOCIAL VIDEOS
+   ========================================================= */
+
+function playSocialVideos(){
+
+  document
+    .querySelectorAll(
+      "#social-window video"
+    )
+    .forEach(
+      video => {
+
+        video.muted =
+          true;
+
+
+        video
+          .play()
+          .catch(
+            () => {}
+          );
+
+      }
+    );
+
+}
+
+
+function pauseSocialVideos(){
+
+  document
+    .querySelectorAll(
+      "#social-window video"
+    )
+    .forEach(
+      video => {
+
+        video.pause();
+
+      }
+    );
+
+}
+
+
+/* =========================================================
+   OPEN / CLOSE
+   ========================================================= */
+
+function closeWindow(
+  id,
+  returnFocus = true
+){
+
+  const element =
+    windows[id];
+
+
+  if(!element){
+    return;
+  }
+
+
+  if(
+    id ===
+    "social-window"
+  ){
+
+    pauseSocialVideos();
+
+  }
+
+
+  element.classList.add(
+    "hidden"
+  );
+
+
+  element.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+
+  if(
+    activeWindow === id
+  ){
+
+    activeWindow =
+      null;
+
+  }
+
+
+  if(
+    returnFocus &&
+    openers[id]
+  ){
+
+    openers[id].focus();
+
+  }
+
+}
+
+
+function openWindow(id){
+
+  if(
+    activeWindow &&
+    activeWindow !== id
+  ){
+
+    closeWindow(
+      activeWindow,
+      false
+    );
+
+  }
+
+
+  const element =
+    windows[id];
+
+
+  if(!element){
+    return;
+  }
+
+
+  element.classList.remove(
+    "hidden"
+  );
+
+
+  element.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+
+  element.scrollTop =
+    0;
+
+
+  activeWindow =
+    id;
+
+
+  if(
+    id ===
+    "photography-window"
+  ){
+
+    requestAnimationFrame(
+      buildPhotographyGallery
+    );
+
+  }
+
+
+  if(
+    id ===
+    "social-window"
+  ){
+
+    requestAnimationFrame(
+      playSocialVideos
+    );
+
+  }
+
+}
+
+
+Object
+  .entries(openers)
+  .forEach(
+    ([id,button]) => {
+
+
+      if(!button){
+        return;
+      }
+
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          openWindow(id);
+
+        }
+      );
+
+
+    }
+  );
+
+
+document
+  .querySelectorAll(
+    "[data-close-window]"
+  )
+  .forEach(
+    button => {
+
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          closeWindow(
+            button.dataset.closeWindow
+          );
+
+        }
+      );
+
+
+    }
+  );
+
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+const contactButtons =
+  document.querySelectorAll(
+    ".contact-side-item"
+  );
+
+
+const contactRows =
+  document.querySelectorAll(
+    ".contact-row"
+  );
+
+
+contactButtons.forEach(
+  button => {
+
+
+    button.addEventListener(
+      "click",
+      () => {
+
+
+        const selected =
+          button.dataset.contact;
+
+
+        contactButtons.forEach(
+          item => {
+
+            item.classList.toggle(
+              "active",
+              item.dataset.contact ===
+              selected
+            );
+
+          }
+        );
+
+
+        contactRows.forEach(
+          row => {
+
+            row.classList.toggle(
+              "selected",
+              row.dataset.info ===
+              selected
+            );
+
+          }
+        );
+
+
+      }
+    );
+
+
+  }
+);
+
+
+/* =========================================================
+   PHOTOGRAPHY FILES
+   ========================================================= */
+
+const photos = [
+
+  "DSC_0481.jpg",
+  "DSC_0484.jpg",
+  "DSC_0516.jpg",
+  "DSC_0520.jpg",
+  "DSC_0524.jpg",
+  "DSC_0595 kopia.jpg",
+  "DSC_0611.jpg",
+  "DSC_0633 kopia.jpg",
+  "DSC_0634.jpg",
+  "DSC_0807.jpg",
+  "DSC_0848.jpg",
+  "DSC_1732 kopia 2.jpg",
+  "DSC_1770.jpg",
+  "DSC_1775.jpg",
+  "DSC_2002.jpg",
+  "DSC_2991.jpg",
+  "DSC_2997.jpg",
+  "DSC_3032.jpg",
+  "DSC_3584.jpg",
+  "DSC_3597.jpg",
+  "DSC_3609.jpg",
+  "DSC_3623.jpg",
+  "DSC_3655.jpg",
+  "DSC_3670.jpg",
+  "DSC_3707-2.jpg",
+  "DSC_3797.jpg",
+  "DSC_3809.jpg",
+  "DSC_4219.jpg",
+  "DSC_4449.jpg",
+  "DSC_4450.jpg",
+  "DSC_4622.jpg",
+  "DSC_4656.jpg",
+  "DSC_4945.jpg",
+  "DSC_4951.jpg",
+  "DSC_5004.jpg",
+  "DSC_5007.jpg",
+  "DSC_5266.jpg",
+  "DSC_5271.jpg",
+  "DSC_5318.jpeg",
+  "DSC_5331.jpeg",
+  "DSC_5338.jpeg",
+  "DSC_5348.jpeg",
+  "DSC_5368.jpeg",
+  "DSC_5369.jpeg",
+  "DSC_5372.jpeg",
+  "DSC_5391.jpeg",
+  "DSC_5414.jpeg",
+  "DSC_5436.jpeg",
+  "DSC_5437.jpeg",
+  "DSC_5440.jpeg",
+  "DSC_5446.jpeg",
+  "DSC_5449.jpeg",
+  "DSC_5455.jpeg",
+  "DSC_5484.jpeg",
+  "DSC_5527.jpeg",
+  "DSC_5581.jpeg",
+  "DSC_5609.jpeg",
+  "DSC_5702.jpeg",
+  "DSC_5707.jpeg",
+  "DSC_5972.jpg",
+  "DSC_6148.jpg",
+  "DSC_6195.jpg",
+  "DSC_6658.jpeg",
+  "DSC_6749.jpeg",
+  "DSC_6752.jpeg",
+  "DSC_6759.jpeg",
+  "DSC_6786.jpeg",
+  "DSC_6795.jpeg",
+  "DSC_6908.jpeg",
+  "DSC_6917.jpeg",
+  "DSC_7004.jpeg",
+  "DSC_7051.jpeg",
+  "DSC_7065.jpeg"
+
+];
+
+
+const photoGrid =
+  document.getElementById(
+    "photo-grid"
+  );
+
+
+let photographyData =
+  null;
+
+
+/* =========================================================
+   LOAD PHOTOS
+   ========================================================= */
+
+function loadPhotographyData(){
+
+  if(
+    photographyData
+  ){
+
+    return Promise.resolve(
+      photographyData
+    );
+
+  }
+
+
+  const loaders =
+    photos.map(
+      filename => {
+
+
+        return new Promise(
+          resolve => {
+
+
+            const image =
+              new Image();
+
+
+            image.onload =
+              () => {
+
+
+                resolve({
+
+                  src:
+                    image.src,
+
+                  ratio:
+                    image.naturalWidth /
+                    image.naturalHeight
+
+                });
+
+
+              };
+
+
+            image.onerror =
+              () => {
+
+                resolve(null);
+
+              };
+
+
+            image.src =
+              "photos/" +
+              filename;
+
+
+          }
+        );
+
+
+      }
+    );
+
+
+  return Promise
+    .all(loaders)
+    .then(
+      values => {
+
+
+        photographyData =
+          values.filter(Boolean);
+
+
+        return photographyData;
+
+
+      }
+    );
+
+}
+
+
+/* =========================================================
+   BUILD PHOTO GALLERY
+   ========================================================= */
+
+async function buildPhotographyGallery(){
+
+  if(!photoGrid){
+    return;
+  }
+
+
+  const data =
+    await loadPhotographyData();
+
+
+  photoGrid.replaceChildren();
+
+
+  if(!data.length){
+    return;
+  }
+
+
+  const computed =
+    getComputedStyle(
+      photoGrid
+    );
+
+
+  const horizontalPadding =
+
+    parseFloat(
+      computed.paddingLeft
+    ) +
+
+    parseFloat(
+      computed.paddingRight
+    );
+
+
+  const galleryWidth =
+
+    photoGrid.clientWidth -
+
+    horizontalPadding;
+
+
+  if(
+    galleryWidth <= 0
+  ){
+    return;
+  }
+
+
+  const mobile =
+    window.innerWidth <=
+    767;
+
+
+  const gap =
+    mobile
+      ? 6
+      : 8;
+
+
+  const targetHeight =
+    mobile
+      ? 260
+      : 380;
+
+
+  let currentRow =
+    [];
+
+
+  let ratioSum =
+    0;
+
+
+  data.forEach(
+    (photo,index) => {
+
+
+      currentRow.push(
+        photo
+      );
+
+
+      ratioSum +=
+        photo.ratio;
+
+
+      const predictedWidth =
+
+        ratioSum *
+        targetHeight +
+
+        gap *
+        (
+          currentRow.length -
+          1
+        );
+
+
+      const isLast =
+        index ===
+        data.length - 1;
+
+
+      if(
+        predictedWidth >=
+        galleryWidth ||
+        isLast
+      ){
+
+        createPhotoRow(
+
+          currentRow,
+          galleryWidth,
+          gap,
+          targetHeight,
+          isLast
+
+        );
+
+
+        currentRow =
+          [];
+
+
+        ratioSum =
+          0;
+
+      }
+
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   CREATE PHOTO ROW
+   ========================================================= */
+
+function createPhotoRow(
+  photosInRow,
+  galleryWidth,
+  gap,
+  targetHeight,
+  isLast
+){
+
+  const row =
+    document.createElement(
+      "div"
+    );
+
+
+  row.className =
+    "photo-row";
+
+
+  const totalRatio =
+    photosInRow.reduce(
+      (
+        total,
+        photo
+      ) =>
+
+        total +
+        photo.ratio,
+
+      0
+    );
+
+
+  const usableWidth =
+
+    galleryWidth -
+
+    gap *
+    (
+      photosInRow.length -
+      1
+    );
+
+
+  let rowHeight =
+    usableWidth /
+    totalRatio;
+
+
+  if(isLast){
+
+    rowHeight =
+      Math.min(
+        rowHeight,
+        targetHeight
+      );
+
+
+    row.style.justifyContent =
+      "center";
+
+  }
+
+
+  photosInRow.forEach(
+    photo => {
+
+
+      const card =
+        document.createElement(
+          "div"
+        );
+
+
+      card.className =
+        "photo-card";
+
+
+      const photoWidth =
+        rowHeight *
+        photo.ratio;
+
+
+      card.style.width =
+        photoWidth + "px";
+
+
+      card.style.height =
+        rowHeight + "px";
+
+
+      const image =
+        document.createElement(
+          "img"
+        );
+
+
+      image.src =
+        photo.src;
+
+
+      image.alt =
+        "Photography by Wiktoria";
+
+
+      image.loading =
+        "lazy";
+
+
+      image.addEventListener(
+        "click",
+        () => {
+
+          openPhoto(
+            image.src,
+            image.alt
+          );
+
+        }
+      );
+
+
+      card.appendChild(
+        image
+      );
+
+
+      row.appendChild(
+        card
+      );
+
+
+    }
+  );
+
+
+  photoGrid.appendChild(
+    row
+  );
+
+}
+
+
+/* =========================================================
+   LIGHTBOX
+   ========================================================= */
+
+const lightbox =
+  document.getElementById(
+    "photo-lightbox"
+  );
+
+
+const lightboxImage =
+  document.getElementById(
+    "photo-lightbox-image"
+  );
+
+
+const lightboxClose =
+  document.getElementById(
+    "photo-lightbox-close"
+  );
+
+
+function openPhoto(
+  src,
+  alt
+){
+
+  lightboxImage.src =
+    src;
+
+
+  lightboxImage.alt =
+    alt;
+
+
+  lightbox.classList.remove(
+    "hidden"
+  );
+
+}
+
+
+function closePhoto(){
+
+  lightbox.classList.add(
+    "hidden"
+  );
+
+
+  lightboxImage.src =
+    "";
+
+}
+
+
+lightboxClose.addEventListener(
+  "click",
+  closePhoto
+);
+
+
+lightbox.addEventListener(
+  "click",
+  event => {
+
+
+    if(
+      event.target ===
+      lightbox
+    ){
+
+      closePhoto();
+
+    }
+
+
+  }
+);
+
+
+/* =========================================================
+   ESCAPE
+   ========================================================= */
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+
+    if(
+      event.key !==
+      "Escape"
+    ){
+      return;
+    }
+
+
+    if(
+      !lightbox.classList.contains(
+        "hidden"
+      )
+    ){
+
+      closePhoto();
+
+      return;
+
+    }
+
+
+    if(activeWindow){
+
+      closeWindow(
+        activeWindow
+      );
+
+    }
+
+
+  }
+);
+
+
+/* =========================================================
+   RESIZE
+   ========================================================= */
+
+let resizeTimer =
+  null;
+
+
+window.addEventListener(
+  "resize",
+  () => {
+
+
+    refreshPreview();
+
+
+    if(
+      activeWindow !==
+      "photography-window"
+    ){
+      return;
+    }
+
+
+    clearTimeout(
+      resizeTimer
+    );
+
+
+    resizeTimer =
+      setTimeout(
+        buildPhotographyGallery,
+        160
+      );
+
+
+  }
+);
+
+
+</script>
+
+</body>
+</html>

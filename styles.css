@@ -1,0 +1,414 @@
+:root {
+  --bg: #d8cebd;
+  --shell-1: #e8e8e3;
+  --shell-2: #d7d7d1;
+  --shell-3: #b8b8b1;
+
+  --frame-1: #3d4341;
+  --frame-2: #1f2524;
+  --frame-3: #121716;
+
+  --screen-1: #59b7b2;
+  --screen-2: #42a39e;
+  --screen-3: #21716d;
+
+  --folder-1: #f2e2b8;
+  --folder-2: #e5ca96;
+  --folder-3: #c9a76d;
+  --folder-border: #8f744d;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  background: var(--bg);
+}
+
+button {
+  font: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.stage {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* MONITOR */
+
+.monitor {
+  width: min(96vw, 1120px);
+  aspect-ratio: 1.42 / 1;
+  margin: 0 auto;
+  padding: 50px;
+  border: 2px solid #a6a6a0;
+  border-radius: 13px;
+  background: linear-gradient(135deg, var(--shell-1), var(--shell-2) 55%, var(--shell-3));
+  box-shadow:
+    inset 3px 3px 3px rgba(255,255,255,.75),
+    inset -5px -5px 9px rgba(90,90,80,.18),
+    0 18px 30px rgba(0,0,0,.18),
+    0 35px 55px rgba(0,0,0,.10);
+}
+
+.monitor-front {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 102px;
+  padding: 14px;
+  border: 1px solid #a09f99;
+  border-radius: 5px;
+  background: linear-gradient(180deg, #c6c6c0, #b6b6b0 48%, #a4a49f);
+  box-shadow:
+    inset 0 2px 2px rgba(255,255,255,.55),
+    inset 0 -3px 5px rgba(60,60,60,.13);
+}
+
+/* SCREEN FRAME */
+
+.screen-bezel {
+  min-width: 0;
+  min-height: 0;
+  padding: 40px;
+  border: 4px solid #272c2a;
+  border-radius: 12px;
+  background: linear-gradient(145deg, var(--frame-1), var(--frame-2) 20%, var(--frame-3) 65%, #333936);
+  box-shadow:
+    inset 0 0 18px rgba(0,0,0,.85),
+    inset 3px 3px 4px rgba(0,0,0,.50),
+    inset -2px -2px 3px rgba(255,255,255,.08),
+    3px 3px 4px rgba(0,0,0,.25);
+}
+
+/* SCREEN */
+
+.screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  border: 4px solid #111817;
+  border-radius: 32px / 25px;
+  background: radial-gradient(
+    ellipse at 50% 42%,
+    var(--screen-1) 0%,
+    var(--screen-2) 36%,
+    #32958f 65%,
+    var(--screen-3) 100%
+  );
+  box-shadow:
+    inset 0 0 22px rgba(0,0,0,.20),
+    inset 0 0 65px rgba(0,0,0,.20),
+    inset 0 0 110px rgba(0,0,0,.14),
+    0 0 6px rgba(0,0,0,.65);
+}
+
+.screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,.03) 60%, rgba(0,0,0,.13) 82%, rgba(0,0,0,.29) 100%),
+    radial-gradient(ellipse at 20% 10%, rgba(255,255,255,.22) 0%, rgba(255,255,255,.07) 25%, transparent 48%),
+    linear-gradient(130deg, rgba(255,255,255,.09) 0%, transparent 30%);
+}
+
+.screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  opacity: .15;
+  border-radius: inherit;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0 3px,
+    rgba(0,35,32,.26) 4px,
+    transparent 5px
+  );
+}
+
+/* DESKTOP */
+
+.desktop {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.folders {
+  position: absolute;
+  top: 24px;
+  left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+  z-index: 2;
+}
+
+.folder {
+  position: relative;
+  width: 54px;
+  height: 45px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  cursor: default;
+}
+
+.folder::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  width: 23px;
+  height: 12px;
+  border: 2px solid var(--folder-border);
+  border-bottom: 0;
+  border-radius: 4px 4px 0 0;
+  background: var(--folder-2);
+}
+
+.folder-face {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 34px;
+  border: 2px solid var(--folder-border);
+  border-radius: 4px;
+  background: linear-gradient(180deg, var(--folder-1), var(--folder-2) 58%, var(--folder-3));
+  box-shadow:
+    inset 0 2px 0 rgba(255,255,255,.65),
+    2px 3px 0 rgba(0,0,0,.13);
+}
+
+.folder-face::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 5px;
+  width: 38px;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(255,255,255,.7);
+}
+
+/* SIDE PANEL */
+
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 9px;
+  border-left: 3px solid #77776f;
+  background: linear-gradient(100deg, #aaa9a1 0%, #c3c1b7 13%, #b0aea4 50%, #939187 100%);
+  box-shadow:
+    inset 3px 0 4px rgba(255,255,255,.25),
+    inset -4px 0 7px rgba(0,0,0,.14);
+}
+
+.panel-top {
+  width: 72%;
+  height: 42px;
+  margin-bottom: 18px;
+  border: 2px solid #77766e;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #77766f, #484842);
+  box-shadow:
+    inset 2px 3px 5px rgba(0,0,0,.33),
+    1px 1px 0 rgba(255,255,255,.33);
+}
+
+.ventilation {
+  width: 70%;
+  height: 92px;
+  margin-bottom: 20px;
+  border: 2px solid #807e74;
+  border-radius: 2px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #474740 0 3px,
+    #96958a 4px 7px,
+    #c0beb2 8px 10px
+  );
+  box-shadow:
+    inset 0 0 7px rgba(0,0,0,.35),
+    1px 1px 1px rgba(255,255,255,.33);
+}
+
+.controls {
+  width: 100%;
+  margin-top: auto;
+  padding: 12px 0 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 17px;
+}
+
+.control-small,
+.control-knob {
+  border-radius: 50%;
+}
+
+.control-small {
+  width: 17px;
+  height: 17px;
+  border: 1px solid #595954;
+  background: radial-gradient(circle at 35% 30%, #aaa9a2, #77766e 65%, #4b4a44);
+  box-shadow:
+    inset 1px 1px 1px rgba(255,255,255,.4),
+    1px 2px 2px rgba(0,0,0,.2);
+}
+
+.control-knob {
+  position: relative;
+  width: 31px;
+  height: 31px;
+  border: 2px solid #62625b;
+  background: radial-gradient(circle at 34% 30%, #c3c1b9, #99978e 35%, #77756d 72%, #53514b);
+  box-shadow:
+    inset 2px 2px 2px rgba(255,255,255,.45),
+    inset -2px -2px 3px rgba(0,0,0,.15),
+    2px 3px 3px rgba(0,0,0,.2);
+}
+
+.control-knob::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  width: 2px;
+  height: 8px;
+  transform: translateX(-50%);
+  background: #383831;
+  border-radius: 1px;
+}
+
+.power-light {
+  width: 8px;
+  height: 8px;
+  margin-top: 4px;
+  border-radius: 50%;
+  background: #68c278;
+  box-shadow:
+    0 0 4px rgba(95,196,113,.95),
+    0 0 9px rgba(95,196,113,.65);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .stage { padding: 12px; }
+  .monitor { width: min(96vw, 1120px); padding: 26px; }
+  .monitor-front { grid-template-columns: minmax(0, 1fr) 85px; padding: 10px; }
+  .screen-bezel { padding: 26px; }
+  .folders { top: 18px; left: 16px; gap: 16px; }
+  .folder { width: 48px; height: 40px; }
+  .folder::before { width: 20px; height: 10px; }
+  .folder-face { height: 30px; }
+  .folder-face::before { width: 33px; }
+  .panel-top { height: 35px; }
+  .ventilation { height: 80px; }
+  .controls { gap: 12px; }
+  .control-knob { width: 27px; height: 27px; }
+}
+
+@media (max-width: 600px) {
+  .stage { padding: 8px; }
+  .monitor {
+    width: 100%;
+    aspect-ratio: 1.08 / 1;
+    padding: 12px;
+    border-radius: 10px;
+  }
+  .monitor-front {
+    grid-template-columns: minmax(0, 1fr) 62px;
+    padding: 6px;
+  }
+  .screen-bezel {
+    padding: 12px;
+    border-width: 2px;
+    border-radius: 7px;
+  }
+  .screen {
+    border-width: 2px;
+    border-radius: 18px / 14px;
+  }
+  .folders { top: 15px; left: 12px; gap: 12px; }
+  .folder { width: 39px; height: 33px; }
+  .folder::before {
+    top: 2px;
+    left: 3px;
+    width: 16px;
+    height: 8px;
+    border-width: 1.5px;
+  }
+  .folder-face {
+    height: 25px;
+    border-width: 1.5px;
+  }
+  .folder-face::before {
+    top: 5px;
+    left: 4px;
+    width: 27px;
+  }
+  .side-panel { padding: 8px 5px; }
+  .panel-top {
+    width: 78%;
+    height: 26px;
+    margin-bottom: 10px;
+  }
+  .ventilation {
+    width: 76%;
+    height: 55px;
+    margin-bottom: 12px;
+    border-width: 1px;
+  }
+  .controls {
+    gap: 10px;
+    padding: 6px 0 8px;
+  }
+  .control-small {
+    width: 12px;
+    height: 12px;
+  }
+  .control-knob {
+    width: 22px;
+    height: 22px;
+    border-width: 1px;
+  }
+  .control-knob::after {
+    top: 3px;
+    height: 5px;
+  }
+  .power-light {
+    width: 6px;
+    height: 6px;
+  }
+}
