@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contact — wikivisual.co</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #fbfaf8;
+      color: #151515;
+      font-family: "IBM Plex Mono", monospace;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* =========================
+       PAGE
+       ========================= */
+
+    .contact-page {
+      min-height: 100vh;
+      padding: 24px 38px 50px;
+    }
+
+    /* =========================
+       HEADER
+       ========================= */
+
+    .site-header {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 50;
+    }
+
+    .logo {
+      font-size: clamp(24px, 2vw, 38px);
+      font-weight: 600;
+      letter-spacing: -0.06em;
+      line-height: 1;
+      color: #111;
+    }
+
+    .section-title {
+      margin-top: 9px;
+      font-size: clamp(8px, 0.65vw, 11px);
+      font-weight: 300;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #777;
+    }
+
+    /* =========================
+       TOP NAV
+       ========================= */
+
+    .top-nav {
+      position: absolute;
+      top: 1px;
+      right: 0;
+
+      display: flex;
+      gap: 28px;
+
+      font-size: clamp(8px, 0.65vw, 11px);
+      font-weight: 300;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #555;
+    }
+
+    .top-nav a {
+      transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    .top-nav a:hover {
+      opacity: 0.5;
+      transform: translateY(-1px);
+    }
+
+    /* =========================
+       CONTACT FORM
+       ========================= */
+
+    .form-section {
+      width: min(700px, 92vw);
+      margin: 55px auto 90px;
+    }
+
+    .form-intro {
+      margin-bottom: 28px;
+      text-align: center;
+
+      font-size: clamp(9px, 0.72vw, 12px);
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      line-height: 1.7;
+
+      color: #555;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group label {
+      font-size: 9px;
+      font-weight: 300;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #666;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 0;
+
+      border: none;
+      border-bottom: 1px solid #aaa;
+      outline: none;
+
+      background: transparent;
+      color: #151515;
+
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      font-weight: 300;
+
+      resize: none;
+
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #111;
+    }
+
+    .form-group textarea {
+      min-height: 100px;
+    }
+
+    .submit-row {
+      display: flex;
+      justify-content: center;
+      margin-top: 12px;
+    }
+
+    .submit-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-width: 150px;
+
+      padding: 12px 24px;
+
+      border: 1px solid #222;
+      border-radius: 999px;
+
+      background: transparent;
+      color: #151515;
+
+      cursor: pointer;
+
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 9px;
+      font-weight: 300;
+
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+
+      transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    .submit-button:hover {
+      background: #111;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .form-status {
+      min-height: 18px;
+
+      margin-top: 14px;
+
+      text-align: center;
+
+      font-size: 9px;
+      font-weight: 300;
+
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+
+      color: #666;
+    }
+
+    /* =========================
+       DIVIDER
+       ========================= */
+
+    .divider {
+      width: 100%;
+      height: 1px;
+
+      background: rgba(0,0,0,0.08);
+
+      margin-bottom: 60px;
+    }
+
+    /* =========================
+       SOCIAL AREA
+       ========================= */
+
+    .social-section {
+      width: min(1350px, 95vw);
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* =========================
+       PHONES
+       ========================= */
+
+    .phones {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+
+      gap: clamp(22px, 3vw, 48px);
+    }
+
+    .phone-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      width: clamp(220px, 22vw, 310px);
+    }
+
+    .phone {
+      position: relative;
+
+      width: 100%;
+      aspect-ratio: 9 / 18.5;
+
+      border: 9px solid #111;
+      border-radius: 38px;
+
+      background: #111;
+
+      overflow: hidden;
+
+      box-shadow:
+        0 12px 28px rgba(0,0,0,0.10);
+    }
+
+    .phone::before {
+      content: "";
+
+      position: absolute;
+
+      top: 8px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      width: 34%;
+      height: 18px;
+
+      border-radius: 20px;
+
+      background: #111;
+
+      z-index: 5;
+    }
+
+    .screen {
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background:
+        linear-gradient(
+          135deg,
+          #e9e5df,
+          #d9d4cb
+        );
+
+      color: #777;
+
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-align: center;
+
+      padding: 20px;
+    }
+
+    /* =========================
+       USERNAMES
+       ========================= */
+
+    .username {
+      margin-top: 17px;
+
+      font-size: clamp(9px, 0.72vw, 12px);
+      font-weight: 300;
+      letter-spacing: 0.12em;
+
+      color: #333;
+    }
+
+    /* =========================
+       SOCIAL BUTTONS
+       ========================= */
+
+    .social-buttons {
+      margin-top: 38px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      gap: 16px;
+
+      flex-wrap: wrap;
+    }
+
+    .social-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-width: 145px;
+
+      padding: 12px 22px;
+
+      border: 1px solid #222;
+      border-radius: 999px;
+
+      font-size: clamp(9px, 0.7vw, 11px);
+      font-weight: 300;
+
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+
+      transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    .social-button:hover {
+      background: #111;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .social-note {
+      margin-top: 24px;
+
+      font-size: 9px;
+      font-weight: 300;
+
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+
+      color: #999;
+    }
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 900px) {
+
+      .contact-page {
+        padding: 22px 20px 40px;
+      }
+
+      .top-nav {
+        position: static;
+
+        margin-top: 16px;
+
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .phones {
+        flex-wrap: wrap;
+      }
+
+      .phone-block {
+        width: min(280px, 80vw);
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .phones {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .social-buttons {
+        flex-direction: column;
+      }
+
+      .social-button {
+        width: 220px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <main class="contact-page">
+
+    <!-- HEADER -->
+
+    <header class="site-header">
+
+      <a
+        href="index.html"
+        class="logo"
+      >
+        wikivisual.co
+      </a>
+
+      <div class="section-title">
+        Contact
+      </div>
+
+      <nav class="top-nav">
+
+        <a href="photography.html">
+          Photography
+        </a>
+
+        <a href="digital-design.html">
+          Digital Design
+        </a>
+
+        <a href="about.html">
+          About Me
+        </a>
+
+      </nav>
+
+    </header>
+
+
+    <!-- CONTACT FORM -->
+
+    <section class="form-section">
+
+      <div class="form-intro">
+        Have a project, collaboration or creative idea?
+        Send me a message.
+      </div>
+
+      <form
+        class="contact-form"
+        id="contactForm"
+      >
+
+        <div class="form-row">
+
+          <div class="form-group">
+
+            <label for="name">
+              Name
+            </label>
+
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+            >
+
+          </div>
+
+          <div class="form-group">
+
+            <label for="email">
+              Email
+            </label>
+
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+            >
+
+          </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="subject">
+            Subject
+          </label>
+
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="message">
+            Message
+          </label>
+
+          <textarea
+            id="message"
+            name="message"
+            required
+          ></textarea>
+
+        </div>
+
+
+        <div class="submit-row">
+
+          <button
+            type="submit"
+            class="submit-button"
+          >
+            Send Message
+          </button>
+
+        </div>
+
+
+        <div
+          class="form-status"
+          id="formStatus"
+        ></div>
+
+      </form>
+
+    </section>
+
+
+    <div class="divider"></div>
+
+
+    <!-- SOCIAL SECTION -->
+
+    <section class="social-section">
+
+      <div class="phones">
+
+        <!-- TIKTOK 1 -->
+
+        <div class="phone-block">
+
+          <div class="phone">
+
+            <div class="screen">
+              TikTok video / screenshot 1
+            </div>
+
+          </div>
+
+          <div class="username">
+            @wikivisual_co
+          </div>
+
+        </div>
+
+
+        <!-- TIKTOK 2 -->
+
+        <div class="phone-block">
+
+          <div class="phone">
+
+            <div class="screen">
+              TikTok video / screenshot 2
+            </div>
+
+          </div>
+
+          <div class="username">
+            @wikivisual_co
+          </div>
+
+        </div>
+
+
+        <!-- INSTAGRAM -->
+
+        <div class="phone-block">
+
+          <div class="phone">
+
+            <div class="screen">
+              Instagram photos / feed
+            </div>
+
+          </div>
+
+          <div class="username">
+            @wikivisual.co
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- SOCIAL BUTTONS -->
+
+      <div class="social-buttons">
+
+        <a
+          href="https://www.tiktok.com/@wikivisual_co"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-button"
+        >
+          TikTok
+        </a>
+
+        <a
+          href="https://www.instagram.com/wikivisual.co/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-button"
+        >
+          Instagram
+        </a>
+
+      </div>
+
+
+      <div class="social-note">
+        New York City · Photography · Digital Design
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script>
+
+    const form =
+      document.getElementById("contactForm");
+
+    const status =
+      document.getElementById("formStatus");
+
+
+    form.addEventListener(
+      "submit",
+      async function(event) {
+
+        event.preventDefault();
+
+
+        status.textContent =
+          "Sending...";
+
+
+        const formData =
+          new FormData(form);
+
+
+        const data = {
+          name:
+            formData.get("name"),
+
+          email:
+            formData.get("email"),
+
+          subject:
+            formData.get("subject"),
+
+          message:
+            formData.get("message"),
+
+          _subject:
+            "New message from wikivisual.co",
+
+          _template:
+            "table",
+
+          _captcha:
+            "false"
+        };
+
+
+        try {
+
+          const response =
+            await fetch(
+              "https://formsubmit.co/ajax/wbabula78@gmail.com",
+              {
+                method: "POST",
+
+                headers: {
+                  "Content-Type":
+                    "application/json",
+
+                  "Accept":
+                    "application/json"
+                },
+
+                body:
+                  JSON.stringify(data)
+              }
+            );
+
+
+          if (!response.ok) {
+            throw new Error(
+              "Form submission failed"
+            );
+          }
+
+
+          status.textContent =
+            "Message sent. Thank you!";
+
+
+          form.reset();
+
+
+        } catch (error) {
+
+          status.textContent =
+            "Something went wrong. Please try again.";
+
+        }
+
+      }
+    );
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Digital Design — wikivisual.co</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #fbfaf8;
+      color: #151515;
+
+      font-family: "IBM Plex Mono", monospace;
+
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* =========================
+       PAGE
+       ========================= */
+
+    .design-page {
+      width: 100%;
+      min-height: 100vh;
+
+      padding:
+        22px
+        34px
+        26px;
+    }
+
+    /* =========================
+       HEADER
+       ========================= */
+
+    .site-header {
+      position: relative;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      z-index: 9999;
+    }
+
+    /* =========================
+       LOGO
+       ========================= */
+
+    .logo {
+      position: relative;
+
+      z-index: 9999;
+
+      font-size:
+        clamp(
+          24px,
+          2vw,
+          38px
+        );
+
+      font-weight: 600;
+
+      letter-spacing: -0.06em;
+
+      line-height: 1;
+
+      color: #111;
+    }
+
+    /* =========================
+       DIGITAL DESIGN TITLE
+       ========================= */
+
+    .section-title {
+      margin-top: 9px;
+
+      font-size:
+        clamp(
+          8px,
+          0.65vw,
+          11px
+        );
+
+      font-weight: 300;
+
+      letter-spacing: 0.28em;
+
+      text-transform: uppercase;
+
+      color: #777;
+    }
+
+    /* =========================
+       TOP NAVIGATION
+       ========================= */
+
+    .top-nav {
+      position: absolute;
+
+      top: 1px;
+      right: 0;
+
+      display: flex;
+      align-items: center;
+
+      gap: 28px;
+
+      z-index: 99999;
+
+      font-size:
+        clamp(
+          8px,
+          0.65vw,
+          11px
+        );
+
+      font-weight: 300;
+
+      letter-spacing: 0.16em;
+
+      text-transform: uppercase;
+
+      color: #555;
+    }
+
+    .top-nav a {
+      position: relative;
+
+      z-index: 99999;
+
+      display: block;
+
+      cursor: pointer;
+
+      pointer-events: auto;
+
+      transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    .top-nav a:hover {
+      opacity: 0.5;
+
+      transform:
+        translateY(-1px);
+    }
+
+    /* =========================
+       COLLAGE AREA
+       ========================= */
+
+    .collage {
+      position: relative;
+
+      width:
+        min(
+          1500px,
+          96vw
+        );
+
+      height:
+        min(
+          760px,
+          calc(100vh - 105px)
+        );
+
+      min-height: 620px;
+
+      margin:
+        10px
+        auto
+        0;
+
+      z-index: 1;
+    }
+
+    /* =========================
+       PROJECTS
+       ========================= */
+
+    .project {
+      position: absolute;
+
+      display: block;
+
+      z-index: 5;
+
+      transition:
+        transform 0.45s ease,
+        filter 0.45s ease;
+    }
+
+    .project:hover {
+      z-index: 20;
+    }
+
+    .placeholder {
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #e4e0da;
+
+      font-size: 10px;
+
+      font-weight: 300;
+
+      letter-spacing: 0.15em;
+
+      text-transform: uppercase;
+
+      color: #777;
+
+      text-align: center;
+    }
+
+    /* =========================
+       PROJECT POSITIONS
+       ========================= */
+
+    .prelude {
+      width: 27%;
+      height: 30%;
+
+      left: 8%;
+      top: 9%;
+
+      transform: rotate(6deg);
+    }
+
+    .prelude:hover {
+      transform:
+        rotate(4deg)
+        scale(1.015);
+    }
+
+
+    .mycunyevent {
+      width: 32%;
+      height: 34%;
+
+      left: 37%;
+      top: 20%;
+
+      transform: rotate(-1deg);
+    }
+
+    .mycunyevent:hover {
+      transform:
+        rotate(0deg)
+        scale(1.015);
+    }
+
+
+    .sentrix {
+      width: 21%;
+      height: 43%;
+
+      right: 7%;
+      top: 7%;
+
+      transform: rotate(4deg);
+    }
+
+    .sentrix:hover {
+      transform:
+        rotate(2deg)
+        scale(1.015);
+    }
+
+
+    .glowr {
+      width: 22%;
+      height: 35%;
+
+      left: 10%;
+      bottom: 5%;
+
+      transform: rotate(-6deg);
+    }
+
+    .glowr:hover {
+      transform:
+        rotate(-4deg)
+        scale(1.015);
+    }
+
+
+    .amazon {
+      width: 35%;
+      height: 30%;
+
+      right: 7%;
+      bottom: 5%;
+
+      transform: rotate(-2deg);
+    }
+
+    .amazon:hover {
+      transform:
+        rotate(0deg)
+        scale(1.015);
+    }
+
+    /* =========================
+       LABELS
+       ========================= */
+
+    .label {
+      position: absolute;
+
+      z-index: 30;
+
+      font-size:
+        clamp(
+          8px,
+          0.66vw,
+          11px
+        );
+
+      font-weight: 300;
+
+      letter-spacing: 0.13em;
+
+      text-transform: uppercase;
+
+      white-space: nowrap;
+
+      color: #333;
+    }
+
+    .prelude-label {
+      left: 1%;
+      top: 15%;
+    }
+
+    .mycuny-label {
+      left: 64%;
+      top: 15%;
+    }
+
+    .sentrix-label {
+      right: 1%;
+      top: 8%;
+    }
+
+    .glowr-label {
+      left: 2%;
+      bottom: 17%;
+    }
+
+    .amazon-label {
+      right: 2%;
+      bottom: 8%;
+    }
+
+    /* =========================
+       GLASS DETAILS
+       ========================= */
+
+    .glass {
+      position: absolute;
+
+      z-index: 15;
+
+      background:
+        repeating-linear-gradient(
+          90deg,
+          rgba(255,255,255,0.63) 0,
+          rgba(255,255,255,0.63) 5px,
+          rgba(190,190,190,0.18) 6px,
+          rgba(255,255,255,0.25) 11px
+        );
+
+      backdrop-filter: blur(11px);
+
+      -webkit-backdrop-filter: blur(11px);
+
+      opacity: 0.75;
+
+      pointer-events: none;
+    }
+
+    .glass-1 {
+      width: 8%;
+      height: 17%;
+
+      left: 4%;
+      top: 30%;
+
+      transform: rotate(-6deg);
+    }
+
+    .glass-2 {
+      width: 10%;
+      height: 19%;
+
+      right: 13%;
+      top: 33%;
+
+      transform: rotate(7deg);
+    }
+
+    .glass-3 {
+      width: 12%;
+      height: 17%;
+
+      left: 58%;
+      bottom: 1%;
+
+      transform: rotate(-6deg);
+    }
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 850px) {
+
+      .design-page {
+        padding:
+          22px
+          18px
+          40px;
+      }
+
+      .top-nav {
+        position: static;
+
+        margin-top: 16px;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 22px;
+      }
+
+      .collage {
+        height: auto;
+        min-height: 0;
+
+        margin-top: 40px;
+
+        display: grid;
+
+        grid-template-columns:
+          1fr 1fr;
+
+        gap: 16px;
+      }
+
+      .project {
+        position: relative;
+
+        inset: auto !important;
+
+        width: 100% !important;
+        height: 280px !important;
+
+        transform: none !important;
+      }
+
+      .label,
+      .glass {
+        display: none;
+      }
+
+    }
+
+    @media (max-width: 580px) {
+
+      .collage {
+        grid-template-columns: 1fr;
+      }
+
+      .project {
+        height: 330px !important;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <main class="design-page">
+
+    <!-- =========================
+         HEADER
+         ========================= -->
+
+    <header class="site-header">
+
+      <a
+        href="index.html"
+        class="logo"
+      >
+        wikivisual.co
+      </a>
+
+      <div class="section-title">
+        Digital Design
+      </div>
+
+      <nav class="top-nav">
+
+        <a href="photography.html">
+          Photography
+        </a>
+
+        <a href="about.html">
+          About Me
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+      </nav>
+
+    </header>
+
+
+    <!-- =========================
+         PROJECT COLLAGE
+         ========================= -->
+
+    <section class="collage">
+
+
+      <!-- PRELUDE -->
+
+      <a
+        href="#prelude"
+        class="project prelude"
+      >
+
+        <div class="placeholder">
+          Prelude
+        </div>
+
+      </a>
+
+
+      <!-- MY CUNY EVENT -->
+
+      <a
+        href="#mycunyevent"
+        class="project mycunyevent"
+      >
+
+        <div class="placeholder">
+          mycunyevent
+        </div>
+
+      </a>
+
+
+      <!-- SENTRIX -->
+
+      <a
+        href="#sentrix"
+        class="project sentrix"
+      >
+
+        <div class="placeholder">
+          Sentrix
+        </div>
+
+      </a>
+
+
+      <!-- GLOWR -->
+
+      <a
+        href="#glowr"
+        class="project glowr"
+      >
+
+        <div class="placeholder">
+          Glowr
+        </div>
+
+      </a>
+
+
+      <!-- AMAZON PRIME -->
+
+      <a
+        href="#student-amazon-prime"
+        class="project amazon"
+      >
+
+        <div class="placeholder">
+          Student Amazon Prime
+        </div>
+
+      </a>
+
+
+      <!-- =========================
+           LABELS
+           ========================= -->
+
+      <div class="label prelude-label">
+        Prelude
+      </div>
+
+      <div class="label mycuny-label">
+        mycunyevent
+      </div>
+
+      <div class="label sentrix-label">
+        Sentrix
+      </div>
+
+      <div class="label glowr-label">
+        Glowr
+      </div>
+
+      <div class="label amazon-label">
+        Student Amazon Prime
+      </div>
+
+
+      <!-- =========================
+           GLASS DETAILS
+           ========================= -->
+
+      <div class="glass glass-1"></div>
+      <div class="glass glass-2"></div>
+      <div class="glass glass-3"></div>
+
+
+    </section>
+
+  </main>
+
+</body>
+
+</html>
