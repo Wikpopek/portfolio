@@ -16,6 +16,7 @@
   />
 
   <style>
+
     * {
       margin: 0;
       padding: 0;
@@ -135,8 +136,6 @@
       -webkit-user-drag: none;
     }
 
-    /* AMAZON */
-
     .amazon {
       width: 39%;
       height: 40%;
@@ -149,8 +148,6 @@
       transform: rotate(2deg) scale(1.02);
     }
 
-    /* SENTRIX */
-
     .sentrix {
       width: 38%;
       height: 55%;
@@ -162,8 +159,6 @@
     .sentrix:hover {
       transform: rotate(1deg) scale(1.02);
     }
-
-    /* MY CUNY EVENT */
 
     .mycunyevent {
       width: 37%;
@@ -178,8 +173,6 @@
       transform: rotate(0deg) scale(1.02);
     }
 
-    /* GLOWR */
-
     .glowr {
       width: 43%;
       height: 45%;
@@ -191,8 +184,6 @@
     .glowr:hover {
       transform: rotate(-1deg) scale(1.02);
     }
-
-    /* PRELUDE */
 
     .prelude {
       width: 29%;
@@ -236,8 +227,6 @@
       stroke-linejoin: round;
     }
 
-    /* AMAZON */
-
     .annotation-amazon {
       left: 1%;
       top: 13%;
@@ -249,8 +238,6 @@
       margin-top: 5px;
       margin-left: 20px;
     }
-
-    /* SENTRIX */
 
     .annotation-sentrix {
       right: 0%;
@@ -266,8 +253,6 @@
       margin-right: 16px;
     }
 
-    /* GLOWR */
-
     .annotation-glowr {
       left: 1%;
       bottom: 25%;
@@ -279,8 +264,6 @@
       margin-top: 4px;
       margin-left: 18px;
     }
-
-    /* MY CUNY EVENT */
 
     .annotation-mycuny {
       left: 53.5%;
@@ -294,12 +277,6 @@
       display: block;
       margin: 0 auto 2px;
     }
-
-    .annotation-mycuny .annotation-text {
-      text-align: center;
-    }
-
-    /* PRELUDE */
 
     .annotation-prelude {
       right: 1%;
@@ -315,7 +292,7 @@
       margin-right: 12px;
     }
 
-    /* RIBBED GLASS / PLASTIC */
+    /* GLASS */
 
     .glass {
       position: absolute;
@@ -324,47 +301,26 @@
       background:
         linear-gradient(
           180deg,
-          rgba(255, 255, 255, 0.48),
-          rgba(255, 255, 255, 0.14)
+          rgba(255,255,255,0.48),
+          rgba(255,255,255,0.14)
         ),
         repeating-linear-gradient(
           90deg,
-          rgba(255, 255, 255, 0.76) 0px,
-          rgba(255, 255, 255, 0.76) 4px,
-          rgba(210, 210, 210, 0.16) 5px,
-          rgba(255, 255, 255, 0.30) 8px,
-          rgba(170, 170, 170, 0.10) 9px,
-          rgba(255, 255, 255, 0.60) 12px
+          rgba(255,255,255,0.76) 0px,
+          rgba(255,255,255,0.76) 4px,
+          rgba(210,210,210,0.16) 5px,
+          rgba(255,255,255,0.30) 8px,
+          rgba(170,170,170,0.10) 9px,
+          rgba(255,255,255,0.60) 12px
         );
 
       backdrop-filter: blur(14px) saturate(0.88);
       -webkit-backdrop-filter: blur(14px) saturate(0.88);
 
-      box-shadow:
-        0 14px 30px rgba(0, 0, 0, 0.045),
-        inset 0 1px 0 rgba(255, 255, 255, 0.74),
-        inset 0 -1px 0 rgba(255, 255, 255, 0.25);
-
       opacity: 0.86;
       pointer-events: none;
       z-index: 20;
     }
-
-    .glass::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-
-      background:
-        linear-gradient(
-          110deg,
-          rgba(255, 255, 255, 0.25),
-          rgba(255, 255, 255, 0.03) 45%,
-          rgba(255, 255, 255, 0.22)
-        );
-    }
-
-    /* AMAZON LEFT */
 
     .glass-1 {
       width: 11%;
@@ -374,8 +330,6 @@
       transform: rotate(-5deg);
     }
 
-    /* MYCUNYEVENT - DOLNA POZIOMA */
-
     .glass-2 {
       width: 15%;
       height: 13%;
@@ -383,8 +337,6 @@
       bottom: 11%;
       transform: rotate(3deg);
     }
-
-    /* SENTRIX - ZA ROBOTEM */
 
     .glass-3 {
       width: 11%;
@@ -395,8 +347,6 @@
       z-index: 2;
     }
 
-    /* GLOWR */
-
     .glass-4 {
       width: 14%;
       height: 17%;
@@ -404,8 +354,6 @@
       bottom: 5%;
       transform: rotate(-4deg);
     }
-
-    /* PRELUDE */
 
     .glass-5 {
       width: 18%;
@@ -421,13 +369,10 @@
       position: absolute;
       left: 1%;
       bottom: 0;
-
       display: flex;
       align-items: center;
       gap: 17px;
-
       z-index: 50;
-
       font-size: 8px;
       font-weight: 300;
       letter-spacing: 0.34em;
@@ -441,9 +386,140 @@
       background: #999;
     }
 
+    /* PROJECT OVERLAY */
+
+    body.project-open {
+      overflow: hidden;
+    }
+
+    .project-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 20000;
+
+      display: none;
+
+      width: 100%;
+      height: 100vh;
+
+      background: #fbfaf8;
+
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .project-overlay.is-open {
+      display: block;
+    }
+
+    .project-close {
+      position: fixed;
+      top: 24px;
+      right: 30px;
+
+      z-index: 20002;
+
+      width: 44px;
+      height: 44px;
+
+      border: none;
+      background: transparent;
+
+      color: #151515;
+
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 30px;
+      font-weight: 300;
+
+      cursor: pointer;
+    }
+
+    .project-close:hover {
+      opacity: 0.55;
+    }
+
+    .project-view {
+      width: 100%;
+      min-height: 100vh;
+
+      padding: 72px 28px 40px;
+
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .project-image-wrap {
+      position: relative;
+
+      width: 100%;
+      max-width: 1600px;
+
+      margin: 0 auto;
+    }
+
+    .project-image-wrap img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* TEST LINKS */
+
+    .test-link {
+      position: absolute;
+
+      left: 50%;
+      transform: translateX(-50%);
+
+      z-index: 500;
+
+      display: inline-block;
+
+      font-size: 52px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      line-height: 1;
+
+      text-transform: uppercase;
+      color: #000;
+
+      border-bottom: 6px solid #000;
+      padding-bottom: 6px;
+
+      background: transparent;
+
+      cursor: pointer;
+
+      transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    .test-link:hover {
+      opacity: 0.55;
+
+      transform:
+        translateX(-50%)
+        translateY(-2px);
+    }
+
+    /* MY CUNY EVENT */
+
+    .mycuny-test-link {
+      top: 65%;
+    }
+
+    /* GLOWR */
+
+    .glowr-test-link {
+      top: 79%;
+    }
+
     /* MOBILE */
 
     @media (max-width: 850px) {
+
       .design-page {
         padding: 22px 18px 40px;
       }
@@ -469,8 +545,10 @@
       .project {
         position: relative;
         inset: auto !important;
+
         width: 100% !important;
         height: 340px !important;
+
         transform: none !important;
       }
 
@@ -479,9 +557,38 @@
       .design-mark {
         display: none;
       }
+
+      .project-view {
+        padding: 68px 12px 24px;
+      }
+
+      .project-image-wrap {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .project-close {
+        top: 14px;
+        right: 14px;
+      }
+
+      .test-link {
+        font-size: 30px;
+        border-bottom: 4px solid #000;
+        padding-bottom: 4px;
+      }
+
+      .mycuny-test-link {
+        top: 65%;
+      }
+
+      .glowr-test-link {
+        top: 79%;
+      }
     }
 
     @media (max-width: 580px) {
+
       .collage {
         grid-template-columns: 1fr;
       }
@@ -489,7 +596,13 @@
       .project {
         height: 360px !important;
       }
+
+      .test-link {
+        font-size: 22px;
+        border-bottom: 3px solid #000;
+      }
     }
+
   </style>
 </head>
 
@@ -517,46 +630,47 @@
 
     <section class="collage">
 
-      <!-- PROJECTS -->
-
-      <a href="#student-amazon-prime" class="project amazon">
+      <a href="#" class="project amazon" data-project="amazon-project">
         <img
           src="images/digital-design/amazon.png"
           alt="Student Amazon Prime"
         />
       </a>
 
-      <a href="#sentrix" class="project sentrix">
+      <a href="#" class="project sentrix" data-project="sentrix-project">
         <img
           src="images/digital-design/sentrix.png"
           alt="Sentrix"
         />
       </a>
 
-      <a href="#mycunyevent" class="project mycunyevent">
+      <a
+        href="#"
+        class="project mycunyevent"
+        data-project="mycunyevent-project"
+      >
         <img
           src="images/digital-design/mycunyevent.png"
           alt="myCUNYevent"
         />
       </a>
 
-      <a href="#glowr" class="project glowr">
+      <a href="#" class="project glowr" data-project="glowr-project">
         <img
           src="images/digital-design/glowr.png"
           alt="Glowr"
         />
       </a>
 
-      <a href="#prelude" class="project prelude">
+      <a href="#" class="project prelude" data-project="prelude-project">
         <img
           src="images/digital-design/prelude.png"
           alt="Prelude"
         />
       </a>
 
-      <!-- AMAZON -->
-
       <div class="annotation annotation-amazon">
+
         <div class="annotation-text">
           Student Amazon Prime
         </div>
@@ -565,11 +679,11 @@
           <path d="M 6 5 C 12 24, 30 40, 62 47" />
           <path d="M 53 40 L 65 48 L 52 54" />
         </svg>
+
       </div>
 
-      <!-- SENTRIX -->
-
       <div class="annotation annotation-sentrix">
+
         <div class="annotation-text">
           Sentrix
         </div>
@@ -578,11 +692,11 @@
           <path d="M 84 5 C 78 24, 64 39, 39 47" />
           <path d="M 48 39 L 37 48 L 51 49" />
         </svg>
+
       </div>
 
-      <!-- GLOWR -->
-
       <div class="annotation annotation-glowr">
+
         <div class="annotation-text">
           Glowr
         </div>
@@ -591,9 +705,8 @@
           <path d="M 5 5 C 12 24, 28 38, 59 44" />
           <path d="M 50 37 L 62 45 L 49 51" />
         </svg>
-      </div>
 
-      <!-- MY CUNY EVENT -->
+      </div>
 
       <div class="annotation annotation-mycuny">
 
@@ -608,9 +721,8 @@
 
       </div>
 
-      <!-- PRELUDE -->
-
       <div class="annotation annotation-prelude">
+
         <div class="annotation-text">
           Prelude
         </div>
@@ -619,17 +731,14 @@
           <path d="M 77 5 C 73 23, 61 37, 39 45" />
           <path d="M 48 37 L 37 46 L 51 47" />
         </svg>
-      </div>
 
-      <!-- GLASS -->
+      </div>
 
       <div class="glass glass-1"></div>
       <div class="glass glass-2"></div>
       <div class="glass glass-3"></div>
       <div class="glass glass-4"></div>
       <div class="glass glass-5"></div>
-
-      <!-- MARK -->
 
       <div class="design-mark">
         <div class="design-mark-line"></div>
@@ -639,6 +748,249 @@
     </section>
 
   </main>
+
+  <!-- AMAZON -->
+
+  <section class="project-overlay" id="amazon-project">
+
+    <button class="project-close" type="button">
+      ×
+    </button>
+
+    <div class="project-view">
+
+      <div class="project-image-wrap">
+
+        <img
+          src="images/digital-design/amazon-project.png"
+          alt="Amazon project"
+        />
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SENTRIX -->
+
+  <section class="project-overlay" id="sentrix-project">
+
+    <button class="project-close" type="button">
+      ×
+    </button>
+
+    <div class="project-view">
+
+      <div class="project-image-wrap">
+
+        <img
+          src="images/digital-design/sentrix-project.png"
+          alt="Sentrix project"
+        />
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- MY CUNY EVENT -->
+
+  <section class="project-overlay" id="mycunyevent-project">
+
+    <button class="project-close" type="button">
+      ×
+    </button>
+
+    <div class="project-view">
+
+      <div class="project-image-wrap">
+
+        <img
+          src="images/digital-design/mycunyevent-project.png"
+          alt="myCUNYevent project"
+        />
+
+        <a
+          class="test-link mycuny-test-link"
+          href="https://www.figma.com/proto/CUJ5Ha4LzIp4fa2fnLKCdf/Prototype?node-id=7-12&t=e3IU8UQCXpi0z9qL-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=7%3A12"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          TEST
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- GLOWR -->
+
+  <section class="project-overlay" id="glowr-project">
+
+    <button class="project-close" type="button">
+      ×
+    </button>
+
+    <div class="project-view">
+
+      <div class="project-image-wrap">
+
+        <img
+          src="images/digital-design/glowr-project.png"
+          alt="Glowr project"
+        />
+
+        <a
+          class="test-link glowr-test-link"
+          href="https://www.figma.com/proto/WmrODy13DxAA6ea96hJA5m/Untitled?node-id=194-10&t=7vDVXG4LVbQJmouJ-0&scaling=scale-down&content-scaling=fixed&page-id=20%3A43&starting-point-node-id=194%3A232"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          TEST
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PRELUDE -->
+
+  <section class="project-overlay" id="prelude-project">
+
+    <button class="project-close" type="button">
+      ×
+    </button>
+
+    <div class="project-view">
+
+      <div class="project-image-wrap">
+
+        <img
+          src="images/digital-design/prelude-project.png"
+          alt="Prelude project"
+        />
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <script>
+
+    const projectTriggers =
+      document.querySelectorAll("[data-project]");
+
+    const projectOverlays =
+      document.querySelectorAll(".project-overlay");
+
+    const closeButtons =
+      document.querySelectorAll(".project-close");
+
+
+    function openProject(projectId) {
+
+      const overlay =
+        document.getElementById(projectId);
+
+      if (!overlay) return;
+
+      overlay.classList.add("is-open");
+
+      document.body.classList.add(
+        "project-open"
+      );
+
+      overlay.scrollTop = 0;
+    }
+
+
+    function closeProject(overlay) {
+
+      if (!overlay) return;
+
+      overlay.classList.remove("is-open");
+
+      document.body.classList.remove(
+        "project-open"
+      );
+    }
+
+
+    projectTriggers.forEach(
+      function(trigger) {
+
+        trigger.addEventListener(
+          "click",
+          function(event) {
+
+            event.preventDefault();
+
+            const projectId =
+              trigger.dataset.project;
+
+            openProject(projectId);
+
+          }
+        );
+
+      }
+    );
+
+
+    closeButtons.forEach(
+      function(button) {
+
+        button.addEventListener(
+          "click",
+          function() {
+
+            const overlay =
+              button.closest(".project-overlay");
+
+            closeProject(overlay);
+
+          }
+        );
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (event.key === "Escape") {
+
+          projectOverlays.forEach(
+            function(overlay) {
+
+              if (
+                overlay.classList.contains(
+                  "is-open"
+                )
+              ) {
+
+                closeProject(overlay);
+
+              }
+
+            }
+          );
+
+        }
+
+      }
+    );
+
+  </script>
 
 </body>
 
