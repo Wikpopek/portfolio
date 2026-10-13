@@ -42,13 +42,19 @@
       text-decoration: none;
     }
 
+    /* =========================
+       PAGE
+    ========================= */
+
     .design-page {
       width: 100%;
       min-height: 100vh;
       padding: 22px 30px 28px;
     }
 
-    /* HEADER */
+    /* =========================
+       HEADER
+    ========================= */
 
     .site-header {
       position: relative;
@@ -79,10 +85,13 @@
       position: absolute;
       top: 1px;
       right: 0;
+
       display: flex;
       align-items: center;
       gap: 28px;
+
       z-index: 9999;
+
       font-size: clamp(8px, 0.65vw, 11px);
       font-weight: 300;
       letter-spacing: 0.16em;
@@ -101,7 +110,9 @@
       transform: translateY(-1px);
     }
 
-    /* COLLAGE */
+    /* =========================
+       DESKTOP COLLAGE
+    ========================= */
 
     .collage {
       position: relative;
@@ -111,14 +122,14 @@
       overflow: visible;
     }
 
-    /* PROJECTS */
-
     .project {
       position: absolute;
       display: block;
       z-index: 5;
       cursor: pointer;
-      transition: transform 0.4s ease;
+
+      transition:
+        transform 0.4s ease;
     }
 
     .project:hover {
@@ -128,13 +139,19 @@
     .project img {
       width: 100%;
       height: 100%;
+
       display: block;
+
       object-fit: contain;
       object-position: center;
+
       background: transparent;
+
       user-select: none;
       -webkit-user-drag: none;
     }
+
+    /* AMAZON */
 
     .amazon {
       width: 39%;
@@ -148,10 +165,12 @@
       transform: rotate(2deg) scale(1.02);
     }
 
+    /* SENTRIX */
+
     .sentrix {
       width: 38%;
       height: 55%;
-      right: 4%;
+      right: -1%;
       top: 0%;
       transform: rotate(3deg);
     }
@@ -159,6 +178,23 @@
     .sentrix:hover {
       transform: rotate(1deg) scale(1.02);
     }
+
+    /* VICTORIA */
+
+    .victoria {
+      width: 21%;
+      height: 20%;
+      left: 55%;
+      top: 7%;
+      transform: rotate(2deg);
+      z-index: 12;
+    }
+
+    .victoria:hover {
+      transform: rotate(0deg) scale(1.03);
+    }
+
+    /* MY CUNY EVENT */
 
     .mycunyevent {
       width: 37%;
@@ -173,6 +209,8 @@
       transform: rotate(0deg) scale(1.02);
     }
 
+    /* GLOWR */
+
     .glowr {
       width: 43%;
       height: 45%;
@@ -184,6 +222,8 @@
     .glowr:hover {
       transform: rotate(-1deg) scale(1.02);
     }
+
+    /* PRELUDE */
 
     .prelude {
       width: 29%;
@@ -197,7 +237,9 @@
       transform: rotate(-1deg) scale(1.02);
     }
 
-    /* ANNOTATIONS */
+    /* =========================
+       ANNOTATIONS
+    ========================= */
 
     .annotation {
       position: absolute;
@@ -240,7 +282,7 @@
     }
 
     .annotation-sentrix {
-      right: 0%;
+      right: -1%;
       top: 10%;
       text-align: right;
     }
@@ -251,6 +293,19 @@
       margin-top: 5px;
       margin-left: auto;
       margin-right: 16px;
+    }
+
+    .annotation-victoria {
+      left: 65%;
+      top: 25%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+
+    .annotation-victoria svg {
+      width: 76px;
+      height: 52px;
+      margin: 0 auto 2px;
     }
 
     .annotation-glowr {
@@ -292,7 +347,9 @@
       margin-right: 12px;
     }
 
-    /* GLASS */
+    /* =========================
+       GLASS
+    ========================= */
 
     .glass {
       position: absolute;
@@ -363,16 +420,21 @@
       transform: rotate(4deg);
     }
 
-    /* BOTTOM MARK */
+    /* =========================
+       DESIGN MARK
+    ========================= */
 
     .design-mark {
       position: absolute;
       left: 1%;
       bottom: 0;
+
       display: flex;
       align-items: center;
       gap: 17px;
+
       z-index: 50;
+
       font-size: 8px;
       font-weight: 300;
       letter-spacing: 0.34em;
@@ -386,7 +448,9 @@
       background: #999;
     }
 
-    /* PROJECT OVERLAY */
+    /* =========================
+       MODALS
+    ========================= */
 
     body.project-open {
       overflow: hidden;
@@ -395,6 +459,7 @@
     .project-overlay {
       position: fixed;
       inset: 0;
+
       z-index: 20000;
 
       display: none;
@@ -402,59 +467,69 @@
       width: 100%;
       height: 100vh;
 
+      padding: 5vh 5vw;
+
+      justify-content: center;
+      align-items: center;
+
+      background:
+        rgba(20, 20, 20, 0.15);
+
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+
+    .project-overlay.is-open {
+      display: flex;
+    }
+
+    .project-view {
+      position: relative;
+
+      width: min(900px, 86vw);
+      max-height: 84vh;
+
+      padding: 16px;
+
       background: #fbfaf8;
 
       overflow-y: auto;
       overflow-x: hidden;
+
+      border-radius: 3px;
+
+      box-shadow:
+        0 30px 80px
+        rgba(0, 0, 0, 0.22);
+
+      animation:
+        projectAppear
+        0.32s ease;
     }
 
-    .project-overlay.is-open {
-      display: block;
-    }
+    @keyframes projectAppear {
 
-    .project-close {
-      position: fixed;
-      top: 24px;
-      right: 30px;
+      from {
+        opacity: 0;
 
-      z-index: 20002;
+        transform:
+          translateY(14px)
+          scale(0.97);
+      }
 
-      width: 44px;
-      height: 44px;
+      to {
+        opacity: 1;
 
-      border: none;
-      background: transparent;
+        transform:
+          translateY(0)
+          scale(1);
+      }
 
-      color: #151515;
-
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 30px;
-      font-weight: 300;
-
-      cursor: pointer;
-    }
-
-    .project-close:hover {
-      opacity: 0.55;
-    }
-
-    .project-view {
-      width: 100%;
-      min-height: 100vh;
-
-      padding: 72px 28px 40px;
-
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
     }
 
     .project-image-wrap {
       position: relative;
-
       width: 100%;
-      max-width: 1600px;
-
       margin: 0 auto;
     }
 
@@ -464,93 +539,384 @@
       height: auto;
     }
 
-    /* TEST LINKS */
+    /* CLOSE */
+
+    .project-close {
+      position: fixed;
+
+      top: 25px;
+      right: 30px;
+
+      z-index: 20005;
+
+      width: 42px;
+      height: 42px;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,255,255,0.95);
+
+      color: #151515;
+
+      font-family:
+        "IBM Plex Mono",
+        monospace;
+
+      font-size: 27px;
+      font-weight: 300;
+
+      line-height: 1;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 6px 22px
+        rgba(0,0,0,0.10);
+
+      transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+    }
+
+    .project-close:hover {
+      opacity: 0.65;
+
+      transform:
+        rotate(8deg);
+    }
+
+    /* =========================
+       TEST LINKS
+    ========================= */
 
     .test-link {
       position: absolute;
 
       left: 50%;
-      transform: translateX(-50%);
+
+      transform:
+        translateX(-50%);
 
       z-index: 500;
 
       display: inline-block;
 
-      font-size: 52px;
+      font-size: 42px;
       font-weight: 600;
+
       letter-spacing: 0.06em;
       line-height: 1;
 
       text-transform: uppercase;
+
       color: #000;
 
-      border-bottom: 6px solid #000;
+      border-bottom:
+        5px solid #000;
+
       padding-bottom: 6px;
 
       background: transparent;
 
       cursor: pointer;
-
-      transition:
-        opacity 0.3s ease,
-        transform 0.3s ease;
     }
-
-    .test-link:hover {
-      opacity: 0.55;
-
-      transform:
-        translateX(-50%)
-        translateY(-2px);
-    }
-
-    /* MY CUNY EVENT */
 
     .mycuny-test-link {
       top: 65%;
     }
 
-    /* GLOWR */
-
     .glowr-test-link {
       top: 79%;
     }
 
-    /* MOBILE */
+    /* =========================
+       VICTORIA MODAL
+    ========================= */
+
+    .victoria-project-view {
+      position: relative;
+
+      width: min(1000px, 90vw);
+      max-height: 86vh;
+
+      padding: 18px;
+
+      background: #fbfaf8;
+
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      border-radius: 3px;
+
+      box-shadow:
+        0 30px 80px
+        rgba(0,0,0,0.22);
+
+      animation:
+        projectAppear
+        0.32s ease;
+    }
+
+    .victoria-hero {
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .victoria-hero img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* =========================
+       BROCHURE
+    ========================= */
+
+    .brochure-section {
+      width: 100%;
+
+      margin-top: 45px;
+
+      padding:
+        55px
+        15px
+        65px;
+
+      background: #fff;
+
+      text-align: center;
+    }
+
+    .brochure-heading {
+      font-size:
+        clamp(
+          16px,
+          1.5vw,
+          23px
+        );
+
+      font-weight: 400;
+
+      letter-spacing: 0.08em;
+
+      text-transform: uppercase;
+    }
+
+    .brochure-subtitle {
+      margin-top: 10px;
+      margin-bottom: 35px;
+
+      font-size: 8px;
+
+      letter-spacing: 0.16em;
+
+      text-transform: uppercase;
+
+      color: #888;
+    }
+
+    .brochure-stage {
+      width: 100%;
+
+      min-height: 620px;
+
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+
+      overflow: hidden;
+
+      perspective: 2200px;
+    }
+
+    #victoria-book {
+      margin: 0 auto;
+    }
+
+    .brochure-page {
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .brochure-page canvas {
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      background: #fff;
+    }
+
+    .brochure-loading {
+      padding: 80px 20px;
+
+      font-size: 10px;
+
+      letter-spacing: 0.15em;
+
+      text-transform: uppercase;
+
+      color: #999;
+    }
+
+    .brochure-controls {
+      margin-top: 30px;
+
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+
+      gap: 30px;
+    }
+
+    .brochure-controls button {
+      border: none;
+
+      background: transparent;
+
+      font-family:
+        "IBM Plex Mono",
+        monospace;
+
+      font-size: 9px;
+
+      letter-spacing: 0.16em;
+
+      cursor: pointer;
+    }
+
+    #brochure-page-number {
+      font-size: 9px;
+      color: #999;
+    }
+
+
+    /* ==========================================
+       MOBILE
+       COMPLETELY DIFFERENT LAYOUT
+    ========================================== */
 
     @media (max-width: 850px) {
 
-      .design-page {
-        padding: 22px 18px 40px;
+      body {
+        background: #fbfaf8;
       }
+
+
+      .design-page {
+        padding:
+          20px
+          16px
+          50px;
+      }
+
+
+      /* HEADER */
+
+      .site-header {
+        align-items: flex-start;
+      }
+
+
+      .logo {
+        font-size: 28px;
+      }
+
+
+      .section-title {
+        margin-top: 8px;
+
+        font-size: 9px;
+
+        letter-spacing: 0.22em;
+      }
+
 
       .top-nav {
         position: static;
-        margin-top: 16px;
-        justify-content: center;
+
+        width: 100%;
+
+        margin-top: 22px;
+
+        display: flex;
+
+        justify-content: flex-start;
+
+        gap: 18px;
+
         flex-wrap: wrap;
-        gap: 22px;
+
+        font-size: 9px;
       }
+
+
+      /* PROJECT LIST */
 
       .collage {
         width: 100%;
-        height: auto;
-        margin-top: 40px;
 
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 28px;
+        height: auto;
+
+        margin-top: 42px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 40px;
       }
 
+
+      /* PROJECT */
+
       .project {
-        position: relative;
+        position: relative !important;
+
         inset: auto !important;
 
         width: 100% !important;
-        height: 340px !important;
+
+        height: auto !important;
+
+        transform: none !important;
+
+        display: block;
+
+        z-index: auto;
+
+        padding-bottom: 15px;
+
+        border-bottom:
+          1px solid
+          rgba(0,0,0,0.12);
+      }
+
+
+      .project:hover {
+        transform: none !important;
+      }
+
+
+      .project img {
+        width: 100%;
+
+        height: auto;
+
+        display: block;
+
+        object-fit: contain;
 
         transform: none !important;
       }
+
+
+      /* HIDE DESKTOP DECORATION */
 
       .annotation,
       .glass,
@@ -558,53 +924,290 @@
         display: none;
       }
 
-      .project-view {
-        padding: 68px 12px 24px;
+
+      /* MOBILE PROJECT NAMES */
+
+      .project::after {
+        display: block;
+
+        margin-top: 13px;
+
+        font-family:
+          "IBM Plex Mono",
+          monospace;
+
+        font-size: 10px;
+
+        font-weight: 400;
+
+        letter-spacing: 0.15em;
+
+        text-transform: uppercase;
+
+        color: #222;
       }
+
+
+      .amazon::after {
+        content:
+          "Student Amazon Prime";
+      }
+
+
+      .sentrix::after {
+        content:
+          "Sentrix";
+      }
+
+
+      .victoria::after {
+        content:
+          "Victoria Cruises";
+      }
+
+
+      .mycunyevent::after {
+        content:
+          "myCUNYevent";
+      }
+
+
+      .glowr::after {
+        content:
+          "Glowr";
+      }
+
+
+      .prelude::after {
+        content:
+          "Prelude";
+      }
+
+
+      /* MODAL MOBILE */
+
+      .project-overlay {
+        padding:
+          18px
+          12px;
+
+        align-items: center;
+
+        background:
+          rgba(
+            20,
+            20,
+            20,
+            0.22
+          );
+      }
+
+
+      .project-view {
+        width: 100%;
+
+        max-height: 88vh;
+
+        padding: 10px;
+
+        border-radius: 2px;
+      }
+
 
       .project-image-wrap {
         width: 100%;
-        max-width: 100%;
       }
+
+
+      .project-image-wrap img {
+        width: 100%;
+
+        height: auto;
+      }
+
 
       .project-close {
-        top: 14px;
-        right: 14px;
+        top: 12px;
+
+        right: 12px;
+
+        width: 38px;
+
+        height: 38px;
+
+        font-size: 23px;
       }
 
+
+      /* TEST LINKS */
+
       .test-link {
-        font-size: 30px;
-        border-bottom: 4px solid #000;
+        font-size: 24px;
+
+        border-bottom:
+          3px solid #000;
+
         padding-bottom: 4px;
       }
+
 
       .mycuny-test-link {
         top: 65%;
       }
 
+
       .glowr-test-link {
         top: 79%;
       }
+
+
+      /* VICTORIA */
+
+      .victoria-project-view {
+        width: 100%;
+
+        max-height: 88vh;
+
+        padding: 10px;
+      }
+
+
+      .victoria-hero {
+        width: 100%;
+      }
+
+
+      .brochure-section {
+        margin-top: 30px;
+
+        padding:
+          40px
+          8px
+          50px;
+      }
+
+
+      .brochure-heading {
+        font-size: 16px;
+      }
+
+
+      .brochure-subtitle {
+        margin-top: 8px;
+
+        margin-bottom: 28px;
+
+        font-size: 8px;
+      }
+
+
+      .brochure-stage {
+        min-height: 480px;
+      }
+
+
+      .brochure-controls {
+        margin-top: 25px;
+
+        gap: 14px;
+      }
+
+
+      .brochure-controls button {
+        font-size: 8px;
+      }
+
+
+      #brochure-page-number {
+        font-size: 8px;
+      }
+
     }
 
-    @media (max-width: 580px) {
+
+    /* =========================
+       SMALL PHONES
+    ========================= */
+
+    @media (max-width: 520px) {
+
+      .design-page {
+        padding:
+          18px
+          14px
+          40px;
+      }
+
+
+      .logo {
+        font-size: 25px;
+      }
+
+
+      .top-nav {
+        gap: 14px;
+
+        font-size: 8px;
+      }
+
 
       .collage {
-        grid-template-columns: 1fr;
+        margin-top: 34px;
+
+        gap: 34px;
       }
 
-      .project {
-        height: 360px !important;
+
+      .project::after {
+        margin-top: 10px;
+
+        font-size: 9px;
+
+        letter-spacing: 0.14em;
       }
+
+
+      .project-overlay {
+        padding:
+          12px
+          8px;
+      }
+
+
+      .project-view {
+        width: 96vw;
+
+        max-height: 90vh;
+      }
+
+
+      .victoria-project-view {
+        width: 96vw;
+
+        max-height: 90vh;
+      }
+
+
+      .brochure-stage {
+        min-height: 430px;
+      }
+
+
+      .brochure-controls {
+        gap: 10px;
+      }
+
 
       .test-link {
-        font-size: 22px;
-        border-bottom: 3px solid #000;
+        font-size: 20px;
       }
+
     }
 
   </style>
+
 </head>
+
 
 <body>
 
@@ -612,7 +1215,10 @@
 
     <header class="site-header">
 
-      <a href="index.html" class="logo">
+      <a
+        href="index.html"
+        class="logo"
+      >
         wikivisual.co
       </a>
 
@@ -621,53 +1227,124 @@
       </div>
 
       <nav class="top-nav">
-        <a href="photography.html">Photography</a>
-        <a href="about.html">About Me</a>
-        <a href="contact.html">Contact</a>
+
+        <a href="photography.html">
+          Photography
+        </a>
+
+        <a href="about.html">
+          About Me
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
       </nav>
 
     </header>
 
+
     <section class="collage">
 
-      <a href="#" class="project amazon" data-project="amazon-project">
+
+      <!-- AMAZON -->
+
+      <a
+        href="#"
+        class="project amazon"
+        data-project="amazon-project"
+      >
+
         <img
           src="images/digital-design/amazon.png"
           alt="Student Amazon Prime"
         />
+
       </a>
 
-      <a href="#" class="project sentrix" data-project="sentrix-project">
+
+      <!-- SENTRIX -->
+
+      <a
+        href="#"
+        class="project sentrix"
+        data-project="sentrix-project"
+      >
+
         <img
           src="images/digital-design/sentrix.png"
           alt="Sentrix"
         />
+
       </a>
+
+
+      <!-- VICTORIA -->
+
+      <a
+        href="#"
+        class="project victoria"
+        data-project="victoria-project"
+      >
+
+        <img
+          src="images/digital-design/victoria-cruises.png"
+          alt="Victoria Cruises"
+        />
+
+      </a>
+
+
+      <!-- MY CUNY -->
 
       <a
         href="#"
         class="project mycunyevent"
         data-project="mycunyevent-project"
       >
+
         <img
           src="images/digital-design/mycunyevent.png"
           alt="myCUNYevent"
         />
+
       </a>
 
-      <a href="#" class="project glowr" data-project="glowr-project">
+
+      <!-- GLOWR -->
+
+      <a
+        href="#"
+        class="project glowr"
+        data-project="glowr-project"
+      >
+
         <img
           src="images/digital-design/glowr.png"
           alt="Glowr"
         />
+
       </a>
 
-      <a href="#" class="project prelude" data-project="prelude-project">
+
+      <!-- PRELUDE -->
+
+      <a
+        href="#"
+        class="project prelude"
+        data-project="prelude-project"
+      >
+
         <img
           src="images/digital-design/prelude.png"
           alt="Prelude"
         />
+
       </a>
+
+
+      <!-- AMAZON LABEL -->
 
       <div class="annotation annotation-amazon">
 
@@ -676,11 +1353,21 @@
         </div>
 
         <svg viewBox="0 0 90 65">
-          <path d="M 6 5 C 12 24, 30 40, 62 47" />
-          <path d="M 53 40 L 65 48 L 52 54" />
+
+          <path
+            d="M 6 5 C 12 24, 30 40, 62 47"
+          />
+
+          <path
+            d="M 53 40 L 65 48 L 52 54"
+          />
+
         </svg>
 
       </div>
+
+
+      <!-- SENTRIX LABEL -->
 
       <div class="annotation annotation-sentrix">
 
@@ -689,11 +1376,44 @@
         </div>
 
         <svg viewBox="0 0 90 65">
-          <path d="M 84 5 C 78 24, 64 39, 39 47" />
-          <path d="M 48 39 L 37 48 L 51 49" />
+
+          <path
+            d="M 84 5 C 78 24, 64 39, 39 47"
+          />
+
+          <path
+            d="M 48 39 L 37 48 L 51 49"
+          />
+
         </svg>
 
       </div>
+
+
+      <!-- VICTORIA LABEL -->
+
+      <div class="annotation annotation-victoria">
+
+        <svg viewBox="0 0 76 52">
+
+          <path
+            d="M 38 50 C 38 38, 38 27, 38 14"
+          />
+
+          <path
+            d="M 31 24 L 38 13 L 45 24"
+          />
+
+        </svg>
+
+        <div class="annotation-text">
+          Victoria Cruises
+        </div>
+
+      </div>
+
+
+      <!-- GLOWR LABEL -->
 
       <div class="annotation annotation-glowr">
 
@@ -702,17 +1422,34 @@
         </div>
 
         <svg viewBox="0 0 88 60">
-          <path d="M 5 5 C 12 24, 28 38, 59 44" />
-          <path d="M 50 37 L 62 45 L 49 51" />
+
+          <path
+            d="M 5 5 C 12 24, 28 38, 59 44"
+          />
+
+          <path
+            d="M 50 37 L 62 45 L 49 51"
+          />
+
         </svg>
 
       </div>
 
+
+      <!-- CUNY LABEL -->
+
       <div class="annotation annotation-mycuny">
 
         <svg viewBox="0 0 92 72">
-          <path d="M 79 65 C 68 52, 58 39, 40 23" />
-          <path d="M 51 27 L 38 20 L 42 35" />
+
+          <path
+            d="M 79 65 C 68 52, 58 39, 40 23"
+          />
+
+          <path
+            d="M 51 27 L 38 20 L 42 35"
+          />
+
         </svg>
 
         <div class="annotation-text">
@@ -721,6 +1458,9 @@
 
       </div>
 
+
+      <!-- PRELUDE LABEL -->
+
       <div class="annotation annotation-prelude">
 
         <div class="annotation-text">
@@ -728,32 +1468,59 @@
         </div>
 
         <svg viewBox="0 0 82 60">
-          <path d="M 77 5 C 73 23, 61 37, 39 45" />
-          <path d="M 48 37 L 37 46 L 51 47" />
+
+          <path
+            d="M 77 5 C 73 23, 61 37, 39 45"
+          />
+
+          <path
+            d="M 48 37 L 37 46 L 51 47"
+          />
+
         </svg>
 
       </div>
 
+
+      <!-- GLASS -->
+
       <div class="glass glass-1"></div>
+
       <div class="glass glass-2"></div>
+
       <div class="glass glass-3"></div>
+
       <div class="glass glass-4"></div>
+
       <div class="glass glass-5"></div>
 
+
       <div class="design-mark">
+
         <div class="design-mark-line"></div>
-        <span>Digital Design</span>
+
+        <span>
+          Digital Design
+        </span>
+
       </div>
 
     </section>
 
   </main>
 
-  <!-- AMAZON -->
 
-  <section class="project-overlay" id="amazon-project">
+  <!-- AMAZON MODAL -->
 
-    <button class="project-close" type="button">
+  <section
+    class="project-overlay"
+    id="amazon-project"
+  >
+
+    <button
+      class="project-close"
+      type="button"
+    >
       ×
     </button>
 
@@ -772,11 +1539,18 @@
 
   </section>
 
-  <!-- SENTRIX -->
 
-  <section class="project-overlay" id="sentrix-project">
+  <!-- SENTRIX MODAL -->
 
-    <button class="project-close" type="button">
+  <section
+    class="project-overlay"
+    id="sentrix-project"
+  >
+
+    <button
+      class="project-close"
+      type="button"
+    >
       ×
     </button>
 
@@ -795,11 +1569,103 @@
 
   </section>
 
-  <!-- MY CUNY EVENT -->
 
-  <section class="project-overlay" id="mycunyevent-project">
+  <!-- VICTORIA MODAL -->
 
-    <button class="project-close" type="button">
+  <section
+    class="project-overlay"
+    id="victoria-project"
+  >
+
+    <button
+      class="project-close"
+      type="button"
+    >
+      ×
+    </button>
+
+    <div class="victoria-project-view">
+
+
+      <div class="victoria-hero">
+
+        <img
+          src="images/digital-design/victoria-cruises-project.png"
+          alt="Victoria Cruises project"
+        />
+
+      </div>
+
+
+      <section class="brochure-section">
+
+        <div class="brochure-heading">
+          Explore the brochure
+        </div>
+
+        <div class="brochure-subtitle">
+          Click or drag the pages to explore
+        </div>
+
+
+        <div class="brochure-stage">
+
+          <div id="victoria-book">
+
+            <div
+              class="brochure-loading"
+              id="brochure-loading"
+            >
+
+              Loading brochure...
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="brochure-controls">
+
+          <button
+            id="brochure-prev"
+            type="button"
+          >
+            ← Previous
+          </button>
+
+          <span id="brochure-page-number">
+            01 / 12
+          </span>
+
+          <button
+            id="brochure-next"
+            type="button"
+          >
+            Next →
+          </button>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </section>
+
+
+  <!-- MY CUNY MODAL -->
+
+  <section
+    class="project-overlay"
+    id="mycunyevent-project"
+  >
+
+    <button
+      class="project-close"
+      type="button"
+    >
       ×
     </button>
 
@@ -827,11 +1693,18 @@
 
   </section>
 
-  <!-- GLOWR -->
 
-  <section class="project-overlay" id="glowr-project">
+  <!-- GLOWR MODAL -->
 
-    <button class="project-close" type="button">
+  <section
+    class="project-overlay"
+    id="glowr-project"
+  >
+
+    <button
+      class="project-close"
+      type="button"
+    >
       ×
     </button>
 
@@ -859,11 +1732,18 @@
 
   </section>
 
-  <!-- PRELUDE -->
 
-  <section class="project-overlay" id="prelude-project">
+  <!-- PRELUDE MODAL -->
 
-    <button class="project-close" type="button">
+  <section
+    class="project-overlay"
+    id="prelude-project"
+  >
+
+    <button
+      class="project-close"
+      type="button"
+    >
       ×
     </button>
 
@@ -882,32 +1762,78 @@
 
   </section>
 
+
+  <!-- PDF JS -->
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"
+  ></script>
+
+
+  <!-- PAGE FLIP -->
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js"
+  ></script>
+
+
   <script>
 
+    /* =========================
+       PROJECT MODALS
+    ========================= */
+
     const projectTriggers =
-      document.querySelectorAll("[data-project]");
+      document.querySelectorAll(
+        "[data-project]"
+      );
+
 
     const projectOverlays =
-      document.querySelectorAll(".project-overlay");
+      document.querySelectorAll(
+        ".project-overlay"
+      );
+
 
     const closeButtons =
-      document.querySelectorAll(".project-close");
+      document.querySelectorAll(
+        ".project-close"
+      );
 
 
     function openProject(projectId) {
 
       const overlay =
-        document.getElementById(projectId);
+        document.getElementById(
+          projectId
+        );
+
 
       if (!overlay) return;
 
-      overlay.classList.add("is-open");
+
+      overlay.classList.add(
+        "is-open"
+      );
+
 
       document.body.classList.add(
         "project-open"
       );
 
-      overlay.scrollTop = 0;
+
+      if (
+        projectId ===
+        "victoria-project"
+      ) {
+
+        setTimeout(
+          initializeVictoriaBook,
+          200
+        );
+
+      }
+
     }
 
 
@@ -915,11 +1841,16 @@
 
       if (!overlay) return;
 
-      overlay.classList.remove("is-open");
+
+      overlay.classList.remove(
+        "is-open"
+      );
+
 
       document.body.classList.remove(
         "project-open"
       );
+
     }
 
 
@@ -932,10 +1863,14 @@
 
             event.preventDefault();
 
+
             const projectId =
               trigger.dataset.project;
 
-            openProject(projectId);
+
+            openProject(
+              projectId
+            );
 
           }
         );
@@ -952,9 +1887,14 @@
           function() {
 
             const overlay =
-              button.closest(".project-overlay");
+              button.closest(
+                ".project-overlay"
+              );
 
-            closeProject(overlay);
+
+            closeProject(
+              overlay
+            );
 
           }
         );
@@ -963,22 +1903,58 @@
     );
 
 
+    /* CLICK OUTSIDE */
+
+    projectOverlays.forEach(
+      function(overlay) {
+
+        overlay.addEventListener(
+          "click",
+          function(event) {
+
+            if (
+              event.target ===
+              overlay
+            ) {
+
+              closeProject(
+                overlay
+              );
+
+            }
+
+          }
+        );
+
+      }
+    );
+
+
+    /* ESC */
+
     document.addEventListener(
       "keydown",
       function(event) {
 
-        if (event.key === "Escape") {
+        if (
+          event.key ===
+          "Escape"
+        ) {
 
           projectOverlays.forEach(
             function(overlay) {
 
               if (
-                overlay.classList.contains(
-                  "is-open"
-                )
+                overlay
+                  .classList
+                  .contains(
+                    "is-open"
+                  )
               ) {
 
-                closeProject(overlay);
+                closeProject(
+                  overlay
+                );
 
               }
 
@@ -989,6 +1965,315 @@
 
       }
     );
+
+
+    /* =========================
+       VICTORIA PDF
+    ========================= */
+
+
+    const pdfPath =
+      "images/digital-design/victoria-brochure.pdf";
+
+
+    let victoriaBook =
+      null;
+
+
+    let victoriaPdf =
+      null;
+
+
+    async function initializeVictoriaBook() {
+
+
+      if (victoriaBook) {
+        return;
+      }
+
+
+      const bookElement =
+        document.getElementById(
+          "victoria-book"
+        );
+
+
+      const loading =
+        document.getElementById(
+          "brochure-loading"
+        );
+
+
+      if (!bookElement) {
+        return;
+      }
+
+
+      try {
+
+
+        pdfjsLib
+          .GlobalWorkerOptions
+          .workerSrc =
+          "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+
+        victoriaPdf =
+          await pdfjsLib
+            .getDocument(
+              pdfPath
+            )
+            .promise;
+
+
+        bookElement.innerHTML =
+          "";
+
+
+        for (
+          let pageNumber = 1;
+
+          pageNumber <=
+          victoriaPdf.numPages;
+
+          pageNumber++
+        ) {
+
+
+          const page =
+            await victoriaPdf
+              .getPage(
+                pageNumber
+              );
+
+
+          const viewport =
+            page.getViewport({
+              scale: 2
+            });
+
+
+          const pageElement =
+            document.createElement(
+              "div"
+            );
+
+
+          pageElement.classList.add(
+            "brochure-page"
+          );
+
+
+          const canvas =
+            document.createElement(
+              "canvas"
+            );
+
+
+          const context =
+            canvas.getContext(
+              "2d"
+            );
+
+
+          canvas.width =
+            Math.floor(
+              viewport.width
+            );
+
+
+          canvas.height =
+            Math.floor(
+              viewport.height
+            );
+
+
+          await page
+            .render({
+
+              canvasContext:
+                context,
+
+              viewport:
+                viewport
+
+            })
+            .promise;
+
+
+          pageElement.appendChild(
+            canvas
+          );
+
+
+          bookElement.appendChild(
+            pageElement
+          );
+
+        }
+
+
+        victoriaBook =
+          new St.PageFlip(
+            bookElement,
+            {
+
+              width: 595,
+
+              height: 842,
+
+              size:
+                "stretch",
+
+              minWidth: 260,
+
+              maxWidth: 520,
+
+              minHeight: 368,
+
+              maxHeight: 736,
+
+              showCover: true,
+
+              usePortrait: true,
+
+              mobileScrollSupport: false,
+
+              maxShadowOpacity: 0.28,
+
+              flippingTime: 750
+
+            }
+          );
+
+
+        victoriaBook.loadFromHTML(
+
+          document.querySelectorAll(
+            "#victoria-book .brochure-page"
+          )
+
+        );
+
+
+        victoriaBook.on(
+          "flip",
+          function(event) {
+
+            updateBrochureCounter(
+              event.data
+            );
+
+          }
+        );
+
+
+        updateBrochureCounter(0);
+
+
+      } catch(error) {
+
+
+        console.error(error);
+
+
+        if (loading) {
+
+          loading.textContent =
+            "Brochure could not be loaded.";
+
+        } else {
+
+          bookElement.innerHTML =
+            '<div class="brochure-loading">Brochure could not be loaded.</div>';
+
+        }
+
+      }
+
+    }
+
+
+    function updateBrochureCounter(
+      pageIndex
+    ) {
+
+
+      const counter =
+        document.getElementById(
+          "brochure-page-number"
+        );
+
+
+      if (!counter) {
+        return;
+      }
+
+
+      const current =
+        String(
+          pageIndex + 1
+        ).padStart(
+          2,
+          "0"
+        );
+
+
+      const total =
+        victoriaPdf
+          ?
+          String(
+            victoriaPdf.numPages
+          ).padStart(
+            2,
+            "0"
+          )
+          :
+          "12";
+
+
+      counter.textContent =
+        current +
+        " / " +
+        total;
+
+    }
+
+
+    document
+      .getElementById(
+        "brochure-prev"
+      )
+      ?.addEventListener(
+        "click",
+        function() {
+
+          if (victoriaBook) {
+
+            victoriaBook.flipPrev();
+
+          }
+
+        }
+      );
+
+
+    document
+      .getElementById(
+        "brochure-next"
+      )
+      ?.addEventListener(
+        "click",
+        function() {
+
+          if (victoriaBook) {
+
+            victoriaBook.flipNext();
+
+          }
+
+        }
+      );
 
   </script>
 
