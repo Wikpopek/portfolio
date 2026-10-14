@@ -1,13 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Digital Design — wikivisual.co</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <link
@@ -795,11 +799,9 @@
       color: #999;
     }
 
-
-    /* ==========================================
-       MOBILE
-       COMPLETELY DIFFERENT LAYOUT
-    ========================================== */
+    /* =========================================================
+       MOBILE — SAME STYLE AS PHOTOGRAPHY
+    ========================================================= */
 
     @media (max-width: 850px) {
 
@@ -807,316 +809,274 @@
         background: #fbfaf8;
       }
 
-
       .design-page {
-        padding:
-          20px
-          16px
-          50px;
+        padding: 20px 16px 60px;
       }
-
-
-      /* HEADER */
 
       .site-header {
         align-items: flex-start;
       }
 
-
       .logo {
         font-size: 28px;
       }
 
-
       .section-title {
         margin-top: 8px;
-
         font-size: 9px;
-
         letter-spacing: 0.22em;
       }
 
-
       .top-nav {
         position: static;
-
         width: 100%;
-
-        margin-top: 22px;
-
+        margin-top: 20px;
         display: flex;
-
         justify-content: flex-start;
-
-        gap: 18px;
-
+        gap: 16px;
         flex-wrap: wrap;
-
         font-size: 9px;
       }
 
-
-      /* PROJECT LIST */
-
       .collage {
+        position: relative;
         width: 100%;
-
         height: auto;
-
-        margin-top: 42px;
-
+        min-height: 0;
+        margin: 44px auto 0;
         display: flex;
-
         flex-direction: column;
-
-        gap: 40px;
+        align-items: center;
+        gap: 92px;
+        overflow: visible;
       }
 
-
-      /* PROJECT */
-
-      .project {
+      .project,
+      .amazon,
+      .sentrix,
+      .victoria,
+      .mycunyevent,
+      .glowr,
+      .prelude {
         position: relative !important;
-
         inset: auto !important;
-
-        width: 100% !important;
-
+        width: min(360px, 88vw) !important;
         height: auto !important;
-
-        transform: none !important;
-
         display: block;
-
-        z-index: auto;
-
-        padding-bottom: 15px;
-
-        border-bottom:
-          1px solid
-          rgba(0,0,0,0.12);
+        padding: 0;
+        border: none;
+        background: transparent;
+        transform: none !important;
+        overflow: visible;
+        z-index: 10;
       }
-
 
       .project:hover {
         transform: none !important;
       }
 
-
       .project img {
+        position: relative;
+        z-index: 1;
         width: 100%;
-
         height: auto;
-
         display: block;
-
         object-fit: contain;
-
+        object-position: center;
         transform: none !important;
       }
 
+      .project::before {
+        content: "";
+        position: absolute;
+        z-index: 5;
+        width: 118px;
+        height: 132px;
+        bottom: -40px;
+        pointer-events: none;
 
-      /* HIDE DESKTOP DECORATION */
+        background:
+          linear-gradient(
+            180deg,
+            rgba(255,255,255,0.50),
+            rgba(255,255,255,0.14)
+          ),
+          repeating-linear-gradient(
+            90deg,
+            rgba(255,255,255,0.76) 0px,
+            rgba(255,255,255,0.76) 6px,
+            rgba(210,210,210,0.18) 7px,
+            rgba(255,255,255,0.30) 12px,
+            rgba(170,170,170,0.12) 13px,
+            rgba(255,255,255,0.62) 18px
+          );
+
+        backdrop-filter:
+          blur(14px)
+          saturate(0.88);
+
+        -webkit-backdrop-filter:
+          blur(14px)
+          saturate(0.88);
+
+        opacity: 0.88;
+      }
+
+      .amazon::before {
+        left: 7%;
+        transform: rotate(-7deg);
+      }
+
+      .sentrix::before {
+        right: 7%;
+        transform: rotate(7deg);
+      }
+
+      .victoria::before {
+        left: 13%;
+        transform: rotate(-5deg);
+      }
+
+      .mycunyevent::before {
+        right: 9%;
+        transform: rotate(6deg);
+      }
+
+      .glowr::before {
+        left: 10%;
+        transform: rotate(-6deg);
+      }
+
+      .prelude::before {
+        right: 12%;
+        transform: rotate(7deg);
+      }
+
+      .project::after {
+        position: relative;
+        z-index: 8;
+        display: block;
+        margin-top: 32px;
+        text-align: center;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 10px;
+        font-weight: 400;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #222;
+      }
+
+      .amazon::after {
+        content: "Student Amazon Prime";
+      }
+
+      .sentrix::after {
+        content: "Sentrix";
+      }
+
+      .victoria::after {
+        content: "Victoria Cruises";
+      }
+
+      .mycunyevent::after {
+        content: "myCUNYevent";
+      }
+
+      .glowr::after {
+        content: "Glowr";
+      }
+
+      .prelude::after {
+        content: "Prelude";
+      }
 
       .annotation,
-      .glass,
+      .collage > .glass,
       .design-mark {
         display: none;
       }
 
-
-      /* MOBILE PROJECT NAMES */
-
-      .project::after {
-        display: block;
-
-        margin-top: 13px;
-
-        font-family:
-          "IBM Plex Mono",
-          monospace;
-
-        font-size: 10px;
-
-        font-weight: 400;
-
-        letter-spacing: 0.15em;
-
-        text-transform: uppercase;
-
-        color: #222;
-      }
-
-
-      .amazon::after {
-        content:
-          "Student Amazon Prime";
-      }
-
-
-      .sentrix::after {
-        content:
-          "Sentrix";
-      }
-
-
-      .victoria::after {
-        content:
-          "Victoria Cruises";
-      }
-
-
-      .mycunyevent::after {
-        content:
-          "myCUNYevent";
-      }
-
-
-      .glowr::after {
-        content:
-          "Glowr";
-      }
-
-
-      .prelude::after {
-        content:
-          "Prelude";
-      }
-
-
-      /* MODAL MOBILE */
-
       .project-overlay {
-        padding:
-          18px
-          12px;
-
+        padding: 18px 12px;
         align-items: center;
-
-        background:
-          rgba(
-            20,
-            20,
-            20,
-            0.22
-          );
+        background: rgba(20,20,20,0.22);
       }
-
 
       .project-view {
         width: 100%;
-
         max-height: 88vh;
-
         padding: 10px;
-
         border-radius: 2px;
       }
-
 
       .project-image-wrap {
         width: 100%;
       }
 
-
       .project-image-wrap img {
         width: 100%;
-
         height: auto;
       }
 
-
       .project-close {
         top: 12px;
-
         right: 12px;
-
         width: 38px;
-
         height: 38px;
-
         font-size: 23px;
       }
 
-
-      /* TEST LINKS */
-
       .test-link {
         font-size: 24px;
-
-        border-bottom:
-          3px solid #000;
-
+        border-bottom: 3px solid #000;
         padding-bottom: 4px;
       }
-
 
       .mycuny-test-link {
         top: 65%;
       }
 
-
       .glowr-test-link {
         top: 79%;
       }
 
-
-      /* VICTORIA */
-
       .victoria-project-view {
         width: 100%;
-
         max-height: 88vh;
-
         padding: 10px;
       }
-
 
       .victoria-hero {
         width: 100%;
       }
 
-
       .brochure-section {
         margin-top: 30px;
-
-        padding:
-          40px
-          8px
-          50px;
+        padding: 40px 8px 50px;
       }
-
 
       .brochure-heading {
         font-size: 16px;
       }
 
-
       .brochure-subtitle {
         margin-top: 8px;
-
         margin-bottom: 28px;
-
         font-size: 8px;
       }
-
 
       .brochure-stage {
         min-height: 480px;
       }
 
-
       .brochure-controls {
         margin-top: 25px;
-
         gap: 14px;
       }
-
 
       .brochure-controls button {
         font-size: 8px;
       }
-
 
       #brochure-page-number {
         font-size: 8px;
@@ -1124,79 +1084,93 @@
 
     }
 
-
-    /* =========================
-       SMALL PHONES
-    ========================= */
-
     @media (max-width: 520px) {
 
       .design-page {
-        padding:
-          18px
-          14px
-          40px;
+        padding: 18px 14px 55px;
       }
-
 
       .logo {
         font-size: 25px;
       }
 
-
       .top-nav {
         gap: 14px;
-
         font-size: 8px;
       }
 
-
       .collage {
-        margin-top: 34px;
-
-        gap: 34px;
+        margin-top: 38px;
+        gap: 84px;
       }
 
+      .project,
+      .amazon,
+      .sentrix,
+      .victoria,
+      .mycunyevent,
+      .glowr,
+      .prelude {
+        width: min(330px, 92vw) !important;
+      }
+
+      .project::before {
+        width: 100px;
+        height: 116px;
+        bottom: -36px;
+      }
+
+      .amazon::before {
+        left: 5%;
+      }
+
+      .sentrix::before {
+        right: 5%;
+      }
+
+      .victoria::before {
+        left: 11%;
+      }
+
+      .mycunyevent::before {
+        right: 7%;
+      }
+
+      .glowr::before {
+        left: 8%;
+      }
+
+      .prelude::before {
+        right: 9%;
+      }
 
       .project::after {
-        margin-top: 10px;
-
+        margin-top: 28px;
         font-size: 9px;
-
-        letter-spacing: 0.14em;
+        letter-spacing: 0.15em;
       }
-
 
       .project-overlay {
-        padding:
-          12px
-          8px;
+        padding: 12px 8px;
       }
-
 
       .project-view {
         width: 96vw;
-
         max-height: 90vh;
       }
-
 
       .victoria-project-view {
         width: 96vw;
-
         max-height: 90vh;
       }
-
 
       .brochure-stage {
         min-height: 430px;
       }
 
-
       .brochure-controls {
         gap: 10px;
       }
-
 
       .test-link {
         font-size: 20px;
@@ -1207,7 +1181,6 @@
   </style>
 
 </head>
-
 
 <body>
 
@@ -1244,9 +1217,7 @@
 
     </header>
 
-
     <section class="collage">
-
 
       <!-- AMAZON -->
 
@@ -1263,7 +1234,6 @@
 
       </a>
 
-
       <!-- SENTRIX -->
 
       <a
@@ -1278,7 +1248,6 @@
         />
 
       </a>
-
 
       <!-- VICTORIA -->
 
@@ -1295,7 +1264,6 @@
 
       </a>
 
-
       <!-- MY CUNY -->
 
       <a
@@ -1310,7 +1278,6 @@
         />
 
       </a>
-
 
       <!-- GLOWR -->
 
@@ -1327,7 +1294,6 @@
 
       </a>
 
-
       <!-- PRELUDE -->
 
       <a
@@ -1342,7 +1308,6 @@
         />
 
       </a>
-
 
       <!-- AMAZON LABEL -->
 
@@ -1366,7 +1331,6 @@
 
       </div>
 
-
       <!-- SENTRIX LABEL -->
 
       <div class="annotation annotation-sentrix">
@@ -1388,7 +1352,6 @@
         </svg>
 
       </div>
-
 
       <!-- VICTORIA LABEL -->
 
@@ -1412,7 +1375,6 @@
 
       </div>
 
-
       <!-- GLOWR LABEL -->
 
       <div class="annotation annotation-glowr">
@@ -1434,7 +1396,6 @@
         </svg>
 
       </div>
-
 
       <!-- CUNY LABEL -->
 
@@ -1458,7 +1419,6 @@
 
       </div>
 
-
       <!-- PRELUDE LABEL -->
 
       <div class="annotation annotation-prelude">
@@ -1481,7 +1441,6 @@
 
       </div>
 
-
       <!-- GLASS -->
 
       <div class="glass glass-1"></div>
@@ -1493,7 +1452,6 @@
       <div class="glass glass-4"></div>
 
       <div class="glass glass-5"></div>
-
 
       <div class="design-mark">
 
@@ -1508,7 +1466,6 @@
     </section>
 
   </main>
-
 
   <!-- AMAZON MODAL -->
 
@@ -1539,7 +1496,6 @@
 
   </section>
 
-
   <!-- SENTRIX MODAL -->
 
   <section
@@ -1569,7 +1525,6 @@
 
   </section>
 
-
   <!-- VICTORIA MODAL -->
 
   <section
@@ -1586,7 +1541,6 @@
 
     <div class="victoria-project-view">
 
-
       <div class="victoria-hero">
 
         <img
@@ -1595,7 +1549,6 @@
         />
 
       </div>
-
 
       <section class="brochure-section">
 
@@ -1607,7 +1560,6 @@
           Click or drag the pages to explore
         </div>
 
-
         <div class="brochure-stage">
 
           <div id="victoria-book">
@@ -1616,15 +1568,12 @@
               class="brochure-loading"
               id="brochure-loading"
             >
-
               Loading brochure...
-
             </div>
 
           </div>
 
         </div>
-
 
         <div class="brochure-controls">
 
@@ -1653,7 +1602,6 @@
     </div>
 
   </section>
-
 
   <!-- MY CUNY MODAL -->
 
@@ -1693,7 +1641,6 @@
 
   </section>
 
-
   <!-- GLOWR MODAL -->
 
   <section
@@ -1732,7 +1679,6 @@
 
   </section>
 
-
   <!-- PRELUDE MODAL -->
 
   <section
@@ -1762,20 +1708,17 @@
 
   </section>
 
-
   <!-- PDF JS -->
 
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"
   ></script>
 
-
   <!-- PAGE FLIP -->
 
   <script
     src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js"
   ></script>
-
 
   <script>
 
@@ -1788,18 +1731,15 @@
         "[data-project]"
       );
 
-
     const projectOverlays =
       document.querySelectorAll(
         ".project-overlay"
       );
 
-
     const closeButtons =
       document.querySelectorAll(
         ".project-close"
       );
-
 
     function openProject(projectId) {
 
@@ -1808,19 +1748,15 @@
           projectId
         );
 
-
       if (!overlay) return;
-
 
       overlay.classList.add(
         "is-open"
       );
 
-
       document.body.classList.add(
         "project-open"
       );
-
 
       if (
         projectId ===
@@ -1836,23 +1772,19 @@
 
     }
 
-
     function closeProject(overlay) {
 
       if (!overlay) return;
 
-
       overlay.classList.remove(
         "is-open"
       );
-
 
       document.body.classList.remove(
         "project-open"
       );
 
     }
-
 
     projectTriggers.forEach(
       function(trigger) {
@@ -1863,10 +1795,8 @@
 
             event.preventDefault();
 
-
             const projectId =
               trigger.dataset.project;
-
 
             openProject(
               projectId
@@ -1877,7 +1807,6 @@
 
       }
     );
-
 
     closeButtons.forEach(
       function(button) {
@@ -1891,7 +1820,6 @@
                 ".project-overlay"
               );
 
-
             closeProject(
               overlay
             );
@@ -1901,7 +1829,6 @@
 
       }
     );
-
 
     /* CLICK OUTSIDE */
 
@@ -1928,7 +1855,6 @@
 
       }
     );
-
 
     /* ESC */
 
@@ -1966,57 +1892,45 @@
       }
     );
 
-
     /* =========================
        VICTORIA PDF
     ========================= */
 
-
     const pdfPath =
       "images/digital-design/victoria-brochure.pdf";
-
 
     let victoriaBook =
       null;
 
-
     let victoriaPdf =
       null;
 
-
     async function initializeVictoriaBook() {
-
 
       if (victoriaBook) {
         return;
       }
-
 
       const bookElement =
         document.getElementById(
           "victoria-book"
         );
 
-
       const loading =
         document.getElementById(
           "brochure-loading"
         );
 
-
       if (!bookElement) {
         return;
       }
 
-
       try {
-
 
         pdfjsLib
           .GlobalWorkerOptions
           .workerSrc =
           "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
-
 
         victoriaPdf =
           await pdfjsLib
@@ -2025,10 +1939,8 @@
             )
             .promise;
 
-
         bookElement.innerHTML =
           "";
-
 
         for (
           let pageNumber = 1;
@@ -2039,54 +1951,45 @@
           pageNumber++
         ) {
 
-
           const page =
             await victoriaPdf
               .getPage(
                 pageNumber
               );
 
-
           const viewport =
             page.getViewport({
               scale: 2
             });
-
 
           const pageElement =
             document.createElement(
               "div"
             );
 
-
           pageElement.classList.add(
             "brochure-page"
           );
-
 
           const canvas =
             document.createElement(
               "canvas"
             );
 
-
           const context =
             canvas.getContext(
               "2d"
             );
-
 
           canvas.width =
             Math.floor(
               viewport.width
             );
 
-
           canvas.height =
             Math.floor(
               viewport.height
             );
-
 
           await page
             .render({
@@ -2100,18 +2003,15 @@
             })
             .promise;
 
-
           pageElement.appendChild(
             canvas
           );
-
 
           bookElement.appendChild(
             pageElement
           );
 
         }
-
 
         victoriaBook =
           new St.PageFlip(
@@ -2146,7 +2046,6 @@
             }
           );
 
-
         victoriaBook.loadFromHTML(
 
           document.querySelectorAll(
@@ -2154,7 +2053,6 @@
           )
 
         );
-
 
         victoriaBook.on(
           "flip",
@@ -2167,15 +2065,11 @@
           }
         );
 
-
         updateBrochureCounter(0);
-
 
       } catch(error) {
 
-
         console.error(error);
-
 
         if (loading) {
 
@@ -2193,22 +2087,18 @@
 
     }
 
-
     function updateBrochureCounter(
       pageIndex
     ) {
-
 
       const counter =
         document.getElementById(
           "brochure-page-number"
         );
 
-
       if (!counter) {
         return;
       }
-
 
       const current =
         String(
@@ -2217,7 +2107,6 @@
           2,
           "0"
         );
-
 
       const total =
         victoriaPdf
@@ -2231,14 +2120,12 @@
           :
           "12";
 
-
       counter.textContent =
         current +
         " / " +
         total;
 
     }
-
 
     document
       .getElementById(
@@ -2256,7 +2143,6 @@
 
         }
       );
-
 
     document
       .getElementById(

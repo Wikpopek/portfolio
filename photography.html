@@ -51,7 +51,7 @@
 
     /* =========================
        PAGE
-       ========================= */
+    ========================= */
 
     .photography-page {
       width: 100%;
@@ -61,7 +61,7 @@
 
     /* =========================
        HEADER
-       ========================= */
+    ========================= */
 
     .site-header {
       position: relative;
@@ -90,7 +90,7 @@
 
     /* =========================
        NAV
-       ========================= */
+    ========================= */
 
     .top-nav {
       position: absolute;
@@ -121,8 +121,8 @@
     }
 
     /* =========================
-       MAIN COLLAGE
-       ========================= */
+       DESKTOP COLLAGE
+    ========================= */
 
     .collage {
       position: relative;
@@ -141,7 +141,6 @@
 
     .photo-card {
       position: absolute;
-
       display: block;
 
       padding: 0;
@@ -152,6 +151,8 @@
       cursor: pointer;
 
       z-index: 3;
+
+      overflow: visible;
 
       transition:
         transform 0.5s cubic-bezier(.22,.61,.36,1),
@@ -168,16 +169,12 @@
       display: block;
     }
 
-    /* =========================
-       PORTRAIT
-       ========================= */
+    /* PORTRAIT */
 
     .portrait-card {
       width: 22%;
-
       left: 10%;
       top: 8%;
-
       transform: rotate(5deg);
     }
 
@@ -187,24 +184,13 @@
         scale(1.012);
     }
 
-    /* =========================
-       COUPLES
-       ========================= */
+    /* COUPLES */
 
     .couples-card {
       width: 22%;
-
       left: 38%;
       top: 20%;
-
       transform: rotate(-2deg);
-    }
-
-    .couples-card img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: contain;
     }
 
     .couples-card:hover {
@@ -213,24 +199,13 @@
         scale(1.01);
     }
 
-    /* =========================
-       TRAVEL
-       ========================= */
+    /* TRAVEL */
 
     .travel-card {
       width: 23%;
-
       right: 7%;
       top: 10%;
-
       transform: rotate(4deg);
-    }
-
-    .travel-card img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: contain;
     }
 
     .travel-card:hover {
@@ -239,24 +214,13 @@
         scale(1.01);
     }
 
-    /* =========================
-       STUDIO
-       ========================= */
+    /* STUDIO */
 
     .studio-card {
       width: 19%;
-
       right: 10%;
       bottom: 4%;
-
       transform: rotate(-4deg);
-    }
-
-    .studio-card img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: contain;
     }
 
     .studio-card:hover {
@@ -267,11 +231,10 @@
 
     /* =========================
        LABELS
-       ========================= */
+    ========================= */
 
     .label {
       position: absolute;
-
       z-index: 40;
 
       font-size: clamp(8px, 0.66vw, 11px);
@@ -281,7 +244,6 @@
       text-transform: uppercase;
 
       white-space: nowrap;
-
       color: #333;
     }
 
@@ -307,23 +269,19 @@
 
     /* =========================
        ARROWS
-       ========================= */
+    ========================= */
 
     .arrow {
       position: absolute;
       overflow: visible;
-
       z-index: 41;
-
       pointer-events: none;
     }
 
     .arrow path {
       fill: none;
-
       stroke: #393939;
       stroke-width: 1.1;
-
       stroke-linecap: round;
       stroke-linejoin: round;
     }
@@ -331,7 +289,6 @@
     .portrait-arrow {
       left: 3.5%;
       top: 18%;
-
       width: 85px;
       height: 62px;
     }
@@ -339,7 +296,6 @@
     .couples-arrow {
       left: 31%;
       bottom: 15%;
-
       width: 105px;
       height: 80px;
     }
@@ -347,7 +303,6 @@
     .travel-arrow {
       right: 6%;
       top: 13%;
-
       width: 110px;
       height: 90px;
     }
@@ -355,14 +310,13 @@
     .studio-arrow {
       right: 7%;
       bottom: 15%;
-
       width: 100px;
       height: 80px;
     }
 
     /* =========================
-       GLASS
-       ========================= */
+       DESKTOP PLASTIC
+    ========================= */
 
     .glass {
       position: absolute;
@@ -389,50 +343,41 @@
     .glass-1 {
       width: 9%;
       height: 18%;
-
       left: 4%;
       top: 31%;
-
       transform: rotate(-7deg);
     }
 
     .glass-2 {
       width: 9%;
       height: 18%;
-
       left: 55%;
       top: 26%;
-
       transform: rotate(-5deg);
     }
 
     .glass-3 {
       width: 9%;
       height: 17%;
-
       right: 5%;
       top: 35%;
-
       transform: rotate(9deg);
     }
 
     .glass-4 {
       width: 8%;
       height: 15%;
-
       right: 23%;
       bottom: 5%;
-
       transform: rotate(-8deg);
     }
 
     /* =========================
        MODAL
-       ========================= */
+    ========================= */
 
     .gallery-modal {
       position: fixed;
-
       inset: 0;
 
       display: flex;
@@ -441,8 +386,7 @@
 
       padding: 28px;
 
-      background:
-        rgba(242,239,234,0.86);
+      background: rgba(242,239,234,0.86);
 
       backdrop-filter: blur(13px);
       -webkit-backdrop-filter: blur(13px);
@@ -472,25 +416,20 @@
 
       background: #fbfaf8;
 
-      padding:
-        30px
-        24px
-        30px;
+      padding: 30px 24px;
 
       box-shadow:
-        0 18px 55px
-        rgba(0,0,0,0.13);
+        0 18px 55px rgba(0,0,0,0.13);
     }
 
     /* =========================
        MODAL HEADER
-       ========================= */
+    ========================= */
 
     .gallery-top {
       display: flex;
       flex-direction: column;
       align-items: center;
-
       margin-bottom: 34px;
     }
 
@@ -519,11 +458,9 @@
       right: 24px;
 
       border: none;
-
       background: transparent;
 
       font-size: 22px;
-
       color: #333;
 
       cursor: pointer;
@@ -531,7 +468,7 @@
 
     /* =========================
        FOLDERS
-       ========================= */
+    ========================= */
 
     .folders-view {
       display: block;
@@ -543,22 +480,17 @@
 
     .folders-grid {
       display: grid;
-
-      grid-template-columns:
-        repeat(4, 1fr);
-
+      grid-template-columns: repeat(4, 1fr);
       gap: 22px;
     }
 
     .folder-card {
       border: none;
-
       background: transparent;
 
       cursor: pointer;
 
       text-align: center;
-
       color: #151515;
     }
 
@@ -573,8 +505,6 @@
       overflow: hidden;
 
       margin-bottom: 13px;
-
-      background: transparent;
     }
 
     .folder-preview img {
@@ -584,9 +514,7 @@
       display: block;
 
       object-fit: contain;
-
-      object-position:
-        center bottom;
+      object-position: center bottom;
     }
 
     .folder-name {
@@ -594,15 +522,14 @@
       font-weight: 300;
 
       letter-spacing: 0.2em;
-
       text-transform: uppercase;
 
       color: #333;
     }
 
     /* =========================
-       INNER GALLERY
-       ========================= */
+       PERSON GALLERY
+    ========================= */
 
     .person-gallery-view {
       display: none;
@@ -624,11 +551,9 @@
 
     .back-button {
       position: absolute;
-
       left: 0;
 
       border: none;
-
       background: transparent;
 
       cursor: pointer;
@@ -637,7 +562,6 @@
       font-weight: 300;
 
       letter-spacing: 0.16em;
-
       text-transform: uppercase;
 
       color: #555;
@@ -648,112 +572,59 @@
       font-weight: 300;
 
       letter-spacing: 0.25em;
-
       text-transform: uppercase;
     }
 
     /* =========================
        JUSTIFIED GALLERY
-       ========================= */
+    ========================= */
 
     .portrait-grid {
       width: 100%;
-
       display: flex;
       flex-direction: column;
-
       gap: 10px;
-
-      padding: 0;
-      margin: 0;
-
-      border: none;
-
-      background: transparent;
     }
 
     .gallery-row {
       width: 100%;
-
       display: flex;
-
       gap: 10px;
-
-      margin: 0;
-      padding: 0;
-
       align-items: flex-start;
-
-      border: none;
-
-      background: transparent;
     }
 
     .portrait-item {
       flex: 0 0 auto;
-
       display: block;
-
-      margin: 0;
-      padding: 0;
-
       overflow: hidden;
-
-      border: none;
-
-      background: transparent;
-
       cursor: pointer;
     }
 
     .portrait-item img {
       width: 100%;
       height: 100%;
-
       display: block;
-
       object-fit: contain;
-
-      border: none;
-
-      background: transparent;
-
-      transition:
-        opacity 0.3s ease,
-        transform 0.3s ease;
-    }
-
-    .portrait-item:hover img {
-      opacity: 0.9;
-
-      transform:
-        scale(1.005);
     }
 
     /* =========================
        LIGHTBOX
-       ========================= */
+    ========================= */
 
     .lightbox {
       position: fixed;
-
       inset: 0;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-      background:
-        rgba(10,10,10,0.94);
+      background: rgba(10,10,10,0.94);
 
       opacity: 0;
       visibility: hidden;
 
       z-index: 99999;
-
-      transition:
-        opacity 0.3s ease,
-        visibility 0.3s ease;
     }
 
     .lightbox.active {
@@ -782,8 +653,6 @@
       height: auto;
 
       object-fit: contain;
-
-      display: block;
     }
 
     .lightbox-close {
@@ -793,11 +662,9 @@
       right: 8px;
 
       border: none;
-
       background: transparent;
 
       color: #fff;
-
       font-size: 27px;
 
       cursor: pointer;
@@ -808,24 +675,17 @@
 
       top: 50%;
 
-      transform:
-        translateY(-50%);
+      transform: translateY(-50%);
 
       border: none;
-
       background: transparent;
 
       color: #fff;
-
       font-size: 46px;
 
       cursor: pointer;
 
       opacity: 0.7;
-    }
-
-    .lightbox-arrow:hover {
-      opacity: 1;
     }
 
     .lightbox-prev {
@@ -836,13 +696,8 @@
       right: 14px;
     }
 
-    /* =========================
-       THUMBNAILS
-       ========================= */
-
     .lightbox-thumbs {
       display: flex;
-
       gap: 7px;
 
       margin-top: 17px;
@@ -850,11 +705,6 @@
       max-width: 92vw;
 
       overflow-x: auto;
-
-      padding:
-        3px
-        3px
-        6px;
     }
 
     .lightbox-thumbs img {
@@ -868,20 +718,15 @@
       opacity: 0.4;
 
       cursor: pointer;
-
-      border:
-        1px solid
-        transparent;
     }
 
     .lightbox-thumbs img.active {
       opacity: 1;
-      border-color: #fff;
     }
 
     /* =========================
-       RESPONSIVE
-       ========================= */
+       TABLET
+    ========================= */
 
     @media (max-width: 1000px) {
 
@@ -892,81 +737,319 @@
 
     }
 
+    /* =====================================================
+       MOBILE
+    ===================================================== */
 
     @media (max-width: 850px) {
 
       .photography-page {
         padding:
-          22px
-          18px
-          40px;
+          20px
+          16px
+          60px;
+      }
+
+      .site-header {
+        align-items: flex-start;
+      }
+
+      .logo {
+        font-size: 28px;
+      }
+
+      .section-title {
+        margin-top: 8px;
+        font-size: 9px;
       }
 
       .top-nav {
         position: static;
 
-        margin-top: 16px;
+        width: 100%;
 
-        justify-content: center;
+        margin-top: 20px;
 
+        justify-content: flex-start;
         flex-wrap: wrap;
-      }
-
-      .collage {
-        height: auto;
-
-        min-height: 0;
-
-        margin-top: 40px;
-
-        display: grid;
-
-        grid-template-columns:
-          1fr 1fr;
 
         gap: 16px;
+
+        font-size: 9px;
       }
 
-      .photo-card {
+      /* MOBILE LIST */
+
+      .collage {
         position: relative;
 
-        inset: auto !important;
+        width: 100%;
 
-        width: 100% !important;
+        height: auto;
+        min-height: 0;
 
-        transform: none !important;
+        margin:
+          44px
+          auto
+          0;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        gap: 92px;
       }
 
+      .photo-card,
       .portrait-card,
       .couples-card,
       .travel-card,
       .studio-card {
+        position: relative !important;
+
+        inset: auto !important;
+
+        width:
+          min(
+            360px,
+            88vw
+          ) !important;
+
         height: auto !important;
+
+        display: block;
+
+        padding: 0;
+
+        border: none;
+
+        background: transparent;
+
+        transform: none !important;
+
+        overflow: visible;
+
+        z-index: 10;
       }
+
+      .photo-card img {
+        position: relative;
+
+        z-index: 1;
+
+        width: 100%;
+        height: auto;
+
+        display: block;
+
+        object-fit: contain;
+        object-position: center;
+      }
+
+      /* BIG PLASTIC OVER BOTTOM OF PHOTO */
+
+      .photo-card::before {
+        content: "";
+
+        position: absolute;
+
+        z-index: 5;
+
+        width: 118px;
+        height: 132px;
+
+        bottom: -40px;
+
+        pointer-events: none;
+
+        background:
+          repeating-linear-gradient(
+            90deg,
+            rgba(255,255,255,0.72) 0,
+            rgba(255,255,255,0.72) 8px,
+            rgba(185,185,185,0.23) 9px,
+            rgba(255,255,255,0.30) 17px
+          );
+
+        backdrop-filter: blur(13px);
+        -webkit-backdrop-filter: blur(13px);
+
+        opacity: 0.88;
+      }
+
+      .portrait-card::before {
+        left: 7%;
+        transform: rotate(-7deg);
+      }
+
+      .couples-card::before {
+        right: 7%;
+        transform: rotate(7deg);
+      }
+
+      .travel-card::before {
+        left: 13%;
+        transform: rotate(-5deg);
+      }
+
+      .studio-card::before {
+        right: 11%;
+        transform: rotate(6deg);
+      }
+
+      /* MOBILE TITLES */
+
+      .photo-card::after {
+        position: relative;
+
+        z-index: 8;
+
+        display: block;
+
+        margin-top: 32px;
+
+        text-align: center;
+
+        font-size: 10px;
+        font-weight: 400;
+
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+
+        color: #222;
+      }
+
+      .portrait-card::after {
+        content: "Portrait";
+      }
+
+      .couples-card::after {
+        content: "Couples";
+      }
+
+      .travel-card::after {
+        content: "Travel";
+      }
+
+      .studio-card::after {
+        content: "Studio";
+      }
+
+      /* hide desktop stuff */
 
       .label,
       .arrow,
-      .glass {
+      .collage > .glass {
         display: none;
       }
 
-    }
-
-
-    @media (max-width: 580px) {
-
-      .collage {
-        grid-template-columns:
-          1fr;
-      }
+      /* MOBILE MODAL */
 
       .gallery-modal {
-        padding: 10px;
+        padding: 12px;
       }
 
       .gallery-panel {
         width: 100%;
+        max-height: 94vh;
 
+        padding:
+          26px
+          14px
+          22px;
+      }
+
+      .folders-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+
+        gap: 16px;
+      }
+
+      .folder-preview {
+        height: 240px;
+      }
+
+      .lightbox-main {
+        max-width: 88vw;
+        max-height: 70vh;
+      }
+
+    }
+
+    /* =====================================================
+       SMALL PHONE
+    ===================================================== */
+
+    @media (max-width: 520px) {
+
+      .photography-page {
+        padding:
+          18px
+          14px
+          55px;
+      }
+
+      .logo {
+        font-size: 25px;
+      }
+
+      .top-nav {
+        gap: 14px;
+        font-size: 8px;
+      }
+
+      .collage {
+        margin-top: 38px;
+        gap: 84px;
+      }
+
+      .photo-card,
+      .portrait-card,
+      .couples-card,
+      .travel-card,
+      .studio-card {
+        width:
+          min(
+            330px,
+            92vw
+          ) !important;
+      }
+
+      .photo-card::before {
+        width: 100px;
+        height: 116px;
+
+        bottom: -36px;
+      }
+
+      .portrait-card::before {
+        left: 5%;
+      }
+
+      .couples-card::before {
+        right: 5%;
+      }
+
+      .travel-card::before {
+        left: 11%;
+      }
+
+      .studio-card::before {
+        right: 8%;
+      }
+
+      .photo-card::after {
+        margin-top: 28px;
+        font-size: 9px;
+      }
+
+      .gallery-modal {
+        padding: 8px;
+      }
+
+      .gallery-panel {
+        width: 100%;
         max-height: 95vh;
 
         padding:
@@ -976,8 +1059,7 @@
       }
 
       .folders-grid {
-        grid-template-columns:
-          1fr;
+        grid-template-columns: 1fr;
       }
 
       .folder-preview {
@@ -989,21 +1071,14 @@
       }
 
       .lightbox-main {
-        max-width: 88vw;
+        max-width: 90vw;
         max-height: 68vh;
-      }
-
-      .lightbox-prev {
-        left: 0;
-      }
-
-      .lightbox-next {
-        right: 0;
       }
 
     }
 
   </style>
+
 </head>
 
 
@@ -1057,10 +1132,12 @@
         id="openPortraits"
         type="button"
       >
+
         <img
           src="images/monika/monika-01.JPG"
           alt="Portrait photography"
         >
+
       </button>
 
 
@@ -1071,10 +1148,12 @@
         id="openCouples"
         type="button"
       >
+
         <img
           src="images/gabi-konrad/gabi-konrad-01.jpeg"
           alt="Couples photography"
         >
+
       </button>
 
 
@@ -1085,10 +1164,12 @@
         id="openTravel"
         type="button"
       >
+
         <img
           src="images/maine/maine-01.jpg"
           alt="Travel photography"
         >
+
       </button>
 
 
@@ -1099,14 +1180,16 @@
         id="openStudio"
         type="button"
       >
+
         <img
           src="images/daniela-studio/daniela-studio-01.jpg"
           alt="Studio photography"
         >
+
       </button>
 
 
-      <!-- LABELS -->
+      <!-- DESKTOP LABELS -->
 
       <div class="label portrait-label">
         Portrait
@@ -1125,7 +1208,7 @@
       </div>
 
 
-      <!-- ARROWS -->
+      <!-- DESKTOP ARROWS -->
 
       <svg
         class="arrow portrait-arrow"
@@ -1163,7 +1246,7 @@
       </svg>
 
 
-      <!-- GLASS -->
+      <!-- DESKTOP PLASTIC -->
 
       <div class="glass glass-1"></div>
       <div class="glass glass-2"></div>
@@ -1184,6 +1267,7 @@
   >
 
     <div class="gallery-panel">
+
 
       <button
         class="close-gallery"
@@ -1238,7 +1322,6 @@
             ← Back
           </button>
 
-
           <div
             class="person-gallery-title"
             id="personGalleryTitle"
@@ -1251,6 +1334,7 @@
           class="portrait-grid"
           id="portraitGrid"
         ></div>
+
 
       </div>
 
@@ -1267,6 +1351,7 @@
   >
 
     <div class="lightbox-content">
+
 
       <button
         class="lightbox-close"
@@ -1308,6 +1393,7 @@
         id="lightboxThumbs"
       ></div>
 
+
     </div>
 
   </div>
@@ -1315,23 +1401,14 @@
 
   <script>
 
-    /* =========================
-       ALL GALLERIES
-       ========================= */
-
     const galleries = {
 
-      /* PORTRAIT */
-
       monika: [
-
         "images/monika/monika-01.JPG",
-
         "images/monika/monika-19.jpg",
         "images/monika/monika-20.jpg",
         "images/monika/monika-21.jpg",
         "images/monika/monika-22.jpg",
-
         "images/monika/monika-02.jpg",
         "images/monika/monika-03.jpg",
         "images/monika/monika-04.jpg",
@@ -1349,12 +1426,10 @@
         "images/monika/monika-16.jpeg",
         "images/monika/monika-17.jpeg",
         "images/monika/monika-18.jpeg"
-
       ],
 
 
       karla: [
-
         "images/karla/karla-01.jpg",
         "images/karla/karla-02.jpg",
         "images/karla/karla-03.jpg",
@@ -1365,12 +1440,10 @@
         "images/karla/karla-08.jpg",
         "images/karla/karla-09.jpg",
         "images/karla/karla-10.jpg"
-
       ],
 
 
       daniela: [
-
         "images/daniela/daniela-01.jpg",
         "images/daniela/daniela-02.jpg",
         "images/daniela/daniela-03.jpg",
@@ -1383,24 +1456,18 @@
         "images/daniela/daniela-10.jpg",
         "images/daniela/daniela-11.jpg",
         "images/daniela/daniela-12.jpg"
-
       ],
 
 
       kacper: [
-
         "images/kacper/kacper-01.jpg",
         "images/kacper/kacper-02.jpg",
         "images/kacper/kacper-03.jpg",
         "images/kacper/kacper-04.jpg"
-
       ],
 
 
-      /* COUPLES */
-
       gabiKonrad: [
-
         "images/gabi-konrad/gabi-konrad-01.jpeg",
         "images/gabi-konrad/gabi-konrad-02.jpeg",
         "images/gabi-konrad/gabi-konrad-03.jpeg",
@@ -1415,17 +1482,11 @@
         "images/gabi-konrad/gabi-konrad-12.jpeg",
         "images/gabi-konrad/gabi-konrad-13.jpeg",
         "images/gabi-konrad/gabi-konrad-14.jpeg",
-        "images/gabi-konrad/gabi-konrad-16.jpeg",
-        "images/gabi-konrad/gabi-konrad-17.jpeg",
-        "images/gabi-konrad/gabi-konrad-19.jpeg",
-        "images/gabi-konrad/gabi-konrad-20.jpeg",
         "images/gabi-konrad/gabi-konrad-21.jpeg"
-
       ],
 
 
       shannonAnthony: [
-
         "images/shannon-anthony/shannon-anthony-01.jpg",
         "images/shannon-anthony/shannon-anthony-02.jpg",
         "images/shannon-anthony/shannon-anthony-03.jpg",
@@ -1437,14 +1498,10 @@
         "images/shannon-anthony/shannon-anthony-10.jpg",
         "images/shannon-anthony/shannon-anthony-11.jpg",
         "images/shannon-anthony/shannon-anthony-12.jpg"
-
       ],
 
 
-      /* STUDIO */
-
       studioDaniela: [
-
         "images/daniela-studio/daniela-studio-01.jpg",
         "images/daniela-studio/daniela-studio-02.jpg",
         "images/daniela-studio/daniela-studio-03.jpg",
@@ -1454,287 +1511,179 @@
         "images/daniela-studio/daniela-studio-07.jpg",
         "images/daniela-studio/daniela-studio-08.jpg",
         "images/daniela-studio/daniela-studio-09.jpg"
-
       ],
 
 
-      /* TRAVEL */
-
       maine: [
-
         "images/maine/maine-01.jpg",
         "images/maine/maine-02.jpg"
-
       ]
 
     };
 
 
-    /* =========================
-       CATEGORIES
-       ========================= */
-
     const categories = {
 
       portraits: {
-
         title: "Portraits",
 
         folders: [
-
           {
             name: "Monika",
             key: "monika",
-            preview:
-              "images/monika/monika-01.JPG"
+            preview: "images/monika/monika-01.JPG"
           },
 
           {
             name: "Karla",
             key: "karla",
-            preview:
-              "images/karla/karla-01.jpg"
+            preview: "images/karla/karla-01.jpg"
           },
 
           {
             name: "Daniela",
             key: "daniela",
-            preview:
-              "images/daniela/daniela-01.jpg"
+            preview: "images/daniela/daniela-01.jpg"
           },
 
           {
             name: "Kacper",
             key: "kacper",
-            preview:
-              "images/kacper/kacper-01.jpg"
+            preview: "images/kacper/kacper-01.jpg"
           }
-
         ]
-
       },
 
 
       couples: {
-
         title: "Couples",
 
         folders: [
-
           {
             name: "Gabi & Konrad",
             key: "gabiKonrad",
-            preview:
-              "images/gabi-konrad/gabi-konrad-01.jpeg"
+            preview: "images/gabi-konrad/gabi-konrad-01.jpeg"
           },
 
           {
             name: "Shannon & Anthony",
             key: "shannonAnthony",
-            preview:
-              "images/shannon-anthony/shannon-anthony-01.jpg"
+            preview: "images/shannon-anthony/shannon-anthony-01.jpg"
           }
-
         ]
-
-      },
-
-
-      studio: {
-
-        title: "Studio",
-
-        folders: [
-
-          {
-            name: "Daniela",
-            key: "studioDaniela",
-            preview:
-              "images/daniela-studio/daniela-studio-01.jpg"
-          }
-
-        ]
-
       },
 
 
       travel: {
-
         title: "Travel",
 
         folders: [
-
           {
             name: "Maine",
             key: "maine",
-            preview:
-              "images/maine/maine-01.jpg"
+            preview: "images/maine/maine-01.jpg"
           }
-
         ]
+      },
 
+
+      studio: {
+        title: "Studio",
+
+        folders: [
+          {
+            name: "Daniela",
+            key: "studioDaniela",
+            preview: "images/daniela-studio/daniela-studio-01.jpg"
+          }
+        ]
       }
 
     };
 
 
-    /* =========================
-       ELEMENTS
-       ========================= */
-
     const openPortraits =
-      document.getElementById(
-        "openPortraits"
-      );
-
+      document.getElementById("openPortraits");
 
     const openCouples =
-      document.getElementById(
-        "openCouples"
-      );
-
+      document.getElementById("openCouples");
 
     const openTravel =
-      document.getElementById(
-        "openTravel"
-      );
-
+      document.getElementById("openTravel");
 
     const openStudio =
-      document.getElementById(
-        "openStudio"
-      );
+      document.getElementById("openStudio");
 
 
     const galleryModal =
-      document.getElementById(
-        "galleryModal"
-      );
-
+      document.getElementById("galleryModal");
 
     const closeGallery =
-      document.getElementById(
-        "closeGallery"
-      );
-
+      document.getElementById("closeGallery");
 
     const categoryTitle =
-      document.getElementById(
-        "categoryTitle"
-      );
-
+      document.getElementById("categoryTitle");
 
     const foldersView =
-      document.getElementById(
-        "foldersView"
-      );
-
+      document.getElementById("foldersView");
 
     const foldersGrid =
-      document.getElementById(
-        "foldersGrid"
-      );
-
+      document.getElementById("foldersGrid");
 
     const personGalleryView =
-      document.getElementById(
-        "personGalleryView"
-      );
-
+      document.getElementById("personGalleryView");
 
     const personGalleryTitle =
-      document.getElementById(
-        "personGalleryTitle"
-      );
-
+      document.getElementById("personGalleryTitle");
 
     const backToFolders =
-      document.getElementById(
-        "backToFolders"
-      );
-
+      document.getElementById("backToFolders");
 
     const portraitGrid =
-      document.getElementById(
-        "portraitGrid"
-      );
+      document.getElementById("portraitGrid");
 
 
     const lightbox =
-      document.getElementById(
-        "lightbox"
-      );
-
+      document.getElementById("lightbox");
 
     const lightboxMain =
-      document.getElementById(
-        "lightboxMain"
-      );
-
+      document.getElementById("lightboxMain");
 
     const lightboxThumbs =
-      document.getElementById(
-        "lightboxThumbs"
-      );
-
+      document.getElementById("lightboxThumbs");
 
     const closeLightbox =
-      document.getElementById(
-        "closeLightbox"
-      );
-
+      document.getElementById("closeLightbox");
 
     const prevImage =
-      document.getElementById(
-        "prevImage"
-      );
-
+      document.getElementById("prevImage");
 
     const nextImage =
-      document.getElementById(
-        "nextImage"
-      );
+      document.getElementById("nextImage");
 
 
     let currentCategory = "";
-
     let currentGallery = [];
-
-    let currentGalleryKey = "";
-
     let currentImageIndex = 0;
 
 
-    /* =========================
-       OPEN CATEGORY
-       ========================= */
-
-    function openCategory(
-      categoryKey
-    ) {
+    function openCategory(categoryKey) {
 
       currentCategory =
         categoryKey;
 
-
       categoryTitle.textContent =
-        categories[
-          categoryKey
-        ].title;
-
+        categories[categoryKey].title;
 
       renderFolders();
-
 
       galleryModal.classList.add(
         "active"
       );
 
-
       document.body.classList.add(
         "modal-open"
       );
-
 
       showFolders();
 
@@ -1743,129 +1692,89 @@
 
     openPortraits.addEventListener(
       "click",
-      () => {
-
-        openCategory(
-          "portraits"
-        );
-
-      }
+      () => openCategory("portraits")
     );
 
 
     openCouples.addEventListener(
       "click",
-      () => {
-
-        openCategory(
-          "couples"
-        );
-
-      }
+      () => openCategory("couples")
     );
 
 
     openTravel.addEventListener(
       "click",
-      () => {
-
-        openCategory(
-          "travel"
-        );
-
-      }
+      () => openCategory("travel")
     );
 
 
     openStudio.addEventListener(
       "click",
-      () => {
-
-        openCategory(
-          "studio"
-        );
-
-      }
+      () => openCategory("studio")
     );
 
 
-    /* =========================
-       RENDER FOLDERS
-       ========================= */
-
     function renderFolders() {
 
-      foldersGrid.innerHTML =
-        "";
-
+      foldersGrid.innerHTML = "";
 
       const folderData =
-        categories[
-          currentCategory
-        ].folders;
+        categories[currentCategory].folders;
 
 
-      folderData.forEach(
-        folder => {
+      folderData.forEach(folder => {
 
-          const button =
-            document.createElement(
-              "button"
+        const button =
+          document.createElement(
+            "button"
+          );
+
+        button.className =
+          "folder-card";
+
+        button.type =
+          "button";
+
+
+        button.innerHTML = `
+
+          <div class="folder-preview">
+
+            <img
+              src="${folder.preview}"
+              alt="${folder.name}"
+            >
+
+          </div>
+
+          <div class="folder-name">
+            ${folder.name}
+          </div>
+
+        `;
+
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            openGallery(
+              folder.key,
+              folder.name
             );
 
-
-          button.className =
-            "folder-card";
-
-
-          button.type =
-            "button";
+          }
+        );
 
 
-          button.innerHTML = `
+        foldersGrid.appendChild(
+          button
+        );
 
-            <div class="folder-preview">
-
-              <img
-                src="${folder.preview}"
-                alt="${folder.name}"
-              >
-
-            </div>
-
-            <div class="folder-name">
-              ${folder.name}
-            </div>
-
-          `;
-
-
-          button.addEventListener(
-            "click",
-            () => {
-
-              openGallery(
-                folder.key,
-                folder.name
-              );
-
-            }
-          );
-
-
-          foldersGrid.appendChild(
-            button
-          );
-
-        }
-      );
+      });
 
     }
 
-
-    /* =========================
-       SHOW FOLDERS
-       ========================= */
 
     function showFolders() {
 
@@ -1873,21 +1782,14 @@
         "hidden"
       );
 
-
       personGalleryView.classList.remove(
         "active"
       );
 
-
-      portraitGrid.innerHTML =
-        "";
+      portraitGrid.innerHTML = "";
 
     }
 
-
-    /* =========================
-       CLOSE CATEGORY
-       ========================= */
 
     function closeCategoryModal() {
 
@@ -1895,24 +1797,11 @@
         "active"
       );
 
-
       document.body.classList.remove(
         "modal-open"
       );
 
-
-      personGalleryView.classList.remove(
-        "active"
-      );
-
-
-      foldersView.classList.remove(
-        "hidden"
-      );
-
-
-      portraitGrid.innerHTML =
-        "";
+      showFolders();
 
     }
 
@@ -1928,80 +1817,57 @@
       event => {
 
         if (
-          event.target ===
-          galleryModal
+          event.target === galleryModal
         ) {
-
           closeCategoryModal();
-
         }
 
       }
     );
 
 
-    /* =========================
-       IMAGE INFO
-       ========================= */
-
     function getImageInfo(
       src,
       index
     ) {
 
-      return new Promise(
-        resolve => {
+      return new Promise(resolve => {
 
-          const image =
-            new Image();
-
-
-          image.onload =
-            () => {
-
-              resolve({
-
-                src: src,
-
-                index: index,
-
-                ratio:
-                  image.naturalWidth /
-                  image.naturalHeight
-
-              });
-
-            };
+        const image =
+          new Image();
 
 
-          image.onerror =
-            () => {
+        image.onload = () => {
 
-              resolve({
+          resolve({
+            src,
+            index,
 
-                src: src,
+            ratio:
+              image.naturalWidth /
+              image.naturalHeight
+          });
 
-                index: index,
-
-                ratio: 1
-
-              });
-
-            };
+        };
 
 
-          image.src =
-            src;
+        image.onerror = () => {
 
-        }
-      );
+          resolve({
+            src,
+            index,
+            ratio: 1
+          });
+
+        };
+
+
+        image.src = src;
+
+      });
 
     }
 
-
-    /* =========================
-       JUSTIFIED ROW
-       ========================= */
 
     function createJustifiedRow(
       photos,
@@ -2010,12 +1876,9 @@
     ) {
 
       if (
-        photos.length ===
-        0
+        photos.length === 0
       ) {
-
         return;
-
       }
 
 
@@ -2024,39 +1887,28 @@
           "div"
         );
 
-
       row.className =
         "gallery-row";
 
 
       const totalRatio =
         photos.reduce(
-          (
-            sum,
-            photo
-          ) => {
-
-            return (
-              sum +
-              photo.ratio
-            );
-
-          },
+          (sum, photo) =>
+            sum + photo.ratio,
           0
         );
 
 
-      const totalGapWidth =
+      const totalGap =
         gap *
         (
-          photos.length -
-          1
+          photos.length - 1
         );
 
 
       const availableWidth =
         galleryWidth -
-        totalGapWidth;
+        totalGap;
 
 
       const rowHeight =
@@ -2064,95 +1916,70 @@
         totalRatio;
 
 
-      photos.forEach(
-        photo => {
+      photos.forEach(photo => {
 
-          const item =
-            document.createElement(
-              "div"
-            );
-
-
-          item.className =
-            "portrait-item";
+        const item =
+          document.createElement(
+            "div"
+          );
 
 
-          const itemWidth =
+        item.className =
+          "portrait-item";
+
+
+        item.style.width =
+          `${
             rowHeight *
-            photo.ratio;
+            photo.ratio
+          }px`;
 
 
-          item.style.width =
-            `${itemWidth}px`;
+        item.style.height =
+          `${rowHeight}px`;
 
 
-          item.style.height =
-            `${rowHeight}px`;
+        const img =
+          document.createElement(
+            "img"
+          );
 
 
-          const img =
-            document.createElement(
-              "img"
+        img.src =
+          photo.src;
+
+
+        img.addEventListener(
+          "click",
+          () => {
+
+            openLightbox(
+              photo.index
             );
 
-
-          img.src =
-            photo.src;
-
-
-          img.alt =
-            `Photo ${photo.index + 1}`;
+          }
+        );
 
 
-          img.addEventListener(
-            "click",
-            () => {
+        item.appendChild(img);
 
-              openLightbox(
-                photo.index
-              );
+        row.appendChild(item);
 
-            }
-          );
+      });
 
 
-          item.appendChild(
-            img
-          );
-
-
-          row.appendChild(
-            item
-          );
-
-        }
-      );
-
-
-      portraitGrid.appendChild(
-        row
-      );
+      portraitGrid.appendChild(row);
 
     }
 
-
-    /* =========================
-       OPEN GALLERY
-       ========================= */
 
     async function openGallery(
       galleryKey,
       displayName
     ) {
 
-      currentGalleryKey =
-        galleryKey;
-
-
       currentGallery =
-        galleries[
-          galleryKey
-        ] || [];
+        galleries[galleryKey] || [];
 
 
       foldersView.classList.add(
@@ -2169,8 +1996,7 @@
         displayName;
 
 
-      portraitGrid.innerHTML =
-        "";
+      portraitGrid.innerHTML = "";
 
 
       await new Promise(
@@ -2185,17 +2011,11 @@
         await Promise.all(
 
           currentGallery.map(
-            (
-              src,
-              index
-            ) => {
-
-              return getImageInfo(
+            (src, index) =>
+              getImageInfo(
                 src,
                 index
-              );
-
-            }
+              )
           )
 
         );
@@ -2205,103 +2025,77 @@
         portraitGrid.clientWidth;
 
 
-      let targetHeight =
-        255;
+      let targetHeight = 255;
 
 
       if (
-        window.innerWidth <
-        850
+        window.innerWidth < 850
       ) {
-
-        targetHeight =
-          210;
-
+        targetHeight = 210;
       }
 
 
       if (
-        window.innerWidth <
-        580
+        window.innerWidth < 580
       ) {
-
-        targetHeight =
-          165;
-
+        targetHeight = 165;
       }
 
 
-      const gap =
-        10;
+      const gap = 10;
+
+      let row = [];
+
+      let ratio = 0;
 
 
-      let currentRow =
-        [];
+      imageData.forEach(photo => {
+
+        row.push(photo);
+
+        ratio += photo.ratio;
 
 
-      let currentRatio =
-        0;
-
-
-      imageData.forEach(
-        photo => {
-
-          currentRow.push(
-            photo
+        const estimatedWidth =
+          (
+            ratio *
+            targetHeight
+          )
+          +
+          (
+            gap *
+            (
+              row.length - 1
+            )
           );
 
 
-          currentRatio +=
-            photo.ratio;
+        if (
+          estimatedWidth >=
+          galleryWidth
+        ) {
 
+          createJustifiedRow(
+            row,
+            galleryWidth,
+            gap
+          );
 
-          const estimatedWidth =
-            (
-              currentRatio *
-              targetHeight
-            )
-            +
-            (
-              gap *
-              (
-                currentRow.length -
-                1
-              )
-            );
+          row = [];
 
-
-          if (
-            estimatedWidth >=
-            galleryWidth
-          ) {
-
-            createJustifiedRow(
-              currentRow,
-              galleryWidth,
-              gap
-            );
-
-
-            currentRow =
-              [];
-
-
-            currentRatio =
-              0;
-
-          }
+          ratio = 0;
 
         }
-      );
+
+      });
 
 
       if (
-        currentRow.length >
-        0
+        row.length > 0
       ) {
 
         createJustifiedRow(
-          currentRow,
+          row,
           galleryWidth,
           gap
         );
@@ -2311,32 +2105,20 @@
     }
 
 
-    /* =========================
-       BACK
-       ========================= */
-
     backToFolders.addEventListener(
       "click",
       showFolders
     );
 
 
-    /* =========================
-       LIGHTBOX
-       ========================= */
-
-    function openLightbox(
-      index
-    ) {
+    function openLightbox(index) {
 
       currentImageIndex =
         index;
 
-
       createThumbnails();
 
       updateLightbox();
-
 
       lightbox.classList.add(
         "active"
@@ -2360,60 +2142,26 @@
 
 
       thumbs.forEach(
-        (
-          thumb,
-          index
-        ) => {
+        (thumb, index) => {
 
           thumb.classList.toggle(
             "active",
-            index ===
-            currentImageIndex
+            index === currentImageIndex
           );
 
         }
       );
-
-
-      const activeThumb =
-        thumbs[
-          currentImageIndex
-        ];
-
-
-      if (
-        activeThumb
-      ) {
-
-        activeThumb.scrollIntoView({
-
-          behavior:
-            "smooth",
-
-          block:
-            "nearest",
-
-          inline:
-            "center"
-
-        });
-
-      }
 
     }
 
 
     function createThumbnails() {
 
-      lightboxThumbs.innerHTML =
-        "";
+      lightboxThumbs.innerHTML = "";
 
 
       currentGallery.forEach(
-        (
-          src,
-          index
-        ) => {
+        (src, index) => {
 
           const img =
             document.createElement(
@@ -2421,8 +2169,7 @@
             );
 
 
-          img.src =
-            src;
+          img.src = src;
 
 
           img.addEventListener(
@@ -2431,7 +2178,6 @@
 
               currentImageIndex =
                 index;
-
 
               updateLightbox();
 
@@ -2449,37 +2195,24 @@
     }
 
 
-    /* =========================
-       NEXT
-       ========================= */
-
     nextImage.addEventListener(
       "click",
       () => {
 
         currentImageIndex++;
 
-
         if (
           currentImageIndex >=
           currentGallery.length
         ) {
-
-          currentImageIndex =
-            0;
-
+          currentImageIndex = 0;
         }
-
 
         updateLightbox();
 
       }
     );
 
-
-    /* =========================
-       PREVIOUS
-       ========================= */
 
     prevImage.addEventListener(
       "click",
@@ -2487,28 +2220,18 @@
 
         currentImageIndex--;
 
-
         if (
-          currentImageIndex <
-          0
+          currentImageIndex < 0
         ) {
-
           currentImageIndex =
-            currentGallery.length -
-            1;
-
+            currentGallery.length - 1;
         }
-
 
         updateLightbox();
 
       }
     );
 
-
-    /* =========================
-       CLOSE LIGHTBOX
-       ========================= */
 
     function closeImageLightbox() {
 
@@ -2530,21 +2253,14 @@
       event => {
 
         if (
-          event.target ===
-          lightbox
+          event.target === lightbox
         ) {
-
           closeImageLightbox();
-
         }
 
       }
     );
 
-
-    /* =========================
-       KEYBOARD
-       ========================= */
 
     document.addEventListener(
       "keydown",
@@ -2557,34 +2273,22 @@
         ) {
 
           if (
-            event.key ===
-            "ArrowLeft"
+            event.key === "ArrowLeft"
           ) {
-
             prevImage.click();
-
           }
 
-
           if (
-            event.key ===
-            "ArrowRight"
+            event.key === "ArrowRight"
           ) {
-
             nextImage.click();
-
           }
-
 
           if (
-            event.key ===
-            "Escape"
+            event.key === "Escape"
           ) {
-
             closeImageLightbox();
-
           }
-
 
           return;
 
@@ -2592,82 +2296,31 @@
 
 
         if (
+          event.key === "Escape" &&
           galleryModal.classList.contains(
             "active"
           )
         ) {
 
           if (
-            event.key ===
-            "Escape"
-          ) {
-
-            if (
-              personGalleryView.classList.contains(
+            personGalleryView
+              .classList
+              .contains(
                 "active"
               )
-            ) {
+          ) {
 
-              showFolders();
+            showFolders();
 
-            }
+          }
 
-            else {
+          else {
 
-              closeCategoryModal();
-
-            }
+            closeCategoryModal();
 
           }
 
         }
-
-      }
-    );
-
-
-    /* =========================
-       RESIZE
-       ========================= */
-
-    let resizeTimer;
-
-
-    window.addEventListener(
-      "resize",
-      () => {
-
-        clearTimeout(
-          resizeTimer
-        );
-
-
-        resizeTimer =
-          setTimeout(
-            () => {
-
-              if (
-                personGalleryView.classList.contains(
-                  "active"
-                )
-                &&
-                currentGalleryKey
-              ) {
-
-                const title =
-                  personGalleryTitle.textContent;
-
-
-                openGallery(
-                  currentGalleryKey,
-                  title
-                );
-
-              }
-
-            },
-            180
-          );
 
       }
     );
