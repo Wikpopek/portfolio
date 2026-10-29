@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +9,11 @@
   <title>wikivisual.co</title>
 
   <style>
+
+    /* =========================
+       RESET
+    ========================== */
+
     * {
       margin: 0;
       padding: 0;
@@ -26,15 +32,25 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
+    /* =========================
+       HERO
+    ========================== */
+
     .hero {
       position: relative;
-      width: 100vw;
+      width: 100%;
       height: 100vh;
       overflow: hidden;
       background: #eee9e1;
+      isolation: isolate;
     }
 
+    /* =========================
+       BACKGROUND
+    ========================== */
+
     .hero-background {
+      display: block;
       position: absolute;
       inset: 0;
 
@@ -42,7 +58,7 @@
       height: 100%;
 
       object-fit: cover;
-      object-position: center;
+      object-position: center center;
 
       z-index: 1;
 
@@ -50,55 +66,60 @@
       user-select: none;
     }
 
+    /* =========================
+       LOGO
+    ========================== */
+
     .hero-logo {
       position: absolute;
-
       top: 7%;
       left: 50%;
 
       transform: translateX(-50%);
-
       z-index: 5;
 
       width: clamp(150px, 17vw, 300px);
 
       filter: blur(1.4px);
-
       opacity: 1;
 
       pointer-events: none;
       user-select: none;
     }
 
+    /* =========================
+       CLICKABLE LINKS
+    ========================== */
+
     .hero-link {
       position: absolute;
-
       z-index: 6;
 
       display: block;
-
       text-decoration: none;
       cursor: pointer;
 
       transition:
-        transform 0.7s cubic-bezier(.22,.61,.36,1);
+        transform 0.7s cubic-bezier(.22, .61, .36, 1);
     }
 
     .hero-link img {
       display: block;
-
       width: 100%;
       height: auto;
 
       filter: blur(3.5px);
-
       opacity: 0.9;
 
       transition:
         filter 0.75s ease,
         opacity 0.75s ease,
-        transform 0.75s cubic-bezier(.22,.61,.36,1);
+        transform 0.75s cubic-bezier(.22, .61, .36, 1);
     }
+
+    /* =========================
+       DESKTOP POSITIONS
+    ========================== */
 
     .photography-link {
       left: 5.5%;
@@ -114,6 +135,51 @@
       width: clamp(300px, 29vw, 560px);
     }
 
+    /* =========================
+       CLICK TO EXPLORE
+    ========================== */
+
+    .hero-link::after {
+      content: "CLICK TO EXPLORE  ↗";
+
+      position: absolute;
+      left: 50%;
+      bottom: -27px;
+
+      transform: translateX(-50%);
+      white-space: nowrap;
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+
+      color: #44403b;
+      opacity: 0.7;
+
+      pointer-events: none;
+
+      transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+
+      animation: hintFade 3s ease-in-out infinite;
+    }
+
+    @keyframes hintFade {
+      0%, 100% {
+        opacity: 0.4;
+      }
+
+      50% {
+        opacity: 0.85;
+      }
+    }
+
+    /* =========================
+       HOVER EFFECT
+    ========================== */
+
     .hero-link:hover img,
     .hero-link:focus-visible img {
       filter: blur(1.8px);
@@ -124,8 +190,26 @@
     .hero-link:hover,
     .hero-link:focus-visible {
       transform: translateY(-1px);
-      outline: none;
     }
+
+    .hero-link:hover::after,
+    .hero-link:focus-visible::after {
+      opacity: 1;
+      transform:
+        translateX(-50%)
+        translateY(-3px);
+
+      animation: none;
+    }
+
+    .hero-link:focus-visible {
+      outline: 1px solid #77716b;
+      outline-offset: 8px;
+    }
+
+    /* =========================
+       PAGE TRANSITION
+    ========================== */
 
     .hero.exit {
       animation: exitPage 0.55s ease forwards;
@@ -143,6 +227,10 @@
       }
     }
 
+    /* =========================
+       TABLET
+    ========================== */
+
     @media (max-width: 900px) {
 
       .hero-logo {
@@ -154,6 +242,7 @@
         left: 4%;
         top: auto;
         bottom: 16%;
+
         width: clamp(180px, 38vw, 300px);
       }
 
@@ -161,22 +250,197 @@
         right: 4%;
         top: auto;
         bottom: 16%;
+
         width: clamp(200px, 40vw, 320px);
+      }
+
+      .hero-link::after {
+        bottom: -27px;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 2px;
       }
     }
 
+    /* =========================
+       MOBILE
+    ========================== */
+
     @media (max-width: 620px) {
 
-      .photography-link {
-        left: 3%;
-        bottom: 13%;
-        width: 42vw;
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
       }
 
+      .hero {
+        width: 100%;
+        height: 100svh;
+        min-height: 100svh;
+
+        overflow: hidden;
+        background: #eee9e1;
+      }
+
+      /* ORIGINAL BACKGROUND */
+
+      .hero-background {
+        display: block;
+        position: absolute;
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: center center;
+
+        z-index: 1;
+      }
+
+      /* LOGO */
+
+      .hero-logo {
+        top: 5%;
+        width: 40vw;
+        max-width: 185px;
+
+        filter: blur(1px);
+        opacity: 0.96;
+      }
+
+      /* SMALLER GRAPHIC LINKS */
+
+      .hero-link {
+        left: 50%;
+        right: auto;
+
+        transform: translateX(-50%);
+
+        width: 50vw;
+        max-width: 230px;
+      }
+
+      /* PHOTOGRAPHY - HIGHER */
+
+      .photography-link {
+        top: 17%;
+        bottom: auto;
+      }
+
+      /* DIGITAL DESIGN - LOWER */
+
       .digital-link {
-        right: 3%;
-        bottom: 13%;
-        width: 44vw;
+        top: auto;
+        bottom: 7%;
+      }
+
+      /* GRAPHIC TEXT STYLE */
+
+      .hero-link img {
+        display: block;
+        width: 100%;
+        height: auto;
+
+        filter: blur(1.1px);
+        opacity: 0.95;
+
+        transform: none;
+      }
+
+      /* CLICK TO EXPLORE */
+
+      .hero-link::after {
+        content: "CLICK TO EXPLORE  ↗";
+
+        left: 50%;
+        bottom: -22px;
+
+        transform: translateX(-50%);
+        white-space: nowrap;
+
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+
+        color: #44403b;
+        opacity: 0.75;
+      }
+
+      /* MOBILE HOVER */
+
+      .hero-link:hover,
+      .hero-link:focus-visible {
+        transform: translateX(-50%);
+      }
+
+      .hero-link:hover img,
+      .hero-link:focus-visible img {
+        filter: blur(0.6px);
+        opacity: 1;
+        transform: scale(1.005);
+      }
+
+      .hero-link:hover::after,
+      .hero-link:focus-visible::after {
+        opacity: 1;
+        transform:
+          translateX(-50%)
+          translateY(-3px);
+      }
+    }
+
+    /* =========================
+       SMALL PHONES
+    ========================== */
+
+    @media (max-width: 380px) {
+
+      .hero-logo {
+        top: 4%;
+        width: 38vw;
+      }
+
+      .hero-link {
+        width: 48vw;
+      }
+
+      /* PHOTOGRAPHY HIGHER */
+
+      .photography-link {
+        top: 16%;
+      }
+
+      /* DIGITAL DESIGN LOWER */
+
+      .digital-link {
+        bottom: 8%;
+      }
+
+      .hero-link::after {
+        font-size: 9px;
+        letter-spacing: 1.3px;
+        bottom: -20px;
+      }
+    }
+
+    /* =========================
+       ACCESSIBILITY
+    ========================== */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .hero-link,
+      .hero-link img,
+      .hero-link::after {
+        animation: none;
+        transition: none;
+      }
+
+      .hero.exit {
+        animation: none;
       }
     }
 
@@ -187,11 +451,15 @@
 
   <main class="hero" id="hero">
 
+    <!-- ORIGINAL BACKGROUND -->
+
     <img
       src="images/hero-clean.png"
       class="hero-background"
       alt=""
     >
+
+    <!-- LOGO -->
 
     <img
       src="images/logo.png"
@@ -199,9 +467,12 @@
       alt="wikivisual.co"
     >
 
+    <!-- PHOTOGRAPHY -->
+
     <a
       href="photography.html"
       class="hero-link photography-link"
+      aria-label="Explore Photography portfolio"
     >
       <img
         src="images/photography.png"
@@ -209,9 +480,12 @@
       >
     </a>
 
+    <!-- DIGITAL DESIGN -->
+
     <a
       href="digital-design.html"
       class="hero-link digital-link"
+      aria-label="Explore Digital Design portfolio"
     >
       <img
         src="images/digital-design.png"
@@ -223,20 +497,40 @@
 
   <script>
 
-    const hero =
-      document.getElementById("hero");
+    const hero = document.getElementById("hero");
+    const links = document.querySelectorAll(".hero-link");
 
-    const links =
-      document.querySelectorAll(".hero-link");
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
 
     links.forEach(link => {
 
       link.addEventListener("click", function(event) {
 
+        // Allow opening links in new tabs
+        if (
+          event.ctrlKey ||
+          event.metaKey ||
+          event.shiftKey ||
+          event.altKey ||
+          event.button !== 0
+        ) {
+          return;
+        }
+
         event.preventDefault();
 
-        const destination =
-          this.getAttribute("href");
+        const destination = this.getAttribute("href");
+
+        if (hero.classList.contains("exit")) {
+          return;
+        }
+
+        if (reduceMotion.matches) {
+          window.location.href = destination;
+          return;
+        }
 
         hero.classList.add("exit");
 
