@@ -8,19 +8,9 @@
 
   <title>Photography — wikivisual.co</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&display=swap"
-    rel="stylesheet"
-  >
-
   <style>
 
-    /* =========================
-       GENERAL
-    ========================= */
+    /* GENERAL */
 
     * {
       margin: 0;
@@ -28,20 +18,24 @@
       box-sizing: border-box;
     }
 
-    html, body {
-      width: 100%;
-      min-height: 100%;
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      background: #fbfaf8;
-      color: #151515;
-      font-family: "IBM Plex Mono", monospace;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+
+      background: #000;
+      color: #fff;
+
+      font-family: Arial, Helvetica, sans-serif;
       overflow-x: hidden;
     }
 
-    body.modal-open {
-      overflow: hidden;
+    main {
+      flex: 1;
     }
 
     a {
@@ -51,27 +45,30 @@
 
     button {
       font-family: inherit;
+      color: inherit;
+      border-radius: 0;
     }
 
-    /* =========================
-       PAGE
-    ========================= */
-
-    .photography-page {
-      width: 100%;
-      min-height: 100vh;
-      padding: 22px 34px 26px;
+    img {
+      display: block;
+      max-width: 100%;
+      border-radius: 0;
     }
 
-    /* =========================
-       HEADER
-    ========================= */
+    /* HEADER */
 
     .site-header {
       position: relative;
+      width: 100%;
+
+      padding: 22px 34px 30px;
+
       display: flex;
       flex-direction: column;
       align-items: center;
+
+      background: #000;
+
       z-index: 100;
     }
 
@@ -80,36 +77,39 @@
       font-weight: 600;
       letter-spacing: -0.06em;
       line-height: 1;
-      color: #111;
+
+      color: #fff;
     }
 
     .section-title {
       margin-top: 9px;
+
       font-size: clamp(8px, 0.65vw, 11px);
       font-weight: 300;
       letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: #777;
+
+      color: #aaa;
     }
 
-    /* =========================
-       NAVIGATION
-    ========================= */
+    /* NAVIGATION */
 
     .top-nav {
       position: absolute;
-      top: 1px;
-      right: 0;
+
+      top: 23px;
+      right: 34px;
 
       display: flex;
+      align-items: center;
       gap: 28px;
-      z-index: 9999;
 
       font-size: clamp(8px, 0.65vw, 11px);
       font-weight: 300;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: #555;
+
+      color: #fff;
     }
 
     .top-nav a {
@@ -123,394 +123,334 @@
       transform: translateY(-1px);
     }
 
-    /* =========================
-       DESKTOP COLLAGE
-    ========================= */
+    /* PORTFOLIO TITLE */
 
-    .collage {
+    .portfolio-intro {
+      padding: 100px 7% 90px;
+    }
+
+    .portfolio-title {
+      font-size: clamp(48px, 8vw, 145px);
+      font-weight: 400;
+
+      line-height: 1;
+      letter-spacing: -0.065em;
+
+      color: #fff;
+    }
+
+    /* PROJECTS LIST */
+
+    .projects-section {
+      position: relative;
+      width: 100%;
+
+      margin-bottom: 110px;
+    }
+
+    .project-row {
       position: relative;
 
-      width: min(1500px, 96vw);
-      height: min(760px, calc(100vh - 105px));
-      min-height: 650px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-      margin: 10px auto 0;
-    }
+      width: 100%;
+      min-height: 115px;
 
-    .photo-card {
-      position: absolute;
-      display: block;
+      padding: 35px 7%;
 
-      padding: 0;
       border: none;
-      background: transparent;
+      border-top: 1px solid #333;
+      border-radius: 0;
+
+      background: #000;
+      color: #fff;
+
+      text-align: left;
 
       cursor: pointer;
-      z-index: 3;
-      overflow: visible;
 
       transition:
-        transform 0.5s cubic-bezier(.22,.61,.36,1),
-        opacity 0.3s ease;
+        background 0.3s ease,
+        color 0.3s ease;
     }
 
-    .photo-card:hover {
-      z-index: 30;
+    .project-row:last-of-type {
+      border-bottom: 1px solid #333;
     }
 
-    .photo-card img {
-      width: 100%;
-      height: auto;
-      display: block;
+    /* INVERTED HOVER */
+
+    .project-row:hover,
+    .project-row:focus-visible,
+    .project-row.active {
+      background: #fff;
+      color: #000;
     }
 
-    /* =========================
-       PORTRAIT
-    ========================= */
+    .project-name {
+      position: relative;
 
-    .portrait-card {
-      width: 22%;
-      left: 10%;
-      top: 8%;
-      transform: rotate(5deg);
+      font-size: clamp(20px, 2.3vw, 38px);
+      font-weight: 400;
+      letter-spacing: -0.025em;
+      text-transform: uppercase;
+
+      z-index: 2;
     }
 
-    .portrait-card:hover {
-      transform: rotate(3deg) scale(1.012);
+    .project-meta {
+      display: flex;
+      align-items: center;
+
+      gap: 12px;
     }
 
-    /* =========================
-       COUPLES
-    ========================= */
+    .project-tag {
+      display: inline-block;
 
-    .couples-card {
-      width: 22%;
-      left: 38%;
-      top: 20%;
-      transform: rotate(-2deg);
-    }
+      padding: 7px 12px;
 
-    .couples-card:hover {
-      transform: rotate(-1deg) scale(1.01);
-    }
+      border: 1px solid #555;
+      border-radius: 0;
 
-    /* =========================
-       STUDIO
-    ========================= */
-
-    .studio-card {
-      width: 19%;
-      right: 10%;
-      bottom: 4%;
-      transform: rotate(-4deg);
-    }
-
-    .studio-card:hover {
-      transform: rotate(-2deg) scale(1.012);
-    }
-
-    /* =========================
-       LABELS
-    ========================= */
-
-    .label {
-      position: absolute;
-      z-index: 40;
-
-      font-size: clamp(8px, 0.66vw, 11px);
-      font-weight: 300;
-      letter-spacing: 0.13em;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
 
       white-space: nowrap;
-      color: #333;
+
+      transition: border-color 0.3s ease;
     }
 
-    .portrait-label {
-      left: 2%;
-      top: 15%;
+    .project-row:hover .project-tag,
+    .project-row:focus-visible .project-tag,
+    .project-row.active .project-tag {
+      border-color: #999;
     }
 
-    .couples-label {
-      left: 29%;
-      bottom: 12%;
+    .project-arrow {
+      margin-left: 15px;
+
+      font-size: 24px;
+
+      transition: transform 0.3s ease;
     }
 
-    .studio-label {
-      right: 2%;
-      bottom: 13%;
+    .project-row:hover .project-arrow {
+      transform: translate(4px, -4px);
     }
 
-    /* =========================
-       ARROWS
-    ========================= */
+    /* FLOATING HOVER PREVIEW */
 
-    .arrow {
+    .project-preview {
       position: absolute;
-      overflow: visible;
-      z-index: 41;
-      pointer-events: none;
-    }
 
-    .arrow path {
-      fill: none;
-      stroke: #393939;
-      stroke-width: 1.1;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
+      right: 13%;
+      top: 0;
 
-    .portrait-arrow {
-      left: 3.5%;
-      top: 18%;
-      width: 85px;
-      height: 62px;
-    }
+      width: clamp(220px, 25vw, 420px);
 
-    .couples-arrow {
-      left: 31%;
-      bottom: 15%;
-      width: 105px;
-      height: 80px;
-    }
+      aspect-ratio: 3 / 4;
 
-    .studio-arrow {
-      right: 7%;
-      bottom: 15%;
-      width: 100px;
-      height: 80px;
-    }
-
-    /* =========================
-       GLASS EFFECTS
-    ========================= */
-
-    .glass {
-      position: absolute;
-      z-index: 15;
-
-      background:
-        repeating-linear-gradient(
-          90deg,
-          rgba(255,255,255,0.63) 0,
-          rgba(255,255,255,0.63) 5px,
-          rgba(190,190,190,0.18) 6px,
-          rgba(255,255,255,0.25) 11px
-        );
-
-      backdrop-filter: blur(11px);
-      -webkit-backdrop-filter: blur(11px);
-
-      opacity: 0.82;
-      pointer-events: none;
-    }
-
-    .glass-1 {
-      width: 9%;
-      height: 18%;
-      left: 4%;
-      top: 31%;
-      transform: rotate(-7deg);
-    }
-
-    .glass-2 {
-      width: 9%;
-      height: 18%;
-      left: 55%;
-      top: 26%;
-      transform: rotate(-5deg);
-    }
-
-    .glass-4 {
-      width: 8%;
-      height: 15%;
-      right: 23%;
-      bottom: 5%;
-      transform: rotate(-8deg);
-    }
-
-    /* =========================
-       CATEGORY GALLERY MODAL
-    ========================= */
-
-    .gallery-modal {
-      position: fixed;
-      inset: 0;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      padding: 28px;
-
-      background: rgba(242,239,234,0.86);
-
-      backdrop-filter: blur(13px);
-      -webkit-backdrop-filter: blur(13px);
+      transform: translateY(-40%);
 
       opacity: 0;
       visibility: hidden;
+
+      overflow: hidden;
+
       pointer-events: none;
 
-      z-index: 5000;
+      z-index: 50;
 
       transition:
-        opacity 0.35s ease,
-        visibility 0.35s ease;
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        top 0.35s ease;
     }
 
-    .gallery-modal.active {
+    .project-preview.visible {
       opacity: 1;
       visibility: visible;
-      pointer-events: auto;
     }
 
-    .gallery-panel {
-      position: relative;
-
-      width: min(1250px, 95vw);
-      max-height: 92vh;
-
-      overflow-y: auto;
-
-      background: #fbfaf8;
-      padding: 30px 24px;
-
-      box-shadow:
-        0 18px 55px rgba(0,0,0,0.13);
-    }
-
-    /* =========================
-       GALLERY HEADER
-    ========================= */
-
-    .gallery-top {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 34px;
-    }
-
-    .gallery-logo {
-      font-size: clamp(20px, 1.6vw, 30px);
-      font-weight: 600;
-      letter-spacing: -0.06em;
-    }
-
-    .gallery-title {
-      margin-top: 9px;
-
-      font-size: 10px;
-      font-weight: 300;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-
-      color: #777;
-    }
-
-    .close-gallery {
-      position: absolute;
-      top: 20px;
-      right: 24px;
-
-      border: none;
-      background: transparent;
-
-      font-size: 22px;
-      color: #333;
-
-      cursor: pointer;
-      z-index: 10;
-    }
-
-    /* =========================
-       COMBINED GALLERY
-    ========================= */
-
-    .category-gallery {
-      width: 100%;
-    }
-
-    .portrait-grid {
-      width: 100%;
-
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .gallery-row {
-      width: 100%;
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-    }
-
-    .portrait-item {
-      flex: 0 0 auto;
-      display: block;
-      overflow: hidden;
-      cursor: pointer;
-    }
-
-    .portrait-item img {
+    .project-preview img {
       width: 100%;
       height: 100%;
 
+      object-fit: cover;
+      object-position: center;
+
+      border-radius: 0;
+    }
+
+    /* EXPANDED PROJECT */
+
+    .project-detail {
+      display: none;
+
+      padding: 20px 34px 85px;
+
+      scroll-margin-top: 30px;
+    }
+
+    .project-detail.visible {
       display: block;
+
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+    .detail-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+
+      margin-bottom: 35px;
+    }
+
+    .detail-title {
+      font-size: clamp(30px, 4vw, 65px);
+      font-weight: 400;
+      letter-spacing: -0.05em;
+
+      color: #fff;
+    }
+
+    .close-project {
+      border: 1px solid #fff;
+      border-radius: 0;
+
+      padding: 12px 20px;
+
+      background: #000;
+      color: #fff;
+
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+
+      cursor: pointer;
+
+      transition:
+        background 0.3s ease,
+        color 0.3s ease;
+    }
+
+    .close-project:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    /* PHOTO GALLERY */
+
+    .photo-gallery {
+      width: 100%;
+
+      display: flex;
+      flex-direction: column;
+
+      gap: 16px;
+    }
+
+    .gallery-row {
+      display: flex;
+      align-items: flex-start;
+
+      width: 100%;
+
+      gap: 16px;
+    }
+
+    .gallery-item {
+      display: block;
+
+      flex-shrink: 0;
+
+      padding: 0;
+
+      border: none;
+      border-radius: 0;
+
+      background: transparent;
+
+      cursor: zoom-in;
+
+      overflow: hidden;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+
       object-fit: contain;
+
+      border-radius: 0;
+
+      transition: opacity 0.3s ease;
     }
 
-    .gallery-empty {
-      padding: 50px 10px;
+    .gallery-item:hover img {
+      opacity: 0.8;
+    }
+
+    .gallery-status {
+      padding: 50px 0;
+
       text-align: center;
+
       font-size: 11px;
-      color: #777;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+
+      color: #aaa;
     }
 
-    /* =========================
-       LIGHTBOX
-    ========================= */
+    /* FULLSCREEN LIGHTBOX */
 
     .lightbox {
       position: fixed;
+
       inset: 0;
 
-      display: flex;
+      display: none;
       align-items: center;
       justify-content: center;
 
-      background: rgba(10,10,10,0.94);
-
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
+      background: rgba(0, 0, 0, 0.97);
 
       z-index: 99999;
     }
 
     .lightbox.active {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-    }
-
-    .lightbox-content {
-      position: relative;
-
-      width: min(1250px, 95vw);
-      height: 94vh;
-
       display: flex;
-      flex-direction: column;
-
-      align-items: center;
-      justify-content: center;
     }
 
-    .lightbox-main {
-      max-width: 82vw;
-      max-height: 76vh;
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    .lightbox-image {
+      max-width: 86vw;
+      max-height: 86vh;
 
       width: auto;
       height: auto;
@@ -518,80 +458,278 @@
       object-fit: contain;
     }
 
-    .lightbox-close {
+    .lightbox-close,
+    .lightbox-arrow {
       position: absolute;
-      top: 8px;
-      right: 8px;
 
       border: none;
-      background: transparent;
+      border-radius: 0;
 
+      background: transparent;
       color: #fff;
-      font-size: 27px;
 
       cursor: pointer;
+
+      z-index: 10;
+    }
+
+    .lightbox-close {
+      top: 20px;
+      right: 28px;
+
+      font-size: 36px;
+
+      width: 44px;
+      height: 44px;
     }
 
     .lightbox-arrow {
-      position: absolute;
       top: 50%;
 
       transform: translateY(-50%);
 
-      border: none;
-      background: transparent;
+      font-size: 42px;
 
-      color: #fff;
-      font-size: 46px;
-
-      cursor: pointer;
-      opacity: 0.7;
+      width: 45px;
+      height: 60px;
     }
 
     .lightbox-prev {
-      left: 14px;
+      left: 20px;
     }
 
     .lightbox-next {
-      right: 14px;
+      right: 20px;
     }
 
-    .lightbox-thumbs {
+    .lightbox-arrow:hover,
+    .lightbox-close:hover {
+      opacity: 0.5;
+    }
+
+    .lightbox-counter {
+      position: absolute;
+
+      bottom: 25px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      color: #fff;
+
+      font-size: 11px;
+      letter-spacing: 0.15em;
+    }
+
+    /* BLACK FOOTER */
+
+    .site-footer {
+      position: relative;
+
+      width: 100%;
+
+      background: #000;
+      color: #fff;
+
+      border-top: 1px solid #333;
+
+      overflow: hidden;
+    }
+
+    .footer-content {
+      display: grid;
+
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+
+      gap: 50px;
+
+      width: 100%;
+      max-width: 1600px;
+
+      margin: 0 auto;
+
+      padding: 75px 7% 85px;
+    }
+
+    .footer-column {
       display: flex;
-      gap: 7px;
+      flex-direction: column;
+      align-items: flex-start;
 
-      margin-top: 17px;
-      max-width: 92vw;
-
-      overflow-x: auto;
+      min-width: 0;
     }
 
-    .lightbox-thumbs img {
-      flex: 0 0 auto;
+    .footer-heading {
+      margin-bottom: 20px;
 
-      width: 48px;
-      height: 62px;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
 
-      object-fit: cover;
-      opacity: 0.4;
-      cursor: pointer;
+      color: #aaa;
     }
 
-    .lightbox-thumbs img.active {
-      opacity: 1;
+    .footer-column p,
+    .footer-column a {
+      font-size: clamp(12px, 1vw, 16px);
+      font-weight: 400;
+
+      line-height: 1.9;
+
+      overflow-wrap: anywhere;
+
+      color: #fff;
     }
 
-    /* =========================
-       MOBILE
-    ========================= */
+    .footer-column a {
+      transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    .footer-column a:hover {
+      opacity: 0.5;
+      transform: translateX(3px);
+    }
+
+    .footer-column .copyright {
+      color: #aaa;
+    }
+
+    .footer-divider {
+      width: 100%;
+      height: 1px;
+
+      background: #333;
+    }
+
+    /* ANIMATED FOOTER */
+
+    .footer-marquee {
+      width: 100%;
+
+      overflow: hidden;
+
+      padding: 25px 0 0;
+
+      background: #000;
+    }
+
+    .marquee-track {
+      display: flex;
+      align-items: center;
+
+      width: max-content;
+
+      animation: marqueeScroll 25s linear infinite;
+
+      will-change: transform;
+    }
+
+    .marquee-group {
+      display: flex;
+      align-items: center;
+
+      flex-shrink: 0;
+    }
+
+    .marquee-text {
+      display: block;
+
+      flex-shrink: 0;
+
+      padding-right: 6vw;
+
+      font-family: Arial, Helvetica, sans-serif;
+
+      font-size: clamp(90px, 17vw, 320px);
+      font-weight: 600;
+
+      line-height: 0.95;
+      letter-spacing: -0.075em;
+
+      white-space: nowrap;
+
+      color: #fff;
+
+      user-select: none;
+    }
+
+    .marquee-separator {
+      display: block;
+
+      flex-shrink: 0;
+
+      padding-right: 6vw;
+
+      font-size: clamp(45px, 8vw, 150px);
+      font-weight: 300;
+
+      line-height: 1;
+
+      color: #fff;
+    }
+
+    @keyframes marqueeScroll {
+
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+
+    }
+
+    .footer-marquee:hover .marquee-track {
+      animation-play-state: paused;
+    }
+
+    /* ACCESSIBILITY */
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 1px solid currentColor;
+      outline-offset: 5px;
+    }
+
+    /* FOOTER TABLET */
+
+    @media (max-width: 900px) {
+
+      .footer-content {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 40px 35px;
+
+        padding: 55px 6% 65px;
+      }
+
+      .footer-heading {
+        font-size: 11px;
+        margin-bottom: 15px;
+      }
+
+      .footer-column p,
+      .footer-column a {
+        font-size: 14px;
+      }
+
+      .marquee-text {
+        font-size: 19vw;
+      }
+
+    }
+
+    /* TABLET */
 
     @media (max-width: 850px) {
 
-      .photography-page {
-        padding: 20px 16px 60px;
-      }
-
       .site-header {
+        padding: 20px 16px 25px;
+
         align-items: flex-start;
       }
 
@@ -600,240 +738,57 @@
       }
 
       .section-title {
-        margin-top: 8px;
         font-size: 9px;
+
+        margin-top: 8px;
       }
 
       .top-nav {
         position: static;
+
         width: 100%;
 
         margin-top: 20px;
 
         justify-content: flex-start;
         flex-wrap: wrap;
+
         gap: 16px;
 
         font-size: 9px;
       }
 
-      .collage {
-        position: relative;
-
-        width: 100%;
-        height: auto;
-        min-height: 0;
-
-        margin: 44px auto 0;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 92px;
+      .portfolio-intro {
+        padding: 65px 6% 60px;
       }
 
-      .photo-card,
-      .portrait-card,
-      .couples-card,
-      .studio-card {
-        position: relative !important;
-
-        inset: auto !important;
-
-        width: min(360px, 88vw) !important;
-        height: auto !important;
-
-        display: block;
-        padding: 0;
-        border: none;
-
-        background: transparent;
-        transform: none !important;
-        overflow: visible;
-
-        z-index: 10;
+      .portfolio-title {
+        font-size: clamp(40px, 8vw, 76px);
       }
 
-      .photo-card img {
-        position: relative;
-        z-index: 1;
+      .project-row {
+        padding: 25px 6%;
 
-        width: 100%;
-        height: auto;
-
-        display: block;
-        object-fit: contain;
-        object-position: center;
+        min-height: 95px;
       }
 
-      /* MOBILE PLASTIC */
-
-      .photo-card::before {
-        content: "";
-
-        position: absolute;
-        z-index: 5;
-
-        width: 118px;
-        height: 132px;
-        bottom: -40px;
-
-        pointer-events: none;
-
-        background:
-          repeating-linear-gradient(
-            90deg,
-            rgba(255,255,255,0.72) 0,
-            rgba(255,255,255,0.72) 8px,
-            rgba(185,185,185,0.23) 9px,
-            rgba(255,255,255,0.30) 17px
-          );
-
-        backdrop-filter: blur(13px);
-        -webkit-backdrop-filter: blur(13px);
-
-        opacity: 0.88;
-      }
-
-      .portrait-card::before {
-        left: 7%;
-        transform: rotate(-7deg);
-      }
-
-      .couples-card::before {
-        right: 7%;
-        transform: rotate(7deg);
-      }
-
-      .studio-card::before {
-        right: 11%;
-        transform: rotate(6deg);
-      }
-
-      /* MOBILE TITLES */
-
-      .photo-card::after {
-        position: relative;
-        z-index: 8;
-
-        display: block;
-        margin-top: 32px;
-        text-align: center;
-
-        font-size: 10px;
-        font-weight: 400;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-
-        color: #222;
-      }
-
-      .portrait-card::after {
-        content: "Portrait";
-      }
-
-      .couples-card::after {
-        content: "Couples";
-      }
-
-      .studio-card::after {
-        content: "Studio";
-      }
-
-      .label,
-      .arrow,
-      .collage > .glass {
-        display: none;
-      }
-
-      .gallery-modal {
-        padding: 12px;
-      }
-
-      .gallery-panel {
-        width: 100%;
-        max-height: 94vh;
-        padding: 26px 14px 22px;
-      }
-
-      .lightbox-main {
-        max-width: 88vw;
-        max-height: 70vh;
-      }
-
-    }
-
-    /* =========================
-       SMALL PHONE
-    ========================= */
-
-    @media (max-width: 520px) {
-
-      .photography-page {
-        padding: 18px 14px 55px;
-      }
-
-      .logo {
-        font-size: 25px;
-      }
-
-      .top-nav {
-        gap: 14px;
+      .project-tag {
         font-size: 8px;
+
+        padding: 6px 8px;
       }
 
-      .collage {
-        margin-top: 38px;
-        gap: 84px;
+      .project-meta {
+        gap: 6px;
       }
 
-      .photo-card,
-      .portrait-card,
-      .couples-card,
-      .studio-card {
-        width: min(330px, 92vw) !important;
+      .project-detail {
+        padding: 20px 16px 55px;
       }
 
-      .photo-card::before {
-        width: 100px;
-        height: 116px;
-        bottom: -36px;
-      }
-
-      .portrait-card::before {
-        left: 5%;
-      }
-
-      .couples-card::before {
-        right: 5%;
-      }
-
-      .studio-card::before {
-        right: 8%;
-      }
-
-      .photo-card::after {
-        margin-top: 28px;
-        font-size: 9px;
-      }
-
-      .gallery-modal {
-        padding: 8px;
-      }
-
-      .gallery-panel {
-        width: 100%;
-        max-height: 95vh;
-        padding: 24px 10px 20px;
-      }
-
-      .lightbox-main {
-        max-width: 90vw;
-        max-height: 68vh;
-      }
-
-      .lightbox-arrow {
-        font-size: 35px;
+      .photo-gallery,
+      .gallery-row {
+        gap: 12px;
       }
 
       .lightbox-prev {
@@ -846,26 +801,430 @@
 
     }
 
+    /* MOBILE */
+
+    @media (max-width: 600px) {
+
+      .portfolio-intro {
+        padding: 55px 20px 45px;
+      }
+
+      .portfolio-title {
+        font-size: clamp(37px, 9vw, 54px);
+
+        letter-spacing: -0.05em;
+      }
+
+      .projects-section {
+        margin-bottom: 65px;
+      }
+
+      .project-row {
+        display: grid;
+
+        grid-template-columns: 1fr auto;
+
+        gap: 12px;
+
+        min-height: 100px;
+
+        padding: 22px 20px;
+      }
+
+      .project-name {
+        font-size: 21px;
+
+        padding-right: 30px;
+      }
+
+      .project-meta {
+        grid-column: 1 / -1;
+      }
+
+      .project-arrow {
+        position: absolute;
+
+        right: 20px;
+        top: 19px;
+
+        margin-left: 0;
+      }
+
+      .project-preview {
+        display: none;
+      }
+
+      .detail-header {
+        margin-bottom: 20px;
+      }
+
+      .detail-title {
+        font-size: 30px;
+      }
+
+      .close-project {
+        padding: 10px 12px;
+
+        font-size: 9px;
+      }
+
+      .photo-gallery,
+      .gallery-row {
+        gap: 8px;
+      }
+
+      .footer-content {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 35px 20px;
+
+        padding: 40px 20px 45px;
+      }
+
+      .footer-heading {
+        margin-bottom: 12px;
+
+        font-size: 10px;
+      }
+
+      .footer-column p,
+      .footer-column a {
+        font-size: 12px;
+      }
+
+      .footer-marquee {
+        padding-top: 15px;
+      }
+
+      .marquee-text {
+        font-size: 25vw;
+
+        padding-right: 8vw;
+      }
+
+      .marquee-separator {
+        font-size: 11vw;
+
+        padding-right: 8vw;
+      }
+
+      .marquee-track {
+        animation-duration: 18s;
+      }
+
+    }
+
+    @media (max-width: 520px) {
+
+      .site-header {
+        padding: 18px 14px 25px;
+      }
+
+      .logo {
+        font-size: 25px;
+      }
+
+      .top-nav {
+        gap: 14px;
+
+        font-size: 8px;
+      }
+
+      .lightbox-close {
+        top: 12px;
+        right: 12px;
+      }
+
+      .lightbox-image {
+        max-width: 88vw;
+        max-height: 80vh;
+      }
+
+      .lightbox-arrow {
+        width: 28px;
+        font-size: 32px;
+      }
+
+    }
+
+    @media (hover: none) {
+
+      .project-preview {
+        display: none;
+      }
+
+    }
+
+    @media (max-width: 360px) {
+
+      .footer-content {
+        grid-template-columns: 1fr;
+
+        gap: 28px;
+      }
+
+    }
+
+    /* REDUCED MOTION */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+
+    }
+
   </style>
+
 </head>
 
 <body>
 
-  <main class="photography-page">
+  <!-- NAVBAR -->
 
-    <!-- HEADER -->
+  <header class="site-header">
 
-    <header class="site-header">
+    <a href="index.html" class="logo">
+      wikivisual.co
+    </a>
 
-      <a href="index.html" class="logo">
-        wikivisual.co
+    <div class="section-title">
+      Photography
+    </div>
+
+    <nav class="top-nav">
+
+      <a href="digital-design.html">
+        Digital Design
       </a>
 
-      <div class="section-title">
-        Photography
+      <a href="about.html">
+        About Me
+      </a>
+
+      <a href="contact.html">
+        Contact
+      </a>
+
+    </nav>
+
+  </header>
+
+  <main id="mainContent">
+
+    <!-- PORTFOLIO TITLE -->
+
+    <section class="portfolio-intro">
+
+      <h1 class="portfolio-title">
+        Photography Portfolio
+      </h1>
+
+    </section>
+
+    <!-- PROJECTS LIST -->
+
+    <section class="projects-section" id="projects">
+
+      <!-- BROOKE & JACK -->
+
+      <button
+        class="project-row"
+        type="button"
+        data-project="couples"
+        aria-controls="projectDetail"
+        aria-expanded="false"
+      >
+
+        <span class="project-name">
+          Brooke &amp; Jack
+        </span>
+
+        <span class="project-meta">
+
+          <span class="project-tag">
+            Photography
+          </span>
+
+          <span class="project-tag">
+            Couples
+          </span>
+
+          <span class="project-arrow">
+            ↗
+          </span>
+
+        </span>
+
+      </button>
+
+      <!-- MINNU MARIE AND MYLO -->
+
+      <button
+        class="project-row"
+        type="button"
+        data-project="lifestyle"
+        aria-controls="projectDetail"
+        aria-expanded="false"
+      >
+
+        <span class="project-name">
+          Minnu Marie and Mylo
+        </span>
+
+        <span class="project-meta">
+
+          <span class="project-tag">
+            Photography
+          </span>
+
+          <span class="project-tag">
+            Lifestyle
+          </span>
+
+          <span class="project-arrow">
+            ↗
+          </span>
+
+        </span>
+
+      </button>
+
+      <!-- FLOATING PREVIEW -->
+
+      <div
+        class="project-preview"
+        id="projectPreview"
+        aria-hidden="true"
+      >
+
+        <img id="previewImage" alt="">
+
       </div>
 
-      <nav class="top-nav">
+    </section>
+
+    <!-- EXPANDED PROJECT GALLERY -->
+
+    <section
+      class="project-detail"
+      id="projectDetail"
+    >
+
+      <div class="detail-header">
+
+        <h2
+          class="detail-title"
+          id="detailTitle"
+        ></h2>
+
+        <button
+          class="close-project"
+          id="closeProject"
+          type="button"
+        >
+          Close ×
+        </button>
+
+      </div>
+
+      <div
+        class="photo-gallery"
+        id="photoGallery"
+        aria-label="Project photographs"
+      ></div>
+
+    </section>
+
+  </main>
+
+  <!-- FULLSCREEN LIGHTBOX -->
+
+  <div
+    class="lightbox"
+    id="lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Photograph viewer"
+    aria-hidden="true"
+  >
+
+    <button
+      class="lightbox-close"
+      id="closeLightbox"
+      type="button"
+      aria-label="Close photograph"
+    >
+      ×
+    </button>
+
+    <button
+      class="lightbox-arrow lightbox-prev"
+      id="prevImage"
+      type="button"
+      aria-label="Previous photograph"
+    >
+      ‹
+    </button>
+
+    <img
+      class="lightbox-image"
+      id="lightboxImage"
+      alt="Selected photograph"
+    >
+
+    <button
+      class="lightbox-arrow lightbox-next"
+      id="nextImage"
+      type="button"
+      aria-label="Next photograph"
+    >
+      ›
+    </button>
+
+    <div
+      class="lightbox-counter"
+      id="lightboxCounter"
+    ></div>
+
+  </div>
+
+  <!-- BLACK FOOTER -->
+
+  <footer class="site-footer">
+
+    <div class="footer-content">
+
+      <!-- LOCATION -->
+
+      <div class="footer-column">
+
+        <h2 class="footer-heading">
+          Location
+        </h2>
+
+        <p>New York City</p>
+        <p>United States</p>
+
+      </div>
+
+      <!-- EXPLORE -->
+
+      <div class="footer-column">
+
+        <h2 class="footer-heading">
+          Explore
+        </h2>
+
+        <a href="photography.html">
+          Photography
+        </a>
 
         <a href="digital-design.html">
           Digital Design
@@ -879,637 +1238,775 @@
           Contact
         </a>
 
-      </nav>
-
-    </header>
-
-    <!-- =========================
-         COLLAGE
-    ========================= -->
-
-    <section class="collage">
-
-      <!-- PORTRAIT -->
-
-      <button
-        class="photo-card portrait-card"
-        id="openPortraits"
-        type="button"
-        aria-label="Open Portrait gallery"
-      >
-
-        <img
-          src="images/monika/monika-01.JPG"
-          alt="Portrait photography"
-        >
-
-      </button>
-
-      <!-- COUPLES -->
-
-      <button
-        class="photo-card couples-card"
-        id="openCouples"
-        type="button"
-        aria-label="Open Couples gallery"
-      >
-
-        <img
-          src="images/gabi-konrad/gabi-konrad-01.jpeg"
-          alt="Couples photography"
-        >
-
-      </button>
-
-      <!-- STUDIO -->
-
-      <button
-        class="photo-card studio-card"
-        id="openStudio"
-        type="button"
-        aria-label="Open Studio gallery"
-      >
-
-        <img
-          src="images/daniela-studio/daniela-studio-01.jpg"
-          alt="Studio photography"
-        >
-
-      </button>
-
-      <!-- =========================
-           LABELS
-      ========================= -->
-
-      <div class="label portrait-label">
-        Portrait
       </div>
 
-      <div class="label couples-label">
-        Couples
-      </div>
+      <!-- CONTACT & SOCIALS -->
 
-      <div class="label studio-label">
-        Studio
-      </div>
+      <div class="footer-column">
 
-      <!-- =========================
-           ARROWS
-      ========================= -->
+        <h2 class="footer-heading">
+          Contact &amp; Socials
+        </h2>
 
-      <svg
-        class="arrow portrait-arrow"
-        viewBox="0 0 85 62"
-      >
-        <path d="M 4 4 C 10 25, 27 42, 63 47"/>
-        <path d="M 55 40 L 64 47 L 54 52"/>
-      </svg>
+        <a href="mailto:wbabula78@gmail.com">
+          wbabula78@gmail.com
+        </a>
 
-      <svg
-        class="arrow couples-arrow"
-        viewBox="0 0 105 80"
-      >
-        <path d="M 5 70 C 26 62, 48 46, 78 18"/>
-        <path d="M 66 21 L 80 16 L 76 31"/>
-      </svg>
-
-      <svg
-        class="arrow studio-arrow"
-        viewBox="0 0 100 80"
-      >
-        <path d="M 95 68 C 74 60, 55 44, 34 22"/>
-        <path d="M 45 26 L 32 20 L 36 34"/>
-      </svg>
-
-      <!-- =========================
-           GLASS
-      ========================= -->
-
-      <div class="glass glass-1"></div>
-      <div class="glass glass-2"></div>
-      <div class="glass glass-4"></div>
-
-    </section>
-
-  </main>
-
-  <!-- =========================
-       CATEGORY MODAL
-  ========================= -->
-
-  <div
-    class="gallery-modal"
-    id="galleryModal"
-    role="dialog"
-    aria-modal="true"
-    aria-label="Photography gallery"
-  >
-
-    <div class="gallery-panel" id="galleryPanel">
-
-      <button
-        class="close-gallery"
-        id="closeGallery"
-        type="button"
-        aria-label="Close gallery"
-      >
-        ×
-      </button>
-
-      <div class="gallery-top">
-
-        <div class="gallery-logo">
-          wikivisual.co
-        </div>
-
-        <div
-          class="gallery-title"
-          id="categoryTitle"
+        <a
+          href="https://www.instagram.com/wikivisual.co/"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          Photography
-        </div>
+          Instagram ↗
+        </a>
+
+        <a
+          href="https://www.tiktok.com/@wikivisual_co"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          TikTok ↗
+        </a>
 
       </div>
 
-      <!-- COMBINED PHOTO GALLERY -->
+      <!-- LEGAL -->
 
-      <div class="category-gallery">
+      <div class="footer-column">
 
-        <div
-          class="portrait-grid"
-          id="portraitGrid"
-        ></div>
+        <h2 class="footer-heading">
+          Legal
+        </h2>
+
+        <p class="copyright">
+          © <span id="currentYear">2026</span> wikivisual.co
+        </p>
+
+        <p class="copyright">
+          All Rights Reserved.
+        </p>
 
       </div>
 
     </div>
 
-  </div>
+    <div class="footer-divider"></div>
 
-  <!-- =========================
-       LIGHTBOX
-  ========================= -->
+    <!-- ANIMATED BRAND -->
 
-  <div
-    class="lightbox"
-    id="lightbox"
-    role="dialog"
-    aria-modal="true"
-    aria-label="Full-size photograph"
-  >
+    <div class="footer-marquee" aria-hidden="true">
 
-    <div class="lightbox-content">
+      <div class="marquee-track">
 
-      <button
-        class="lightbox-close"
-        id="closeLightbox"
-        type="button"
-        aria-label="Close image"
-      >
-        ×
-      </button>
+        <div class="marquee-group">
 
-      <button
-        class="lightbox-arrow lightbox-prev"
-        id="prevImage"
-        type="button"
-        aria-label="Previous image"
-      >
-        ‹
-      </button>
+          <span class="marquee-text">
+            wikivisual.co
+          </span>
 
-      <img
-        src=""
-        alt="Selected photograph"
-        class="lightbox-main"
-        id="lightboxMain"
-      >
+          <span class="marquee-separator">
+            ✳
+          </span>
 
-      <button
-        class="lightbox-arrow lightbox-next"
-        id="nextImage"
-        type="button"
-        aria-label="Next image"
-      >
-        ›
-      </button>
+          <span class="marquee-text">
+            wikivisual.co
+          </span>
 
-      <div
-        class="lightbox-thumbs"
-        id="lightboxThumbs"
-      ></div>
+          <span class="marquee-separator">
+            ✳
+          </span>
+
+        </div>
+
+        <div class="marquee-group">
+
+          <span class="marquee-text">
+            wikivisual.co
+          </span>
+
+          <span class="marquee-separator">
+            ✳
+          </span>
+
+          <span class="marquee-text">
+            wikivisual.co
+          </span>
+
+          <span class="marquee-separator">
+            ✳
+          </span>
+
+        </div>
+
+      </div>
 
     </div>
 
-  </div>
+  </footer>
 
   <script>
 
-    /* =========================
-       PHOTO PATH HELPER
-    ========================= */
+    /* COPYRIGHT YEAR */
 
-    function numberedPhotos(
-      folder,
-      prefix,
-      start,
-      end,
-      extension
-    ) {
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
 
-      const result = [];
 
-      for (
-        let number = start;
-        number <= end;
-        number++
-      ) {
+    /* PROJECTS */
 
-        const formattedNumber =
-          String(number).padStart(2, "0");
+    const projects = {
 
-        result.push(
-          `images/${folder}/${prefix}-${formattedNumber}.${extension}`
-        );
-
-      }
-
-      return result;
-
-    }
-
-    /* =========================
-       PORTRAIT PHOTOS
-
-       Monika
-       Karla
-       Daniela
-       Kacper
-    ========================= */
-
-    const portraitPhotos = [
-
-      "images/monika/monika-01.JPG",
-
-      ...numberedPhotos(
-        "monika", "monika", 19, 22, "jpg"
-      ),
-
-      ...numberedPhotos(
-        "monika", "monika", 2, 7, "jpg"
-      ),
-
-      ...numberedPhotos(
-        "monika", "monika", 8, 18, "jpeg"
-      ),
-
-      ...numberedPhotos(
-        "karla", "karla", 1, 10, "jpg"
-      ),
-
-      ...numberedPhotos(
-        "daniela", "daniela", 1, 12, "jpg"
-      ),
-
-      ...numberedPhotos(
-        "kacper", "kacper", 1, 4, "jpg"
-      )
-
-    ];
-
-    /* =========================
-       COUPLES PHOTOS
-
-       Gabi & Konrad
-       Shannon & Anthony
-    ========================= */
-
-    const couplesPhotos = [
-
-      ...numberedPhotos(
-        "gabi-konrad",
-        "gabi-konrad",
-        1,
-        14,
-        "jpeg"
-      ),
-
-      "images/gabi-konrad/gabi-konrad-21.jpeg",
-
-      ...numberedPhotos(
-        "shannon-anthony",
-        "shannon-anthony",
-        1,
-        5,
-        "jpg"
-      ),
-
-      ...numberedPhotos(
-        "shannon-anthony",
-        "shannon-anthony",
-        7,
-        12,
-        "jpg"
-      )
-
-    ];
-
-    /* =========================
-       STUDIO PHOTOS
-    ========================= */
-
-    const studioPhotos = [
-
-      ...numberedPhotos(
-        "daniela-studio",
-        "daniela-studio",
-        1,
-        9,
-        "jpg"
-      )
-
-    ];
-
-    /* =========================
-       CATEGORIES
-
-       Travel removed.
-    ========================= */
-
-    const categories = {
-
-      portraits: {
-        title: "Portrait",
-        images: portraitPhotos
-      },
+      /* BROOKE & JACK */
 
       couples: {
-        title: "Couples",
-        images: couplesPhotos
+
+        title: "Brooke & Jack",
+
+        preview: "DSC_8250.jpg",
+
+        photos: [
+
+          "DSC_7931.jpg",
+          "DSC_7934.jpg",
+          "DSC_7936.jpg",
+          "DSC_7937.jpg",
+          "DSC_7959.jpg",
+          "DSC_8005.jpg",
+          "DSC_8006.jpg",
+          "DSC_8039.jpg",
+          "DSC_8051.jpg",
+          "DSC_8061.jpg",
+          "DSC_8068-3.jpg",
+          "DSC_8068.jpg",
+          "DSC_8074-2.jpg",
+          "DSC_8074.jpg",
+          "DSC_8092.jpg",
+          "DSC_8098.jpg",
+          "DSC_8108.jpg",
+          "DSC_8132.jpg",
+          "DSC_8159.jpg",
+          "DSC_8184.jpg",
+          "DSC_8196.jpg",
+          "DSC_8206.jpg",
+          "DSC_8207.jpg",
+          "DSC_8209-2.jpg",
+          "DSC_8209.jpg",
+          "DSC_8215.jpg",
+          "DSC_8238.jpg",
+          "DSC_8250-2.jpg",
+          "DSC_8250.jpg",
+          "DSC_8337.jpg",
+          "DSC_8347.jpg",
+          "DSC_8370.jpg",
+          "DSC_8393.jpg",
+          "DSC_8406.jpg",
+          "DSC_8441.jpg",
+          "DSC_8461.jpg",
+          "DSC_8474.jpg",
+          "DSC_8547.jpg",
+          "DSC_8555.jpg",
+          "DSC_8575.jpg",
+          "DSC_8578.jpg",
+          "DSC_8599.jpg",
+          "DSC_8668.jpg",
+          "DSC_8707.jpg",
+          "DSC_8753.jpg",
+          "DSC_8791.jpg",
+          "DSC_8793.jpg",
+          "DSC_8810.jpg",
+          "DSC_8835.jpg",
+          "DSC_8888.jpg"
+
+        ]
+
       },
 
-      studio: {
-        title: "Studio",
-        images: studioPhotos
+
+      /* MINNU MARIE AND MYLO */
+
+      lifestyle: {
+
+        title: "Minnu Marie and Mylo",
+
+        preview: "DSC_0385.jpg",
+
+        photos: [
+
+          "DSC_0127.jpg",
+          "DSC_0197-2.jpg",
+          "DSC_0197.jpg",
+          "DSC_0204.jpg",
+          "DSC_0219.jpg",
+          "DSC_0244.jpg",
+          "DSC_0248.jpg",
+          "DSC_0251.jpg",
+          "DSC_0334.jpg",
+          "DSC_0336.jpg",
+          "DSC_0385.jpg",
+          "DSC_0436.jpg",
+          "DSC_0443.jpg",
+          "DSC_0446.jpg",
+          "DSC_0464.jpg",
+          "DSC_0508.jpg",
+          "DSC_0541.jpg",
+          "DSC_0573.jpg",
+          "DSC_0588.jpg",
+          "DSC_0589.jpg",
+          "DSC_0596.jpg",
+          "DSC_0672.jpg",
+          "DSC_0690.jpg",
+          "DSC_0700.jpg",
+          "DSC_0703.jpg",
+          "DSC_0713.jpg",
+          "DSC_0720.jpg",
+          "DSC_0721.jpg",
+          "DSC_0770.jpg",
+          "DSC_0785.jpg",
+          "DSC_0787.jpg",
+          "DSC_0791.jpg",
+          "DSC_0815.jpg",
+          "DSC_0825.jpg",
+          "DSC_0834.jpg",
+          "DSC_0854.jpg",
+          "DSC_0873.jpg",
+          "DSC_0877.jpg",
+          "DSC_0888.jpg"
+
+        ]
+
       }
 
     };
 
-    /* =========================
-       ELEMENTS
-    ========================= */
 
-    const galleryModal =
-      document.getElementById("galleryModal");
+    /* IMAGE FOLDER */
 
-    const galleryPanel =
-      document.getElementById("galleryPanel");
+    const imageFolder = "images/gallery/";
 
-    const closeGallery =
-      document.getElementById("closeGallery");
 
-    const categoryTitle =
-      document.getElementById("categoryTitle");
+    /* ELEMENTS */
 
-    const portraitGrid =
-      document.getElementById("portraitGrid");
+    const rows =
+      document.querySelectorAll(".project-row");
+
+    const preview =
+      document.getElementById("projectPreview");
+
+    const previewImage =
+      document.getElementById("previewImage");
+
+    const detail =
+      document.getElementById("projectDetail");
+
+    const detailTitle =
+      document.getElementById("detailTitle");
+
+    const gallery =
+      document.getElementById("photoGallery");
+
+    const closeProjectButton =
+      document.getElementById("closeProject");
 
     const lightbox =
       document.getElementById("lightbox");
 
-    const lightboxMain =
-      document.getElementById("lightboxMain");
+    const lightboxImage =
+      document.getElementById("lightboxImage");
 
-    const lightboxThumbs =
-      document.getElementById("lightboxThumbs");
+    const lightboxCounter =
+      document.getElementById("lightboxCounter");
 
-    const closeLightbox =
+    const closeLightboxButton =
       document.getElementById("closeLightbox");
 
-    const prevImage =
+    const prevButton =
       document.getElementById("prevImage");
 
-    const nextImage =
+    const nextButton =
       document.getElementById("nextImage");
 
-    /* =========================
-       STATE
-    ========================= */
+    const pageSections = [
 
-    let currentGallery = [];
+      document.querySelector(".site-header"),
+
+      document.getElementById("mainContent"),
+
+      document.querySelector(".site-footer")
+
+    ];
+
+
+    /* STATE */
+
+    let activeProject = null;
+
+    let loadedPhotos = [];
+
     let currentImageIndex = 0;
 
-    let currentCategory = "";
-    let renderVersion = 0;
-    let lastTrigger = null;
+    let lastFocusedItem = null;
 
-    /* =========================
-       OPEN CATEGORY
-    ========================= */
+    let requestVersion = 0;
 
-    async function openCategory(categoryKey) {
+    let resizeFrame = null;
 
-      const category =
-        categories[categoryKey];
+    let previewVersion = 0;
 
-      if (!category) return;
+    const photoCache = {};
 
-      currentCategory = categoryKey;
 
-      currentGallery = [
-        ...category.images
-      ];
+    /* PRELOAD HOVER IMAGES */
 
-      categoryTitle.textContent =
-        category.title;
+    Object.values(projects).forEach(project => {
 
-      galleryModal.classList.add(
-        "active"
-      );
+      const image = new Image();
 
-      document.body.classList.add(
-        "modal-open"
-      );
+      image.src = imageFolder + project.preview;
 
-      galleryPanel.scrollTop = 0;
+    });
 
-      await renderCombinedGallery();
 
-    }
+    /* HOVER PREVIEW */
 
-    /* =========================
-       CATEGORY BUTTONS
-    ========================= */
+    function showPreview(row) {
 
-    document
-      .getElementById("openPortraits")
-      .addEventListener("click", function() {
+      if (
 
-        lastTrigger = this;
-        openCategory("portraits");
+        window.matchMedia("(hover: none)").matches ||
 
-      });
+        window.innerWidth <= 600 ||
 
-    document
-      .getElementById("openCouples")
-      .addEventListener("click", function() {
+        lightbox.classList.contains("active")
 
-        lastTrigger = this;
-        openCategory("couples");
+      ) {
 
-      });
+        return;
 
-    document
-      .getElementById("openStudio")
-      .addEventListener("click", function() {
-
-        lastTrigger = this;
-        openCategory("studio");
-
-      });
-
-    /* =========================
-       CLOSE CATEGORY
-    ========================= */
-
-    function closeCategoryModal() {
-
-      renderVersion++;
-
-      galleryModal.classList.remove(
-        "active"
-      );
-
-      document.body.classList.remove(
-        "modal-open"
-      );
-
-      portraitGrid.innerHTML = "";
-
-      if (lastTrigger) {
-        lastTrigger.focus();
       }
 
+      const project =
+        projects[row.dataset.project];
+
+      if (!project) return;
+
+      const version = ++previewVersion;
+
+      const imagePath =
+        imageFolder + project.preview;
+
+      preview.style.top =
+
+        `${row.offsetTop + row.offsetHeight / 2}px`;
+
+      const image = new Image();
+
+      image.onload = () => {
+
+        if (version !== previewVersion) return;
+
+        previewImage.src = imagePath;
+
+        preview.classList.add("visible");
+
+      };
+
+      image.onerror = () => {
+
+        if (version !== previewVersion) return;
+
+        preview.classList.remove("visible");
+
+      };
+
+      image.src = imagePath;
+
     }
 
-    closeGallery.addEventListener(
-      "click",
-      closeCategoryModal
-    );
 
-    galleryModal.addEventListener(
-      "click",
-      function(event) {
+    function hidePreview() {
 
-        if (event.target === galleryModal) {
-          closeCategoryModal();
+      previewVersion++;
+
+      preview.classList.remove("visible");
+
+    }
+
+
+    /* PROJECT ROW INTERACTIONS */
+
+    rows.forEach(row => {
+
+      row.addEventListener("mouseenter", () => {
+
+        showPreview(row);
+
+      });
+
+      row.addEventListener(
+
+        "mouseleave",
+
+        hidePreview
+
+      );
+
+      row.addEventListener("focus", () => {
+
+        showPreview(row);
+
+      });
+
+      row.addEventListener(
+
+        "blur",
+
+        hidePreview
+
+      );
+
+      row.addEventListener("click", () => {
+
+        const projectKey =
+          row.dataset.project;
+
+        hidePreview();
+
+        if (activeProject === projectKey) {
+
+          closeProject();
+
+        } else {
+
+          openProject(projectKey);
+
         }
 
-      }
-    );
+      });
 
-    /* =========================
-       IMAGE INFORMATION
-    ========================= */
+    });
 
-    function getImageInfo(src, index) {
+
+    /* GET IMAGE DIMENSIONS */
+
+    function getImageInfo(fileName) {
 
       return new Promise(resolve => {
 
-        const image = new Image();
+        const img = new Image();
 
-        image.onload = function() {
+        const src =
+          imageFolder + fileName;
+
+        img.onload = () => {
 
           resolve({
+
             src: src,
-            index: index,
+
             ratio:
-              image.naturalWidth /
-              image.naturalHeight
+              img.naturalWidth /
+              img.naturalHeight
+
           });
 
         };
 
-        image.onerror = function() {
+        img.onerror = () => {
 
-          resolve({
-            src: src,
-            index: index,
-            ratio: 1
-          });
+          console.warn(
+            "Image not found:",
+            src
+          );
+
+          resolve(null);
 
         };
 
-        image.src = src;
+        img.src = src;
 
       });
 
     }
 
-    /* =========================
-       JUSTIFIED ROWS
-    ========================= */
 
-    function createJustifiedRow(
-      photos,
+    /* OPEN PROJECT */
+
+    async function openProject(projectKey) {
+
+      const project =
+        projects[projectKey];
+
+      if (!project) return;
+
+      activeProject = projectKey;
+
+      const version = ++requestVersion;
+
+      loadedPhotos = [];
+
+      rows.forEach(row => {
+
+        const isActive =
+          row.dataset.project === projectKey;
+
+        row.classList.toggle(
+          "active",
+          isActive
+        );
+
+        row.setAttribute(
+          "aria-expanded",
+          String(isActive)
+        );
+
+      });
+
+      detailTitle.textContent =
+        project.title;
+
+      detail.classList.add("visible");
+
+      gallery.innerHTML =
+        '<p class="gallery-status">Loading photographs...</p>';
+
+      detail.scrollIntoView({
+
+        behavior: window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches ? "auto" : "smooth",
+
+        block: "start"
+
+      });
+
+      if (!photoCache[projectKey]) {
+
+        const results = await Promise.all(
+
+          project.photos.map(getImageInfo)
+
+        );
+
+        photoCache[projectKey] = results
+
+          .filter(photo => photo !== null)
+
+          .map((photo, index) => ({
+
+            ...photo,
+
+            index: index
+
+          }));
+
+      }
+
+      if (version !== requestVersion) {
+
+        return;
+
+      }
+
+      loadedPhotos =
+        photoCache[projectKey];
+
+      renderGallery();
+
+    }
+
+
+    /* CLOSE PROJECT */
+
+    function closeProject() {
+
+      const previousProject =
+        activeProject;
+
+      requestVersion++;
+
+      activeProject = null;
+
+      loadedPhotos = [];
+
+      detail.classList.remove("visible");
+
+      gallery.innerHTML = "";
+
+      rows.forEach(row => {
+
+        row.classList.remove("active");
+
+        row.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+      });
+
+      const previousRow = Array.from(rows).find(
+
+        row =>
+          row.dataset.project === previousProject
+
+      );
+
+      if (previousRow) {
+
+        previousRow.focus({
+          preventScroll: true
+        });
+
+        hidePreview();
+
+      }
+
+      document.getElementById("projects").scrollIntoView({
+
+        behavior: window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches ? "auto" : "smooth",
+
+        block: "center"
+
+      });
+
+    }
+
+
+    closeProjectButton.addEventListener(
+
+      "click",
+
+      closeProject
+
+    );
+
+
+    /* RESPONSIVE GALLERY SIZE */
+
+    function getTargetHeight() {
+
+      if (window.innerWidth <= 600) {
+
+        return 220;
+
+      }
+
+      if (window.innerWidth <= 850) {
+
+        return 320;
+
+      }
+
+      if (window.innerWidth <= 1200) {
+
+        return 420;
+
+      }
+
+      return 500;
+
+    }
+
+
+    /* GALLERY SPACING */
+
+    function getGap() {
+
+      if (window.innerWidth <= 600) {
+
+        return 8;
+
+      }
+
+      if (window.innerWidth <= 850) {
+
+        return 12;
+
+      }
+
+      return 16;
+
+    }
+
+
+    /* CREATE GALLERY ROW */
+
+    function createRow(
+
+      rowPhotos,
+
       galleryWidth,
-      gap,
+
       targetHeight,
+
+      gap,
+
       isLastRow = false
+
     ) {
 
-      if (photos.length === 0) return;
+      if (!rowPhotos.length) return;
 
       const row =
         document.createElement("div");
 
       row.className = "gallery-row";
 
-      const totalRatio =
-        photos.reduce(
-          (sum, photo) =>
-            sum + photo.ratio,
-          0
-        );
+      const totalRatio = rowPhotos.reduce(
 
-      const totalGap =
-        gap * (photos.length - 1);
+        (sum, photo) =>
+          sum + photo.ratio,
+
+        0
+
+      );
 
       const availableWidth =
-        Math.max(
-          1,
-          galleryWidth - totalGap
-        );
+
+        galleryWidth -
+
+        gap * (rowPhotos.length - 1);
 
       let rowHeight =
+
         availableWidth / totalRatio;
 
       if (isLastRow) {
 
         rowHeight = Math.min(
+
           rowHeight,
+
           targetHeight
+
         );
 
       }
 
-      rowHeight = Math.min(
-        rowHeight,
-        targetHeight * 1.65
-      );
+      rowPhotos.forEach(photo => {
 
-      photos.forEach(photo => {
+        const button =
+          document.createElement("button");
 
-        const item =
-          document.createElement("div");
+        button.className =
+          "gallery-item";
 
-        item.className = "portrait-item";
+        button.type = "button";
 
-        item.style.width =
+        button.style.width =
           `${rowHeight * photo.ratio}px`;
 
-        item.style.height =
+        button.style.height =
           `${rowHeight}px`;
+
+        button.setAttribute(
+
+          "aria-label",
+
+          `View photograph ${photo.index + 1}`
+
+        );
 
         const img =
           document.createElement("img");
@@ -1517,390 +2014,419 @@
         img.src = photo.src;
 
         img.alt =
-          "Photography portfolio image";
+          `${projects[activeProject].title} — photograph ${photo.index + 1}`;
 
-        img.loading = "lazy";
+        img.loading =
+          photo.index < 8 ? "eager" : "lazy";
 
-        img.addEventListener(
-          "click",
-          function() {
+        img.decoding = "async";
 
-            openLightbox(photo.index);
+        button.addEventListener("click", () => {
 
-          }
-        );
+          lastFocusedItem = button;
 
-        item.appendChild(img);
-        row.appendChild(item);
+          openLightbox(photo.index);
+
+        });
+
+        button.appendChild(img);
+
+        row.appendChild(button);
 
       });
 
-      portraitGrid.appendChild(row);
+      gallery.appendChild(row);
 
     }
 
-    /* =========================
-       RENDER COMBINED GALLERY
-    ========================= */
 
-    async function renderCombinedGallery() {
+    /* RENDER GALLERY */
 
-      const version = ++renderVersion;
+    function renderGallery() {
 
-      portraitGrid.innerHTML = "";
+      gallery.innerHTML = "";
 
-      if (currentGallery.length === 0) {
+      if (!loadedPhotos.length) {
 
-        portraitGrid.innerHTML =
-          '<div class="gallery-empty">No images available.</div>';
+        gallery.innerHTML =
+          '<p class="gallery-status">No photographs available.</p>';
 
         return;
 
       }
-
-      await new Promise(resolve => {
-        requestAnimationFrame(resolve);
-      });
-
-      const photos = [
-        ...currentGallery
-      ];
-
-      const imageData =
-        await Promise.all(
-
-          photos.map(
-            (src, index) =>
-              getImageInfo(src, index)
-          )
-
-        );
-
-      if (
-        version !== renderVersion ||
-        !galleryModal.classList.contains(
-          "active"
-        )
-      ) {
-        return;
-      }
-
-      portraitGrid.innerHTML = "";
 
       const galleryWidth =
-        portraitGrid.clientWidth;
+        gallery.clientWidth;
 
-      if (galleryWidth <= 0) return;
+      if (!galleryWidth) return;
 
-      let targetHeight = 255;
+      const targetHeight =
+        getTargetHeight();
 
-      if (window.innerWidth < 850) {
-        targetHeight = 210;
-      }
+      const gap =
+        getGap();
 
-      if (window.innerWidth < 580) {
-        targetHeight = 165;
-      }
+      let rowPhotos = [];
 
-      const gap = 10;
+      let totalRatio = 0;
 
-      let row = [];
-      let ratio = 0;
+      loadedPhotos.forEach(photo => {
 
-      imageData.forEach(photo => {
+        rowPhotos.push(photo);
 
-        row.push(photo);
-
-        ratio += photo.ratio;
+        totalRatio += photo.ratio;
 
         const estimatedWidth =
-          ratio * targetHeight +
-          gap * (row.length - 1);
 
-        if (
-          estimatedWidth >= galleryWidth
-        ) {
+          totalRatio * targetHeight +
 
-          createJustifiedRow(
-            row,
+          gap * (rowPhotos.length - 1);
+
+        if (estimatedWidth >= galleryWidth) {
+
+          createRow(
+
+            rowPhotos,
+
             galleryWidth,
-            gap,
+
             targetHeight,
-            false
+
+            gap
+
           );
 
-          row = [];
-          ratio = 0;
+          rowPhotos = [];
+
+          totalRatio = 0;
 
         }
 
       });
 
-      if (row.length > 0) {
+      if (rowPhotos.length) {
 
-        createJustifiedRow(
-          row,
+        createRow(
+
+          rowPhotos,
+
           galleryWidth,
-          gap,
+
           targetHeight,
+
+          gap,
+
           true
+
         );
 
       }
 
     }
 
-    /* =========================
-       RESPONSIVE GALLERY
-    ========================= */
 
-    let resizeFrame = null;
+    /* RESPONSIVE GALLERY */
 
-    window.addEventListener(
-      "resize",
-      function() {
+    window.addEventListener("resize", () => {
 
-        if (
-          !galleryModal.classList.contains(
-            "active"
-          )
-        ) {
-          return;
-        }
+      hidePreview();
 
-        if (resizeFrame !== null) {
-          cancelAnimationFrame(resizeFrame);
-        }
+      if (!activeProject || !loadedPhotos.length) {
 
-        resizeFrame =
-          requestAnimationFrame(function() {
-
-            resizeFrame = null;
-
-            renderCombinedGallery();
-
-          });
+        return;
 
       }
-    );
 
-    /* =========================
-       LIGHTBOX
-    ========================= */
+      if (resizeFrame !== null) {
+
+        cancelAnimationFrame(resizeFrame);
+
+      }
+
+      resizeFrame = requestAnimationFrame(() => {
+
+        resizeFrame = null;
+
+        renderGallery();
+
+      });
+
+    });
+
+
+    /* OPEN LIGHTBOX */
 
     function openLightbox(index) {
 
-      if (!currentGallery.length) return;
+      if (!loadedPhotos.length) return;
 
       currentImageIndex = index;
 
-      createThumbnails();
       updateLightbox();
 
-      lightbox.classList.add(
-        "active"
+      hidePreview();
+
+      lightbox.classList.add("active");
+
+      lightbox.setAttribute(
+        "aria-hidden",
+        "false"
       );
 
+      document.body.classList.add(
+        "modal-open"
+      );
+
+      pageSections.forEach(section => {
+
+        if (section) {
+
+          section.inert = true;
+
+        }
+
+      });
+
+      closeLightboxButton.focus();
+
     }
+
+
+    /* UPDATE LIGHTBOX */
 
     function updateLightbox() {
 
-      lightboxMain.src =
-        currentGallery[
-          currentImageIndex
-        ];
+      const photo =
+        loadedPhotos[currentImageIndex];
 
-      const thumbs =
-        lightboxThumbs.querySelectorAll(
-          "img"
-        );
+      if (!photo) return;
 
-      thumbs.forEach(
-        (thumb, index) => {
+      lightboxImage.src =
+        photo.src;
 
-          thumb.classList.toggle(
-            "active",
-            index === currentImageIndex
-          );
+      lightboxCounter.textContent =
 
-        }
+        `${currentImageIndex + 1} / ${loadedPhotos.length}`;
+
+    }
+
+
+    /* CLOSE LIGHTBOX */
+
+    function closeLightbox() {
+
+      lightbox.classList.remove("active");
+
+      lightbox.setAttribute(
+        "aria-hidden",
+        "true"
       );
 
-      const activeThumb =
-        thumbs[currentImageIndex];
+      document.body.classList.remove(
+        "modal-open"
+      );
 
-      if (activeThumb) {
+      pageSections.forEach(section => {
 
-        activeThumb.scrollIntoView({
-          behavior: "smooth",
-          block: "nearest",
-          inline: "nearest"
-        });
+        if (section) {
+
+          section.inert = false;
+
+        }
+
+      });
+
+      if (lastFocusedItem?.isConnected) {
+
+        lastFocusedItem.focus();
+
+      } else {
+
+        closeProjectButton.focus();
 
       }
 
     }
 
-    /* =========================
-       THUMBNAILS
-    ========================= */
 
-    function createThumbnails() {
+    /* NEXT PHOTO */
 
-      lightboxThumbs.innerHTML = "";
+    function nextPhoto() {
 
-      currentGallery.forEach(
-        (src, index) => {
+      if (!loadedPhotos.length) return;
 
-          const img =
-            document.createElement(
-              "img"
-            );
+      currentImageIndex =
 
-          img.src = src;
+        (currentImageIndex + 1) %
 
-          img.alt =
-            `Photograph ${index + 1}`;
+        loadedPhotos.length;
 
-          img.loading = "lazy";
-
-          img.addEventListener(
-            "click",
-            function() {
-
-              currentImageIndex = index;
-
-              updateLightbox();
-
-            }
-          );
-
-          lightboxThumbs.appendChild(
-            img
-          );
-
-        }
-      );
+      updateLightbox();
 
     }
 
-    /* =========================
-       NEXT / PREVIOUS
-    ========================= */
 
-    nextImage.addEventListener(
-      "click",
-      function() {
+    /* PREVIOUS PHOTO */
 
-        if (!currentGallery.length) return;
+    function previousPhoto() {
 
-        currentImageIndex =
-          (currentImageIndex + 1) %
-          currentGallery.length;
+      if (!loadedPhotos.length) return;
 
-        updateLightbox();
+      currentImageIndex =
 
-      }
-    );
+        (
+          currentImageIndex - 1 +
+          loadedPhotos.length
+        ) %
 
-    prevImage.addEventListener(
-      "click",
-      function() {
+        loadedPhotos.length;
 
-        if (!currentGallery.length) return;
-
-        currentImageIndex =
-          (
-            currentImageIndex - 1 +
-            currentGallery.length
-          ) % currentGallery.length;
-
-        updateLightbox();
-
-      }
-    );
-
-    /* =========================
-       CLOSE LIGHTBOX
-    ========================= */
-
-    function closeImageLightbox() {
-
-      lightbox.classList.remove(
-        "active"
-      );
+      updateLightbox();
 
     }
 
-    closeLightbox.addEventListener(
+
+    closeLightboxButton.addEventListener(
+
       "click",
-      closeImageLightbox
+
+      closeLightbox
+
     );
 
-    lightbox.addEventListener(
-      "click",
-      function(event) {
+    prevButton.addEventListener(
 
-        if (event.target === lightbox) {
-          closeImageLightbox();
-        }
+      "click",
+
+      previousPhoto
+
+    );
+
+    nextButton.addEventListener(
+
+      "click",
+
+      nextPhoto
+
+    );
+
+
+    lightbox.addEventListener("click", event => {
+
+      if (event.target === lightbox) {
+
+        closeLightbox();
 
       }
-    );
 
-    /* =========================
-       KEYBOARD CONTROLS
-    ========================= */
+    });
 
-    document.addEventListener(
-      "keydown",
-      function(event) {
 
-        if (
-          lightbox.classList.contains(
-            "active"
-          )
-        ) {
+    /* KEYBOARD CONTROLS */
 
-          if (event.key === "ArrowLeft") {
+    document.addEventListener("keydown", event => {
+
+      if (lightbox.classList.contains("active")) {
+
+        if (event.key === "Escape") {
+
+          closeLightbox();
+
+        }
+
+        if (event.key === "ArrowRight") {
+
+          event.preventDefault();
+
+          nextPhoto();
+
+        }
+
+        if (event.key === "ArrowLeft") {
+
+          event.preventDefault();
+
+          previousPhoto();
+
+        }
+
+        if (event.key === "Tab") {
+
+          if (
+
+            event.shiftKey &&
+
+            document.activeElement === closeLightboxButton
+
+          ) {
 
             event.preventDefault();
-            prevImage.click();
 
-          }
+            nextButton.focus();
 
-          if (event.key === "ArrowRight") {
+          } else if (
+
+            !event.shiftKey &&
+
+            document.activeElement === nextButton
+
+          ) {
 
             event.preventDefault();
-            nextImage.click();
+
+            closeLightboxButton.focus();
 
           }
 
-          if (event.key === "Escape") {
-
-            closeImageLightbox();
-
-          }
-
-          return;
-
         }
 
-        if (
-          event.key === "Escape" &&
-          galleryModal.classList.contains(
-            "active"
-          )
-        ) {
+      } else if (
 
-          closeCategoryModal();
+        event.key === "Escape" && activeProject
 
-        }
+      ) {
+
+        closeProject();
 
       }
-    );
+
+    });
+
+
+    /* MOBILE SWIPE */
+
+    let touchStartX = 0;
+
+    lightbox.addEventListener("touchstart", event => {
+
+      touchStartX =
+        event.changedTouches[0].screenX;
+
+    }, { passive: true });
+
+
+    lightbox.addEventListener("touchend", event => {
+
+      const distance =
+
+        touchStartX -
+
+        event.changedTouches[0].screenX;
+
+      if (distance > 50) {
+
+        nextPhoto();
+
+      } else if (distance < -50) {
+
+        previousPhoto();
+
+      }
+
+    }, { passive: true });
 
   </script>
 
 </body>
+
 </html>

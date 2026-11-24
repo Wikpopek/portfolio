@@ -1,35 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>About Me — wikivisual.co</title>
 
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
-
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&display=swap"
-    rel="stylesheet"
-  >
-
-
   <style>
+
+    /* GENERAL */
 
     * {
       margin: 0;
@@ -37,1030 +18,887 @@
       box-sizing: border-box;
     }
 
-
     html,
     body {
       width: 100%;
       min-height: 100%;
     }
 
-
     body {
-
       min-height: 100vh;
-
-      background: #fbfaf8;
-
-      color: #151515;
-
-      font-family:
-        "IBM Plex Mono",
-        monospace;
-
+      background: #000;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
       overflow-x: hidden;
-
     }
-
 
     a {
       color: inherit;
       text-decoration: none;
     }
 
-
-    /* =========================
-       PAGE
-    ========================= */
+    /* PAGE */
 
     .about-page {
-
       width: 100%;
-
       min-height: 100vh;
-
-      padding:
-        24px
-        38px
-        32px;
-
+      padding: 24px 38px 32px;
     }
 
-
-    /* =========================
-       HEADER
-    ========================= */
+    /* HEADER */
 
     .site-header {
-
       position: relative;
-
       display: flex;
-
       flex-direction: column;
-
       align-items: center;
-
       z-index: 30;
-
     }
-
 
     .logo {
-
-      font-size:
-        clamp(
-          24px,
-          2vw,
-          38px
-        );
-
+      font-size: clamp(24px, 2vw, 38px);
       font-weight: 600;
-
       letter-spacing: -0.06em;
-
-      color: #111;
-
       line-height: 1;
-
+      color: #fff;
     }
-
 
     .section-title {
-
       margin-top: 9px;
-
-      font-size:
-        clamp(
-          8px,
-          0.65vw,
-          11px
-        );
-
+      font-size: clamp(8px, 0.65vw, 11px);
       font-weight: 300;
-
       letter-spacing: 0.28em;
-
       text-transform: uppercase;
-
-      color: #777;
-
+      color: #aaa;
     }
 
-
-    /* =========================
-       NAV
-    ========================= */
+    /* NAVIGATION */
 
     .top-nav {
-
       position: absolute;
-
       top: 1px;
-
       right: 0;
 
       display: flex;
-
       gap: 28px;
 
-      font-size:
-        clamp(
-          8px,
-          0.65vw,
-          11px
-        );
-
+      font-size: clamp(8px, 0.65vw, 11px);
       font-weight: 300;
-
       letter-spacing: 0.16em;
-
       text-transform: uppercase;
 
-      color: #555;
-
+      color: #fff;
     }
 
-
     .top-nav a {
-
       transition:
         opacity 0.3s ease,
         transform 0.3s ease;
-
     }
-
 
     .top-nav a:hover {
-
       opacity: 0.5;
-
-      transform:
-        translateY(-1px);
-
+      transform: translateY(-1px);
     }
 
-
-    /* =========================
-       MAIN ABOUT
-    ========================= */
+    /* MAIN ABOUT CONTENT */
 
     .about-content {
+      width: min(1450px, 95vw);
+      min-height: calc(100vh - 110px);
 
-      width:
-        min(
-          1450px,
-          95vw
-        );
-
-      min-height:
-        calc(
-          100vh - 110px
-        );
-
-      margin:
-        28px
-        auto
-        0;
+      margin: 28px auto 0;
 
       display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
 
-      grid-template-columns:
-        1.05fr
-        0.95fr;
-
-      gap:
-        clamp(
-          50px,
-          6vw,
-          110px
-        );
+      gap: clamp(50px, 6vw, 110px);
 
       align-items: center;
-
     }
 
-
-    /* =========================
-       VISUAL SIDE
-    ========================= */
+    /* PHOTO COLLAGE */
 
     .visual-side {
-
       position: relative;
-
       width: 100%;
-
       height: 650px;
-
     }
 
-
-    /* MAIN PHOTO */
+    /* MAIN PORTRAIT */
 
     .main-photo {
-
       position: absolute;
 
       left: 18%;
-
       top: 8%;
 
       width: 44%;
-
       height: 58%;
 
       z-index: 5;
-
       overflow: hidden;
 
-      transform:
-        rotate(-1deg);
-
+      transform: rotate(-1deg);
     }
-
 
     /* CAMERA */
 
     .camera-photo {
-
       position: absolute;
 
       right: 7%;
-
       top: 20%;
 
       width: 26%;
-
       height: 28%;
 
       z-index: 6;
 
-      transform:
-        rotate(3deg);
-
+      transform: rotate(3deg);
     }
 
-
-    /* NYC */
+    /* NEW YORK CITY */
 
     .nyc-photo {
-
       position: absolute;
 
       left: 2%;
-
       top: 17%;
 
       width: 21%;
-
       height: 31%;
 
       z-index: 4;
 
-      transform:
-        rotate(-4deg);
-
+      transform: rotate(-4deg);
     }
-
 
     /* POLAND */
 
     .poland-photo {
-
       position: absolute;
 
       right: 10%;
-
       bottom: 8%;
 
       width: 27%;
-
       height: 31%;
 
       z-index: 5;
 
-      transform:
-        rotate(2deg);
-
+      transform: rotate(2deg);
     }
-
 
     /* CITY */
 
     .city-photo {
-
       position: absolute;
 
       left: 24%;
-
       bottom: 4%;
 
       width: 33%;
-
       height: 22%;
 
       z-index: 3;
 
-      transform:
-        rotate(-2deg);
-
+      transform: rotate(-2deg);
     }
 
-
-    /* ALL IMAGES */
+    /* BLACK AND WHITE PHOTOGRAPHS */
 
     .visual-side img {
-
       width: 100%;
-
       height: 100%;
 
       object-fit: contain;
-
       object-position: center;
 
       display: block;
+      border-radius: 0;
 
-      filter:
-        grayscale(100%);
+      filter: grayscale(100%);
 
       user-select: none;
-
       -webkit-user-drag: none;
-
     }
 
-
-    /* MAIN PORTRAIT COLOR */
+    /* MAIN PORTRAIT IN COLOR */
 
     .main-photo img {
-
       filter: none;
-
     }
 
-
-    /* =========================
-       PAPER DECORATIONS
-    ========================= */
+    /* PAPER DECORATIONS */
 
     .paper {
-
       position: absolute;
 
-      background:
-        rgba(
-          232,
-          225,
-          213,
-          0.55
-        );
+      background: rgba(255, 255, 255, 0.12);
 
       z-index: 2;
 
       pointer-events: none;
-
     }
 
-
     .paper-one {
-
       width: 110px;
-
       height: 50px;
 
       left: 24%;
-
       top: 3%;
 
-      transform:
-        rotate(6deg);
-
+      transform: rotate(6deg);
     }
 
-
     .paper-two {
-
       width: 95px;
-
       height: 65px;
 
       right: 4%;
-
       top: 44%;
 
-      transform:
-        rotate(-5deg);
-
+      transform: rotate(-5deg);
     }
 
-
     .paper-three {
-
       width: 100px;
-
       height: 55px;
 
       left: 11%;
-
       bottom: 13%;
 
-      transform:
-        rotate(7deg);
-
+      transform: rotate(7deg);
     }
 
-
-    /* =========================
-       GLASS
-    ========================= */
+    /* GLASS EFFECT */
 
     .glass {
-
       position: absolute;
 
       z-index: 8;
 
       width: 95px;
-
       height: 120px;
 
-      background:
-        repeating-linear-gradient(
-          90deg,
-          rgba(255,255,255,0.55) 0px,
-          rgba(255,255,255,0.55) 5px,
-          rgba(190,190,190,0.18) 6px,
-          rgba(255,255,255,0.2) 11px
-        );
+      background: repeating-linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.55) 0px,
+        rgba(255, 255, 255, 0.55) 5px,
+        rgba(190, 190, 190, 0.18) 6px,
+        rgba(255, 255, 255, 0.2) 11px
+      );
 
-      backdrop-filter:
-        blur(10px);
-
-      -webkit-backdrop-filter:
-        blur(10px);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
 
       opacity: 0.7;
 
       pointer-events: none;
-
     }
-
 
     .glass-one {
-
       left: 6%;
-
       top: 44%;
 
-      transform:
-        rotate(-8deg);
-
+      transform: rotate(-8deg);
     }
 
-
-    /* =========================
-       TEXT
-    ========================= */
+    /* ABOUT ME TEXT */
 
     .text-side {
-
       max-width: 610px;
-
     }
 
-
     .intro-title {
-
-      font-size:
-        clamp(
-          20px,
-          2vw,
-          34px
-        );
-
+      font-size: clamp(20px, 2vw, 34px);
       font-weight: 500;
 
       letter-spacing: -0.04em;
-
       line-height: 1;
 
       white-space: nowrap;
 
       margin-bottom: 28px;
 
+      color: #fff;
     }
 
-
     .bio {
-
-      font-size:
-        clamp(
-          10px,
-          0.78vw,
-          13px
-        );
-
+      font-size: clamp(10px, 0.78vw, 13px);
       font-weight: 300;
 
       line-height: 1.7;
 
-      color: #333;
-
+      color: #e5e5e5;
     }
-
 
     .bio p {
-
       margin-bottom: 20px;
-
     }
 
-
     .mini-note {
-
       margin-top: 24px;
 
-      font-size:
-        clamp(
-          8px,
-          0.63vw,
-          10px
-        );
-
+      font-size: clamp(8px, 0.63vw, 10px);
       font-weight: 300;
-
       letter-spacing: 0.17em;
 
       text-transform: uppercase;
 
-      color: #888;
+      color: #aaa;
+    }
+
+    /* BLACK FOOTER */
+
+    .site-footer {
+      position: relative;
+      width: 100%;
+
+      background: #000;
+      color: #fff;
+
+      border-top: 1px solid #333;
+
+      overflow: hidden;
+
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .footer-content {
+      display: grid;
+
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+
+      gap: 50px;
+
+      width: 100%;
+      max-width: 1600px;
+
+      margin: 0 auto;
+
+      padding: 75px 7% 85px;
+    }
+
+    .footer-column {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      min-width: 0;
+    }
+
+    .footer-heading {
+      margin-bottom: 20px;
+
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+
+      color: #aaa;
+    }
+
+    .footer-column p,
+    .footer-column a {
+      font-size: clamp(12px, 1vw, 16px);
+      font-weight: 400;
+
+      line-height: 1.9;
+
+      overflow-wrap: anywhere;
+
+      color: #fff;
+    }
+
+    .footer-column a {
+      transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    .footer-column a:hover {
+      opacity: 0.5;
+      transform: translateX(3px);
+    }
+
+    .footer-column .copyright {
+      color: #aaa;
+    }
+
+    /* FOOTER DIVIDER */
+
+    .footer-divider {
+      width: 100%;
+      height: 1px;
+
+      background: #333;
+    }
+
+    /* ANIMATED BRAND MARQUEE */
+
+    .footer-marquee {
+      position: relative;
+
+      width: 100%;
+      overflow: hidden;
+
+      padding: 25px 0 0;
+
+      background: #000;
+    }
+
+    .marquee-track {
+      display: flex;
+      align-items: center;
+
+      width: max-content;
+
+      animation: marqueeScroll 25s linear infinite;
+
+      will-change: transform;
+    }
+
+    .marquee-group {
+      display: flex;
+      align-items: center;
+
+      flex-shrink: 0;
+    }
+
+    .marquee-text {
+      display: block;
+      flex-shrink: 0;
+
+      padding-right: 6vw;
+
+      font-family: Arial, Helvetica, sans-serif;
+
+      font-size: clamp(90px, 17vw, 320px);
+      font-weight: 600;
+
+      line-height: 0.95;
+      letter-spacing: -0.075em;
+
+      white-space: nowrap;
+
+      color: #fff;
+
+      user-select: none;
+    }
+
+    .marquee-separator {
+      display: block;
+      flex-shrink: 0;
+
+      padding-right: 6vw;
+
+      font-size: clamp(45px, 8vw, 150px);
+      font-weight: 300;
+
+      line-height: 1;
+
+      color: #fff;
+    }
+
+    @keyframes marqueeScroll {
+
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
 
     }
 
+    .footer-marquee:hover .marquee-track {
+      animation-play-state: paused;
+    }
 
-    /* =========================================
-       MOBILE
-       PHOTOS FIRST / TEXT BELOW
-    ========================================= */
+    /* ACCESSIBILITY */
+
+    a:focus-visible {
+      outline: 1px solid #fff;
+      outline-offset: 5px;
+    }
+
+    /* FOOTER TABLET */
+
+    @media (max-width: 900px) {
+
+      .footer-content {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 40px 35px;
+
+        padding: 55px 6% 65px;
+      }
+
+      .footer-heading {
+        font-size: 11px;
+        margin-bottom: 15px;
+      }
+
+      .footer-column p,
+      .footer-column a {
+        font-size: 14px;
+      }
+
+      .marquee-text {
+        font-size: 19vw;
+      }
+
+    }
+
+    /* TABLET / MOBILE */
 
     @media (max-width: 850px) {
 
-
       .about-page {
-
-        padding:
-          20px
-          16px
-          50px;
-
+        padding: 20px 16px 50px;
       }
-
-
-      /* HEADER */
 
       .site-header {
-
         align-items: flex-start;
-
       }
-
 
       .logo {
-
         font-size: 28px;
-
       }
 
-
       .section-title {
-
         margin-top: 8px;
 
         font-size: 9px;
-
         letter-spacing: 0.22em;
-
       }
 
-
       .top-nav {
-
         position: static;
 
         width: 100%;
-
         margin-top: 20px;
 
         display: flex;
-
         justify-content: flex-start;
-
         flex-wrap: wrap;
 
         gap: 16px;
 
         font-size: 9px;
-
       }
 
-
-      /* =========================
-         ABOUT STACK
-      ========================= */
+      /* ABOUT CONTENT */
 
       .about-content {
-
         width: 100%;
-
         min-height: auto;
 
-        margin:
-          40px
-          auto
-          0;
+        margin: 40px auto 0;
 
         display: flex;
-
         flex-direction: column;
-
         align-items: stretch;
 
         gap: 45px;
-
       }
 
-
-      /* =========================
-         PHOTOS ON TOP
-      ========================= */
+      /* PHOTOS FIRST */
 
       .visual-side {
-
         order: 1;
 
         position: relative;
 
         width: 100%;
-
         height: 540px;
 
         margin: 0 auto;
-
       }
 
-
-      /* MAIN PORTRAIT */
-
       .main-photo {
-
         left: 19%;
-
         top: 5%;
 
         width: 55%;
-
         height: 58%;
-
       }
 
-
-      /* NYC */
-
       .nyc-photo {
-
         left: 0;
-
         top: 16%;
 
         width: 28%;
-
         height: 29%;
-
       }
 
-
-      /* CAMERA */
-
       .camera-photo {
-
         right: 1%;
-
         top: 18%;
 
         width: 31%;
-
         height: 29%;
-
       }
 
-
-      /* POLAND */
-
       .poland-photo {
-
         right: 4%;
-
         bottom: 6%;
 
         width: 33%;
-
         height: 28%;
-
       }
 
-
-      /* CITY */
-
       .city-photo {
-
         left: 13%;
-
         bottom: 3%;
 
         width: 41%;
-
         height: 24%;
-
       }
-
 
       /* DECORATIONS */
 
       .paper-one {
-
         left: 16%;
-
         top: 1%;
-
       }
-
 
       .paper-two {
-
         right: 0;
-
         top: 47%;
-
       }
-
 
       .paper-three {
-
         left: 3%;
-
         bottom: 11%;
-
       }
-
 
       .glass-one {
-
         left: 0;
-
         top: 47%;
-
       }
 
-
-      /* =========================
-         TEXT BELOW
-      ========================= */
+      /* TEXT BELOW PHOTOS */
 
       .text-side {
-
         order: 2;
 
         width: 100%;
-
         max-width: none;
 
-        padding:
-          0
-          2px
-          20px;
-
+        padding: 0 2px 20px;
       }
 
-
       .intro-title {
-
         font-size: 28px;
 
         line-height: 1.1;
-
         white-space: normal;
 
         margin-bottom: 26px;
-
       }
-
 
       .bio {
-
         font-size: 11px;
-
         line-height: 1.8;
-
       }
-
 
       .bio p {
-
         margin-bottom: 22px;
-
       }
 
-
       .mini-note {
-
         margin-top: 30px;
 
         font-size: 9px;
-
         line-height: 1.7;
-
       }
 
     }
 
+    /* FOOTER MOBILE */
 
-    /* =========================================
-       SMALL PHONES
-    ========================================= */
+    @media (max-width: 600px) {
+
+      .footer-content {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 35px 20px;
+
+        padding: 40px 20px 45px;
+      }
+
+      .footer-heading {
+        margin-bottom: 12px;
+
+        font-size: 10px;
+        letter-spacing: 0.12em;
+      }
+
+      .footer-column p,
+      .footer-column a {
+        font-size: 12px;
+        line-height: 1.9;
+      }
+
+      .footer-marquee {
+        padding-top: 15px;
+      }
+
+      .marquee-text {
+        font-size: 25vw;
+
+        padding-right: 8vw;
+      }
+
+      .marquee-separator {
+        font-size: 11vw;
+
+        padding-right: 8vw;
+      }
+
+      .marquee-track {
+        animation-duration: 18s;
+      }
+
+    }
+
+    /* SMALL PHONES */
 
     @media (max-width: 520px) {
 
-
       .about-page {
-
-        padding:
-          18px
-          14px
-          40px;
-
+        padding: 18px 14px 40px;
       }
-
 
       .logo {
-
         font-size: 25px;
-
       }
-
 
       .top-nav {
-
         gap: 14px;
-
         font-size: 8px;
-
       }
-
 
       .about-content {
-
         margin-top: 34px;
-
         gap: 38px;
-
       }
 
-
-      /* =========================
-         SMALLER PHOTO COLLAGE
-      ========================= */
+      /* SMALLER PHOTO COLLAGE */
 
       .visual-side {
-
         height: 455px;
-
       }
 
-
       .main-photo {
-
         left: 18%;
-
         top: 5%;
 
         width: 58%;
-
         height: 57%;
-
       }
 
-
       .nyc-photo {
-
         left: -2%;
-
         top: 18%;
 
         width: 30%;
-
         height: 27%;
-
       }
 
-
       .camera-photo {
-
         right: -2%;
-
         top: 20%;
 
         width: 32%;
-
         height: 27%;
-
       }
 
-
       .poland-photo {
-
         right: 2%;
-
         bottom: 6%;
 
         width: 34%;
-
         height: 27%;
-
       }
 
-
       .city-photo {
-
         left: 11%;
-
         bottom: 4%;
 
         width: 43%;
-
         height: 22%;
-
       }
-
 
       .paper-one {
-
         width: 78px;
-
         height: 38px;
-
       }
-
 
       .paper-two {
-
         width: 72px;
-
         height: 48px;
-
       }
-
 
       .paper-three {
-
         width: 76px;
-
         height: 42px;
-
       }
-
 
       .glass-one {
-
         width: 72px;
-
         height: 95px;
-
       }
-
 
       /* TEXT */
 
       .intro-title {
-
         font-size: 25px;
-
       }
-
 
       .bio {
-
         font-size: 10.5px;
-
       }
 
-
       .mini-note {
-
         font-size: 8px;
-
         letter-spacing: 0.14em;
+      }
 
+    }
+
+    /* EXTRA SMALL PHONES */
+
+    @media (max-width: 360px) {
+
+      .footer-content {
+        grid-template-columns: 1fr;
+
+        gap: 28px;
+      }
+
+    }
+
+    /* REDUCED MOTION */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .marquee-track {
+        animation: none;
+      }
+
+      .top-nav a,
+      .footer-column a {
+        transition: none;
+      }
+
+      .top-nav a:hover,
+      .footer-column a:hover {
+        transform: none;
       }
 
     }
@@ -1069,79 +907,47 @@
 
 </head>
 
-
 <body>
 
   <main class="about-page">
 
-
-    <!-- =========================
-         HEADER
-    ========================= -->
+    <!-- HEADER -->
 
     <header class="site-header">
 
-
-      <a
-        href="index.html"
-        class="logo"
-      >
-
+      <a href="index.html" class="logo">
         wikivisual.co
-
       </a>
 
-
       <div class="section-title">
-
         About Me
-
       </div>
-
 
       <nav class="top-nav">
 
-
         <a href="photography.html">
-
           Photography
-
         </a>
-
 
         <a href="digital-design.html">
-
           Digital Design
-
         </a>
-
 
         <a href="contact.html">
-
           Contact
-
         </a>
-
 
       </nav>
 
-
     </header>
 
-
-    <!-- =========================
-         ABOUT CONTENT
-    ========================= -->
+    <!-- ABOUT CONTENT -->
 
     <section class="about-content">
 
-
-      <!-- =========================
-           PHOTOS
-      ========================= -->
+      <!-- PHOTO COLLAGE -->
 
       <div class="visual-side">
-
 
         <!-- NYC -->
 
@@ -1154,7 +960,6 @@
 
         </div>
 
-
         <!-- MAIN PORTRAIT -->
 
         <div class="main-photo">
@@ -1165,7 +970,6 @@
           >
 
         </div>
-
 
         <!-- CAMERA -->
 
@@ -1178,7 +982,6 @@
 
         </div>
 
-
         <!-- POLAND -->
 
         <div class="poland-photo">
@@ -1189,7 +992,6 @@
           >
 
         </div>
-
 
         <!-- CITY -->
 
@@ -1202,98 +1004,241 @@
 
         </div>
 
-
         <!-- DECORATIONS -->
 
         <div
           class="paper paper-one"
+          aria-hidden="true"
         ></div>
-
 
         <div
           class="paper paper-two"
+          aria-hidden="true"
         ></div>
-
 
         <div
           class="paper paper-three"
+          aria-hidden="true"
         ></div>
-
 
         <div
           class="glass glass-one"
+          aria-hidden="true"
         ></div>
-
 
       </div>
 
-
-      <!-- =========================
-           TEXT
-      ========================= -->
+      <!-- BIOGRAPHY -->
 
       <div class="text-side">
 
-
         <h1 class="intro-title">
-
           Hi, I’m Wiktoria.
-
         </h1>
-
 
         <div class="bio">
 
-
           <p>
-
             I’m Wiktoria Popek, a Polish creative born in New York City.
             I currently work as a graphic designer for Victoria Cruises
             while studying Communication Design at New York City College
             of Technology. My work focuses on photography and digital
             design, combining visual storytelling, composition, and
             thoughtful creative direction.
-
           </p>
 
-
           <p>
-
             Photography and travel are a big part of how I experience
             the world. I love discovering new places, observing people
             and details, and turning those moments into visual stories.
-            For me, creativity is closely connected to curiosity — the
-            more I see and experience, the more ideas I want to create.
-
+            For me, creativity is closely connected to curiosity —
+            the more I see and experience, the more ideas I want to create.
           </p>
 
-
           <p>
-
             In the future, I hope to grow into an Art Director role,
             where I can develop concepts, shape visual identities,
             and bring different creative disciplines together.
-
           </p>
 
-
         </div>
-
 
         <div class="mini-note">
-
           Photography · Digital Design · Travel · Art Direction
-
         </div>
-
 
       </div>
 
-
     </section>
 
-
   </main>
+
+  <!-- BLACK FOOTER -->
+
+  <footer class="site-footer">
+
+    <div class="footer-content">
+
+      <!-- LOCATION -->
+
+      <div class="footer-column">
+
+        <h2 class="footer-heading">
+          Location
+        </h2>
+
+        <p>New York City</p>
+        <p>United States</p>
+
+      </div>
+
+      <!-- EXPLORE -->
+
+      <div class="footer-column">
+
+        <h2 class="footer-heading">
+          Explore
+        </h2>
+
+        <a href="photography.html">
+          Photography
+        </a>
+
+        <a href="digital-design.html">
+          Digital Design
+        </a>
+
+        <a href="about.html">
+          About Me
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+      </div>
+
+      <!-- CONTACT & SOCIALS -->
+
+      <div class="footer-column">
+
+        <h2 class="footer-heading">
+          Contact &amp; Socials
+        </h2>
+
+        <a href="mailto:wbabula78@gmail.com">
+          wbabula78@gmail.com
+        </a>
+
+        <a
+          href="https://www.instagram.com/wikivisual.co/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Instagram ↗
+        </a>
+
+        <a
+          href="https://www.tiktok.com/@wikivisual_co"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          TikTok ↗
+        </a>
+
+      </div>
+
+      <!-- LEGAL -->
+
+      <div class="footer-column">
+
+        <h2 class="footer-heading">
+          Legal
+        </h2>
+
+        <p class="copyright">
+          © <span id="currentYear">2026</span> wikivisual.co
+        </p>
+
+        <p class="copyright">
+          All Rights Reserved.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- FOOTER DIVIDER -->
+
+    <div class="footer-divider"></div>
+
+    <!-- ANIMATED BRAND -->
+
+    <div
+      class="footer-marquee"
+      aria-hidden="true"
+    >
+
+      <div class="marquee-track">
+
+        <!-- FIRST GROUP -->
+
+        <div class="marquee-group">
+
+          <span class="marquee-text">
+            wikivisual.co
+          </span>
+
+          <span class="marquee-separator">
+            ✳
+          </span>
+
+          <span class="marquee-text">
+            wikivisual.co
+          </span>
+
+          <span class="marquee-separator">
+            ✳
+          </span>
+
+        </div>
+
+        <!-- DUPLICATED GROUP -->
+
+        <div class="marquee-group">
+
+          <span class="marquee-text">
+            wikivisual.co
+          </span>
+
+          <span class="marquee-separator">
+            ✳
+          </span>
+
+          <span class="marquee-text">
+            wikivisual.co
+          </span>
+
+          <span class="marquee-separator">
+            ✳
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+  <script>
+
+    /* AUTOMATIC COPYRIGHT YEAR */
+
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+
+  </script>
 
 </body>
 

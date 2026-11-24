@@ -1,37 +1,39 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Digital Design — wikivisual.co</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&display=swap"
-    rel="stylesheet"
-  />
-
   <style>
+
+    /* GENERAL */
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    html,
-    body {
-      width: 100%;
-      min-height: 100%;
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       min-height: 100vh;
-      background: #fbfaf8;
-      color: #151515;
-      font-family: "IBM Plex Mono", monospace;
+      display: flex;
+      flex-direction: column;
+      background: #000;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
       overflow-x: hidden;
+    }
+
+    main {
+      flex: 1;
     }
 
     a {
@@ -39,25 +41,31 @@
       text-decoration: none;
     }
 
-    /* =========================
-       PAGE
-    ========================= */
-
-    .design-page {
-      width: 100%;
-      min-height: 100vh;
-      padding: 22px 30px 28px;
+    button {
+      font-family: inherit;
+      color: inherit;
+      border-radius: 0;
     }
 
-    /* =========================
-       HEADER
-    ========================= */
+    img {
+      display: block;
+      max-width: 100%;
+      border-radius: 0;
+      image-rendering: auto;
+    }
+
+    /* HEADER */
 
     .site-header {
       position: relative;
+      width: 100%;
+      padding: 22px 34px 30px;
+
       display: flex;
       flex-direction: column;
       align-items: center;
+
+      background: #000;
       z-index: 100;
     }
 
@@ -66,34 +74,37 @@
       font-weight: 600;
       letter-spacing: -0.06em;
       line-height: 1;
-      color: #111;
+      color: #fff;
     }
 
     .section-title {
       margin-top: 9px;
+
       font-size: clamp(8px, 0.65vw, 11px);
       font-weight: 300;
       letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: #777;
+
+      color: #aaa;
     }
+
+    /* NAVIGATION */
 
     .top-nav {
       position: absolute;
-      top: 1px;
-      right: 0;
+      top: 23px;
+      right: 34px;
 
       display: flex;
       align-items: center;
       gap: 28px;
 
-      z-index: 9999;
-
       font-size: clamp(8px, 0.65vw, 11px);
       font-weight: 300;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: #555;
+
+      color: #fff;
     }
 
     .top-nav a {
@@ -103,506 +114,340 @@
     }
 
     .top-nav a:hover {
-      opacity: 0.55;
+      opacity: 0.5;
       transform: translateY(-1px);
     }
 
-    /* =========================
-       DESKTOP COLLAGE
-    ========================= */
+    /* PORTFOLIO TITLE */
 
-    .collage {
-      position: relative;
-      width: min(1280px, 90vw);
-      height: 800px;
-      margin: 8px auto 0;
-      overflow: visible;
+    .portfolio-intro {
+      padding: 100px 7% 90px;
     }
 
-    .project {
-      position: absolute;
-      display: block;
-      z-index: 5;
+    .portfolio-title {
+      font-size: clamp(48px, 8vw, 145px);
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -0.065em;
+
+      color: #fff;
+    }
+
+    /* PROJECT LIST */
+
+    .projects-section {
+      position: relative;
+      width: 100%;
+      margin-bottom: 110px;
+      border-bottom: 1px solid #333;
+    }
+
+    .project-row {
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      width: 100%;
+      min-height: 115px;
+
+      padding: 35px 7%;
+
+      border: none;
+      border-top: 1px solid #333;
+      border-radius: 0;
+
+      background: #000;
+      color: #fff;
+
+      text-align: left;
       cursor: pointer;
+      scroll-margin-top: 25px;
 
       transition:
-        transform 0.4s ease;
+        background 0.3s ease,
+        color 0.3s ease;
     }
 
-    .project:hover {
-      z-index: 40;
+    /* HOVER AND ACTIVE PROJECT */
+
+    .project-row:hover,
+    .project-row:focus-visible,
+    .project-row.active {
+      background: #fff;
+      color: #000;
     }
 
-    .project img {
-      width: 100%;
-      height: 100%;
+    .project-name {
+      position: relative;
 
+      font-size: clamp(20px, 2.3vw, 38px);
+      font-weight: 400;
+      letter-spacing: -0.025em;
+      text-transform: uppercase;
+
+      z-index: 2;
+    }
+
+    .project-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .project-tag {
+      display: inline-block;
+
+      padding: 7px 12px;
+
+      border: 1px solid #555;
+      border-radius: 0;
+
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+
+      transition: border-color 0.3s ease;
+    }
+
+    .project-row:hover .project-tag,
+    .project-row:focus-visible .project-tag,
+    .project-row.active .project-tag {
+      border-color: #999;
+    }
+
+    .project-arrow {
+      margin-left: 15px;
+      font-size: 24px;
+
+      transition: transform 0.3s ease;
+    }
+
+    .project-row:hover .project-arrow {
+      transform: translate(4px, -4px);
+    }
+
+    .project-row.active .project-arrow {
+      transform: none;
+    }
+
+    /* FLOATING HOVER PREVIEW */
+
+    .project-preview {
+      position: absolute;
+
+      top: 0;
+      right: 13%;
+
+      width: clamp(260px, 32vw, 490px);
+      height: clamp(240px, 28vw, 430px);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      transform: translateY(-50%);
+
+      opacity: 0;
+      visibility: hidden;
+
+      pointer-events: none;
+
+      z-index: 50;
+
+      transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        top 0.35s ease;
+    }
+
+    .project-preview.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .project-preview img {
       display: block;
+
+      width: auto;
+      height: auto;
+
+      max-width: 100%;
+      max-height: 100%;
 
       object-fit: contain;
       object-position: center;
 
       background: transparent;
+      border-radius: 0;
+
+      image-rendering: auto;
+      filter: none;
 
       user-select: none;
       -webkit-user-drag: none;
     }
 
-    /* AMAZON */
+    /* EXPANDABLE PROJECT CONTENT */
 
-    .amazon {
-      width: 39%;
-      height: 40%;
-      left: 9%;
-      top: 4%;
-      transform: rotate(4deg);
-    }
-
-    .amazon:hover {
-      transform: rotate(2deg) scale(1.02);
-    }
-
-    /* SENTRIX */
-
-    .sentrix {
-      width: 38%;
-      height: 55%;
-      right: -1%;
-      top: 0%;
-      transform: rotate(3deg);
-    }
-
-    .sentrix:hover {
-      transform: rotate(1deg) scale(1.02);
-    }
-
-    /* VICTORIA — MOVED UP AND LEFT */
-
-    .victoria {
-      width: 21%;
-      height: 20%;
-      left: 52%;
-      top: 4%;
-      transform: rotate(2deg);
-      z-index: 12;
-    }
-
-    .victoria:hover {
-      transform: rotate(0deg) scale(1.03);
-    }
-
-    /* MY CUNY EVENT */
-
-    .mycunyevent {
-      width: 37%;
-      height: 54%;
-      left: 31%;
-      top: 22%;
-      transform: rotate(-1deg);
-      z-index: 10;
-    }
-
-    .mycunyevent:hover {
-      transform: rotate(0deg) scale(1.02);
-    }
-
-    /* GLOWR */
-
-    .glowr {
-      width: 43%;
-      height: 45%;
-      left: 2%;
-      bottom: 7%;
-      transform: rotate(-3deg);
-    }
-
-    .glowr:hover {
-      transform: rotate(-1deg) scale(1.02);
-    }
-
-    /* PRELUDE */
-
-    .prelude {
-      width: 29%;
-      height: 31%;
-      right: 10%;
-      bottom: 12%;
-      transform: rotate(-3deg);
-    }
-
-    .prelude:hover {
-      transform: rotate(-1deg) scale(1.02);
-    }
-
-    /* =========================
-       ANNOTATIONS
-    ========================= */
-
-    .annotation {
-      position: absolute;
-      z-index: 60;
-      pointer-events: none;
-    }
-
-    .annotation-text {
-      font-size: clamp(8px, 0.65vw, 11px);
-      font-weight: 300;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      white-space: nowrap;
-      color: #333;
-    }
-
-    .annotation svg {
-      display: block;
-      overflow: visible;
-    }
-
-    .annotation path {
-      fill: none;
-      stroke: #333;
-      stroke-width: 1.05;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .annotation-amazon {
-      left: 1%;
-      top: 13%;
-    }
-
-    .annotation-amazon svg {
-      width: 90px;
-      height: 65px;
-      margin-top: 5px;
-      margin-left: 20px;
-    }
-
-    .annotation-sentrix {
-      right: -1%;
-      top: 10%;
-      text-align: right;
-    }
-
-    .annotation-sentrix svg {
-      width: 90px;
-      height: 65px;
-      margin-top: 5px;
-      margin-left: auto;
-      margin-right: 16px;
-    }
-
-    /* VICTORIA LABEL — MOVED UP AND LEFT */
-
-    .annotation-victoria {
-      left: 62%;
-      top: 22%;
-      transform: translateX(-50%);
-      text-align: center;
-    }
-
-    .annotation-victoria svg {
-      width: 76px;
-      height: 52px;
-      margin: 0 auto 2px;
-    }
-
-    .annotation-glowr {
-      left: 1%;
-      bottom: 25%;
-    }
-
-    .annotation-glowr svg {
-      width: 88px;
-      height: 60px;
-      margin-top: 4px;
-      margin-left: 18px;
-    }
-
-    .annotation-mycuny {
-      left: 53.5%;
-      bottom: 14%;
-      text-align: center;
-    }
-
-    .annotation-mycuny svg {
-      width: 92px;
-      height: 72px;
-      display: block;
-      margin: 0 auto 2px;
-    }
-
-    .annotation-prelude {
-      right: 1%;
-      bottom: 35%;
-      text-align: right;
-    }
-
-    .annotation-prelude svg {
-      width: 82px;
-      height: 60px;
-      margin-top: 5px;
-      margin-left: auto;
-      margin-right: 12px;
-    }
-
-    /* =========================
-       GLASS
-    ========================= */
-
-    .glass {
-      position: absolute;
-      overflow: hidden;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,0.48),
-          rgba(255,255,255,0.14)
-        ),
-        repeating-linear-gradient(
-          90deg,
-          rgba(255,255,255,0.76) 0px,
-          rgba(255,255,255,0.76) 4px,
-          rgba(210,210,210,0.16) 5px,
-          rgba(255,255,255,0.30) 8px,
-          rgba(170,170,170,0.10) 9px,
-          rgba(255,255,255,0.60) 12px
-        );
-
-      backdrop-filter: blur(14px) saturate(0.88);
-      -webkit-backdrop-filter: blur(14px) saturate(0.88);
-
-      opacity: 0.86;
-      pointer-events: none;
-      z-index: 20;
-    }
-
-    .glass-1 {
-      width: 11%;
-      height: 22%;
-      left: 5%;
-      top: 28%;
-      transform: rotate(-5deg);
-    }
-
-    .glass-2 {
-      width: 15%;
-      height: 13%;
-      left: 41.5%;
-      bottom: 11%;
-      transform: rotate(3deg);
-    }
-
-    .glass-3 {
-      width: 11%;
-      height: 24%;
-      right: 11%;
-      top: 15%;
-      transform: rotate(4deg);
-      z-index: 2;
-    }
-
-    .glass-4 {
-      width: 14%;
-      height: 17%;
-      left: 7%;
-      bottom: 5%;
-      transform: rotate(-4deg);
-    }
-
-    .glass-5 {
-      width: 18%;
-      height: 16%;
-      right: 3%;
-      bottom: 3%;
-      transform: rotate(4deg);
-    }
-
-    /* =========================
-       DESIGN MARK
-    ========================= */
-
-    .design-mark {
-      position: absolute;
-      left: 1%;
-      bottom: 0;
-
-      display: flex;
-      align-items: center;
-      gap: 17px;
-
-      z-index: 50;
-
-      font-size: 8px;
-      font-weight: 300;
-      letter-spacing: 0.34em;
-      text-transform: uppercase;
-      color: #999;
-    }
-
-    .design-mark-line {
-      width: 30px;
-      height: 1px;
-      background: #999;
-    }
-
-    /* =========================
-       MODALS
-    ========================= */
-
-    body.project-open {
-      overflow: hidden;
-    }
-
-    .project-overlay {
-      position: fixed;
-      inset: 0;
-
-      z-index: 20000;
-
+    .project-detail {
       display: none;
 
       width: 100%;
-      height: 100vh;
+      padding: 40px 7% 80px;
 
-      padding: 5vh 5vw;
+      background: #000;
+      color: #fff;
 
-      justify-content: center;
-      align-items: center;
-
-      background:
-        rgba(20, 20, 20, 0.15);
-
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
+      scroll-margin-top: 25px;
     }
 
-    .project-overlay.is-open {
-      display: flex;
-    }
-
-    .project-view {
-      position: relative;
-
-      width: min(900px, 86vw);
-      max-height: 84vh;
-
-      padding: 16px;
-
-      background: #fbfaf8;
-
-      overflow-y: auto;
-      overflow-x: hidden;
-
-      border-radius: 3px;
-
-      box-shadow:
-        0 30px 80px
-        rgba(0, 0, 0, 0.22);
-
-      animation:
-        projectAppear
-        0.32s ease;
-    }
-
-    @keyframes projectAppear {
-      from {
-        opacity: 0;
-
-        transform:
-          translateY(14px)
-          scale(0.97);
-      }
-
-      to {
-        opacity: 1;
-
-        transform:
-          translateY(0)
-          scale(1);
-      }
-    }
-
-    .project-image-wrap {
-      position: relative;
-      width: 100%;
-      margin: 0 auto;
-    }
-
-    .project-image-wrap img {
+    .project-detail.is-open {
       display: block;
-      width: 100%;
-      height: auto;
+
+      animation: none;
+      transform: none;
+      opacity: 1;
     }
 
-    /* CLOSE */
+    /* PROJECT HEADER */
+
+    .detail-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      width: 100%;
+      max-width: 1100px;
+
+      gap: 20px;
+
+      margin: 0 auto 35px;
+    }
+
+    .detail-title {
+      font-size: clamp(28px, 4vw, 65px);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.05em;
+
+      color: #fff;
+
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    /* CLOSE PROJECT BUTTON */
 
     .project-close {
-      position: fixed;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
 
-      top: 25px;
-      right: 30px;
+      flex-shrink: 0;
 
-      z-index: 20005;
+      padding: 12px 20px;
 
-      width: 42px;
-      height: 42px;
+      border: 1px solid #fff;
+      border-radius: 0;
 
-      border: none;
-      border-radius: 50%;
+      background: transparent;
+      color: #fff;
 
-      background:
-        rgba(255,255,255,0.95);
-
-      color: #151515;
-
-      font-family:
-        "IBM Plex Mono",
-        monospace;
-
-      font-size: 27px;
-      font-weight: 300;
-
-      line-height: 1;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
 
       cursor: pointer;
 
-      box-shadow:
-        0 6px 22px
-        rgba(0,0,0,0.10);
-
       transition:
-        opacity 0.25s ease,
-        transform 0.25s ease;
+        background 0.3s ease,
+        color 0.3s ease;
     }
 
-    .project-close:hover {
-      opacity: 0.65;
-
-      transform:
-        rotate(8deg);
+    .project-close:hover,
+    .project-close:focus-visible {
+      background: #fff;
+      color: #000;
     }
 
-    /* =========================
-       TEST LINKS
-    ========================= */
+    /* EQUAL PROJECT WIDTH */
+
+    .project-view,
+    .victoria-project-view {
+      position: relative;
+
+      width: 100%;
+      max-width: 1100px;
+
+      margin: 0 auto;
+
+      background: #000;
+      overflow: visible;
+    }
+
+    .project-image-wrap,
+    .victoria-hero {
+      position: relative;
+
+      width: 100%;
+      max-width: 100%;
+
+      margin: 0 auto;
+    }
+
+    /* ALL PROJECT IMAGES SAME WIDTH */
+
+    .project-image-wrap img,
+    .victoria-hero img {
+      display: block;
+
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+
+      margin: 0 auto;
+
+      object-fit: contain;
+      object-position: center;
+
+      image-rendering: auto;
+
+      filter: none;
+      transform: none;
+      opacity: 1;
+
+      border-radius: 0;
+    }
+
+    /* CLOSE BUTTON AT BOTTOM */
+
+    .project-bottom {
+      display: flex;
+      justify-content: center;
+
+      margin-top: 45px;
+    }
+
+    /* FIGMA PROTOTYPE LINKS */
 
     .test-link {
       position: absolute;
 
       left: 50%;
 
-      transform:
-        translateX(-50%);
+      transform: translateX(-50%);
 
-      z-index: 500;
+      z-index: 10;
 
       display: inline-block;
 
       font-size: 42px;
       font-weight: 600;
-
       letter-spacing: 0.06em;
       line-height: 1;
 
@@ -610,94 +455,54 @@
 
       color: #000;
 
-      border-bottom:
-        5px solid #000;
-
+      border-bottom: 5px solid #000;
       padding-bottom: 6px;
 
       background: transparent;
-
       cursor: pointer;
     }
+
+    /* MYCUNYEVENT TEST POSITION */
 
     .mycuny-test-link {
       top: 65%;
     }
 
+    /* GLOWR TEST — TOP RIGHT */
+
     .glowr-test-link {
-      top: 79%;
+      top: 12%;
+      left: 76%;
+
+      transform: translate(-50%, -50%);
+
+      font-size: clamp(14px, 2.5vw, 36px);
+
+      border-bottom-width: 3px;
     }
 
-    /* =========================
-       VICTORIA MODAL
-    ========================= */
-
-    .victoria-project-view {
-      position: relative;
-
-      width: min(1000px, 90vw);
-      max-height: 86vh;
-
-      padding: 18px;
-
-      background: #fbfaf8;
-
-      overflow-y: auto;
-      overflow-x: hidden;
-
-      border-radius: 3px;
-
-      box-shadow:
-        0 30px 80px
-        rgba(0,0,0,0.22);
-
-      animation:
-        projectAppear
-        0.32s ease;
+    .test-link:hover {
+      opacity: 0.6;
     }
 
-    .victoria-hero {
-      width: 100%;
-      margin: 0 auto;
-    }
-
-    .victoria-hero img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    /* =========================
-       BROCHURE
-    ========================= */
+    /* INTERACTIVE VICTORIA BROCHURE */
 
     .brochure-section {
       width: 100%;
 
       margin-top: 45px;
+      padding: 55px 15px 65px;
 
-      padding:
-        55px
-        15px
-        65px;
-
-      background: #fff;
+      background: #000;
+      color: #fff;
 
       text-align: center;
     }
 
     .brochure-heading {
-      font-size:
-        clamp(
-          16px,
-          1.5vw,
-          23px
-        );
-
+      font-size: clamp(16px, 1.5vw, 23px);
       font-weight: 400;
-
       letter-spacing: 0.08em;
-
       text-transform: uppercase;
     }
 
@@ -706,23 +511,19 @@
       margin-bottom: 35px;
 
       font-size: 8px;
-
       letter-spacing: 0.16em;
-
       text-transform: uppercase;
 
-      color: #888;
+      color: #aaa;
     }
 
     .brochure-stage {
       width: 100%;
-
       min-height: 620px;
 
       display: flex;
-
-      justify-content: center;
       align-items: center;
+      justify-content: center;
 
       overflow: hidden;
 
@@ -731,6 +532,7 @@
 
     #victoria-book {
       margin: 0 auto;
+      max-width: 100%;
     }
 
     .brochure-page {
@@ -744,6 +546,8 @@
       width: 100%;
       height: 100%;
 
+      image-rendering: auto;
+
       background: #fff;
     }
 
@@ -751,21 +555,18 @@
       padding: 80px 20px;
 
       font-size: 10px;
-
       letter-spacing: 0.15em;
-
       text-transform: uppercase;
 
-      color: #999;
+      color: #aaa;
     }
 
     .brochure-controls {
       margin-top: 30px;
 
       display: flex;
-
-      justify-content: center;
       align-items: center;
+      justify-content: center;
 
       gap: 30px;
     }
@@ -774,38 +575,228 @@
       border: none;
 
       background: transparent;
-
-      font-family:
-        "IBM Plex Mono",
-        monospace;
+      color: #fff;
 
       font-size: 9px;
-
       letter-spacing: 0.16em;
 
       cursor: pointer;
     }
 
-    #brochure-page-number {
-      font-size: 9px;
-      color: #999;
+    .brochure-controls button:hover {
+      opacity: 0.5;
     }
 
-    /* =========================================================
-       MOBILE — SAME STYLE AS PHOTOGRAPHY
-    ========================================================= */
+    .brochure-controls button:disabled {
+      opacity: 0.35;
+      cursor: default;
+    }
+
+    #brochure-page-number {
+      font-size: 9px;
+      color: #aaa;
+    }
+
+    /* BLACK FOOTER */
+
+    .site-footer {
+      position: relative;
+      width: 100%;
+
+      background: #000;
+      color: #fff;
+
+      border-top: 1px solid #333;
+
+      overflow: hidden;
+
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+
+      gap: 50px;
+
+      width: 100%;
+      max-width: 1600px;
+
+      margin: 0 auto;
+      padding: 75px 7% 85px;
+    }
+
+    .footer-column {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      min-width: 0;
+    }
+
+    .footer-heading {
+      margin-bottom: 20px;
+
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+
+      color: #aaa;
+    }
+
+    .footer-column p,
+    .footer-column a {
+      font-size: clamp(12px, 1vw, 16px);
+      font-weight: 400;
+      line-height: 1.9;
+
+      overflow-wrap: anywhere;
+
+      color: #fff;
+    }
+
+    .footer-column a {
+      transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    .footer-column a:hover {
+      opacity: 0.5;
+      transform: translateX(3px);
+    }
+
+    .footer-column .copyright {
+      color: #aaa;
+    }
+
+    .footer-divider {
+      width: 100%;
+      height: 1px;
+
+      background: #333;
+    }
+
+    /* ANIMATED FOOTER */
+
+    .footer-marquee {
+      width: 100%;
+
+      overflow: hidden;
+
+      padding: 25px 0 0;
+
+      background: #000;
+    }
+
+    .marquee-track {
+      display: flex;
+      align-items: center;
+
+      width: max-content;
+
+      animation: marqueeScroll 25s linear infinite;
+
+      will-change: transform;
+    }
+
+    .marquee-group {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .marquee-text {
+      display: block;
+      flex-shrink: 0;
+
+      padding-right: 6vw;
+
+      font-size: clamp(90px, 17vw, 320px);
+      font-weight: 600;
+
+      line-height: 0.95;
+      letter-spacing: -0.075em;
+
+      white-space: nowrap;
+
+      color: #fff;
+
+      user-select: none;
+    }
+
+    .marquee-separator {
+      display: block;
+      flex-shrink: 0;
+
+      padding-right: 6vw;
+
+      font-size: clamp(45px, 8vw, 150px);
+      font-weight: 300;
+      line-height: 1;
+
+      color: #fff;
+    }
+
+    @keyframes marqueeScroll {
+
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+
+    }
+
+    .footer-marquee:hover .marquee-track {
+      animation-play-state: paused;
+    }
+
+    /* ACCESSIBILITY */
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 1px solid currentColor;
+      outline-offset: 5px;
+    }
+
+    /* FOOTER TABLET */
+
+    @media (max-width: 900px) {
+
+      .footer-content {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 40px 35px;
+
+        padding: 55px 6% 65px;
+      }
+
+      .footer-heading {
+        font-size: 11px;
+        margin-bottom: 15px;
+      }
+
+      .footer-column p,
+      .footer-column a {
+        font-size: 14px;
+      }
+
+      .marquee-text {
+        font-size: 19vw;
+      }
+
+    }
+
+    /* TABLET */
 
     @media (max-width: 850px) {
 
-      body {
-        background: #fbfaf8;
-      }
-
-      .design-page {
-        padding: 20px 16px 60px;
-      }
-
       .site-header {
+        padding: 20px 16px 25px;
         align-items: flex-start;
       }
 
@@ -821,201 +812,53 @@
 
       .top-nav {
         position: static;
+
         width: 100%;
         margin-top: 20px;
-        display: flex;
+
         justify-content: flex-start;
-        gap: 16px;
         flex-wrap: wrap;
+
+        gap: 16px;
+
         font-size: 9px;
       }
 
-      .collage {
-        position: relative;
-        width: 100%;
-        height: auto;
-        min-height: 0;
-        margin: 44px auto 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 92px;
-        overflow: visible;
+      .portfolio-intro {
+        padding: 65px 6% 60px;
       }
 
-      .project,
-      .amazon,
-      .sentrix,
-      .victoria,
-      .mycunyevent,
-      .glowr,
-      .prelude {
-        position: relative !important;
-        inset: auto !important;
-        width: min(360px, 88vw) !important;
-        height: auto !important;
-        display: block;
-        padding: 0;
-        border: none;
-        background: transparent;
-        transform: none !important;
-        overflow: visible;
-        z-index: 10;
+      .portfolio-title {
+        font-size: clamp(40px, 8vw, 76px);
       }
 
-      .project:hover {
-        transform: none !important;
+      .project-row {
+        padding: 25px 6%;
+        min-height: 95px;
       }
 
-      .project img {
-        position: relative;
-        z-index: 1;
-        width: 100%;
-        height: auto;
-        display: block;
-        object-fit: contain;
-        object-position: center;
-        transform: none !important;
+      .project-tag {
+        font-size: 8px;
+        padding: 6px 8px;
       }
 
-      .project::before {
-        content: "";
-        position: absolute;
-        z-index: 5;
-        width: 118px;
-        height: 132px;
-        bottom: -40px;
-        pointer-events: none;
-
-        background:
-          linear-gradient(
-            180deg,
-            rgba(255,255,255,0.50),
-            rgba(255,255,255,0.14)
-          ),
-          repeating-linear-gradient(
-            90deg,
-            rgba(255,255,255,0.76) 0px,
-            rgba(255,255,255,0.76) 6px,
-            rgba(210,210,210,0.18) 7px,
-            rgba(255,255,255,0.30) 12px,
-            rgba(170,170,170,0.12) 13px,
-            rgba(255,255,255,0.62) 18px
-          );
-
-        backdrop-filter:
-          blur(14px)
-          saturate(0.88);
-
-        -webkit-backdrop-filter:
-          blur(14px)
-          saturate(0.88);
-
-        opacity: 0.88;
+      .project-meta {
+        gap: 6px;
       }
 
-      .amazon::before {
-        left: 7%;
-        transform: rotate(-7deg);
+      .project-preview {
+        right: 10%;
+
+        width: 260px;
+        height: 260px;
       }
 
-      .sentrix::before {
-        right: 7%;
-        transform: rotate(7deg);
+      .project-detail {
+        padding: 30px 16px 55px;
       }
 
-      .victoria::before {
-        left: 13%;
-        transform: rotate(-5deg);
-      }
-
-      .mycunyevent::before {
-        right: 9%;
-        transform: rotate(6deg);
-      }
-
-      .glowr::before {
-        left: 10%;
-        transform: rotate(-6deg);
-      }
-
-      .prelude::before {
-        right: 12%;
-        transform: rotate(7deg);
-      }
-
-      .project::after {
-        position: relative;
-        z-index: 8;
-        display: block;
-        margin-top: 32px;
-        text-align: center;
-        font-family: "IBM Plex Mono", monospace;
-        font-size: 10px;
-        font-weight: 400;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        color: #222;
-      }
-
-      .amazon::after {
-        content: "Student Amazon Prime";
-      }
-
-      .sentrix::after {
-        content: "Sentrix";
-      }
-
-      .victoria::after {
-        content: "Victoria Cruises";
-      }
-
-      .mycunyevent::after {
-        content: "myCUNYevent";
-      }
-
-      .glowr::after {
-        content: "Glowr";
-      }
-
-      .prelude::after {
-        content: "Prelude";
-      }
-
-      .annotation,
-      .collage > .glass,
-      .design-mark {
-        display: none;
-      }
-
-      .project-overlay {
-        padding: 18px 12px;
-        align-items: center;
-        background: rgba(20,20,20,0.22);
-      }
-
-      .project-view {
-        width: 100%;
-        max-height: 88vh;
-        padding: 10px;
-        border-radius: 2px;
-      }
-
-      .project-image-wrap {
-        width: 100%;
-      }
-
-      .project-image-wrap img {
-        width: 100%;
-        height: auto;
-      }
-
-      .project-close {
-        top: 12px;
-        right: 12px;
-        width: 38px;
-        height: 38px;
-        font-size: 23px;
+      .detail-title {
+        font-size: clamp(25px, 5vw, 45px);
       }
 
       .test-link {
@@ -1024,37 +867,13 @@
         padding-bottom: 4px;
       }
 
-      .mycuny-test-link {
-        top: 65%;
-      }
-
       .glowr-test-link {
-        top: 79%;
-      }
-
-      .victoria-project-view {
-        width: 100%;
-        max-height: 88vh;
-        padding: 10px;
-      }
-
-      .victoria-hero {
-        width: 100%;
+        font-size: clamp(14px, 2.5vw, 24px);
       }
 
       .brochure-section {
         margin-top: 30px;
         padding: 40px 8px 50px;
-      }
-
-      .brochure-heading {
-        font-size: 16px;
-      }
-
-      .brochure-subtitle {
-        margin-top: 8px;
-        margin-bottom: 28px;
-        font-size: 8px;
       }
 
       .brochure-stage {
@@ -1066,20 +885,146 @@
         gap: 14px;
       }
 
-      .brochure-controls button {
-        font-size: 8px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 600px) {
+
+      .portfolio-intro {
+        padding: 55px 20px 45px;
       }
 
-      #brochure-page-number {
-        font-size: 8px;
+      .portfolio-title {
+        font-size: clamp(37px, 9vw, 54px);
+        letter-spacing: -0.05em;
+      }
+
+      .projects-section {
+        margin-bottom: 65px;
+      }
+
+      .project-row {
+        display: grid;
+
+        grid-template-columns: 1fr auto;
+
+        gap: 12px;
+
+        min-height: 100px;
+
+        padding: 22px 20px;
+      }
+
+      .project-name {
+        font-size: 21px;
+        padding-right: 30px;
+      }
+
+      .project-meta {
+        grid-column: 1 / -1;
+      }
+
+      .project-arrow {
+        position: absolute;
+
+        right: 20px;
+        top: 19px;
+
+        margin-left: 0;
+      }
+
+      .project-preview {
+        display: none;
+      }
+
+      .project-detail {
+        padding: 25px 14px 45px;
+      }
+
+      .detail-header {
+        margin-bottom: 25px;
+        gap: 12px;
+      }
+
+      .detail-title {
+        font-size: 27px;
+      }
+
+      .project-close {
+        padding: 10px 12px;
+        font-size: 9px;
+      }
+
+      .project-bottom {
+        margin-top: 30px;
+      }
+
+      /* EQUAL WIDTH ON MOBILE */
+
+      .project-view,
+      .victoria-project-view,
+      .project-image-wrap,
+      .victoria-hero {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .project-image-wrap img,
+      .victoria-hero img {
+        width: 100%;
+        height: auto;
+      }
+
+      /* FOOTER */
+
+      .footer-content {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 35px 20px;
+
+        padding: 40px 20px 45px;
+      }
+
+      .footer-heading {
+        margin-bottom: 12px;
+
+        font-size: 10px;
+        letter-spacing: 0.12em;
+      }
+
+      .footer-column p,
+      .footer-column a {
+        font-size: 12px;
+        line-height: 1.9;
+      }
+
+      .footer-marquee {
+        padding-top: 15px;
+      }
+
+      .marquee-text {
+        font-size: 25vw;
+        padding-right: 8vw;
+      }
+
+      .marquee-separator {
+        font-size: 11vw;
+        padding-right: 8vw;
+      }
+
+      .marquee-track {
+        animation-duration: 18s;
       }
 
     }
 
+    /* SMALL PHONES */
+
     @media (max-width: 520px) {
 
-      .design-page {
-        padding: 18px 14px 55px;
+      .site-header {
+        padding: 18px 14px 25px;
       }
 
       .logo {
@@ -1089,71 +1034,6 @@
       .top-nav {
         gap: 14px;
         font-size: 8px;
-      }
-
-      .collage {
-        margin-top: 38px;
-        gap: 84px;
-      }
-
-      .project,
-      .amazon,
-      .sentrix,
-      .victoria,
-      .mycunyevent,
-      .glowr,
-      .prelude {
-        width: min(330px, 92vw) !important;
-      }
-
-      .project::before {
-        width: 100px;
-        height: 116px;
-        bottom: -36px;
-      }
-
-      .amazon::before {
-        left: 5%;
-      }
-
-      .sentrix::before {
-        right: 5%;
-      }
-
-      .victoria::before {
-        left: 11%;
-      }
-
-      .mycunyevent::before {
-        right: 7%;
-      }
-
-      .glowr::before {
-        left: 8%;
-      }
-
-      .prelude::before {
-        right: 9%;
-      }
-
-      .project::after {
-        margin-top: 28px;
-        font-size: 9px;
-        letter-spacing: 0.15em;
-      }
-
-      .project-overlay {
-        padding: 12px 8px;
-      }
-
-      .project-view {
-        width: 96vw;
-        max-height: 90vh;
-      }
-
-      .victoria-project-view {
-        width: 96vw;
-        max-height: 90vh;
       }
 
       .brochure-stage {
@@ -1166,34 +1046,706 @@
 
       .test-link {
         font-size: 20px;
+        border-bottom-width: 2px;
+      }
+
+      .glowr-test-link {
+        font-size: clamp(12px, 3vw, 16px);
+        border-bottom-width: 2px;
+        padding-bottom: 3px;
+      }
+
+    }
+
+    @media (hover: none) {
+
+      .project-preview {
+        display: none;
+      }
+
+    }
+
+    @media (max-width: 360px) {
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+    }
+
+    /* REDUCED MOTION */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        animation: none !important;
+        transition: none !important;
       }
 
     }
 
   </style>
+
 </head>
 
 <body>
 
-  <main class="design-page">
+  <!-- HEADER -->
 
-    <header class="site-header">
+  <header class="site-header">
 
-      <a
-        href="index.html"
-        class="logo"
-      >
-        wikivisual.co
+    <a href="index.html" class="logo">
+      wikivisual.co
+    </a>
+
+    <div class="section-title">
+      Digital Design
+    </div>
+
+    <nav class="top-nav">
+
+      <a href="photography.html">
+        Photography
       </a>
 
-      <div class="section-title">
+      <a href="about.html">
+        About Me
+      </a>
+
+      <a href="contact.html">
+        Contact
+      </a>
+
+    </nav>
+
+  </header>
+
+  <main>
+
+    <!-- PORTFOLIO TITLE -->
+
+    <section class="portfolio-intro">
+
+      <h1 class="portfolio-title">
         Digital Design
+      </h1>
+
+    </section>
+
+    <!-- PROJECT LIST -->
+
+    <section class="projects-section" id="projects">
+
+      <!-- =========================
+           GLOWR
+      ========================== -->
+
+      <button
+        class="project-row"
+        type="button"
+        data-project="glowr-project"
+        data-preview="images/digital-design/glowr.png"
+        aria-controls="glowr-project"
+        aria-expanded="false"
+      >
+
+        <span class="project-name">
+          Glowr
+        </span>
+
+        <span class="project-meta">
+
+          <span class="project-tag">
+            UX/UI Design
+          </span>
+
+          <span class="project-tag">
+            App Design
+          </span>
+
+          <span class="project-arrow">
+            ↗
+          </span>
+
+        </span>
+
+      </button>
+
+      <!-- GLOWR CONTENT -->
+
+      <section
+        class="project-detail"
+        id="glowr-project"
+        aria-hidden="true"
+        aria-label="Glowr project"
+      >
+
+        <div class="detail-header">
+
+          <h2 class="detail-title">
+            Glowr
+          </h2>
+
+          <button class="project-close" type="button">
+            Close ×
+          </button>
+
+        </div>
+
+        <div class="project-view">
+
+          <div class="project-image-wrap">
+
+            <img
+              src="images/digital-design/glowr-project.png"
+              alt="Glowr UX/UI design project"
+              loading="lazy"
+              decoding="async"
+            >
+
+            <!-- TEST LINK TOP RIGHT -->
+
+            <a
+              class="test-link glowr-test-link"
+              href="https://www.figma.com/proto/WmrODy13DxAA6ea96hJA5m/Untitled?node-id=194-10&t=7vDVXG4LVbQJmouJ-0&scaling=scale-down&content-scaling=fixed&page-id=20%3A43&starting-point-node-id=194%3A232"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              TEST
+            </a>
+
+          </div>
+
+        </div>
+
+        <div class="project-bottom">
+
+          <button class="project-close" type="button">
+            Close project ×
+          </button>
+
+        </div>
+
+      </section>
+
+      <!-- =========================
+           STUDENT AMAZON PRIME
+      ========================== -->
+
+      <button
+        class="project-row"
+        type="button"
+        data-project="amazon-project"
+        data-preview="images/digital-design/amazon.png"
+        aria-controls="amazon-project"
+        aria-expanded="false"
+      >
+
+        <span class="project-name">
+          Student Amazon Prime
+        </span>
+
+        <span class="project-meta">
+
+          <span class="project-tag">
+            Digital Design
+          </span>
+
+          <span class="project-tag">
+            Campaign
+          </span>
+
+          <span class="project-arrow">
+            ↗
+          </span>
+
+        </span>
+
+      </button>
+
+      <!-- AMAZON CONTENT -->
+
+      <section
+        class="project-detail"
+        id="amazon-project"
+        aria-hidden="true"
+        aria-label="Student Amazon Prime project"
+      >
+
+        <div class="detail-header">
+
+          <h2 class="detail-title">
+            Student Amazon Prime
+          </h2>
+
+          <button class="project-close" type="button">
+            Close ×
+          </button>
+
+        </div>
+
+        <div class="project-view">
+
+          <div class="project-image-wrap">
+
+            <img
+              src="images/digital-design/amazon-project.png"
+              alt="Student Amazon Prime campaign"
+              loading="lazy"
+              decoding="async"
+            >
+
+          </div>
+
+        </div>
+
+        <div class="project-bottom">
+
+          <button class="project-close" type="button">
+            Close project ×
+          </button>
+
+        </div>
+
+      </section>
+
+      <!-- =========================
+           SENTRIX
+      ========================== -->
+
+      <button
+        class="project-row"
+        type="button"
+        data-project="sentrix-project"
+        data-preview="images/digital-design/sentrix.png"
+        aria-controls="sentrix-project"
+        aria-expanded="false"
+      >
+
+        <span class="project-name">
+          Sentrix
+        </span>
+
+        <span class="project-meta">
+
+          <span class="project-tag">
+            Digital Design
+          </span>
+
+          <span class="project-tag">
+            Visual Design
+          </span>
+
+          <span class="project-arrow">
+            ↗
+          </span>
+
+        </span>
+
+      </button>
+
+      <!-- SENTRIX CONTENT -->
+
+      <section
+        class="project-detail"
+        id="sentrix-project"
+        aria-hidden="true"
+        aria-label="Sentrix project"
+      >
+
+        <div class="detail-header">
+
+          <h2 class="detail-title">
+            Sentrix
+          </h2>
+
+          <button class="project-close" type="button">
+            Close ×
+          </button>
+
+        </div>
+
+        <div class="project-view">
+
+          <div class="project-image-wrap">
+
+            <img
+              src="images/digital-design/sentrix-project.png"
+              alt="Sentrix visual design project"
+              loading="lazy"
+              decoding="async"
+            >
+
+          </div>
+
+        </div>
+
+        <div class="project-bottom">
+
+          <button class="project-close" type="button">
+            Close project ×
+          </button>
+
+        </div>
+
+      </section>
+
+      <!-- =========================
+           VICTORIA CRUISES
+      ========================== -->
+
+      <button
+        class="project-row"
+        type="button"
+        data-project="victoria-project"
+        data-preview="images/digital-design/victoria-cruises.png"
+        aria-controls="victoria-project"
+        aria-expanded="false"
+      >
+
+        <span class="project-name">
+          Victoria Cruises
+        </span>
+
+        <span class="project-meta">
+
+          <span class="project-tag">
+            Visual Design
+          </span>
+
+          <span class="project-tag">
+            Editorial
+          </span>
+
+          <span class="project-arrow">
+            ↗
+          </span>
+
+        </span>
+
+      </button>
+
+      <!-- VICTORIA CRUISES CONTENT -->
+
+      <section
+        class="project-detail"
+        id="victoria-project"
+        aria-hidden="true"
+        aria-label="Victoria Cruises project"
+      >
+
+        <div class="detail-header">
+
+          <h2 class="detail-title">
+            Victoria Cruises
+          </h2>
+
+          <button class="project-close" type="button">
+            Close ×
+          </button>
+
+        </div>
+
+        <div class="victoria-project-view">
+
+          <div class="victoria-hero">
+
+            <img
+              src="images/digital-design/victoria-cruises-project.png"
+              alt="Victoria Cruises editorial design project"
+              loading="lazy"
+              decoding="async"
+            >
+
+          </div>
+
+          <!-- INTERACTIVE BROCHURE -->
+
+          <section class="brochure-section">
+
+            <h3 class="brochure-heading">
+              Explore the brochure
+            </h3>
+
+            <div class="brochure-subtitle">
+              Click or drag the pages to explore
+            </div>
+
+            <div class="brochure-stage">
+
+              <div id="victoria-book">
+
+                <div class="brochure-loading">
+                  Loading brochure...
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="brochure-controls">
+
+              <button
+                id="brochure-prev"
+                type="button"
+                disabled
+              >
+                ← Previous
+              </button>
+
+              <span id="brochure-page-number">
+                — / —
+              </span>
+
+              <button
+                id="brochure-next"
+                type="button"
+                disabled
+              >
+                Next →
+              </button>
+
+            </div>
+
+          </section>
+
+        </div>
+
+        <div class="project-bottom">
+
+          <button class="project-close" type="button">
+            Close project ×
+          </button>
+
+        </div>
+
+      </section>
+
+      <!-- =========================
+           MYCUNYEVENT
+      ========================== -->
+
+      <button
+        class="project-row"
+        type="button"
+        data-project="mycunyevent-project"
+        data-preview="images/digital-design/mycunyevent.png"
+        aria-controls="mycunyevent-project"
+        aria-expanded="false"
+      >
+
+        <span class="project-name">
+          myCUNYevent
+        </span>
+
+        <span class="project-meta">
+
+          <span class="project-tag">
+            UX/UI Design
+          </span>
+
+          <span class="project-tag">
+            App Design
+          </span>
+
+          <span class="project-arrow">
+            ↗
+          </span>
+
+        </span>
+
+      </button>
+
+      <!-- MYCUNYEVENT CONTENT -->
+
+      <section
+        class="project-detail"
+        id="mycunyevent-project"
+        aria-hidden="true"
+        aria-label="myCUNYevent project"
+      >
+
+        <div class="detail-header">
+
+          <h2 class="detail-title">
+            myCUNYevent
+          </h2>
+
+          <button class="project-close" type="button">
+            Close ×
+          </button>
+
+        </div>
+
+        <div class="project-view">
+
+          <div class="project-image-wrap">
+
+            <img
+              src="images/digital-design/mycunyevent-project.png"
+              alt="myCUNYevent UX/UI design project"
+              loading="lazy"
+              decoding="async"
+            >
+
+            <a
+              class="test-link mycuny-test-link"
+              href="https://www.figma.com/proto/CUJ5Ha4LzIp4fa2fnLKCdf/Prototype?node-id=7-12&t=e3IU8UQCXpi0z9qL-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=7%3A12"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              TEST
+            </a>
+
+          </div>
+
+        </div>
+
+        <div class="project-bottom">
+
+          <button class="project-close" type="button">
+            Close project ×
+          </button>
+
+        </div>
+
+      </section>
+
+      <!-- =========================
+           PRELUDE
+      ========================== -->
+
+      <button
+        class="project-row"
+        type="button"
+        data-project="prelude-project"
+        data-preview="images/digital-design/prelude.png"
+        aria-controls="prelude-project"
+        aria-expanded="false"
+      >
+
+        <span class="project-name">
+          Prelude
+        </span>
+
+        <span class="project-meta">
+
+          <span class="project-tag">
+            Digital Design
+          </span>
+
+          <span class="project-tag">
+            Visual Design
+          </span>
+
+          <span class="project-arrow">
+            ↗
+          </span>
+
+        </span>
+
+      </button>
+
+      <!-- PRELUDE CONTENT -->
+
+      <section
+        class="project-detail"
+        id="prelude-project"
+        aria-hidden="true"
+        aria-label="Prelude project"
+      >
+
+        <div class="detail-header">
+
+          <h2 class="detail-title">
+            Prelude
+          </h2>
+
+          <button class="project-close" type="button">
+            Close ×
+          </button>
+
+        </div>
+
+        <div class="project-view">
+
+          <div class="project-image-wrap">
+
+            <img
+              src="images/digital-design/prelude-project.png"
+              alt="Prelude visual design project"
+              loading="lazy"
+              decoding="async"
+            >
+
+          </div>
+
+        </div>
+
+        <div class="project-bottom">
+
+          <button class="project-close" type="button">
+            Close project ×
+          </button>
+
+        </div>
+
+      </section>
+
+      <!-- FLOATING HOVER PREVIEW -->
+
+      <div
+        class="project-preview"
+        id="projectPreview"
+        aria-hidden="true"
+      >
+
+        <img id="previewImage" alt="">
+
       </div>
 
-      <nav class="top-nav">
+    </section>
+
+  </main>
+
+  <!-- BLACK FOOTER -->
+
+  <footer class="site-footer">
+
+    <div class="footer-content">
+
+      <!-- LOCATION -->
+
+      <div class="footer-column">
+
+        <h2 class="footer-heading">
+          Location
+        </h2>
+
+        <p>New York City</p>
+        <p>United States</p>
+
+      </div>
+
+      <!-- EXPLORE -->
+
+      <div class="footer-column">
+
+        <h2 class="footer-heading">
+          Explore
+        </h2>
 
         <a href="photography.html">
           Photography
+        </a>
+
+        <a href="digital-design.html">
+          Digital Design
         </a>
 
         <a href="about.html">
@@ -1204,500 +1756,111 @@
           Contact
         </a>
 
-      </nav>
+      </div>
 
-    </header>
+      <!-- CONTACT & SOCIALS -->
 
-    <section class="collage">
+      <div class="footer-column">
 
-      <!-- AMAZON -->
+        <h2 class="footer-heading">
+          Contact &amp; Socials
+        </h2>
 
-      <a
-        href="#"
-        class="project amazon"
-        data-project="amazon-project"
-      >
+        <a href="mailto:wbabula78@gmail.com">
+          wbabula78@gmail.com
+        </a>
 
-        <img
-          src="images/digital-design/amazon.png"
-          alt="Student Amazon Prime"
-        />
+        <a
+          href="https://www.instagram.com/wikivisual.co/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Instagram ↗
+        </a>
 
-      </a>
-
-      <!-- SENTRIX -->
-
-      <a
-        href="#"
-        class="project sentrix"
-        data-project="sentrix-project"
-      >
-
-        <img
-          src="images/digital-design/sentrix.png"
-          alt="Sentrix"
-        />
-
-      </a>
-
-      <!-- VICTORIA -->
-
-      <a
-        href="#"
-        class="project victoria"
-        data-project="victoria-project"
-      >
-
-        <img
-          src="images/digital-design/victoria-cruises.png"
-          alt="Victoria Cruises"
-        />
-
-      </a>
-
-      <!-- MY CUNY -->
-
-      <a
-        href="#"
-        class="project mycunyevent"
-        data-project="mycunyevent-project"
-      >
-
-        <img
-          src="images/digital-design/mycunyevent.png"
-          alt="myCUNYevent"
-        />
-
-      </a>
-
-      <!-- GLOWR -->
-
-      <a
-        href="#"
-        class="project glowr"
-        data-project="glowr-project"
-      >
-
-        <img
-          src="images/digital-design/glowr.png"
-          alt="Glowr"
-        />
-
-      </a>
-
-      <!-- PRELUDE -->
-
-      <a
-        href="#"
-        class="project prelude"
-        data-project="prelude-project"
-      >
-
-        <img
-          src="images/digital-design/prelude.png"
-          alt="Prelude"
-        />
-
-      </a>
-
-      <!-- AMAZON LABEL -->
-
-      <div class="annotation annotation-amazon">
-
-        <div class="annotation-text">
-          Student Amazon Prime
-        </div>
-
-        <svg viewBox="0 0 90 65">
-
-          <path
-            d="M 6 5 C 12 24, 30 40, 62 47"
-          />
-
-          <path
-            d="M 53 40 L 65 48 L 52 54"
-          />
-
-        </svg>
+        <a
+          href="https://www.tiktok.com/@wikivisual_co"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          TikTok ↗
+        </a>
 
       </div>
 
-      <!-- SENTRIX LABEL -->
+      <!-- LEGAL -->
 
-      <div class="annotation annotation-sentrix">
+      <div class="footer-column">
 
-        <div class="annotation-text">
-          Sentrix
-        </div>
+        <h2 class="footer-heading">
+          Legal
+        </h2>
 
-        <svg viewBox="0 0 90 65">
+        <p class="copyright">
+          © <span id="currentYear">2026</span> wikivisual.co
+        </p>
 
-          <path
-            d="M 84 5 C 78 24, 64 39, 39 47"
-          />
-
-          <path
-            d="M 48 39 L 37 48 L 51 49"
-          />
-
-        </svg>
-
-      </div>
-
-      <!-- VICTORIA LABEL -->
-
-      <div class="annotation annotation-victoria">
-
-        <svg viewBox="0 0 76 52">
-
-          <path
-            d="M 38 50 C 38 38, 38 27, 38 14"
-          />
-
-          <path
-            d="M 31 24 L 38 13 L 45 24"
-          />
-
-        </svg>
-
-        <div class="annotation-text">
-          Victoria Cruises
-        </div>
-
-      </div>
-
-      <!-- GLOWR LABEL -->
-
-      <div class="annotation annotation-glowr">
-
-        <div class="annotation-text">
-          Glowr
-        </div>
-
-        <svg viewBox="0 0 88 60">
-
-          <path
-            d="M 5 5 C 12 24, 28 38, 59 44"
-          />
-
-          <path
-            d="M 50 37 L 62 45 L 49 51"
-          />
-
-        </svg>
-
-      </div>
-
-      <!-- CUNY LABEL -->
-
-      <div class="annotation annotation-mycuny">
-
-        <svg viewBox="0 0 92 72">
-
-          <path
-            d="M 79 65 C 68 52, 58 39, 40 23"
-          />
-
-          <path
-            d="M 51 27 L 38 20 L 42 35"
-          />
-
-        </svg>
-
-        <div class="annotation-text">
-          mycunyevent
-        </div>
-
-      </div>
-
-      <!-- PRELUDE LABEL -->
-
-      <div class="annotation annotation-prelude">
-
-        <div class="annotation-text">
-          Prelude
-        </div>
-
-        <svg viewBox="0 0 82 60">
-
-          <path
-            d="M 77 5 C 73 23, 61 37, 39 45"
-          />
-
-          <path
-            d="M 48 37 L 37 46 L 51 47"
-          />
-
-        </svg>
-
-      </div>
-
-      <!-- GLASS -->
-
-      <div class="glass glass-1"></div>
-
-      <div class="glass glass-2"></div>
-
-      <div class="glass glass-3"></div>
-
-      <div class="glass glass-4"></div>
-
-      <div class="glass glass-5"></div>
-
-      <div class="design-mark">
-
-        <div class="design-mark-line"></div>
-
-        <span>
-          Digital Design
-        </span>
-
-      </div>
-
-    </section>
-
-  </main>
-
-  <!-- AMAZON MODAL -->
-
-  <section
-    class="project-overlay"
-    id="amazon-project"
-  >
-
-    <button
-      class="project-close"
-      type="button"
-    >
-      ×
-    </button>
-
-    <div class="project-view">
-
-      <div class="project-image-wrap">
-
-        <img
-          src="images/digital-design/amazon-project.png"
-          alt="Amazon project"
-        />
+        <p class="copyright">
+          All Rights Reserved.
+        </p>
 
       </div>
 
     </div>
 
-  </section>
+    <div class="footer-divider"></div>
 
-  <!-- SENTRIX MODAL -->
+    <!-- ANIMATED BRAND -->
 
-  <section
-    class="project-overlay"
-    id="sentrix-project"
-  >
+    <div class="footer-marquee" aria-hidden="true">
 
-    <button
-      class="project-close"
-      type="button"
-    >
-      ×
-    </button>
+      <div class="marquee-track">
 
-    <div class="project-view">
+        <div class="marquee-group">
 
-      <div class="project-image-wrap">
-
-        <img
-          src="images/digital-design/sentrix-project.png"
-          alt="Sentrix project"
-        />
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- VICTORIA MODAL -->
-
-  <section
-    class="project-overlay"
-    id="victoria-project"
-  >
-
-    <button
-      class="project-close"
-      type="button"
-    >
-      ×
-    </button>
-
-    <div class="victoria-project-view">
-
-      <div class="victoria-hero">
-
-        <img
-          src="images/digital-design/victoria-cruises-project.png"
-          alt="Victoria Cruises project"
-        />
-
-      </div>
-
-      <section class="brochure-section">
-
-        <div class="brochure-heading">
-          Explore the brochure
-        </div>
-
-        <div class="brochure-subtitle">
-          Click or drag the pages to explore
-        </div>
-
-        <div class="brochure-stage">
-
-          <div id="victoria-book">
-
-            <div
-              class="brochure-loading"
-              id="brochure-loading"
-            >
-              Loading brochure...
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="brochure-controls">
-
-          <button
-            id="brochure-prev"
-            type="button"
-          >
-            ← Previous
-          </button>
-
-          <span id="brochure-page-number">
-            01 / 12
+          <span class="marquee-text">
+            wikivisual.co
           </span>
 
-          <button
-            id="brochure-next"
-            type="button"
-          >
-            Next →
-          </button>
+          <span class="marquee-separator">
+            ✳
+          </span>
+
+          <span class="marquee-text">
+            wikivisual.co
+          </span>
+
+          <span class="marquee-separator">
+            ✳
+          </span>
 
         </div>
 
-      </section>
+        <div class="marquee-group">
 
-    </div>
+          <span class="marquee-text">
+            wikivisual.co
+          </span>
 
-  </section>
+          <span class="marquee-separator">
+            ✳
+          </span>
 
-  <!-- MY CUNY MODAL -->
+          <span class="marquee-text">
+            wikivisual.co
+          </span>
 
-  <section
-    class="project-overlay"
-    id="mycunyevent-project"
-  >
+          <span class="marquee-separator">
+            ✳
+          </span>
 
-    <button
-      class="project-close"
-      type="button"
-    >
-      ×
-    </button>
-
-    <div class="project-view">
-
-      <div class="project-image-wrap">
-
-        <img
-          src="images/digital-design/mycunyevent-project.png"
-          alt="myCUNYevent project"
-        />
-
-        <a
-          class="test-link mycuny-test-link"
-          href="https://www.figma.com/proto/CUJ5Ha4LzIp4fa2fnLKCdf/Prototype?node-id=7-12&t=e3IU8UQCXpi0z9qL-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=7%3A12"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          TEST
-        </a>
+        </div>
 
       </div>
 
     </div>
 
-  </section>
-
-  <!-- GLOWR MODAL -->
-
-  <section
-    class="project-overlay"
-    id="glowr-project"
-  >
-
-    <button
-      class="project-close"
-      type="button"
-    >
-      ×
-    </button>
-
-    <div class="project-view">
-
-      <div class="project-image-wrap">
-
-        <img
-          src="images/digital-design/glowr-project.png"
-          alt="Glowr project"
-        />
-
-        <a
-          class="test-link glowr-test-link"
-          href="https://www.figma.com/proto/WmrODy13DxAA6ea96hJA5m/Untitled?node-id=194-10&t=7vDVXG4LVbQJmouJ-0&scaling=scale-down&content-scaling=fixed&page-id=20%3A43&starting-point-node-id=194%3A232"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          TEST
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- PRELUDE MODAL -->
-
-  <section
-    class="project-overlay"
-    id="prelude-project"
-  >
-
-    <button
-      class="project-close"
-      type="button"
-    >
-      ×
-    </button>
-
-    <div class="project-view">
-
-      <div class="project-image-wrap">
-
-        <img
-          src="images/digital-design/prelude-project.png"
-          alt="Prelude project"
-        />
-
-      </div>
-
-    </div>
-
-  </section>
+  </footer>
 
   <!-- PDF JS -->
 
@@ -1713,446 +1876,894 @@
 
   <script>
 
-    /* =========================
-       PROJECT MODALS
-    ========================= */
+    /* COPYRIGHT YEAR */
 
-    const projectTriggers =
-      document.querySelectorAll(
-        "[data-project]"
-      );
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
 
-    const projectOverlays =
-      document.querySelectorAll(
-        ".project-overlay"
-      );
+
+    /* ELEMENTS */
+
+    const projectRows =
+      document.querySelectorAll(".project-row");
 
     const closeButtons =
-      document.querySelectorAll(
-        ".project-close"
-      );
+      document.querySelectorAll(".project-close");
 
-    function openProject(projectId) {
+    const preview =
+      document.getElementById("projectPreview");
 
-      const overlay =
-        document.getElementById(
-          projectId
-        );
+    const previewImage =
+      document.getElementById("previewImage");
 
-      if (!overlay) return;
 
-      overlay.classList.add(
-        "is-open"
-      );
+    /* STATE */
 
-      document.body.classList.add(
-        "project-open"
-      );
+    let activeProject = null;
+
+    let previewVersion = 0;
+
+
+    /* SCROLL BEHAVIOR */
+
+    function getScrollBehavior() {
+
+      return window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches ? "auto" : "smooth";
+
+    }
+
+
+    /* HOVER PREVIEW */
+
+    function showPreview(row) {
+
+      if (row.classList.contains("active")) {
+
+        hidePreview();
+
+        return;
+
+      }
 
       if (
-        projectId ===
-        "victoria-project"
+
+        window.matchMedia("(hover: none)").matches ||
+
+        window.innerWidth <= 600
+
       ) {
 
-        setTimeout(
-          initializeVictoriaBook,
-          200
-        );
+        return;
 
       }
 
-    }
 
-    function closeProject(overlay) {
+      const imagePath =
+        row.dataset.preview;
 
-      if (!overlay) return;
+      const version =
+        ++previewVersion;
 
-      overlay.classList.remove(
-        "is-open"
-      );
+      preview.classList.remove("visible");
 
-      document.body.classList.remove(
-        "project-open"
-      );
+      preview.style.top =
 
-    }
+        `${row.offsetTop + row.offsetHeight / 2}px`;
 
-    projectTriggers.forEach(
-      function(trigger) {
 
-        trigger.addEventListener(
-          "click",
-          function(event) {
+      const image = new Image();
 
-            event.preventDefault();
 
-            const projectId =
-              trigger.dataset.project;
+      image.onload = () => {
 
-            openProject(
-              projectId
-            );
+        if (version !== previewVersion) {
 
-          }
-        );
-
-      }
-    );
-
-    closeButtons.forEach(
-      function(button) {
-
-        button.addEventListener(
-          "click",
-          function() {
-
-            const overlay =
-              button.closest(
-                ".project-overlay"
-              );
-
-            closeProject(
-              overlay
-            );
-
-          }
-        );
-
-      }
-    );
-
-    /* CLICK OUTSIDE */
-
-    projectOverlays.forEach(
-      function(overlay) {
-
-        overlay.addEventListener(
-          "click",
-          function(event) {
-
-            if (
-              event.target ===
-              overlay
-            ) {
-
-              closeProject(
-                overlay
-              );
-
-            }
-
-          }
-        );
-
-      }
-    );
-
-    /* ESC */
-
-    document.addEventListener(
-      "keydown",
-      function(event) {
-
-        if (
-          event.key ===
-          "Escape"
-        ) {
-
-          projectOverlays.forEach(
-            function(overlay) {
-
-              if (
-                overlay
-                  .classList
-                  .contains(
-                    "is-open"
-                  )
-              ) {
-
-                closeProject(
-                  overlay
-                );
-
-              }
-
-            }
-          );
+          return;
 
         }
 
-      }
-    );
+        previewImage.src = imagePath;
 
-    /* =========================
-       VICTORIA PDF
-    ========================= */
+        preview.classList.add("visible");
+
+      };
+
+
+      image.onerror = () => {
+
+        if (version !== previewVersion) {
+
+          return;
+
+        }
+
+        preview.classList.remove("visible");
+
+      };
+
+
+      image.src = imagePath;
+
+    }
+
+
+    function hidePreview() {
+
+      previewVersion++;
+
+      preview.classList.remove("visible");
+
+    }
+
+
+    /* PRELOAD HOVER IMAGES */
+
+    projectRows.forEach(row => {
+
+      const image = new Image();
+
+      image.src = row.dataset.preview;
+
+    });
+
+
+    /* PROJECT INTERACTIONS */
+
+    projectRows.forEach(row => {
+
+      row.addEventListener("mouseenter", () => {
+
+        showPreview(row);
+
+      });
+
+
+      row.addEventListener(
+        "mouseleave",
+        hidePreview
+      );
+
+
+      row.addEventListener("focus", () => {
+
+        showPreview(row);
+
+      });
+
+
+      row.addEventListener(
+        "blur",
+        hidePreview
+      );
+
+
+      row.addEventListener("click", () => {
+
+        const projectId =
+          row.dataset.project;
+
+        hidePreview();
+
+
+        if (activeProject === projectId) {
+
+          closeProject(projectId);
+
+        } else {
+
+          openProject(projectId);
+
+        }
+
+      });
+
+    });
+
+
+    /* OPEN PROJECT */
+
+    function openProject(projectId) {
+
+      const detail =
+        document.getElementById(projectId);
+
+      const row = Array.from(projectRows).find(
+
+        item => item.dataset.project === projectId
+
+      );
+
+
+      if (!detail || !row) return;
+
+
+      hidePreview();
+
+
+      /* CLOSE PREVIOUS PROJECT */
+
+      if (activeProject) {
+
+        closeProject(activeProject, false);
+
+      }
+
+
+      /* OPEN SELECTED PROJECT */
+
+      activeProject = projectId;
+
+      detail.classList.add("is-open");
+
+      detail.setAttribute(
+        "aria-hidden",
+        "false"
+      );
+
+
+      row.classList.add("active");
+
+      row.setAttribute(
+        "aria-expanded",
+        "true"
+      );
+
+
+      row.querySelector(
+        ".project-arrow"
+      ).textContent = "×";
+
+
+      /* LOAD ORIGINAL PROJECT IMAGE */
+
+      detail.querySelectorAll("img").forEach(img => {
+
+        img.loading = "eager";
+
+      });
+
+
+      /* SCROLL TO SELECTED PROJECT */
+
+      requestAnimationFrame(() => {
+
+        if (activeProject !== projectId) return;
+
+
+        row.scrollIntoView({
+
+          behavior: getScrollBehavior(),
+
+          block: "start"
+
+        });
+
+      });
+
+
+      /* INITIALIZE VICTORIA BROCHURE */
+
+      if (projectId === "victoria-project") {
+
+        initializeVictoriaBook();
+
+      }
+
+    }
+
+
+    /* CLOSE PROJECT */
+
+    function closeProject(
+
+      projectId,
+
+      scrollBack = true
+
+    ) {
+
+      const detail =
+        document.getElementById(projectId);
+
+
+      const row = Array.from(projectRows).find(
+
+        item => item.dataset.project === projectId
+
+      );
+
+
+      if (!detail || !row) return;
+
+
+      if (activeProject === projectId) {
+
+        activeProject = null;
+
+      }
+
+
+      row.classList.remove("active");
+
+      row.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+
+      row.querySelector(
+        ".project-arrow"
+      ).textContent = "↗";
+
+
+      if (detail.contains(document.activeElement)) {
+
+        row.focus({
+
+          preventScroll: true
+
+        });
+
+      }
+
+
+      detail.classList.remove("is-open");
+
+      detail.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+
+      hidePreview();
+
+
+      if (scrollBack) {
+
+        row.focus({
+
+          preventScroll: true
+
+        });
+
+
+        row.scrollIntoView({
+
+          behavior: getScrollBehavior(),
+
+          block: "center"
+
+        });
+
+      }
+
+
+      hidePreview();
+
+    }
+
+
+    /* CLOSE BUTTONS */
+
+    closeButtons.forEach(button => {
+
+      button.addEventListener("click", () => {
+
+        const detail = button.closest(
+          ".project-detail"
+        );
+
+
+        if (detail) {
+
+          closeProject(detail.id);
+
+        }
+
+      });
+
+    });
+
+
+    /* ESCAPE KEY */
+
+    document.addEventListener("keydown", event => {
+
+      if (
+
+        event.key === "Escape" &&
+
+        activeProject
+
+      ) {
+
+        closeProject(activeProject);
+
+      }
+
+    });
+
+
+    /* VICTORIA CRUISES PDF BROCHURE */
 
     const pdfPath =
       "images/digital-design/victoria-brochure.pdf";
 
-    let victoriaBook =
-      null;
 
-    let victoriaPdf =
-      null;
+    let victoriaBook = null;
+
+    let victoriaPdf = null;
+
+    let brochureInitializing = false;
+
+    let renderedPages = null;
+
+
+    const brochurePrev =
+      document.getElementById("brochure-prev");
+
+
+    const brochureNext =
+      document.getElementById("brochure-next");
+
+
+    /* RESIZE */
+
+    window.addEventListener("resize", () => {
+
+      hidePreview();
+
+
+      if (
+
+        victoriaBook &&
+
+        activeProject === "victoria-project"
+
+      ) {
+
+        if (
+
+          typeof victoriaBook.update === "function"
+
+        ) {
+
+          victoriaBook.update();
+
+        }
+
+      }
+
+    });
+
+
+    /* INITIALIZE HIGH QUALITY BROCHURE */
 
     async function initializeVictoriaBook() {
 
       if (victoriaBook) {
+
+        requestAnimationFrame(() => {
+
+          if (
+
+            activeProject === "victoria-project" &&
+
+            typeof victoriaBook.update === "function"
+
+          ) {
+
+            victoriaBook.update();
+
+          }
+
+        });
+
         return;
+
       }
+
+
+      if (brochureInitializing) return;
+
 
       const bookElement =
-        document.getElementById(
-          "victoria-book"
-        );
+        document.getElementById("victoria-book");
 
-      const loading =
-        document.getElementById(
-          "brochure-loading"
-        );
 
-      if (!bookElement) {
-        return;
-      }
+      if (!bookElement) return;
+
+
+      brochureInitializing = true;
+
+
+      brochurePrev.disabled = true;
+
+      brochureNext.disabled = true;
+
+
+      bookElement.innerHTML =
+
+        '<div class="brochure-loading">Loading brochure...</div>';
+
 
       try {
 
-        pdfjsLib
-          .GlobalWorkerOptions
-          .workerSrc =
-          "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+        if (
 
-        victoriaPdf =
-          await pdfjsLib
-            .getDocument(
-              pdfPath
-            )
-            .promise;
+          typeof pdfjsLib === "undefined" ||
 
-        bookElement.innerHTML =
-          "";
+          typeof St === "undefined"
 
-        for (
-          let pageNumber = 1;
-
-          pageNumber <=
-          victoriaPdf.numPages;
-
-          pageNumber++
         ) {
 
-          const page =
-            await victoriaPdf
-              .getPage(
-                pageNumber
-              );
+          throw new Error(
 
-          const viewport =
-            page.getViewport({
-              scale: 2
-            });
+            "Brochure libraries could not be loaded."
 
-          const pageElement =
-            document.createElement(
-              "div"
-            );
-
-          pageElement.classList.add(
-            "brochure-page"
-          );
-
-          const canvas =
-            document.createElement(
-              "canvas"
-            );
-
-          const context =
-            canvas.getContext(
-              "2d"
-            );
-
-          canvas.width =
-            Math.floor(
-              viewport.width
-            );
-
-          canvas.height =
-            Math.floor(
-              viewport.height
-            );
-
-          await page
-            .render({
-
-              canvasContext:
-                context,
-
-              viewport:
-                viewport
-
-            })
-            .promise;
-
-          pageElement.appendChild(
-            canvas
-          );
-
-          bookElement.appendChild(
-            pageElement
           );
 
         }
 
-        victoriaBook =
-          new St.PageFlip(
-            bookElement,
-            {
 
-              width: 595,
+        pdfjsLib.GlobalWorkerOptions.workerSrc =
 
-              height: 842,
+          "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
 
-              size:
-                "stretch",
 
-              minWidth: 260,
+        /* LOAD PDF */
 
-              maxWidth: 520,
+        if (!victoriaPdf) {
 
-              minHeight: 368,
+          victoriaPdf =
 
-              maxHeight: 736,
+            await pdfjsLib.getDocument(pdfPath).promise;
 
-              showCover: true,
+        }
 
-              usePortrait: true,
 
-              mobileScrollSupport: false,
+        /* RENDER BROCHURE PAGES */
 
-              maxShadowOpacity: 0.28,
+        if (!renderedPages) {
 
-              flippingTime: 750
+          const pages = [];
 
-            }
-          );
 
-        victoriaBook.loadFromHTML(
+          for (
 
-          document.querySelectorAll(
-            "#victoria-book .brochure-page"
+            let pageNumber = 1;
+
+            pageNumber <= victoriaPdf.numPages;
+
+            pageNumber++
+
+          ) {
+
+            const page =
+
+              await victoriaPdf.getPage(pageNumber);
+
+
+            const originalViewport =
+
+              page.getViewport({
+
+                scale: 1
+
+              });
+
+
+            /* HIGH RESOLUTION RENDERING */
+
+            const desiredScale = Math.min(
+
+              3,
+
+              Math.max(
+
+                2,
+
+                window.devicePixelRatio || 1
+
+              )
+
+            );
+
+
+            const renderScale = Math.min(
+
+              desiredScale,
+
+              3000 / Math.max(
+
+                originalViewport.width,
+
+                originalViewport.height
+
+              )
+
+            );
+
+
+            const viewport =
+
+              page.getViewport({
+
+                scale: renderScale
+
+              });
+
+
+            const pageElement =
+
+              document.createElement("div");
+
+
+            pageElement.className =
+              "brochure-page";
+
+
+            const canvas =
+
+              document.createElement("canvas");
+
+
+            const context =
+
+              canvas.getContext("2d");
+
+
+            canvas.width =
+
+              Math.floor(viewport.width);
+
+
+            canvas.height =
+
+              Math.floor(viewport.height);
+
+
+            await page.render({
+
+              canvasContext: context,
+
+              viewport: viewport
+
+            }).promise;
+
+
+            pageElement.appendChild(canvas);
+
+            pages.push(pageElement);
+
+          }
+
+
+          renderedPages = pages;
+
+        }
+
+
+        /* MAKE SURE PROJECT IS OPEN */
+
+        if (
+
+          activeProject !== "victoria-project"
+
+        ) {
+
+          return;
+
+        }
+
+
+        bookElement.innerHTML = "";
+
+
+        renderedPages.forEach(page => {
+
+          bookElement.appendChild(page);
+
+        });
+
+
+        await new Promise(resolve => {
+
+          requestAnimationFrame(resolve);
+
+        });
+
+
+        if (
+
+          activeProject !== "victoria-project"
+
+        ) {
+
+          return;
+
+        }
+
+
+        /* CREATE FLIPBOOK */
+
+        const pageFlip = new St.PageFlip(
+
+          bookElement,
+
+          {
+
+            width: 595,
+
+            height: 842,
+
+            size: "stretch",
+
+            minWidth: 260,
+
+            maxWidth: 520,
+
+            minHeight: 368,
+
+            maxHeight: 736,
+
+            showCover: true,
+
+            usePortrait: true,
+
+            mobileScrollSupport: false,
+
+            maxShadowOpacity: 0.28,
+
+            flippingTime: 750
+
+          }
+
+        );
+
+
+        pageFlip.on("flip", event => {
+
+          updateBrochureCounter(event.data);
+
+        });
+
+
+        pageFlip.loadFromHTML(
+
+          bookElement.querySelectorAll(
+            ".brochure-page"
           )
 
         );
 
-        victoriaBook.on(
-          "flip",
-          function(event) {
 
-            updateBrochureCounter(
-              event.data
-            );
+        victoriaBook = pageFlip;
 
-          }
-        );
 
         updateBrochureCounter(0);
 
-      } catch(error) {
+
+      } catch (error) {
 
         console.error(error);
 
-        if (loading) {
 
-          loading.textContent =
-            "Brochure could not be loaded.";
+        victoriaBook = null;
 
-        } else {
 
-          bookElement.innerHTML =
-            '<div class="brochure-loading">Brochure could not be loaded.</div>';
+        bookElement.innerHTML =
 
-        }
+          '<div class="brochure-loading">Brochure could not be loaded.</div>';
+
+
+        const fallbackLink =
+
+          document.createElement("a");
+
+
+        fallbackLink.href = pdfPath;
+
+        fallbackLink.target = "_blank";
+
+        fallbackLink.rel = "noopener noreferrer";
+
+
+        fallbackLink.textContent =
+
+          "View brochure PDF ↗";
+
+
+        fallbackLink.style.fontSize =
+          "12px";
+
+
+        fallbackLink.style.textDecoration =
+          "underline";
+
+
+        bookElement.appendChild(fallbackLink);
+
+
+      } finally {
+
+        brochureInitializing = false;
 
       }
 
     }
 
-    function updateBrochureCounter(
-      pageIndex
-    ) {
+
+    /* BROCHURE COUNTER */
+
+    function updateBrochureCounter(pageIndex) {
 
       const counter =
+
         document.getElementById(
           "brochure-page-number"
         );
 
-      if (!counter) {
-        return;
-      }
+
+      if (!counter || !victoriaPdf) return;
+
 
       const current =
-        String(
-          pageIndex + 1
-        ).padStart(
-          2,
-          "0"
-        );
+
+        String(pageIndex + 1).padStart(2, "0");
+
 
       const total =
-        victoriaPdf
-          ?
-          String(
-            victoriaPdf.numPages
-          ).padStart(
-            2,
-            "0"
-          )
-          :
-          "12";
+
+        String(victoriaPdf.numPages).padStart(2, "0");
+
 
       counter.textContent =
-        current +
-        " / " +
-        total;
+
+        current + " / " + total;
+
+
+      brochurePrev.disabled =
+
+        pageIndex <= 0;
+
+
+      brochureNext.disabled =
+
+        pageIndex >= victoriaPdf.numPages - 1;
 
     }
 
-    document
-      .getElementById(
-        "brochure-prev"
-      )
-      ?.addEventListener(
-        "click",
-        function() {
 
-          if (victoriaBook) {
+    /* PREVIOUS PAGE */
 
-            victoriaBook.flipPrev();
+    brochurePrev.addEventListener("click", () => {
 
-          }
+      if (victoriaBook) {
 
-        }
-      );
+        victoriaBook.flipPrev();
 
-    document
-      .getElementById(
-        "brochure-next"
-      )
-      ?.addEventListener(
-        "click",
-        function() {
+      }
 
-          if (victoriaBook) {
+    });
 
-            victoriaBook.flipNext();
 
-          }
+    /* NEXT PAGE */
 
-        }
-      );
+    brochureNext.addEventListener("click", () => {
+
+      if (victoriaBook) {
+
+        victoriaBook.flipNext();
+
+      }
+
+    });
 
   </script>
 
 </body>
+
 </html>

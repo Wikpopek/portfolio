@@ -8,30 +8,32 @@
 
   <title>Contact — wikivisual.co</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&display=swap"
-    rel="stylesheet"
-  >
-
   <style>
+
+    /* GENERAL */
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    html, body {
+    html,
+    body {
       width: 100%;
       min-height: 100%;
     }
 
     body {
       min-height: 100vh;
-      background: #fbfaf8;
-      color: #151515;
-      font-family: "IBM Plex Mono", monospace;
+      display: flex;
+      flex-direction: column;
+
+      background: #000;
+      color: #fff;
+      color-scheme: dark;
+
+      font-family: Arial, Helvetica, sans-serif;
       overflow-x: hidden;
     }
 
@@ -40,24 +42,22 @@
       text-decoration: none;
     }
 
-    /* =========================
-       PAGE
-    ========================== */
+    /* PAGE */
 
     .contact-page {
-      min-height: 100vh;
-      padding: 24px 38px 50px;
+      flex: 1;
+      padding: 24px 38px 65px;
     }
 
-    /* =========================
-       HEADER
-    ========================== */
+    /* HEADER */
 
     .site-header {
       position: relative;
+
       display: flex;
       flex-direction: column;
       align-items: center;
+
       z-index: 50;
     }
 
@@ -66,33 +66,37 @@
       font-weight: 600;
       letter-spacing: -0.06em;
       line-height: 1;
-      color: #111;
+
+      color: #fff;
     }
 
     .section-title {
       margin-top: 9px;
+
       font-size: clamp(8px, 0.65vw, 11px);
       font-weight: 300;
       letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: #777;
+
+      color: #aaa;
     }
 
-    /* =========================
-       NAVIGATION
-    ========================== */
+    /* NAVIGATION */
 
     .top-nav {
       position: absolute;
       top: 1px;
       right: 0;
+
       display: flex;
       gap: 28px;
+
       font-size: clamp(8px, 0.65vw, 11px);
       font-weight: 300;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: #555;
+
+      color: #fff;
     }
 
     .top-nav a {
@@ -106,23 +110,24 @@
       transform: translateY(-1px);
     }
 
-    /* =========================
-       CONTACT FORM
-    ========================== */
+    /* CONTACT FORM */
 
     .form-section {
-      width: min(700px, 92vw);
-      margin: 55px auto 90px;
+      width: min(700px, 100%);
+      margin: 75px auto 55px;
     }
 
     .form-intro {
-      margin-bottom: 28px;
+      margin-bottom: 32px;
+
       text-align: center;
+
       font-size: clamp(9px, 0.72vw, 12px);
       font-weight: 300;
       letter-spacing: 0.12em;
-      line-height: 1.7;
-      color: #555;
+      line-height: 1.8;
+
+      color: #ccc;
     }
 
     .contact-form {
@@ -141,6 +146,8 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
+
+      min-width: 0;
     }
 
     .form-group label {
@@ -148,37 +155,59 @@
       font-weight: 300;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: #666;
+
+      color: #aaa;
     }
 
     .form-group input,
     .form-group textarea {
       width: 100%;
       padding: 12px 0;
+
       border: none;
-      border-bottom: 1px solid #aaa;
+      border-bottom: 1px solid #555;
+      border-radius: 0;
+
       outline: none;
+
       background: transparent;
-      color: #151515;
-      font-family: "IBM Plex Mono", monospace;
+      color: #fff;
+
+      caret-color: #fff;
+
+      font-family: Arial, Helvetica, sans-serif;
       font-size: 11px;
       font-weight: 300;
-      resize: none;
+
       transition: border-color 0.3s ease;
     }
 
     .form-group input:focus,
     .form-group textarea:focus {
-      border-color: #111;
+      border-color: #fff;
     }
 
     .form-group textarea {
-      min-height: 100px;
+      min-height: 110px;
+      resize: vertical;
     }
+
+    /* DARK AUTOFILL */
+
+    .form-group input:-webkit-autofill,
+    .form-group input:-webkit-autofill:hover,
+    .form-group input:-webkit-autofill:focus {
+      -webkit-text-fill-color: #fff;
+      -webkit-box-shadow: 0 0 0 1000px #000 inset;
+      caret-color: #fff;
+    }
+
+    /* SEND MESSAGE BUTTON */
 
     .submit-row {
       display: flex;
       justify-content: center;
+
       margin-top: 12px;
     }
 
@@ -186,16 +215,23 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-width: 150px;
-      padding: 12px 24px;
-      border: 1px solid #222;
-      border-radius: 999px;
+
+      min-width: 210px;
+      min-height: 52px;
+
+      padding: 16px 30px;
+
+      border: 1px solid #fff;
+      border-radius: 0;
+
       background: transparent;
-      color: #151515;
+      color: #fff;
+
       cursor: pointer;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 9px;
-      font-weight: 300;
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      font-weight: 400;
       letter-spacing: 0.14em;
       text-transform: uppercase;
 
@@ -205,145 +241,86 @@
         transform 0.3s ease;
     }
 
-    .submit-button:hover {
-      background: #111;
-      color: #fff;
+    .submit-button:hover,
+    .submit-button:focus-visible {
+      background: #fff;
+      color: #000;
+
       transform: translateY(-2px);
+    }
+
+    .submit-button:disabled {
+      opacity: 0.5;
+      cursor: wait;
+      transform: none;
     }
 
     .form-status {
       min-height: 18px;
-      margin-top: 14px;
+      margin-top: 10px;
+
       text-align: center;
+
       font-size: 9px;
       font-weight: 300;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #666;
+
+      color: #ccc;
     }
 
-    /* =========================
-       DIVIDER
-    ========================== */
-
-    .divider {
-      width: 100%;
-      height: 1px;
-      background: rgba(0, 0, 0, 0.08);
-      margin-bottom: 60px;
-    }
-
-    /* =========================
-       SOCIAL SECTION
-    ========================== */
+    /* SOCIAL MEDIA */
 
     .social-section {
-      width: min(1350px, 95vw);
+      width: min(700px, 100%);
       margin: 0 auto;
+
       text-align: center;
     }
 
-    /* =========================
-       VIDEO PHONES
-    ========================== */
+    .social-title {
+      margin-bottom: 25px;
 
-    .phones {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      gap: clamp(22px, 3vw, 48px);
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+
+      color: #fff;
     }
-
-    .phone-block {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: clamp(220px, 22vw, 310px);
-    }
-
-    .phone {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 9 / 18.5;
-      border: 9px solid #111;
-      border-radius: 38px;
-      background: #111;
-      overflow: hidden;
-
-      box-shadow:
-        0 12px 28px rgba(0, 0, 0, 0.10);
-    }
-
-    .phone::before {
-      content: "";
-      position: absolute;
-      top: 8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 34%;
-      height: 18px;
-      border-radius: 20px;
-      background: #111;
-      z-index: 5;
-      pointer-events: none;
-    }
-
-    .screen {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #000;
-      overflow: hidden;
-    }
-
-    .screen video {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: contain;
-      object-position: center;
-      background: #000;
-    }
-
-    /* =========================
-       USERNAMES
-    ========================== */
-
-    .username {
-      margin-top: 17px;
-      font-size: clamp(9px, 0.72vw, 12px);
-      font-weight: 300;
-      letter-spacing: 0.12em;
-      color: #333;
-    }
-
-    /* =========================
-       SOCIAL BUTTONS
-    ========================== */
 
     .social-buttons {
-      margin-top: 38px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      gap: 22px;
+
+      width: 100%;
     }
 
     .social-button {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      justify-content: center;
-      min-width: 145px;
-      padding: 12px 22px;
-      border: 1px solid #222;
-      border-radius: 999px;
-      font-size: clamp(9px, 0.7vw, 11px);
-      font-weight: 300;
+      justify-content: space-between;
+
+      width: 100%;
+      min-width: 0;
+      min-height: 58px;
+
+      padding: 18px 26px;
+
+      border: 1px solid #fff;
+      border-radius: 0;
+
+      background: transparent;
+      color: #fff;
+
+      font-size: 13px;
+      font-weight: 400;
       letter-spacing: 0.14em;
       text-transform: uppercase;
+
+      cursor: pointer;
 
       transition:
         background 0.3s ease,
@@ -351,58 +328,248 @@
         transform 0.3s ease;
     }
 
-    .social-button:hover {
-      background: #111;
-      color: #fff;
+    .social-button:hover,
+    .social-button:focus-visible {
+      background: #fff;
+      color: #000;
+
       transform: translateY(-2px);
     }
 
-    .social-note {
-      margin-top: 24px;
-      font-size: 9px;
-      font-weight: 300;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #999;
+    .social-arrow {
+      font-size: 21px;
+      line-height: 1;
+
+      transition: transform 0.3s ease;
     }
 
-    /* =========================
-       TABLET
-    ========================== */
+    .social-button:hover .social-arrow {
+      transform: translate(3px, -3px);
+    }
+
+    /* BLACK FOOTER */
+
+    .site-footer {
+      position: relative;
+
+      width: 100%;
+
+      background: #000;
+      color: #fff;
+
+      border-top: 1px solid #333;
+
+      overflow: hidden;
+
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+
+      gap: 50px;
+
+      width: 100%;
+      max-width: 1600px;
+
+      margin: 0 auto;
+      padding: 75px 7% 85px;
+    }
+
+    .footer-column {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      min-width: 0;
+    }
+
+    .footer-heading {
+      margin-bottom: 20px;
+
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+
+      color: #aaa;
+    }
+
+    .footer-column p,
+    .footer-column a {
+      font-size: clamp(12px, 1vw, 16px);
+      font-weight: 400;
+      line-height: 1.9;
+
+      overflow-wrap: anywhere;
+
+      color: #fff;
+    }
+
+    .footer-column a {
+      transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    .footer-column a:hover {
+      opacity: 0.5;
+      transform: translateX(3px);
+    }
+
+    .footer-column .copyright {
+      color: #aaa;
+    }
+
+    .footer-divider {
+      width: 100%;
+      height: 1px;
+
+      background: #333;
+    }
+
+    /* ANIMATED BRAND MARQUEE */
+
+    .footer-marquee {
+      position: relative;
+
+      width: 100%;
+      overflow: hidden;
+
+      padding: 25px 0 0;
+
+      background: #000;
+    }
+
+    .marquee-track {
+      display: flex;
+      align-items: center;
+
+      width: max-content;
+
+      animation: marqueeScroll 25s linear infinite;
+
+      will-change: transform;
+    }
+
+    .marquee-group {
+      display: flex;
+      align-items: center;
+
+      flex-shrink: 0;
+    }
+
+    .marquee-text {
+      display: block;
+      flex-shrink: 0;
+
+      padding-right: 6vw;
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: clamp(90px, 17vw, 320px);
+      font-weight: 600;
+
+      line-height: 0.95;
+      letter-spacing: -0.075em;
+
+      white-space: nowrap;
+
+      color: #fff;
+
+      user-select: none;
+    }
+
+    .marquee-separator {
+      display: block;
+      flex-shrink: 0;
+
+      padding-right: 6vw;
+
+      font-size: clamp(45px, 8vw, 150px);
+      font-weight: 300;
+
+      line-height: 1;
+
+      color: #fff;
+    }
+
+    @keyframes marqueeScroll {
+
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+
+    }
+
+    .footer-marquee:hover .marquee-track {
+      animation-play-state: paused;
+    }
+
+    /* ACCESSIBILITY */
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 1px solid #fff;
+      outline-offset: 5px;
+    }
+
+    /* TABLET */
 
     @media (max-width: 900px) {
 
       .contact-page {
-        padding: 22px 20px 40px;
+        padding: 22px 20px 55px;
       }
 
       .top-nav {
         position: static;
+
         margin-top: 16px;
+
         justify-content: center;
         flex-wrap: wrap;
       }
 
-      .phones {
-        flex-wrap: wrap;
+      .form-section {
+        margin-top: 60px;
       }
 
-      .phone-block {
-        width: min(280px, 80vw);
+      .footer-content {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 40px 35px;
+
+        padding: 55px 6% 65px;
       }
+
+      .footer-heading {
+        font-size: 11px;
+        margin-bottom: 15px;
+      }
+
+      .footer-column p,
+      .footer-column a {
+        font-size: 14px;
+      }
+
+      .marquee-text {
+        font-size: 19vw;
+      }
+
     }
 
-    /* =========================
-       MOBILE
-    ========================== */
+    /* MOBILE */
 
     @media (max-width: 600px) {
 
       .contact-page {
-        padding: 18px 14px 42px;
+        padding: 18px 18px 50px;
       }
-
-      /* HEADER */
 
       .site-header {
         align-items: flex-start;
@@ -414,17 +581,21 @@
 
       .section-title {
         margin-top: 8px;
+
         font-size: 9px;
         letter-spacing: 0.22em;
       }
 
       .top-nav {
         position: static;
+
         width: 100%;
         margin-top: 20px;
+
         justify-content: flex-start;
         gap: 14px;
         flex-wrap: wrap;
+
         font-size: 8px;
       }
 
@@ -432,18 +603,21 @@
 
       .form-section {
         width: 100%;
-        margin: 50px auto 0;
+        margin: 50px auto 40px;
       }
 
       .form-intro {
         margin-bottom: 34px;
+
         text-align: left;
+
         font-size: 10px;
         line-height: 1.8;
       }
 
       .form-row {
         grid-template-columns: 1fr;
+
         gap: 24px;
       }
 
@@ -452,7 +626,7 @@
       }
 
       .form-group label {
-        font-size: 8px;
+        font-size: 9px;
       }
 
       .form-group input,
@@ -465,74 +639,141 @@
       }
 
       .submit-row {
-        justify-content: flex-start;
         margin-top: 8px;
       }
 
       .submit-button {
         width: 100%;
+        min-width: 0;
+        min-height: 52px;
+
+        padding: 16px 24px;
+
+        border-radius: 0;
+
+        font-size: 12px;
       }
 
-      /* =========================
-         MOBILE VIDEOS
-         SWIPE LEFT / RIGHT
-      ========================== */
-
-      .phones {
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        gap: 16px;
-
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-
-        padding: 4px 8px 18px;
-      }
-
-      .phone-block {
-        flex: 0 0 min(70vw, 270px);
-        width: min(70vw, 270px);
-        scroll-snap-align: center;
-      }
-
-      .screen video {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-      }
-
-      /* DIVIDER */
-
-      .divider {
-        margin-top: 55px;
-        margin-bottom: 35px;
-      }
+      /* SOCIAL MEDIA */
 
       .social-section {
         width: 100%;
       }
 
-      /* SOCIAL BUTTONS */
+      .social-title {
+        margin-bottom: 22px;
+
+        font-size: 11px;
+      }
 
       .social-buttons {
-        margin-top: 22px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
+        grid-template-columns: 1fr;
+
+        gap: 12px;
       }
 
       .social-button {
         width: 100%;
         min-width: 0;
-        padding: 13px 20px;
+        min-height: 55px;
+
+        padding: 16px 22px;
+
+        border-radius: 0;
+
+        font-size: 12px;
       }
 
-      .social-note {
-        display: none;
+      .social-arrow {
+        font-size: 20px;
       }
+
+      /* FOOTER */
+
+      .footer-content {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 35px 20px;
+
+        padding: 40px 20px 45px;
+      }
+
+      .footer-heading {
+        margin-bottom: 12px;
+
+        font-size: 10px;
+        letter-spacing: 0.12em;
+      }
+
+      .footer-column p,
+      .footer-column a {
+        font-size: 12px;
+        line-height: 1.9;
+      }
+
+      .footer-marquee {
+        padding-top: 15px;
+      }
+
+      .marquee-text {
+        font-size: 25vw;
+
+        padding-right: 8vw;
+      }
+
+      .marquee-separator {
+        font-size: 11vw;
+
+        padding-right: 8vw;
+      }
+
+      .marquee-track {
+        animation-duration: 18s;
+      }
+
+    }
+
+    /* SMALL PHONES */
+
+    @media (max-width: 360px) {
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .top-nav {
+        gap: 10px;
+      }
+
+    }
+
+    /* REDUCED MOTION */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .marquee-track {
+        animation: none;
+      }
+
+      .top-nav a,
+      .social-button,
+      .social-arrow,
+      .submit-button,
+      .footer-column a {
+        transition: none;
+      }
+
+      .top-nav a:hover,
+      .social-button:hover,
+      .social-button:focus-visible,
+      .social-button:hover .social-arrow,
+      .submit-button:hover,
+      .submit-button:focus-visible,
+      .footer-column a:hover {
+        transform: none;
+      }
+
     }
 
   </style>
@@ -543,9 +784,7 @@
 
   <main class="contact-page">
 
-    <!-- =========================
-         HEADER
-    ========================== -->
+    <!-- HEADER -->
 
     <header class="site-header">
 
@@ -575,9 +814,7 @@
 
     </header>
 
-    <!-- =========================
-         CONTACT FORM
-    ========================== -->
+    <!-- CONTACT FORM -->
 
     <section class="form-section">
 
@@ -586,12 +823,11 @@
         Send me a message.
       </div>
 
-      <form
-        class="contact-form"
-        id="contactForm"
-      >
+      <form class="contact-form" id="contactForm">
 
         <div class="form-row">
+
+          <!-- NAME -->
 
           <div class="form-group">
 
@@ -603,10 +839,13 @@
               type="text"
               id="name"
               name="name"
+              autocomplete="name"
               required
             >
 
           </div>
+
+          <!-- EMAIL -->
 
           <div class="form-group">
 
@@ -618,12 +857,15 @@
               type="email"
               id="email"
               name="email"
+              autocomplete="email"
               required
             >
 
           </div>
 
         </div>
+
+        <!-- SUBJECT -->
 
         <div class="form-group">
 
@@ -639,6 +881,8 @@
 
         </div>
 
+        <!-- MESSAGE -->
+
         <div class="form-group">
 
           <label for="message">
@@ -653,11 +897,14 @@
 
         </div>
 
+        <!-- SEND BUTTON -->
+
         <div class="submit-row">
 
           <button
             type="submit"
             class="submit-button"
+            id="submitButton"
           >
             Send Message
           </button>
@@ -667,136 +914,25 @@
         <div
           class="form-status"
           id="formStatus"
+          role="status"
+          aria-live="polite"
         ></div>
 
       </form>
 
     </section>
 
-    <!-- =========================
-         DIVIDER
-    ========================== -->
-
-    <div class="divider"></div>
-
-    <!-- =========================
-         SOCIAL SECTION
-    ========================== -->
+    <!-- SOCIAL MEDIA -->
 
     <section class="social-section">
 
-      <!-- =========================
-           VIDEO PHONES
-      ========================== -->
-
-      <div class="phones">
-
-        <!-- TIKTOK VIDEO 1 -->
-
-        <div class="phone-block">
-
-          <div class="phone">
-
-            <div class="screen">
-
-              <video
-                src="videos/tiktok-01.MOV"
-                autoplay
-                muted
-                controls
-                loop
-                playsinline
-                preload="metadata"
-              >
-                Your browser cannot play this video.
-              </video>
-
-            </div>
-
-          </div>
-
-          <div class="username">
-            @wikivisual_co
-          </div>
-
-        </div>
-
-        <!-- TIKTOK VIDEO 2 -->
-
-        <div class="phone-block">
-
-          <div class="phone">
-
-            <div class="screen">
-
-              <video
-                src="videos/tiktok-02.mov"
-                autoplay
-                muted
-                controls
-                loop
-                playsinline
-                preload="metadata"
-              >
-                Your browser cannot play this video.
-              </video>
-
-            </div>
-
-          </div>
-
-          <div class="username">
-            @wikivisual_co
-          </div>
-
-        </div>
-
-        <!-- INSTAGRAM VIDEO -->
-
-        <div class="phone-block">
-
-          <div class="phone">
-
-            <div class="screen">
-
-              <video
-                src="videos/instagram-01.mov"
-                autoplay
-                muted
-                controls
-                loop
-                playsinline
-                preload="metadata"
-              >
-                Your browser cannot play this video.
-              </video>
-
-            </div>
-
-          </div>
-
-          <div class="username">
-            @wikivisual.co
-          </div>
-
-        </div>
-
-      </div>
-
-      <!-- =========================
-           SOCIAL BUTTONS
-      ========================== -->
+      <h2 class="social-title">
+        Find me on social media
+      </h2>
 
       <div class="social-buttons">
 
-        <a
-          href="https://www.tiktok.com/@wikivisual_co"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="social-button"
-        >
-          TikTok
-        </a>
+        <!-- INSTAGRAM -->
 
         <a
           href="https://www.instagram.com/wikivisual.co/"
@@ -804,36 +940,238 @@
           rel="noopener noreferrer"
           class="social-button"
         >
+
           Instagram
+
+          <span
+            class="social-arrow"
+            aria-hidden="true"
+          >
+            ↗
+          </span>
+
         </a>
 
-      </div>
+        <!-- TIKTOK -->
 
-      <div class="social-note">
-        New York City · Photography · Digital Design
+        <a
+          href="https://www.tiktok.com/@wikivisual_co"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-button"
+        >
+
+          TikTok
+
+          <span
+            class="social-arrow"
+            aria-hidden="true"
+          >
+            ↗
+          </span>
+
+        </a>
+
       </div>
 
     </section>
 
   </main>
 
-  <!-- =========================
-       CONTACT FORM SCRIPT
-  ========================== -->
+  <!-- BLACK FOOTER -->
+
+  <footer class="site-footer">
+
+    <div class="footer-content">
+
+      <!-- LOCATION -->
+
+      <div class="footer-column">
+
+        <h2 class="footer-heading">
+          Location
+        </h2>
+
+        <p>New York City</p>
+        <p>United States</p>
+
+      </div>
+
+      <!-- EXPLORE -->
+
+      <div class="footer-column">
+
+        <h2 class="footer-heading">
+          Explore
+        </h2>
+
+        <a href="photography.html">
+          Photography
+        </a>
+
+        <a href="digital-design.html">
+          Digital Design
+        </a>
+
+        <a href="about.html">
+          About Me
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+      </div>
+
+      <!-- CONTACT & SOCIALS -->
+
+      <div class="footer-column">
+
+        <h2 class="footer-heading">
+          Contact &amp; Socials
+        </h2>
+
+        <a href="mailto:wbabula78@gmail.com">
+          wbabula78@gmail.com
+        </a>
+
+        <a
+          href="https://www.instagram.com/wikivisual.co/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Instagram ↗
+        </a>
+
+        <a
+          href="https://www.tiktok.com/@wikivisual_co"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          TikTok ↗
+        </a>
+
+      </div>
+
+      <!-- LEGAL -->
+
+      <div class="footer-column">
+
+        <h2 class="footer-heading">
+          Legal
+        </h2>
+
+        <p class="copyright">
+          © <span id="currentYear">2026</span> wikivisual.co
+        </p>
+
+        <p class="copyright">
+          All Rights Reserved.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <!-- ANIMATED BRAND -->
+
+    <div
+      class="footer-marquee"
+      aria-hidden="true"
+    >
+
+      <div class="marquee-track">
+
+        <!-- FIRST GROUP -->
+
+        <div class="marquee-group">
+
+          <span class="marquee-text">
+            wikivisual.co
+          </span>
+
+          <span class="marquee-separator">
+            ✳
+          </span>
+
+          <span class="marquee-text">
+            wikivisual.co
+          </span>
+
+          <span class="marquee-separator">
+            ✳
+          </span>
+
+        </div>
+
+        <!-- DUPLICATED GROUP -->
+
+        <div class="marquee-group">
+
+          <span class="marquee-text">
+            wikivisual.co
+          </span>
+
+          <span class="marquee-separator">
+            ✳
+          </span>
+
+          <span class="marquee-text">
+            wikivisual.co
+          </span>
+
+          <span class="marquee-separator">
+            ✳
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+  <!-- JAVASCRIPT -->
 
   <script>
 
-    const form = document.getElementById("contactForm");
+    /* AUTOMATIC COPYRIGHT YEAR */
 
-    const formStatus = document.getElementById("formStatus");
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+
+
+    /* CONTACT FORM */
+
+    const form =
+      document.getElementById("contactForm");
+
+    const formStatus =
+      document.getElementById("formStatus");
+
+    const submitButton =
+      document.getElementById("submitButton");
+
 
     form.addEventListener("submit", async function(event) {
 
       event.preventDefault();
 
-      formStatus.textContent = "Sending...";
+      submitButton.disabled = true;
 
-      const formData = new FormData(form);
+      submitButton.textContent =
+        "Sending...";
+
+      formStatus.textContent =
+        "Sending your message...";
+
+
+      const formData =
+        new FormData(form);
+
 
       const data = {
 
@@ -853,35 +1191,71 @@
 
       };
 
+
       try {
 
         const response = await fetch(
+
           "https://formsubmit.co/ajax/wbabula78@gmail.com",
+
           {
+
             method: "POST",
 
             headers: {
+
               "Content-Type": "application/json",
+
               "Accept": "application/json"
+
             },
 
             body: JSON.stringify(data)
+
           }
+
         );
 
-        if (!response.ok) {
-          throw new Error("Form submission failed");
+
+        const result =
+          await response.json();
+
+
+        if (
+
+          !response.ok ||
+
+          result.success === false ||
+
+          result.success === "false"
+
+        ) {
+
+          throw new Error(
+            "Form submission failed"
+          );
+
         }
+
 
         formStatus.textContent =
           "Message sent. Thank you!";
 
         form.reset();
 
-      } catch(error) {
+
+      } catch (error) {
 
         formStatus.textContent =
           "Something went wrong. Please try again.";
+
+
+      } finally {
+
+        submitButton.disabled = false;
+
+        submitButton.textContent =
+          "Send Message";
 
       }
 
