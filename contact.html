@@ -28,11 +28,9 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-
       background: #000;
       color: #fff;
       color-scheme: dark;
-
       font-family: Arial, Helvetica, sans-serif;
       overflow-x: hidden;
     }
@@ -53,11 +51,9 @@
 
     .site-header {
       position: relative;
-
       display: flex;
       flex-direction: column;
       align-items: center;
-
       z-index: 50;
     }
 
@@ -66,18 +62,15 @@
       font-weight: 600;
       letter-spacing: -0.06em;
       line-height: 1;
-
       color: #fff;
     }
 
     .section-title {
       margin-top: 9px;
-
       font-size: clamp(8px, 0.65vw, 11px);
       font-weight: 300;
       letter-spacing: 0.28em;
       text-transform: uppercase;
-
       color: #aaa;
     }
 
@@ -87,15 +80,12 @@
       position: absolute;
       top: 1px;
       right: 0;
-
       display: flex;
       gap: 28px;
-
       font-size: clamp(8px, 0.65vw, 11px);
       font-weight: 300;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-
       color: #fff;
     }
 
@@ -119,14 +109,11 @@
 
     .form-intro {
       margin-bottom: 32px;
-
       text-align: center;
-
       font-size: clamp(9px, 0.72vw, 12px);
       font-weight: 300;
       letter-spacing: 0.12em;
       line-height: 1.8;
-
       color: #ccc;
     }
 
@@ -146,7 +133,6 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
-
       min-width: 0;
     }
 
@@ -155,7 +141,6 @@
       font-weight: 300;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-
       color: #aaa;
     }
 
@@ -172,7 +157,6 @@
 
       background: transparent;
       color: #fff;
-
       caret-color: #fff;
 
       font-family: Arial, Helvetica, sans-serif;
@@ -207,7 +191,6 @@
     .submit-row {
       display: flex;
       justify-content: center;
-
       margin-top: 12px;
     }
 
@@ -218,7 +201,6 @@
 
       min-width: 210px;
       min-height: 52px;
-
       padding: 16px 30px;
 
       border: 1px solid #fff;
@@ -245,7 +227,6 @@
     .submit-button:focus-visible {
       background: #fff;
       color: #000;
-
       transform: translateY(-2px);
     }
 
@@ -258,14 +239,11 @@
     .form-status {
       min-height: 18px;
       margin-top: 10px;
-
       text-align: center;
-
       font-size: 9px;
       font-weight: 300;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-
       color: #ccc;
     }
 
@@ -274,27 +252,22 @@
     .social-section {
       width: min(700px, 100%);
       margin: 0 auto;
-
       text-align: center;
     }
 
     .social-title {
       margin-bottom: 25px;
-
       font-size: 12px;
       font-weight: 400;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-
       color: #fff;
     }
 
     .social-buttons {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-
       gap: 22px;
-
       width: 100%;
     }
 
@@ -332,14 +305,12 @@
     .social-button:focus-visible {
       background: #fff;
       color: #000;
-
       transform: translateY(-2px);
     }
 
     .social-arrow {
       font-size: 21px;
       line-height: 1;
-
       transition: transform 0.3s ease;
     }
 
@@ -351,14 +322,12 @@
 
     .site-footer {
       position: relative;
-
       width: 100%;
 
       background: #000;
       color: #fff;
 
       border-top: 1px solid #333;
-
       overflow: hidden;
 
       font-family: Arial, Helvetica, sans-serif;
@@ -381,18 +350,15 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-
       min-width: 0;
     }
 
     .footer-heading {
       margin-bottom: 20px;
-
       font-size: 12px;
       font-weight: 400;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-
       color: #aaa;
     }
 
@@ -401,9 +367,7 @@
       font-size: clamp(12px, 1vw, 16px);
       font-weight: 400;
       line-height: 1.9;
-
       overflow-wrap: anywhere;
-
       color: #fff;
     }
 
@@ -425,7 +389,6 @@
     .footer-divider {
       width: 100%;
       height: 1px;
-
       background: #333;
     }
 
@@ -433,37 +396,29 @@
 
     .footer-marquee {
       position: relative;
-
       width: 100%;
       overflow: hidden;
-
       padding: 25px 0 0;
-
       background: #000;
     }
 
     .marquee-track {
       display: flex;
       align-items: center;
-
       width: max-content;
-
       animation: marqueeScroll 25s linear infinite;
-
       will-change: transform;
     }
 
     .marquee-group {
       display: flex;
       align-items: center;
-
       flex-shrink: 0;
     }
 
     .marquee-text {
       display: block;
       flex-shrink: 0;
-
       padding-right: 6vw;
 
       font-family: Arial, Helvetica, sans-serif;
@@ -472,30 +427,25 @@
 
       line-height: 0.95;
       letter-spacing: -0.075em;
-
       white-space: nowrap;
 
       color: #fff;
-
       user-select: none;
     }
 
     .marquee-separator {
       display: block;
       flex-shrink: 0;
-
       padding-right: 6vw;
 
       font-size: clamp(45px, 8vw, 150px);
       font-weight: 300;
-
       line-height: 1;
 
       color: #fff;
     }
 
     @keyframes marqueeScroll {
-
       from {
         transform: translateX(0);
       }
@@ -503,7 +453,6 @@
       to {
         transform: translateX(-50%);
       }
-
     }
 
     .footer-marquee:hover .marquee-track {
@@ -528,9 +477,7 @@
 
       .top-nav {
         position: static;
-
         margin-top: 16px;
-
         justify-content: center;
         flex-wrap: wrap;
       }
@@ -541,9 +488,7 @@
 
       .footer-content {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-
         gap: 40px 35px;
-
         padding: 55px 6% 65px;
       }
 
@@ -581,21 +526,17 @@
 
       .section-title {
         margin-top: 8px;
-
         font-size: 9px;
         letter-spacing: 0.22em;
       }
 
       .top-nav {
         position: static;
-
         width: 100%;
         margin-top: 20px;
-
         justify-content: flex-start;
         gap: 14px;
         flex-wrap: wrap;
-
         font-size: 8px;
       }
 
@@ -608,16 +549,13 @@
 
       .form-intro {
         margin-bottom: 34px;
-
         text-align: left;
-
         font-size: 10px;
         line-height: 1.8;
       }
 
       .form-row {
         grid-template-columns: 1fr;
-
         gap: 24px;
       }
 
@@ -646,11 +584,8 @@
         width: 100%;
         min-width: 0;
         min-height: 52px;
-
         padding: 16px 24px;
-
         border-radius: 0;
-
         font-size: 12px;
       }
 
@@ -662,13 +597,11 @@
 
       .social-title {
         margin-bottom: 22px;
-
         font-size: 11px;
       }
 
       .social-buttons {
         grid-template-columns: 1fr;
-
         gap: 12px;
       }
 
@@ -676,11 +609,8 @@
         width: 100%;
         min-width: 0;
         min-height: 55px;
-
         padding: 16px 22px;
-
         border-radius: 0;
-
         font-size: 12px;
       }
 
@@ -692,15 +622,12 @@
 
       .footer-content {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-
         gap: 35px 20px;
-
         padding: 40px 20px 45px;
       }
 
       .footer-heading {
         margin-bottom: 12px;
-
         font-size: 10px;
         letter-spacing: 0.12em;
       }
@@ -717,13 +644,11 @@
 
       .marquee-text {
         font-size: 25vw;
-
         padding-right: 8vw;
       }
 
       .marquee-separator {
         font-size: 11vw;
-
         padding-right: 8vw;
       }
 
@@ -932,10 +857,10 @@
 
       <div class="social-buttons">
 
-        <!-- INSTAGRAM -->
+        <!-- INSTAGRAM — CORRECTED LINK -->
 
         <a
-          href="https://www.instagram.com/wikivisual.co/"
+          href="https://www.instagram.com/wikivisuals.co/?hl=en"
           target="_blank"
           rel="noopener noreferrer"
           class="social-button"
@@ -1035,8 +960,10 @@
           wbabula78@gmail.com
         </a>
 
+        <!-- CORRECTED INSTAGRAM LINK -->
+
         <a
-          href="https://www.instagram.com/wikivisual.co/"
+          href="https://www.instagram.com/wikivisuals.co/?hl=en"
           target="_blank"
           rel="noopener noreferrer"
         >
